@@ -2,12 +2,12 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Home – Il mio sito</title>
+  <title>Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --primario: #355c7b;   /* Blu/grigio */
-      --secondario: #81277c; /* Viola */
+      --primario: #355c7b;   /* blu/grigio */
+      --secondario: #81277c; /* viola */
       --bianco: #ffffff;
       --nero: #111111;
     }
@@ -20,7 +20,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, var(--primario), var(--secondario));
+      background: radial-gradient(circle at top left, #4f7b9e 0, var(--primario) 40%, #2b1a3f 100%);
       color: var(--bianco);
       min-height: 100vh;
     }
@@ -37,8 +37,12 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(0,0,0,0.35);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(
+        to right,
+        rgba(12, 18, 28, 0.9),
+        rgba(26, 18, 43, 0.75)
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .header-inner {
@@ -51,22 +55,34 @@
       gap: 1.5rem;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.9rem;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-name {
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.9rem;
     }
 
-    .logo-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, var(--bianco), var(--secondario));
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    .brand-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.8;
     }
 
     .menu-button {
@@ -80,15 +96,30 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
-    /* MENU */
+    .menu-button span.icon {
+      font-size: 1.1rem;
+    }
+
+    .menu-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .menu-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* MENU A TENDINA */
 
     .menu-panel {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       z-index: 40;
     }
@@ -101,9 +132,10 @@
       max-width: 400px;
       margin: 5rem auto;
       padding: 1.5rem;
-      background: rgba(20,20,20,0.95);
+      background: rgba(10, 12, 20, 0.97);
       border-radius: 1.5rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .menu-panel-header {
@@ -111,6 +143,14 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
+    }
+
+    .menu-panel-header h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      opacity: 0.9;
     }
 
     .menu-close {
@@ -131,16 +171,32 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.8rem 0.4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.98rem;
       opacity: 0.9;
+      transition: padding-left 0.15s ease, opacity 0.15s ease;
     }
 
-    /* SEZIONI */
+    .menu-list li a span {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .menu-list li a:hover {
+      padding-left: 0.6rem;
+      opacity: 1;
+    }
+
+    /* LAYOUT SEZIONI */
 
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 1.5rem 1.2rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3.2rem;
     }
 
     .section-title {
@@ -168,7 +224,7 @@
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
-      gap: 2rem;
+      gap: 2.3rem;
       align-items: center;
       padding-top: 1.5rem;
     }
@@ -182,121 +238,562 @@
     }
 
     .hero-title {
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       line-height: 1.1;
       margin-bottom: 1rem;
-      max-width: 560px;
+      max-width: 580px;
     }
 
     .hero-text {
       margin-bottom: 1.3rem;
       line-height: 1.7;
-      max-width: 620px;
+      max-width: 640px;
+      opacity: 0.96;
+    }
+
+    .hero-bullets {
+      margin-bottom: 1.6rem;
+      list-style: none;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .hero-bullets li {
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
     }
 
     .btn-primary {
-      border-radius: 999px;
-      padding: 0.7rem 1.4rem;
       background: var(--bianco);
       color: var(--secondario);
-      font-weight: 600;
-      display: inline-block;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .hero-image-placeholder {
-      width: min(300px, 80vw);
-      height: 300px;
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.55);
+      color: var(--bianco);
+    }
+
+    .hero-image-card {
+      width: min(320px, 80vw);
+      height: 320px;
       border-radius: 1.8rem;
-      background: radial-gradient(circle, var(--bianco), var(--primario));
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: radial-gradient(circle at 20% 0%, #f7f5ff, #443d7a);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.4rem;
+    }
+
+    .hero-image-card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* CHI SONO */
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-card {
+      background: rgba(7, 10, 20, 0.7);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .about-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .about-card p {
+      line-height: 1.75;
+      font-size: 0.97rem;
+      opacity: 0.96;
+    }
+
+    .about-highlight {
+      background: linear-gradient(
+        120deg,
+        rgba(53, 92, 123, 0.4),
+        rgba(129, 39, 124, 0.5)
+      );
+      border-radius: 1.3rem;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    /* SERVIZI */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.3rem;
+    }
+
+    .service-card {
+      background: rgba(7, 10, 20, 0.8);
+      border-radius: 1.3rem;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      opacity: 0.8;
+      margin-bottom: 0.3rem;
+      color: #c6d9ec;
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .service-text {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 0.7rem;
+      line-height: 1.6;
+    }
+
+    .service-link {
+      font-size: 0.9rem;
+      opacity: 0.95;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* CONTATTI */
+
+    .contact-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: rgba(7, 10, 20, 0.8);
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-card form {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .field label {
+      opacity: 0.9;
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(4, 7, 15, 0.9);
+      color: var(--bianco);
+      padding: 0.55rem 0.8rem;
+      font: inherit;
+      resize: vertical;
+      min-height: 38px;
+    }
+
+    .field small {
+      opacity: 0.7;
+      font-size: 0.8rem;
+    }
+
+    .contact-note {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .contact-side {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      opacity: 0.96;
+    }
+
+    .contact-side strong {
+      display: block;
+      margin-bottom: 0.4rem;
     }
 
     /* FOOTER */
 
     footer {
-      border-top: 1px solid rgba(255,255,255,0.16);
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
       padding: 1.2rem;
       font-size: 0.8rem;
       opacity: 0.85;
       text-align: center;
-      background: rgba(0,0,0,0.4);
+      background: rgba(7, 10, 20, 0.9);
     }
 
     .footer-links {
       margin-top: 0.4rem;
       display: flex;
-      gap: 0.7rem;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: 0.9;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero,
+      .about,
+      .services-grid,
+      .contact-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-image-card {
+        order: -1;
+      }
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.6rem;
+      }
+
+      .header-inner {
+        padding-inline: 0.8rem;
+      }
+
+      main {
+        padding-inline: 0.9rem;
+      }
     }
   </style>
 </head>
-
 <body>
-
+  <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <div class="logo">
-        <div class="logo-mark"></div>
-        <div>IL MIO NOME / BRAND</div>
+      <div class="brand">
+        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" class="logo-img" />
+        <div class="brand-text">
+          <div class="brand-name">Elisa Costanzo</div>
+          <div class="brand-subtitle">Spazio di voce, espressione e presenza</div>
+        </div>
       </div>
 
-      <button class="menu-button" id="menuButton">☰ Menu</button>
+      <button class="menu-button" id="menuButton">
+        <span class="icon">☰</span>
+        <span>Menu</span>
+      </button>
     </div>
   </header>
 
-  <!-- MENU -->
+  <!-- MENU A TENDINA -->
   <div class="menu-panel" id="menuPanel">
     <div class="menu-panel-inner">
       <div class="menu-panel-header">
         <h2>Menu</h2>
-        <button class="menu-close" id="menuClose">✕</button>
+        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
       </div>
-
       <ul class="menu-list">
-        <li><a href="#home">Home <span>inizio</span></a></li>
-        <li><a href="#chi-sono">Chi sono</a></li>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#home">Home <span>torna all’inizio</span></a></li>
+        <li><a href="#chi-sono">Chi sono <span>conosciamoci</span></a></li>
+        <li><a href="#servizi">Percorsi <span>come possiamo lavorare</span></a></li>
+        <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram <span>nuova finestra</span></a></li>
       </ul>
     </div>
   </div>
 
   <main>
+    <!-- HERO -->
     <section id="home" class="hero">
       <div>
-        <div class="hero-tag">Benvenutə</div>
-        <h1 class="hero-title">Titolo di apertura del tuo sito</h1>
+        <div class="hero-tag">Benvenutə nello spazio di Elisa Costanzo</div>
+        <h1 class="hero-title">
+          Uno spazio per ascoltare, liberare ed esprimere la tua voce autentica.
+        </h1>
         <p class="hero-text">
-          Questa è la tua frase introduttiva. Qui spieghi in modo breve chi sei e cosa offri.
+          Ti accompagno a riconnetterti alla tua voce – quella che usi per parlare, cantare,
+          raccontarti – come porta di accesso alle tue emozioni, al corpo e alla tua presenza
+          nel mondo. Con percorsi individuali e di gruppo, puoi esplorare la tua espressività
+          in un ambiente accogliente e non giudicante.
         </p>
-        <a href="#servizi" class="btn-primary">Scopri i servizi →</a>
+        <ul class="hero-bullets">
+          <li>• Per chi sente che la propria voce è bloccata, trattenuta o “non abbastanza”.</li>
+          <li>• Per chi desidera riconnettersi a sé attraverso il suono, il respiro e l’ascolto.</li>
+          <li>• Per chi vuole portare più autenticità nelle relazioni, nel lavoro, nella vita creativa.</li>
+        </ul>
+        <div class="hero-cta">
+          <a href="#servizi" class="btn-primary">Scopri i percorsi →</a>
+          <a href="#chi-sono" class="btn-secondary">Conosci meglio Elisa</a>
+        </div>
       </div>
-
-      <div class="hero-image-placeholder"></div>
+      <div class="hero-image-card">
+        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" />
+      </div>
     </section>
 
-    <!-- ALTRE SEZIONI LE LASCIAMO UGUALI (Chi sono, Servizi, Contatti) -->
+    <!-- CHI SONO -->
+    <section id="chi-sono">
+      <h2 class="section-title">Chi sono</h2>
+      <div class="about">
+        <div class="about-card">
+          <h3>Elisa Costanzo</h3>
+          <h4>Accompagnamento alla voce, all’espressione e alla presenza</h4>
+          <p>
+            Sono Elisa, e da anni mi occupo di voce come spazio di esplorazione, cura e
+            creatività. Nel mio lavoro intreccio ascolto, corpo e suono per accompagnarti a
+            sentirti più libera/o di esprimerti – nella parola, nel canto e nella vita.
+          </p>
+          <p style="margin-top:0.7rem;">
+            Credo che la voce non sia solo tecnica, ma soprattutto relazione: con te stessə,
+            con la tua storia e con le persone che ti circondano. Il mio approccio è
+            esperienziale, delicato e radicato nella presenza: partiamo sempre da dove sei,
+            al ritmo che per te è sostenibile.
+          </p>
+        </div>
+        <div class="about-highlight">
+          <strong>Cosa trovi nel mio spazio:</strong>
+          <p>
+            Luoghi sicuri in cui portare anche le parti di te che spesso nascondi, esercizi
+            concreti per esplorare voce e respiro, momenti di ascolto profondo in cui
+            sentire ciò che sta davvero emergendo. Non ti chiedo di “performare”, ma di
+            sperimentare, giocare, sentire. Insieme, costruiamo un modo tuo di abitare la voce.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI / PERCORSI -->
+    <section id="servizi">
+      <h2 class="section-title">Percorsi</h2>
+      <h3 class="section-subtitle">Scegli lo spazio di lavoro più adatto a te</h3>
+      <p class="section-text">
+        Qui trovi una panoramica dei percorsi che propongo. Possiamo iniziare da un
+        incontro conoscitivo per capire cosa ti serve davvero in questo momento: sciogliere
+        blocchi, dare voce a un progetto creativo, ritrovare il piacere di sentire e farti sentire.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-label">Percorso individuale</div>
+          <h4 class="service-title">Sessioni 1:1 di esplorazione vocale</h4>
+          <p class="service-text">
+            Uno spazio dedicato solo a te, per ascoltare la tua voce e lavorare su blocchi,
+            timidezze, desideri di espressione. Alterniamo pratica, ascolto e integrazione,
+            seguendo i tuoi tempi e il tuo corpo.
+          </p>
+          <a href="#contatti" class="service-link">
+            Scrivimi per maggiori informazioni →
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">Gruppo</div>
+          <h4 class="service-title">Cerchi di voce e presenza</h4>
+          <p class="service-text">
+            Incontri di gruppo per sperimentare il potere del suono condiviso, del canto,
+            dell’ascolto reciproco. Ideali se vuoi sentirti meno sola/o nel tuo percorso e
+            nutrirti della presenza degli altri.
+          </p>
+          <a href="#contatti" class="service-link">
+            Chiedi le prossime date →
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-label">Online</div>
+          <h4 class="service-title">Percorsi a distanza</h4>
+          <p class="service-text">
+            Se non puoi raggiungermi dal vivo, possiamo lavorare online con incontri
+            strutturati. Creiamo insieme una pratica che ti accompagni nella quotidianità,
+            ovunque tu sia.
+          </p>
+          <a href="#contatti" class="service-link">
+            Parliamone insieme →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <h2 class="section-title">Restiamo in contatto</h2>
+      <div class="contact-section">
+        <div class="contact-card">
+          <p>
+            Se senti che è il momento di dare spazio alla tua voce, possiamo iniziare da
+            un messaggio. Raccontami chi sei, cosa stai cercando e cosa ti aspetti da questo
+            lavoro insieme: ti risponderò con una proposta su misura per te.
+          </p>
+
+          <form>
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" placeholder="Il tuo nome" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="nome@esempio.it" />
+            </div>
+            <div class="field">
+              <label for="messaggio">Messaggio</label>
+              <textarea id="messaggio" rows="3" placeholder="Raccontami qualcosa di te e di cosa hai bisogno"></textarea>
+            </div>
+            <div class="field">
+              <label>
+                <input type="checkbox" />
+                Ho letto e accetto l’informativa privacy
+              </label>
+              <small>
+                Qui dovrai inserire il link alla tua vera pagina privacy.
+              </small>
+            </div>
+            <button type="button" class="btn-primary">
+              Invia (form grafico, da collegare)
+            </button>
+          </form>
+
+          <p class="contact-note">
+            Puoi anche scrivermi direttamente a:
+            <a href="mailto:info@elisacostanzo.com">info@elisacostanzo.com</a>
+            (modifica l’indirizzo se ne usi un altro).
+          </p>
+        </div>
+
+        <div class="contact-side">
+          <strong>Come funziona il primo contatto</strong>
+          <p>
+            Di solito rispondo entro pochi giorni lavorativi proponendoti, se lo desideri,
+            una breve chiamata conoscitiva gratuita. Insieme verifichiamo se il mio modo
+            di lavorare è ciò che ti serve adesso e quale percorso può supportarti meglio.
+          </p>
+          <p style="margin-top:0.7rem;">
+            Puoi seguirmi anche sui social per rimanere aggiornatə su nuovi percorsi,
+            incontri di gruppo e momenti di pratica condivisa.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div>© <span id="year"></span> Il mio nome / brand</div>
+    <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
     <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Cookie Policy</a>
+      <a href="#">Privacy policy</a>
+      <a href="#">Cookie policy</a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </footer>
 
   <script>
+    // Anno nel footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Apertura/chiusura menu
     const menuButton = document.getElementById("menuButton");
     const menuPanel = document.getElementById("menuPanel");
     const menuClose = document.getElementById("menuClose");
 
-    menuButton.onclick = () => menuPanel.classList.add("open");
-    menuClose.onclick = () => menuPanel.classList.remove("open");
-  </script>
+    function openMenu() {
+      menuPanel.classList.add("open");
+    }
 
+    function closeMenu() {
+      menuPanel.classList.remove("open");
+    }
+
+    menuButton.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+
+    // Chiude cliccando fuori dal pannello
+    menuPanel.addEventListener("click", (event) => {
+      if (event.target === menuPanel) {
+        closeMenu();
+      }
+    });
+
+    // Chiudi il menu quando clicchi un link interno
+    document.querySelectorAll(".menu-list a[href^='#']").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+  </script>
 </body>
 </html>
