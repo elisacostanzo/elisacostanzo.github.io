@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --magenta: #ff00ff;
-      --magenta-scuro: #b000b0;
+      --primario: #355c7b;   /* Blu/grigio */
+      --secondario: #81277c; /* Viola */
       --bianco: #ffffff;
       --nero: #111111;
     }
@@ -20,7 +20,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #ff7bff 0, var(--magenta) 45%, #6a006a 100%);
+      background: linear-gradient(135deg, var(--primario), var(--secondario));
       color: var(--bianco);
       min-height: 100vh;
     }
@@ -37,7 +37,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      background: rgba(0,0,0,0.35);
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -65,14 +65,14 @@
       width: 30px;
       height: 30px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffebff, var(--magenta-scuro));
+      background: radial-gradient(circle at 30% 20%, var(--bianco), var(--secondario));
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
 
     .menu-button {
       border: none;
       background: var(--bianco);
-      color: var(--magenta);
+      color: var(--secondario);
       padding: 0.6rem 1.3rem;
       border-radius: 999px;
       font-weight: 600;
@@ -81,24 +81,9 @@
       align-items: center;
       gap: 0.5rem;
       box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
-    .menu-button span.icon {
-      font-size: 1.1rem;
-    }
-
-    .menu-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.45);
-    }
-
-    .menu-button:active {
-      transform: translateY(1px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-
-    /* MENU A TENDINA */
+    /* MENU */
 
     .menu-panel {
       position: fixed;
@@ -128,14 +113,6 @@
       margin-bottom: 1rem;
     }
 
-    .menu-panel-header h2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 500;
-      opacity: 0.85;
-    }
-
     .menu-close {
       border: none;
       background: transparent;
@@ -155,31 +132,15 @@
       align-items: center;
       padding: 0.8rem 0.4rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.98rem;
       opacity: 0.9;
-      transition: padding-left 0.15s ease, opacity 0.15s ease;
     }
 
-    .menu-list li a span {
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-
-    .menu-list li a:hover {
-      padding-left: 0.6rem;
-      opacity: 1;
-    }
-
-    /* SEZIONI GENERALI */
+    /* SEZIONI */
 
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 1.5rem 1.2rem 4rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
     }
 
     .section-title {
@@ -202,11 +163,11 @@
       opacity: 0.95;
     }
 
-    /* HERO (tipo “Benvenutə…”) */
+    /* HERO */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
       gap: 2rem;
       align-items: center;
       padding-top: 1.5rem;
@@ -233,206 +194,22 @@
       max-width: 620px;
     }
 
-    .hero-bullets {
-      margin-bottom: 1.6rem;
-      list-style: none;
-      font-size: 0.95rem;
-      opacity: 0.95;
-    }
-
-    .hero-bullets li {
-      margin-bottom: 0.3rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
+    .btn-primary {
       border-radius: 999px;
       padding: 0.7rem 1.4rem;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-    }
-
-    .btn-primary {
       background: var(--bianco);
-      color: var(--magenta);
+      color: var(--secondario);
+      font-weight: 600;
+      display: inline-block;
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(255,255,255,0.5);
-      color: var(--bianco);
     }
 
     .hero-image-placeholder {
       width: min(300px, 80vw);
       height: 300px;
       border-radius: 1.8rem;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0%, #ffe6ff, #7a007a);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-image-placeholder::after {
-      content: "QUI LA TUA FOTO";
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-    }
-
-    /* SEZIONE “CHI SONO” */
-
-    .about {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .about-card {
-      background: rgba(0,0,0,0.35);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.4);
-    }
-
-    .about-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .about-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.9rem;
-      opacity: 0.85;
-    }
-
-    .about-card p {
-      line-height: 1.75;
-      font-size: 0.97rem;
-      opacity: 0.96;
-    }
-
-    /* SEZIONE “SERVIZI / PERCORSI” */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.2rem;
-      margin-top: 1.3rem;
-    }
-
-    .service-card {
-      background: rgba(0,0,0,0.45);
-      border-radius: 1.3rem;
-      padding: 1.2rem 1.4rem;
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.45);
-    }
-
-    .service-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      opacity: 0.8;
-      margin-bottom: 0.3rem;
-    }
-
-    .service-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .service-text {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: 0.7rem;
-      line-height: 1.6;
-    }
-
-    .service-link {
-      font-size: 0.9rem;
-      opacity: 0.95;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    /* SEZIONE “CONTATTI / NEWSLETTER” */
-
-    .contact-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr);
-      gap: 1.5rem;
-    }
-
-    .contact-card {
-      background: rgba(0,0,0,0.4);
-      border-radius: 1.5rem;
-      padding: 1.4rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.45);
-    }
-
-    .contact-card form {
-      margin-top: 0.8rem;
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.25rem;
-      font-size: 0.9rem;
-    }
-
-    .field label {
-      opacity: 0.9;
-    }
-
-    .field input,
-    .field textarea {
-      border-radius: 0.8rem;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(0,0,0,0.25);
-      color: var(--bianco);
-      padding: 0.55rem 0.8rem;
-      font: inherit;
-      resize: vertical;
-      min-height: 38px;
-    }
-
-    .field small {
-      opacity: 0.7;
-      font-size: 0.8rem;
-    }
-
-    .contact-note {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-top: 0.5rem;
+      background: radial-gradient(circle, var(--bianco), var(--primario));
+      border: 1px solid rgba(255,255,255,0.4);
     }
 
     /* FOOTER */
@@ -443,261 +220,83 @@
       font-size: 0.8rem;
       opacity: 0.85;
       text-align: center;
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.4);
     }
 
     .footer-links {
       margin-top: 0.4rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       gap: 0.7rem;
-      font-size: 0.8rem;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      opacity: 0.9;
-    }
-
-    @media (min-width: 720px) {
-      .hero {
-        grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
-      }
-
-      .about {
-        grid-template-columns: minmax(0, 1.1fr) minmax(260px, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .contact-section {
-        grid-template-columns: minmax(0, 1.1fr) minmax(260px, 1fr);
-      }
+      justify-content: center;
     }
   </style>
 </head>
+
 <body>
-  <!-- HEADER -->
+
   <header>
     <div class="header-inner">
       <div class="logo">
         <div class="logo-mark"></div>
-        <div>Elisa Costanzo</div>
+        <div>IL MIO NOME / BRAND</div>
       </div>
-      <button class="menu-button" id="menuButton">
-        <span class="icon">☰</span>
-        <span>Menu</span>
-      </button>
+
+      <button class="menu-button" id="menuButton">☰ Menu</button>
     </div>
   </header>
 
-  <!-- MENU A TENDINA (COPRE LO SCHERMO) -->
+  <!-- MENU -->
   <div class="menu-panel" id="menuPanel">
     <div class="menu-panel-inner">
       <div class="menu-panel-header">
         <h2>Menu</h2>
-        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
+        <button class="menu-close" id="menuClose">✕</button>
       </div>
+
       <ul class="menu-list">
-        <!-- CAMBIA QUI I REINDIRIZZAMENTI -->
-        <li><a href="#home">Home <span>torna all’inizio</span></a></li>
-        <li><a href="#chi-sono">Chi sono <span>presentazione</span></a></li>
-        <li><a href="#servizi">Servizi / Percorsi <span>cosa offro</span></a></li>
-        <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
-        <li><a href="https://www.example.com" target="_blank">Link esterno <span>apre nuova scheda</span></a></li>
+        <li><a href="#home">Home <span>inizio</span></a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#contatti">Contatti</a></li>
       </ul>
     </div>
   </div>
 
   <main>
-    <!-- HERO / SEZIONE BENVENUTO (tipo “Benvenutə…”) -->
     <section id="home" class="hero">
       <div>
         <div class="hero-tag">Benvenutə</div>
-        <h1 class="hero-title">
-          Qui puoi mettere la tua frase forte di apertura, come una promessa o una domanda.
-        </h1>
+        <h1 class="hero-title">Titolo di apertura del tuo sito</h1>
         <p class="hero-text">
-          Ad esempio: “E se la chiave per sbloccare la tua creatività e la tua autenticità fosse proprio la tua voce?”
-          Qui puoi spiegare in poche righe cosa fai e cosa può trovare la persona sul tuo sito.
+          Questa è la tua frase introduttiva. Qui spieghi in modo breve chi sei e cosa offri.
         </p>
-        <ul class="hero-bullets">
-          <li>• Breve punto 1 sul tuo lavoro o sui benefici.</li>
-          <li>• Breve punto 2, qualcosa che rassicura o incuriosisce.</li>
-          <li>• Breve punto 3, magari legato ai risultati che possono ottenere.</li>
-        </ul>
-        <div class="hero-cta">
-          <a href="#servizi" class="btn-primary">Scopri i percorsi →</a>
-          <a href="#chi-sono" class="btn-secondary">Conosciami meglio</a>
-        </div>
+        <a href="#servizi" class="btn-primary">Scopri i servizi →</a>
       </div>
-      <div class="hero-image-placeholder" aria-hidden="true"></div>
+
+      <div class="hero-image-placeholder"></div>
     </section>
 
-    <!-- SEZIONE CHI SONO / CONOSCIAMOCI -->
-    <section id="chi-sono">
-      <h2 class="section-title">Chi sono</h2>
-      <div class="about">
-        <div class="about-card">
-          <h3>Mi chiamo Elisa Costanzo</h3>
-          <h4>qui puoi scrivere la tua qualifica principale (es. insegnante di X, consulente Y...)</h4>
-          <p>
-            In questo paragrafo racconti chi sei, che cosa fai e perché lo fai. Puoi ispirarti
-            alla struttura del sito di esempio: una breve storia, il tuo percorso, il modo in cui
-            accompagni le persone, i valori che ti guidano.
-          </p>
-          <p style="margin-top:0.7rem;">
-            Puoi dividere il testo in due o tre paragrafi come preferisci. L’importante è che
-            chi arriva qui capisca se si sente in risonanza con te e con il tuo modo di lavorare.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEZIONE SERVIZI / PERCORSI (tipo “Scopri la tua voce / Percorsi di gruppo / Sound Healing”) -->
-    <section id="servizi">
-      <h2 class="section-title">Servizi</h2>
-      <h3 class="section-subtitle">Scopri il percorso più adatto a te</h3>
-      <p class="section-text">
-        Qui puoi introdurre i tuoi servizi principali: possono essere lezioni individuali,
-        percorsi di gruppo, consulenze, corsi online, ecc. Più sotto ci sono tre “card”
-        che richiamano la struttura del sito di riferimento.
-      </p>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-label">Percorso 1</div>
-          <h4 class="service-title">Titolo del tuo primo servizio</h4>
-          <p class="service-text">
-            Breve descrizione del servizio: a chi è rivolto, cosa fate insieme, quale problema
-            aiuta a risolvere o quale desiderio aiuta a realizzare.
-          </p>
-          <a href="#" class="service-link">
-            Scopri di più →
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-label">Percorso 2</div>
-          <h4 class="service-title">Titolo del tuo secondo servizio</h4>
-          <p class="service-text">
-            Un altro servizio o percorso: magari di gruppo, oppure un’offerta pensata per
-            un tipo diverso di persona o di esigenza.
-          </p>
-          <a href="#" class="service-link">
-            Scopri di più →
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-label">Percorso 3</div>
-          <h4 class="service-title">Titolo del tuo terzo servizio</h4>
-          <p class="service-text">
-            Qui puoi inserire qualcosa di più “olistico”, creativo o particolare, se il tuo
-            lavoro lo prevede. Altrimenti un altro servizio “classico”.
-          </p>
-          <a href="#" class="service-link">
-            Scopri di più →
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- SEZIONE CONTATTI / NEWSLETTER, tipo “Restiamo in contatto” -->
-    <section id="contatti">
-      <h2 class="section-title">Restiamo in contatto</h2>
-      <div class="contact-section">
-        <div class="contact-card">
-          <p>
-            Qui puoi invitare le persone a scriverti o a iscriversi alla tua newsletter.
-            Il form di seguito è solo un esempio grafico: per farlo funzionare davvero
-            ti servirà collegarlo a un servizio esterno (Mailchimp, un form provider, ecc.).
-          </p>
-
-          <form>
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input id="nome" type="text" placeholder="Il tuo nome" />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="nome@esempio.it" />
-            </div>
-            <div class="field">
-              <label for="messaggio">Messaggio (opzionale)</label>
-              <textarea id="messaggio" rows="3" placeholder="Scrivimi qualcosa su di te o su quello che cerchi"></textarea>
-            </div>
-            <div class="field">
-              <label>
-                <input type="checkbox" />
-                Ho letto e accetto l’informativa privacy
-              </label>
-              <small>
-                Qui dovrai linkare la tua vera pagina privacy.
-              </small>
-            </div>
-            <button type="button" class="btn-primary">
-              Invia (solo esempio)
-            </button>
-          </form>
-
-          <p class="contact-note">
-            Per contatti diretti puoi anche scrivere a:
-            <a href="mailto:tuoindirizzo@tuodominio.it">tuoindirizzo@tuodominio.it</a>
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- ALTRE SEZIONI LE LASCIAMO UGUALI (Chi sono, Servizi, Contatti) -->
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div>© <span id="year"></span> Il mio nome / brand – Tutti i diritti riservati.</div>
+    <div>© <span id="year"></span> Il mio nome / brand</div>
     <div class="footer-links">
-      <a href="#">Privacy policy</a>
-      <a href="#">Cookie policy</a>
-      <a href="https://www.instagram.com" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="#">Privacy</a>
+      <a href="#">Cookie Policy</a>
     </div>
   </footer>
 
   <script>
-    // Anno automatico nel footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Apertura/chiusura menu
     const menuButton = document.getElementById("menuButton");
     const menuPanel = document.getElementById("menuPanel");
     const menuClose = document.getElementById("menuClose");
 
-    function openMenu() {
-      menuPanel.classList.add("open");
-    }
-
-    function closeMenu() {
-      menuPanel.classList.remove("open");
-    }
-
-    menuButton.addEventListener("click", openMenu);
-    menuClose.addEventListener("click", closeMenu);
-
-    // Chiudi cliccando fuori dal pannello
-    menuPanel.addEventListener("click", (event) => {
-      if (event.target === menuPanel) {
-        closeMenu();
-      }
-    });
-
-    // Chiudi il menu quando clicchi un link interno
-    document.querySelectorAll(".menu-list a[href^='#']").forEach((link) => {
-      link.addEventListener("click", () => {
-        closeMenu();
-      });
-    });
+    menuButton.onclick = () => menuPanel.classList.add("open");
+    menuClose.onclick = () => menuPanel.classList.remove("open");
   </script>
+
 </body>
 </html>
