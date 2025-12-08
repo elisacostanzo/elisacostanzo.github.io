@@ -61,8 +61,9 @@
       gap: 1rem;
     }
 
+    /* LOGO MOLTO GRANDE */
     .logo-img {
-      height: 80px;        /* LOGO MOLTO PIÙ GRANDE */
+      height: 120px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -251,25 +252,21 @@
       opacity: 0.96;
     }
 
+    /* FOTO PROFILO: USA TUTTA LA COLONNA */
     .hero-image-card {
-      width: min(320px, 80vw);
-      height: 320px;
-      border-radius: 1.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: radial-gradient(circle at 20% 0%, #f7f5ff, #443d7a);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      width: 100%;
+      max-width: 500px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.4rem;
     }
 
     .hero-image-card img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 1.8rem;
       object-fit: cover;
-      border-radius: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
     /* CURRICULUM */
@@ -278,11 +275,6 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
       gap: 1.8rem;
-    }
-
-    .curriculum-block h3 {
-      margin-bottom: 0.6rem;
-      font-size: 1.2rem;
     }
 
     .curriculum-block h4 {
@@ -543,7 +535,7 @@
       }
 
       .logo-img {
-        height: 64px;
+        height: 90px;
       }
     }
 
@@ -565,7 +557,7 @@
       }
 
       .logo-img {
-        height: 56px;
+        height: 70px;
       }
     }
   </style>
@@ -575,7 +567,7 @@
   <header>
     <div class="header-inner">
       <div class="brand">
-        <img src="elisa costanzo logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" class="logo-img" />
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-subtitle">Spazio di voce, espressione e presenza</div>
@@ -662,8 +654,8 @@
         </div>
       </div>
       <div class="hero-image-card">
-        <!-- QUI LA FOTO PROFILO -->
-        <img src="elisa-costanzo-profilo.jpg" alt="Elisa Costanzo - Foto profilo" />
+        <!-- Assicurati che il file si chiami esattamente così nel repo -->
+        <img src="Elisa Costanzo profilo.jpg" alt="Elisa Costanzo - Foto profilo" />
       </div>
     </section>
 
