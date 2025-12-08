@@ -58,13 +58,14 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .logo-img {
-      height: 42px;
+      height: 80px;        /* LOGO MOLTO PIÙ GRANDE */
       width: auto;
       display: block;
+      object-fit: contain;
     }
 
     .brand-text {
@@ -77,7 +78,7 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     .brand-subtitle {
@@ -219,7 +220,7 @@
       opacity: 0.95;
     }
 
-    /* HERO */
+    /* HERO – TI PARLO DI ME / CHI SONO */
 
     .hero {
       display: grid;
@@ -234,64 +235,20 @@
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       opacity: 0.85;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.4rem;
     }
 
     .hero-title {
       font-size: 2.4rem;
       line-height: 1.1;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       max-width: 580px;
     }
 
-    .hero-text {
-      margin-bottom: 1.3rem;
+    .hero-text p {
+      margin-bottom: 0.7rem;
       line-height: 1.7;
-      max-width: 640px;
       opacity: 0.96;
-    }
-
-    .hero-bullets {
-      margin-bottom: 1.6rem;
-      list-style: none;
-      font-size: 0.95rem;
-      opacity: 0.95;
-    }
-
-    .hero-bullets li {
-      margin-bottom: 0.3rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: var(--bianco);
-      color: var(--secondario);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.55);
-      color: var(--bianco);
     }
 
     .hero-image-card {
@@ -311,58 +268,73 @@
     .hero-image-card img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 1.5rem;
     }
 
-    /* CHI SONO */
+    /* CURRICULUM */
 
-    .about {
+    .curriculum-columns {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 1fr);
-      gap: 2rem;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
     }
 
-    .about-card {
+    .curriculum-block h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+    }
+
+    .curriculum-block h4 {
+      margin: 0.6rem 0 0.4rem;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .curriculum-block ul {
+      list-style: disc;
+      padding-left: 1.1rem;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .curriculum-block li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* LO SPAZIO IN CUI PUOI SPERIMENTARE */
+
+    .about-space {
       background: rgba(7, 10, 20, 0.7);
       border-radius: 1.5rem;
       padding: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
+      max-width: 900px;
     }
 
-    .about-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .about-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.9rem;
-      opacity: 0.85;
-    }
-
-    .about-card p {
-      line-height: 1.75;
+    .about-space p {
+      margin-bottom: 0.7rem;
+      line-height: 1.7;
       font-size: 0.97rem;
       opacity: 0.96;
     }
 
-    .about-highlight {
-      background: linear-gradient(
-        120deg,
-        rgba(53, 92, 123, 0.4),
-        rgba(129, 39, 124, 0.5)
-      );
-      border-radius: 1.3rem;
-      padding: 1.3rem 1.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+    .about-space ul {
+      list-style: none;
+      margin-top: 0.3rem;
       font-size: 0.95rem;
-      line-height: 1.7;
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+      opacity: 0.95;
     }
 
-    /* SERVIZI */
+    .about-space li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* SERVIZI / PERCORSI */
 
     .services-grid {
       display: grid;
@@ -406,6 +378,29 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* VES */
+
+    .ves-card {
+      background: rgba(7, 10, 20, 0.8);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
+    }
+
+    .ves-card p {
+      margin-bottom: 0.7rem;
+      line-height: 1.7;
+      font-size: 0.96rem;
+      opacity: 0.96;
+    }
+
+    .ves-card a {
       text-decoration: underline;
       text-underline-offset: 3px;
     }
@@ -478,6 +473,32 @@
       margin-bottom: 0.4rem;
     }
 
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--bianco);
+      color: var(--secondario);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.55);
+      color: var(--bianco);
+    }
+
     /* FOOTER */
 
     footer {
@@ -508,8 +529,7 @@
 
     @media (max-width: 900px) {
       .hero,
-      .about,
-      .services-grid,
+      .curriculum-columns,
       .contact-section {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -520,6 +540,10 @@
 
       .services-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .logo-img {
+        height: 64px;
       }
     }
 
@@ -539,6 +563,10 @@
       main {
         padding-inline: 0.9rem;
       }
+
+      .logo-img {
+        height: 56px;
+      }
     }
   </style>
 </head>
@@ -547,7 +575,7 @@
   <header>
     <div class="header-inner">
       <div class="brand">
-        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" class="logo-img" />
+        <img src="logo-elisa-costanzo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-subtitle">Spazio di voce, espressione e presenza</div>
@@ -569,9 +597,11 @@
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
       </div>
       <ul class="menu-list">
-        <li><a href="#home">Home <span>torna all’inizio</span></a></li>
-        <li><a href="#chi-sono">Chi sono <span>conosciamoci</span></a></li>
-        <li><a href="#servizi">Percorsi <span>come possiamo lavorare</span></a></li>
+        <li><a href="#home">Ti parlo di me <span>chi sono</span></a></li>
+        <li><a href="#curriculum">Curriculum <span>didattica e performance</span></a></li>
+        <li><a href="#spazio">Lo spazio in cui puoi sperimentare <span>il mio approccio</span></a></li>
+        <li><a href="#percorsi">Percorsi <span>come possiamo lavorare</span></a></li>
+        <li><a href="#ves">VES certificazione e ricerca <span>studio e sperimentazione</span></a></li>
         <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
         <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram <span>nuova finestra</span></a></li>
       </ul>
@@ -579,67 +609,132 @@
   </div>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO – TI PARLO DI ME / CHI SONO -->
     <section id="home" class="hero">
       <div>
-        <div class="hero-tag">Benvenutə nello spazio di Elisa Costanzo</div>
-        <h1 class="hero-title">
-          Uno spazio per ascoltare, liberare ed esprimere la tua voce autentica.
-        </h1>
-        <p class="hero-text">
+        <div class="hero-tag">Ti parlo di me</div>
+        <h1 class="hero-title">Chi sono</h1>
+        <div class="hero-text">
+          <p>
+            Sono Elisa (ma puoi chiamarmi anche ELI) e da sempre considero la voce un luogo di
+            esplorazione, cura e creatività. Sono Vocal Trainer, cantante, direttrice di coro e
+            cantautrice.
+          </p>
+          <p>
+            Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e
+            ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da
+            prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato
+            il mio Centro di Formazione Vocale <strong>ExpresSING</strong>: un luogo vivo, in cui
+            didattica, ricerca e creatività si incontrano ogni giorno.
+          </p>
+          <p>
+            La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander,
+            dove ho presentato un workshop – insieme al Voice Evolution Institute, di cui sono
+            Certified Trainer – dedicato alla risonanza e alla stimolazione del tratto vocale.
+            Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a
+            risultati sorprendenti.
+          </p>
+          <p>
+            Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il
+            Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta
+            Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di
+            riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.
+          </p>
+          <p>
+            Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria
+            voce in modo rispettoso, funzionale e creativo. Un Vocal Trainer non impone un
+            modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce ha una
+            storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi
+            al meglio.
+          </p>
+          <p>
+            Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività:
+            nella parola, nel canto e – soprattutto – nella tua presenza. Per me la voce non è
+            solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con
+            chi ti circonda. Per questo il mio approccio è esperienziale, gentile e radicato nel
+            qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.
+          </p>
+          <p>
+            Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e
+            consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e
+            nella ricerca della loro identità vocale e artistica.
+          </p>
+        </div>
+      </div>
+      <div class="hero-image-card">
+        <!-- QUI LA FOTO PROFILO -->
+        <img src="elisa-costanzo-profilo.png" alt="Elisa Costanzo - Foto profilo" />
+      </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section id="curriculum">
+      <h2 class="section-title">Curriculum</h2>
+      <div class="curriculum-columns">
+        <div class="curriculum-block">
+          <h4>DIDATTICA</h4>
+          <ul>
+            <li>Ottobre 2025 – Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale.</li>
+            <li>Maggio 2025 – Certified VES® Trainer – <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">Voice Evolution Institute</a>.</li>
+            <li>Settembre 2024 – Relatrice del workshop “Vocal tract stimulation exercises for resonance developement” alla Pan European Voice Conference 2024 (Santander, ES).</li>
+            <li>2022–2025 – Insegnante di canto e laboratori corali e vocali in collaborazione con la ASL presso il Centro Ottava, Roma.</li>
+            <li>2019–2024 – Selezionatrice e Vocal Coach per tecnica vocale, interpretazione, presenza scenica e laboratori corali del Tour Music Fest®.</li>
+            <li>2017 – Docente formato Voice to Teach®.</li>
+            <li>2013–2025 – Insegnante di canto presso la scuola di musica Armonie Musicali, Roma.</li>
+            <li>2012–2025 – Insegnante di canto presso l’Accademia Musicale “Risonanze”, Roma.</li>
+            <li>2022 – Diploma di II livello in Didattica della Musica presso il Conservatorio di Santa Cecilia, Roma, 110/110 e Lode.</li>
+            <li>2016 – Seminario “La Vocalità Estrema (Growl, Fischio)” a cura di F. Fussi, E. Biaviati, E. Bruni, Ravenna.</li>
+            <li>2013 – Masterclass a cura di Francesca Taverni: “Rent, la voce nell’opera rock”.</li>
+            <li>2012 – Masterclass a cura di Dean Bowman sulla musica afroamericana.</li>
+            <li>2012 – Corso di Song Writing a cura di Peter Cunnah presso The Institute di Londra.</li>
+            <li>2012 – Certificazione internazionale Rockschool UK, Grade 8, Vocals.</li>
+            <li>2012 – Masterclass a cura di Catherine Sadolin (Complete Vocal Technique).</li>
+            <li>2011 – Corso Internazionale “La Voce Artistica” diretto da Franco Fussi, Ravenna.</li>
+            <li>2010 – Corsi Voicecraft Base, Avanzato e Specialistico a cura di Elisa Turlà.</li>
+            <li>2011 – Master in Didattica del Canto Moderno presso Sonus Factory, Roma.</li>
+            <li>2010 – Laurea di I livello in Jazz – Canto, Conservatorio “G.B. Martini”, Bologna.</li>
+            <li>2010 – Laurea di I livello in DAMS – Didattica della Musica, Alma Mater Studiorum, Bologna.</li>
+          </ul>
+        </div>
+        <div class="curriculum-block">
+          <h4>PERFORMANCE – SONGWRITING</h4>
+          <ul>
+            <li>2018–2019 – Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino.</li>
+            <li>2019 – Pubblicazione del singolo <em>Onda dopo onda</em> (Noise Symphony Music).</li>
+            <li>2018 – Pubblicazione del singolo <em>Cosa Rimane</em> (Noise Symphony Music).</li>
+            <li>2018 – Menzione speciale per il testo del brano <em>Sulle dune più alte del mondo</em> al Concorso per autori di Mogol.</li>
+            <li>2017 – Vincitrice del Trofeo Rea, assegnato dalla giuria tecnica del Circuito Nazionale delle 100 Radio con il brano <em>Impermeabile</em>.</li>
+            <li>2015 – Ambasciatrice della musica italiana nella Giornata Internazionale delle Lingue presso l’Istituto Italiano di Cultura a Lisbona.</li>
+            <li>2015 – EP autoprodotto con brani originali, <em>La Prospettiva delle cose</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LO SPAZIO IN CUI PUOI SPERIMENTARE -->
+    <section id="spazio">
+      <h2 class="section-title">Lo spazio in cui puoi sperimentare</h2>
+      <div class="about-space">
+        <p>
           Ti accompagno a riconnetterti alla tua voce – quella che usi per parlare, cantare,
           raccontarti – come porta di accesso alle tue emozioni, al corpo e alla tua presenza
           nel mondo. Con percorsi individuali e di gruppo, puoi esplorare la tua espressività
           in un ambiente accogliente e non giudicante.
         </p>
-        <ul class="hero-bullets">
+        <p>
+          Lavoriamo con esercizi vocali, ascolto, movimento e respiro, in modo da costruire
+          insieme un’esperienza che non è solo tecnica, ma profondamente tua.
+        </p>
+        <ul>
           <li>• Per chi sente che la propria voce è bloccata, trattenuta o “non abbastanza”.</li>
           <li>• Per chi desidera riconnettersi a sé attraverso il suono, il respiro e l’ascolto.</li>
           <li>• Per chi vuole portare più autenticità nelle relazioni, nel lavoro, nella vita creativa.</li>
         </ul>
-        <div class="hero-cta">
-          <a href="#servizi" class="btn-primary">Scopri i percorsi →</a>
-          <a href="#chi-sono" class="btn-secondary">Conosci meglio Elisa</a>
-        </div>
-      </div>
-      <div class="hero-image-card">
-        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" />
       </div>
     </section>
 
-    <!-- CHI SONO -->
-    <section id="chi-sono">
-      <h2 class="section-title">Chi sono</h2>
-      <div class="about">
-        <div class="about-card">
-          <h3>Elisa Costanzo</h3>
-          <h4>Accompagnamento alla voce, all’espressione e alla presenza</h4>
-          <p>
-            Sono Elisa, e da anni mi occupo di voce come spazio di esplorazione, cura e
-            creatività. Nel mio lavoro intreccio ascolto, corpo e suono per accompagnarti a
-            sentirti più libera/o di esprimerti – nella parola, nel canto e nella vita.
-          </p>
-          <p style="margin-top:0.7rem;">
-            Credo che la voce non sia solo tecnica, ma soprattutto relazione: con te stessə,
-            con la tua storia e con le persone che ti circondano. Il mio approccio è
-            esperienziale, delicato e radicato nella presenza: partiamo sempre da dove sei,
-            al ritmo che per te è sostenibile.
-          </p>
-        </div>
-        <div class="about-highlight">
-          <strong>Cosa trovi nel mio spazio:</strong>
-          <p>
-            Luoghi sicuri in cui portare anche le parti di te che spesso nascondi, esercizi
-            concreti per esplorare voce e respiro, momenti di ascolto profondo in cui
-            sentire ciò che sta davvero emergendo. Non ti chiedo di “performare”, ma di
-            sperimentare, giocare, sentire. Insieme, costruiamo un modo tuo di abitare la voce.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVIZI / PERCORSI -->
-    <section id="servizi">
+    <!-- PERCORSI -->
+    <section id="percorsi">
       <h2 class="section-title">Percorsi</h2>
       <h3 class="section-subtitle">Scegli lo spazio di lavoro più adatto a te</h3>
       <p class="section-text">
@@ -687,6 +782,34 @@
             Parliamone insieme →
           </a>
         </article>
+      </div>
+    </section>
+
+    <!-- VES CERTIFICAZIONE E RICERCA -->
+    <section id="ves">
+      <h2 class="section-title">VES certificazione e ricerca</h2>
+      <div class="ves-card">
+        <p>
+          Dal 2025 sono <strong>Certified VES® Trainer</strong> presso il
+          <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">
+            Voice Evolution Institute
+          </a>.
+          Questa formazione mi permette di integrare nel mio lavoro strumenti aggiornati e basati
+          sulle più recenti ricerche sulla voce artistica.
+        </p>
+        <p>
+          In collaborazione con il Voice Evolution Institute ho presentato il workshop
+          <em>“Vocal tract stimulation exercises for resonance developement”</em> alla
+          Pan European Voice Conference 2024 di Santander, dedicato alla risonanza e alla
+          stimolazione del tratto vocale. Gli esercizi condivisi in quell’occasione sono
+          diventati parte del mio lavoro quotidiano con studenti e professionisti.
+        </p>
+        <p>
+          La ricerca per me non è solo teoria: è sperimentazione continua. Questo significa
+          che nei percorsi troverai esercizi concreti, protocolli testati e momenti di ascolto
+          per capire come le diverse pratiche agiscono sulla tua voce, sul corpo e sulla
+          percezione di te.
+        </p>
       </div>
     </section>
 
