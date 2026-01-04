@@ -4,910 +4,701 @@
   <meta charset="UTF-8" />
   <title>Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    :root {
-      --primario: #355c7b;   /* blu/grigio */
-      --secondario: #81277c; /* viola */
-      --bianco: #ffffff;
-      --nero: #111111;
+    :root{
+      --primario:#355c7b;
+      --secondario:#81277c;
+      --bianco:#ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *{box-sizing:border-box;margin:0;padding:0;}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background: radial-gradient(circle at top left, #4f7b9e 0, var(--primario) 40%, #2b1a3f 100%);
-      color: var(--bianco);
-      min-height: 100vh;
+      color:var(--bianco);
+      min-height:100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a{color:inherit;text-decoration:none;}
 
     /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(
-        to right,
-        rgba(12, 18, 28, 0.9),
-        rgba(26, 18, 43, 0.75)
-      );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to right, rgba(12,18,28,0.9), rgba(26,18,43,0.75));
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
 
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+    .header-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0.8rem 1.2rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.2rem;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      min-width:0;
     }
 
-    /* LOGO MOLTO GRANDE */
-    .logo-img {
-      height: 120px;
-      width: auto;
-      display: block;
-      object-fit: contain;
+    /* LOGO GRANDE */
+    .logo-img{
+      height:120px;
+      width:auto;
+      display:block;
+      object-fit:contain;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:.15rem;
+      min-width:0;
     }
 
-    .brand-name {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 1rem;
+    .brand-name{
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-size:1rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    .brand-subtitle {
-      font-size: 0.75rem;
-      opacity: 0.8;
+    .brand-subtitle{
+      font-size:0.75rem;
+      opacity:.82;
+      max-width:44ch;
+      line-height:1.35;
     }
 
-    .menu-button {
-      border: none;
-      background: var(--bianco);
-      color: var(--secondario);
-      padding: 0.6rem 1.3rem;
-      border-radius: 999px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    .menu-button{
+      border:none;
+      background:var(--bianco);
+      color:var(--secondario);
+      padding:0.6rem 1.3rem;
+      border-radius:999px;
+      font-weight:800;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      box-shadow:0 8px 18px rgba(0,0,0,0.35);
+      transition:transform .1s ease, box-shadow .1s ease;
+      white-space:nowrap;
     }
 
-    .menu-button span.icon {
-      font-size: 1.1rem;
+    .menu-button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 12px 24px rgba(0,0,0,0.45);
     }
 
-    .menu-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    .menu-button:active{
+      transform:translateY(1px);
+      box-shadow:0 4px 8px rgba(0,0,0,0.5);
     }
 
-    .menu-button:active {
-      transform: translateY(1px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* MENU */
+    .menu-panel{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.85);
+      display:none;
+      z-index:40;
     }
 
-    /* MENU A TENDINA */
+    .menu-panel.open{display:block;}
 
-    .menu-panel {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      z-index: 40;
+    .menu-panel-inner{
+      max-width:420px;
+      margin:5rem auto;
+      padding:1.5rem;
+      background:rgba(10,12,20,0.97);
+      border-radius:1.5rem;
+      box-shadow:0 20px 40px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.15);
     }
 
-    .menu-panel.open {
-      display: block;
+    .menu-panel-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:1rem;
     }
 
-    .menu-panel-inner {
-      max-width: 400px;
-      margin: 5rem auto;
-      padding: 1.5rem;
-      background: rgba(10, 12, 20, 0.97);
-      border-radius: 1.5rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .menu-panel-header h2{
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      font-weight:700;
+      opacity:0.92;
     }
 
-    .menu-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+    .menu-close{
+      border:none;
+      background:transparent;
+      color:var(--bianco);
+      font-size:1.4rem;
+      cursor:pointer;
     }
 
-    .menu-panel-header h2 {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 500;
-      opacity: 0.9;
+    .menu-list{list-style:none;margin-top:.5rem;}
+    .menu-list li a{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.85rem .45rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      font-size:1rem;
+      opacity:0.92;
+      transition:padding-left .15s ease, opacity .15s ease;
+    }
+    .menu-list li a span{
+      font-size:.8rem;
+      opacity:.7;
+      text-decoration:none;
+    }
+    .menu-list li a:hover{
+      padding-left:.75rem;
+      opacity:1;
     }
 
-    .menu-close {
-      border: none;
-      background: transparent;
-      color: var(--bianco);
-      font-size: 1.4rem;
-      cursor: pointer;
+    /* LAYOUT */
+    main{
+      max-width:1100px;
+      margin:0 auto;
+      padding:1.6rem 1.2rem 4rem;
     }
 
-    .menu-list {
-      list-style: none;
-      margin-top: 0.5rem;
+    section{margin-bottom:3.1rem;}
+
+    .section-title{
+      font-size:1.1rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      opacity:.9;
+      margin-bottom:.7rem;
     }
 
-    .menu-list li a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.8rem 0.4rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.98rem;
-      opacity: 0.9;
-      transition: padding-left 0.15s ease, opacity 0.15s ease;
+    .section-subtitle{
+      font-size:1.85rem;
+      max-width:720px;
+      margin-bottom:.9rem;
+      line-height:1.12;
     }
 
-    .menu-list li a span {
-      font-size: 0.8rem;
-      opacity: 0.7;
+    .section-text{
+      max-width:850px;
+      line-height:1.75;
+      opacity:.96;
     }
 
-    .menu-list li a:hover {
-      padding-left: 0.6rem;
-      opacity: 1;
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0, 1.55fr) minmax(320px, 1fr);
+      gap:2.2rem;
+      align-items:start;
+      padding-top:1.2rem;
     }
 
-    /* LAYOUT SEZIONI */
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem 1.2rem 4rem;
+    .hero-kicker{
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.8rem;
+      opacity:.85;
+      margin-bottom:.35rem;
     }
 
-    section {
-      margin-bottom: 3.2rem;
+    .hero-title{
+      font-size:2.35rem;
+      line-height:1.08;
+      margin-bottom:.75rem;
+      max-width:620px;
     }
 
-    .section-title {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      opacity: 0.9;
-      margin-bottom: 0.7rem;
+    .hero-text p{
+      margin-bottom:.75rem;
+      line-height:1.75;
+      opacity:.97;
     }
 
-    .section-subtitle {
-      font-size: 1.9rem;
-      max-width: 600px;
-      margin-bottom: 1rem;
+    /* FOTO PROFILO: OCCUPA TUTTO LO SPAZIO */
+    .hero-image{
+      width:100%;
+      max-width:520px;
+      margin:0 auto;
     }
 
-    .section-text {
-      max-width: 650px;
-      line-height: 1.7;
-      opacity: 0.95;
+    .hero-image img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:1.8rem;
+      object-fit:cover;
+      box-shadow:0 18px 40px rgba(0,0,0,0.7);
+      border:1px solid rgba(255,255,255,0.35);
     }
 
-    /* HERO – TI PARLO DI ME / CHI SONO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
-      gap: 2.3rem;
-      align-items: center;
-      padding-top: 1.5rem;
-    }
-
-    .hero-tag {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      opacity: 0.85;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-title {
-      font-size: 2.4rem;
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
-      max-width: 580px;
-    }
-
-    .hero-text p {
-      margin-bottom: 0.7rem;
-      line-height: 1.7;
-      opacity: 0.96;
-    }
-
-    /* FOTO PROFILO: USA TUTTA LA COLONNA */
-    .hero-image-card {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .hero-image-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 1.8rem;
-      object-fit: cover;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+    /* CARD */
+    .card{
+      background:rgba(7,10,20,0.78);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:1.5rem;
+      padding:1.4rem;
+      box-shadow:0 16px 32px rgba(0,0,0,0.45);
     }
 
     /* CURRICULUM */
-
-    .curriculum-columns {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 1.8rem;
+    .curriculum-columns{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+      gap:1.6rem;
+      margin-top:1rem;
     }
 
-    .curriculum-block h4 {
-      margin: 0.6rem 0 0.4rem;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.8;
+    .curriculum-block h3{
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      opacity:.9;
+      margin-bottom:.6rem;
     }
 
-    .curriculum-block ul {
-      list-style: disc;
-      padding-left: 1.1rem;
-      font-size: 0.92rem;
-      line-height: 1.6;
-      opacity: 0.95;
+    .curriculum-block ul{
+      list-style:disc;
+      padding-left:1.1rem;
+      font-size:.93rem;
+      line-height:1.65;
+      opacity:.96;
     }
 
-    .curriculum-block li {
-      margin-bottom: 0.25rem;
+    .curriculum-block li{margin-bottom:.3rem;}
+    .curriculum-block a{ text-decoration:underline; text-underline-offset:3px; }
+
+    /* LO SPAZIO */
+    .space-wrap p{margin-bottom:.75rem;line-height:1.75;opacity:.96;}
+    .space-wrap ul{list-style:none;margin-top:.35rem;opacity:.96;}
+    .space-wrap li{margin-bottom:.25rem;}
+
+    /* PERCORSI PREVIEW */
+    .actions-row{
+      display:flex;
+      gap:.7rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:1rem;
     }
 
-    /* LO SPAZIO IN CUI PUOI SPERIMENTARE */
-
-    .about-space {
-      background: rgba(7, 10, 20, 0.7);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
-      max-width: 900px;
+    .btn{
+      border-radius:999px;
+      padding:0.72rem 1.25rem;
+      font-size:.95rem;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:var(--bianco);
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
     }
 
-    .about-space p {
-      margin-bottom: 0.7rem;
-      line-height: 1.7;
-      font-size: 0.97rem;
-      opacity: 0.96;
+    .btn.primary{
+      border-color:transparent;
+      background:var(--bianco);
+      color:var(--secondario);
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
     }
 
-    .about-space ul {
-      list-style: none;
-      margin-top: 0.3rem;
-      font-size: 0.95rem;
-      opacity: 0.95;
-    }
-
-    .about-space li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* SERVIZI / PERCORSI */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.3rem;
-    }
-
-    .service-card {
-      background: rgba(7, 10, 20, 0.8);
-      border-radius: 1.3rem;
-      padding: 1.2rem 1.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.5);
-    }
-
-    .service-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      opacity: 0.8;
-      margin-bottom: 0.3rem;
-      color: #c6d9ec;
-    }
-
-    .service-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .service-text {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: 0.7rem;
-      line-height: 1.6;
-    }
-
-    .service-link {
-      font-size: 0.9rem;
-      opacity: 0.95;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .mini-note{
+      font-size:.9rem;
+      opacity:.9;
+      line-height:1.6;
+      margin-top:.8rem;
     }
 
     /* VES */
-
-    .ves-card {
-      background: rgba(7, 10, 20, 0.8);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-      max-width: 900px;
-    }
-
-    .ves-card p {
-      margin-bottom: 0.7rem;
-      line-height: 1.7;
-      font-size: 0.96rem;
-      opacity: 0.96;
-    }
-
-    .ves-card a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .ves-card p{margin-bottom:.75rem;line-height:1.75;opacity:.96;}
+    .ves-card a{ text-decoration:underline; text-underline-offset:3px; }
 
     /* CONTATTI */
-
-    .contact-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 1fr);
-      gap: 1.8rem;
-      align-items: flex-start;
+    .contact-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr);
+      gap:1.6rem;
+      align-items:start;
+      margin-top:1rem;
     }
 
-    .contact-card {
-      background: rgba(7, 10, 20, 0.8);
-      border-radius: 1.5rem;
-      padding: 1.4rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    .contact-form{
+      display:grid;
+      gap:.7rem;
+      margin-top:.9rem;
     }
 
-    .contact-card form {
-      margin-top: 0.8rem;
-      display: grid;
-      gap: 0.7rem;
+    .field{display:grid;gap:.25rem;font-size:.92rem;}
+    .field label{opacity:.9;}
+    .field input,.field textarea{
+      border-radius:.85rem;
+      border:1px solid rgba(255,255,255,0.35);
+      background:rgba(4,7,15,0.92);
+      color:var(--bianco);
+      padding:.6rem .85rem;
+      font:inherit;
+      resize:vertical;
+      min-height:40px;
     }
 
-    .field {
-      display: grid;
-      gap: 0.25rem;
-      font-size: 0.9rem;
+    .field small{opacity:.75;font-size:.82rem;line-height:1.35;}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.16);
+      padding:1.2rem;
+      font-size:0.8rem;
+      opacity:0.85;
+      text-align:center;
+      background:rgba(7,10,20,0.9);
     }
 
-    .field label {
-      opacity: 0.9;
+    .footer-links{
+      margin-top:.4rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.7rem;
+      font-size:.8rem;
     }
-
-    .field input,
-    .field textarea {
-      border-radius: 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(4, 7, 15, 0.9);
-      color: var(--bianco);
-      padding: 0.55rem 0.8rem;
-      font: inherit;
-      resize: vertical;
-      min-height: 38px;
-    }
-
-    .field small {
-      opacity: 0.7;
-      font-size: 0.8rem;
-    }
-
-    .contact-note {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-top: 0.8rem;
-      line-height: 1.6;
-    }
-
-    .contact-side {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      opacity: 0.96;
-    }
-
-    .contact-side strong {
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: var(--bianco);
-      color: var(--secondario);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.55);
-      color: var(--bianco);
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 1.2rem;
-      font-size: 0.8rem;
-      opacity: 0.85;
-      text-align: center;
-      background: rgba(7, 10, 20, 0.9);
-    }
-
-    .footer-links {
-      margin-top: 0.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-      font-size: 0.8rem;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      opacity: 0.9;
+    .footer-links a{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      opacity:.92;
     }
 
     /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero,
-      .curriculum-columns,
-      .contact-section {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-image-card {
-        order: -1;
-      }
-
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .logo-img {
-        height: 90px;
-      }
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr;gap:1.4rem;}
+      .hero-image{order:-1;max-width:560px;}
+      .curriculum-columns{grid-template-columns:1fr;}
+      .contact-grid{grid-template-columns:1fr;}
+      .logo-img{height:90px;}
     }
 
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .section-subtitle {
-        font-size: 1.6rem;
-      }
-
-      .header-inner {
-        padding-inline: 0.8rem;
-      }
-
-      main {
-        padding-inline: 0.9rem;
-      }
-
-      .logo-img {
-        height: 70px;
-      }
+    @media (max-width: 600px){
+      .hero-title{font-size:2rem;}
+      .section-subtitle{font-size:1.55rem;}
+      .header-inner{padding-inline:.8rem;}
+      main{padding-inline:.9rem;}
+      .logo-img{height:70px;}
+      .brand-subtitle{display:none;}
     }
   </style>
 </head>
+
 <body>
   <!-- HEADER -->
   <header>
     <div class="header-inner">
       <div class="brand">
-        <img src="Elisa Costanzo Logo.png" alt="Elisa Costanzo Logo" class="logo-img" />
+        <img src="logo-elisa-costanzo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-subtitle">Spazio di voce, espressione e presenza</div>
         </div>
       </div>
 
-      <button class="menu-button" id="menuButton">
-        <span class="icon">☰</span>
-        <span>Menu</span>
+      <button class="menu-button" id="menuButton" aria-label="Apri menu">
+        ☰ <span>Menu</span>
       </button>
     </div>
   </header>
 
-  <!-- MENU A TENDINA -->
-  <div class="menu-panel" id="menuPanel">
+  <!-- MENU -->
+  <div class="menu-panel" id="menuPanel" aria-hidden="true">
     <div class="menu-panel-inner">
       <div class="menu-panel-header">
         <h2>Menu</h2>
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
       </div>
+
       <ul class="menu-list">
         <li><a href="#home">Ti parlo di me <span>chi sono</span></a></li>
-        <li><a href="#curriculum">Curriculum <span>didattica e performance</span></a></li>
+        <li><a href="studio.html">Studio <span>ExpresSING – Roma</span></a></li>
+        <li><a href="percorsi.html">Percorsi <span>tutti i percorsi</span></a></li>
         <li><a href="#spazio">Lo spazio in cui puoi sperimentare <span>il mio approccio</span></a></li>
-        <li><a href="#percorsi">Percorsi <span>come possiamo lavorare</span></a></li>
         <li><a href="#ves">VES certificazione e ricerca <span>studio e sperimentazione</span></a></li>
+        <li><a href="#curriculum">Curriculum <span>didattica e performance</span></a></li>
         <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
-        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram <span>nuova finestra</span></a></li>
+        <li>
+          <a href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
+            Prenota una call <span>via email</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
 
   <main>
-    <!-- HERO – TI PARLO DI ME / CHI SONO -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div>
-        <div class="hero-tag">Ti parlo di me</div>
+        <div class="hero-kicker">TI PARLO DI ME</div>
         <h1 class="hero-title">Chi sono</h1>
+
         <div class="hero-text">
           <p>
-            Sono Elisa (ma puoi chiamarmi anche ELI) e da sempre considero la voce un luogo di
-            esplorazione, cura e creatività. Sono Vocal Trainer, cantante, direttrice di coro e
-            cantautrice.
+            Sono Elisa (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di esplorazione,
+            cura e creatività. Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.
           </p>
           <p>
-            Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e
-            ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da
-            prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato
-            il mio Centro di Formazione Vocale <strong>ExpresSING</strong>: un luogo vivo, in cui
-            didattica, ricerca e creatività si incontrano ogni giorno.
+            Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi
+            internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento
+            nelle accademie romane, ho creato il mio Centro di Formazione Vocale: <strong>ExpresSING</strong>, un luogo vivo,
+            in cui didattica, ricerca e creatività si incontrano ogni giorno.
           </p>
           <p>
-            La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander,
-            dove ho presentato un workshop – insieme al Voice Evolution Institute, di cui sono
-            Certified Trainer – dedicato alla risonanza e alla stimolazione del tratto vocale.
-            Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a
-            risultati sorprendenti.
+            La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop –
+            insieme al Voice Evolution Institute, di cui sono Certified Trainer – dedicato alla risonanza e alla stimolazione
+            del tratto vocale. Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
           </p>
           <p>
-            Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il
-            Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta
-            Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di
-            riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.
+            Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e
+            valutando migliaia di voci provenienti da tutta Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia
+            capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.
           </p>
           <p>
-            Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria
-            voce in modo rispettoso, funzionale e creativo. Un Vocal Trainer non impone un
-            modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce ha una
-            storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi
-            al meglio.
+            Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale
+            e creativo. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce
+            ha una storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi al meglio.
           </p>
           <p>
-            Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività:
-            nella parola, nel canto e – soprattutto – nella tua presenza. Per me la voce non è
-            solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con
-            chi ti circonda. Per questo il mio approccio è esperienziale, gentile e radicato nel
-            qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.
+            Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività: nella parola, nel canto e – soprattutto –
+            nella tua presenza. Per me la voce non è solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con
+            chi ti circonda. Per questo il mio approccio è esperienziale, gentile e radicato nel qui e ora: partiamo da dove sei, con un
+            ritmo che per te è davvero sostenibile.
           </p>
           <p>
-            Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e
-            consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e
-            nella ricerca della loro identità vocale e artistica.
+            Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella
+            realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.
           </p>
-        </div>
-      </div>
-      <div class="hero-image-card">
-        <!-- Assicurati che il file si chiami esattamente così nel repo -->
-        <img src="Elisa Costanzo profilo.jpg" alt="Elisa Costanzo - Foto profilo" />
-      </div>
-    </section>
 
-    <!-- CURRICULUM -->
-    <section id="curriculum">
-      <h2 class="section-title">Curriculum</h2>
-      <div class="curriculum-columns">
-        <div class="curriculum-block">
-          <h4>DIDATTICA</h4>
-          <ul>
-            <li>Ottobre 2025 – Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale.</li>
-            <li>Maggio 2025 – Certified VES® Trainer – <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">Voice Evolution Institute</a>.</li>
-            <li>Settembre 2024 – Relatrice del workshop “Vocal tract stimulation exercises for resonance developement” alla Pan European Voice Conference 2024 (Santander, ES).</li>
-            <li>2022–2025 – Insegnante di canto e laboratori corali e vocali in collaborazione con la ASL presso il Centro Ottava, Roma.</li>
-            <li>2019–2024 – Selezionatrice e Vocal Coach per tecnica vocale, interpretazione, presenza scenica e laboratori corali del Tour Music Fest®.</li>
-            <li>2017 – Docente formato Voice to Teach®.</li>
-            <li>2013–2025 – Insegnante di canto presso la scuola di musica Armonie Musicali, Roma.</li>
-            <li>2012–2025 – Insegnante di canto presso l’Accademia Musicale “Risonanze”, Roma.</li>
-            <li>2022 – Diploma di II livello in Didattica della Musica presso il Conservatorio di Santa Cecilia, Roma, 110/110 e Lode.</li>
-            <li>2016 – Seminario “La Vocalità Estrema (Growl, Fischio)” a cura di F. Fussi, E. Biaviati, E. Bruni, Ravenna.</li>
-            <li>2013 – Masterclass a cura di Francesca Taverni: “Rent, la voce nell’opera rock”.</li>
-            <li>2012 – Masterclass a cura di Dean Bowman sulla musica afroamericana.</li>
-            <li>2012 – Corso di Song Writing a cura di Peter Cunnah presso The Institute di Londra.</li>
-            <li>2012 – Certificazione internazionale Rockschool UK, Grade 8, Vocals.</li>
-            <li>2012 – Masterclass a cura di Catherine Sadolin (Complete Vocal Technique).</li>
-            <li>2011 – Corso Internazionale “La Voce Artistica” diretto da Franco Fussi, Ravenna.</li>
-            <li>2010 – Corsi Voicecraft Base, Avanzato e Specialistico a cura di Elisa Turlà.</li>
-            <li>2011 – Master in Didattica del Canto Moderno presso Sonus Factory, Roma.</li>
-            <li>2010 – Laurea di I livello in Jazz – Canto, Conservatorio “G.B. Martini”, Bologna.</li>
-            <li>2010 – Laurea di I livello in DAMS – Didattica della Musica, Alma Mater Studiorum, Bologna.</li>
-          </ul>
+          <div class="actions-row">
+            <a class="btn primary"
+               href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
+              Prenota una call gratuita
+            </a>
+
+            <a class="btn" href="percorsi.html">Vai ai Percorsi →</a>
+          </div>
         </div>
-        <div class="curriculum-block">
-          <h4>PERFORMANCE – SONGWRITING</h4>
-          <ul>
-            <li>2018–2019 – Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino.</li>
-            <li>2019 – Pubblicazione del singolo <em>Onda dopo onda</em> (Noise Symphony Music).</li>
-            <li>2018 – Pubblicazione del singolo <em>Cosa Rimane</em> (Noise Symphony Music).</li>
-            <li>2018 – Menzione speciale per il testo del brano <em>Sulle dune più alte del mondo</em> al Concorso per autori di Mogol.</li>
-            <li>2017 – Vincitrice del Trofeo Rea, assegnato dalla giuria tecnica del Circuito Nazionale delle 100 Radio con il brano <em>Impermeabile</em>.</li>
-            <li>2015 – Ambasciatrice della musica italiana nella Giornata Internazionale delle Lingue presso l’Istituto Italiano di Cultura a Lisbona.</li>
-            <li>2015 – EP autoprodotto con brani originali, <em>La Prospettiva delle cose</em>.</li>
-          </ul>
-        </div>
+      </div>
+
+      <div class="hero-image">
+        <!-- IMPORTANTISSIMO: il file deve chiamarsi esattamente così nel repo -->
+        <img src="Elisa Costanzo Profilo.png" alt="Elisa Costanzo - Foto profilo" />
       </div>
     </section>
 
     <!-- LO SPAZIO IN CUI PUOI SPERIMENTARE -->
     <section id="spazio">
       <h2 class="section-title">Lo spazio in cui puoi sperimentare</h2>
-      <div class="about-space">
+      <div class="card space-wrap">
         <p>
-          Ti accompagno a riconnetterti alla tua voce – quella che usi per parlare, cantare,
-          raccontarti – come porta di accesso alle tue emozioni, al corpo e alla tua presenza
-          nel mondo. Con percorsi individuali e di gruppo, puoi esplorare la tua espressività
-          in un ambiente accogliente e non giudicante.
+          Ti accompagno a riconnetterti alla tua voce – quella che usi per parlare, cantare, raccontarti – come porta di accesso
+          alle tue emozioni, al corpo e alla tua presenza nel mondo. Con percorsi individuali e di gruppo, puoi esplorare la tua
+          espressività in un ambiente accogliente e non giudicante.
         </p>
         <p>
-          Lavoriamo con esercizi vocali, ascolto, movimento e respiro, in modo da costruire
-          insieme un’esperienza che non è solo tecnica, ma profondamente tua.
+          Lavoriamo con esercizi vocali, ascolto, movimento e respiro, in modo da costruire insieme un’esperienza che non è solo
+          tecnica, ma profondamente tua.
         </p>
         <ul>
           <li>• Per chi sente che la propria voce è bloccata, trattenuta o “non abbastanza”.</li>
           <li>• Per chi desidera riconnettersi a sé attraverso il suono, il respiro e l’ascolto.</li>
           <li>• Per chi vuole portare più autenticità nelle relazioni, nel lavoro, nella vita creativa.</li>
         </ul>
+
+        <div class="actions-row">
+          <a class="btn" href="studio.html">Scopri lo Studio →</a>
+          <a class="btn" href="percorsi.html">Scopri i Percorsi →</a>
+        </div>
       </div>
     </section>
 
-    <!-- PERCORSI -->
-    <section id="percorsi">
-      <h2 class="section-title">Percorsi</h2>
-      <h3 class="section-subtitle">Scegli lo spazio di lavoro più adatto a te</h3>
-      <p class="section-text">
-        Qui trovi una panoramica dei percorsi che propongo. Possiamo iniziare da un
-        incontro conoscitivo per capire cosa ti serve davvero in questo momento: sciogliere
-        blocchi, dare voce a un progetto creativo, ritrovare il piacere di sentire e farti sentire.
-      </p>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-label">Percorso individuale</div>
-          <h4 class="service-title">Sessioni 1:1 di esplorazione vocale</h4>
-          <p class="service-text">
-            Uno spazio dedicato solo a te, per ascoltare la tua voce e lavorare su blocchi,
-            timidezze, desideri di espressione. Alterniamo pratica, ascolto e integrazione,
-            seguendo i tuoi tempi e il tuo corpo.
-          </p>
-          <a href="#contatti" class="service-link">
-            Scrivimi per maggiori informazioni →
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-label">Gruppo</div>
-          <h4 class="service-title">Cerchi di voce e presenza</h4>
-          <p class="service-text">
-            Incontri di gruppo per sperimentare il potere del suono condiviso, del canto,
-            dell’ascolto reciproco. Ideali se vuoi sentirti meno sola/o nel tuo percorso e
-            nutrirti della presenza degli altri.
-          </p>
-          <a href="#contatti" class="service-link">
-            Chiedi le prossime date →
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-label">Online</div>
-          <h4 class="service-title">Percorsi a distanza</h4>
-          <p class="service-text">
-            Se non puoi raggiungermi dal vivo, possiamo lavorare online con incontri
-            strutturati. Creiamo insieme una pratica che ti accompagni nella quotidianità,
-            ovunque tu sia.
-          </p>
-          <a href="#contatti" class="service-link">
-            Parliamone insieme →
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- VES CERTIFICAZIONE E RICERCA -->
+    <!-- VES -->
     <section id="ves">
       <h2 class="section-title">VES certificazione e ricerca</h2>
-      <div class="ves-card">
+      <div class="card ves-card">
         <p>
           Dal 2025 sono <strong>Certified VES® Trainer</strong> presso il
           <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">
             Voice Evolution Institute
           </a>.
-          Questa formazione mi permette di integrare nel mio lavoro strumenti aggiornati e basati
-          sulle più recenti ricerche sulla voce artistica.
+          Questa formazione mi permette di integrare nel mio lavoro strumenti aggiornati e basati sulle più recenti ricerche sulla voce artistica.
         </p>
         <p>
           In collaborazione con il Voice Evolution Institute ho presentato il workshop
-          <em>“Vocal tract stimulation exercises for resonance developement”</em> alla
-          Pan European Voice Conference 2024 di Santander, dedicato alla risonanza e alla
-          stimolazione del tratto vocale. Gli esercizi condivisi in quell’occasione sono
-          diventati parte del mio lavoro quotidiano con studenti e professionisti.
+          <em>“Vocal tract stimulation exercises for resonance developement”</em> alla Pan European Voice Conference 2024 di Santander,
+          dedicato alla risonanza e alla stimolazione del tratto vocale.
         </p>
         <p>
-          La ricerca per me non è solo teoria: è sperimentazione continua. Questo significa
-          che nei percorsi troverai esercizi concreti, protocolli testati e momenti di ascolto
-          per capire come le diverse pratiche agiscono sulla tua voce, sul corpo e sulla
-          percezione di te.
+          La ricerca per me non è solo teoria: è sperimentazione continua. Questo significa che nei percorsi troverai esercizi concreti,
+          protocolli testati e momenti di ascolto per capire come le diverse pratiche agiscono sulla tua voce, sul corpo e sulla percezione di te.
+        </p>
+
+        <div class="actions-row">
+          <a class="btn primary"
+             href="mailto:elisacostanzo1@gmail.com?subject=Info%20VES%20-%20certificazione%20e%20ricerca&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20chiederti%20informazioni%20sulla%20certificazione%20VES%20e%20sui%20percorsi%20collegati.%0D%0A%0D%0AGrazie!">
+            Chiedi info VES via email
+          </a>
+          <a class="btn" href="percorsi.html">Percorsi VES →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section id="curriculum">
+      <h2 class="section-title">Curriculum</h2>
+      <div class="card">
+        <div class="curriculum-columns">
+          <div class="curriculum-block">
+            <h3>Didattica</h3>
+            <ul>
+              <li>Ottobre 2025 – Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale.</li>
+              <li>Maggio 2025 – Certified VES® Trainer – <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">Voice Evolution Institute</a>.</li>
+              <li>Settembre 2024 – Relatrice del workshop “Vocal tract stimulation exercises for resonance developement” alla Pan European Voice Conference 2024 (Santander, ES).</li>
+              <li>2022–2025 – Insegnante di canto e laboratori in collaborazione con la ASL presso il Centro Ottava, Roma.</li>
+              <li>2019–2024 – Selezionatrice e Vocal Coach (Tour Music Fest®).</li>
+              <li>2017 – Docente formato Voice to Teach®.</li>
+              <li>2013–2025 – Insegnante di canto presso Armonie Musicali, Roma.</li>
+              <li>2012–2025 – Insegnante di canto presso Accademia Musicale “Risonanze”, Roma.</li>
+              <li>2022 – Diploma di II livello in Didattica della Musica, Conservatorio di Santa Cecilia, Roma (110/110 e Lode).</li>
+              <li>2011 – Corso Internazionale “La Voce Artistica” diretto da Franco Fussi, Ravenna.</li>
+              <li>2010 – Laurea di I livello in Jazz – Canto, Conservatorio “G.B. Martini”, Bologna.</li>
+              <li>2010 – Laurea di I livello in DAMS – Didattica della Musica, Alma Mater Studiorum, Bologna.</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-block">
+            <h3>Performance – Songwriting</h3>
+            <ul>
+              <li>2018–2019 – Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino.</li>
+              <li>2019 – Pubblicazione del singolo <em>Onda dopo onda</em> (Noise Symphony Music).</li>
+              <li>2018 – Pubblicazione del singolo <em>Cosa Rimane</em> (Noise Symphony Music).</li>
+              <li>2018 – Menzione speciale per il testo del brano <em>Sulle dune più alte del mondo</em> (Concorso per autori di Mogol).</li>
+              <li>2017 – Vincitrice del Trofeo Rea (Circuito Nazionale delle 100 Radio) con <em>Impermeabile</em>.</li>
+              <li>2015 – Ambasciatrice della musica italiana all’Istituto Italiano di Cultura a Lisbona.</li>
+              <li>2015 – EP autoprodotto: <em>La Prospettiva delle cose</em>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mini-note">
+          Vuoi leggere tutti i dettagli dei percorsi (one-to-one, voce parlata, artisti emergenti, diploma VES e formazione docenti)?
+          Li trovi nella pagina dedicata: <a href="percorsi.html" style="text-decoration:underline; text-underline-offset:3px;">Percorsi</a>.
         </p>
       </div>
     </section>
 
     <!-- CONTATTI -->
     <section id="contatti">
-      <h2 class="section-title">Restiamo in contatto</h2>
-      <div class="contact-section">
-        <div class="contact-card">
-          <p>
-            Se senti che è il momento di dare spazio alla tua voce, possiamo iniziare da
-            un messaggio. Raccontami chi sei, cosa stai cercando e cosa ti aspetti da questo
-            lavoro insieme: ti risponderò con una proposta su misura per te.
-          </p>
+      <h2 class="section-title">Contatti</h2>
+      <div class="card">
+        <p class="section-text">
+          Per informazioni, disponibilità e prenotazioni: scrivimi direttamente a
+          <a href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Elisa%20Costanzo" style="text-decoration:underline; text-underline-offset:3px;">
+            elisacostanzo1@gmail.com
+          </a>.
+          Se vuoi, puoi anche cliccare il pulsante e partire con una mail già compilata per la call conoscitiva.
+        </p>
 
-          <form>
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input id="nome" type="text" placeholder="Il tuo nome" />
+        <div class="contact-grid">
+          <div>
+            <div class="actions-row" style="margin-top:.9rem;">
+              <a class="btn primary"
+                 href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
+                Prenota una call gratuita
+              </a>
+              <a class="btn"
+                 href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20informazioni&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20chiederti%20informazioni%20su...%0D%0A%0D%0AGrazie!">
+                Chiedi info via email
+              </a>
             </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="nome@esempio.it" />
-            </div>
-            <div class="field">
-              <label for="messaggio">Messaggio</label>
-              <textarea id="messaggio" rows="3" placeholder="Raccontami qualcosa di te e di cosa hai bisogno"></textarea>
-            </div>
-            <div class="field">
-              <label>
-                <input type="checkbox" />
-                Ho letto e accetto l’informativa privacy
-              </label>
-              <small>
-                Qui dovrai inserire il link alla tua vera pagina privacy.
-              </small>
-            </div>
-            <button type="button" class="btn-primary">
-              Invia (form grafico, da collegare)
-            </button>
-          </form>
 
-          <p class="contact-note">
-            Puoi anche scrivermi direttamente a:
-            <a href="mailto:info@elisacostanzo.com">info@elisacostanzo.com</a>
-            (modifica l’indirizzo se ne usi un altro).
-          </p>
-        </div>
+            <form class="contact-form" onsubmit="return false;">
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" placeholder="Il tuo nome" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="nome@esempio.it" />
+              </div>
+              <div class="field">
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" rows="4" placeholder="Scrivi qui il tuo messaggio"></textarea>
+                <small>
+                  Questo form è “grafico”: per inviare davvero conviene usare i pulsanti email sopra (o in futuro possiamo collegarlo a un servizio).
+                </small>
+              </div>
+            </form>
+          </div>
 
-        <div class="contact-side">
-          <strong>Come funziona il primo contatto</strong>
-          <p>
-            Di solito rispondo entro pochi giorni lavorativi proponendoti, se lo desideri,
-            una breve chiamata conoscitiva gratuita. Insieme verifichiamo se il mio modo
-            di lavorare è ciò che ti serve adesso e quale percorso può supportarti meglio.
-          </p>
-          <p style="margin-top:0.7rem;">
-            Puoi seguirmi anche sui social per rimanere aggiornatə su nuovi percorsi,
-            incontri di gruppo e momenti di pratica condivisa.
-          </p>
+          <div>
+            <p class="mini-note" style="margin-top:0;">
+              <strong>Link rapidi</strong><br />
+              • <a href="studio.html" style="text-decoration:underline; text-underline-offset:3px;">Pagina Studio</a><br />
+              • <a href="percorsi.html" style="text-decoration:underline; text-underline-offset:3px;">Pagina Percorsi</a><br />
+              • <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; text-underline-offset:3px;">Voice Evolution Institute</a><br />
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
     <div class="footer-links">
-      <a href="#">Privacy policy</a>
-      <a href="#">Cookie policy</a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Elisa%20Costanzo">Email</a>
+      <a href="percorsi.html">Percorsi</a>
+      <a href="studio.html">Studio</a>
     </div>
   </footer>
 
   <script>
-    // Anno nel footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Apertura/chiusura menu
     const menuButton = document.getElementById("menuButton");
     const menuPanel = document.getElementById("menuPanel");
     const menuClose = document.getElementById("menuClose");
 
-    function openMenu() {
+    function openMenu(){
       menuPanel.classList.add("open");
+      menuPanel.setAttribute("aria-hidden","false");
     }
-
-    function closeMenu() {
+    function closeMenu(){
       menuPanel.classList.remove("open");
+      menuPanel.setAttribute("aria-hidden","true");
     }
 
     menuButton.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
 
-    // Chiude cliccando fuori dal pannello
-    menuPanel.addEventListener("click", (event) => {
-      if (event.target === menuPanel) {
-        closeMenu();
-      }
+    menuPanel.addEventListener("click", (e) => {
+      if (e.target === menuPanel) closeMenu();
     });
 
-    // Chiudi il menu quando clicchi un link interno
-    document.querySelectorAll(".menu-list a[href^='#']").forEach((link) => {
-      link.addEventListener("click", () => {
-        closeMenu();
-      });
+    document.querySelectorAll(".menu-list a").forEach((link) => {
+      link.addEventListener("click", () => closeMenu());
     });
   </script>
 </body>
