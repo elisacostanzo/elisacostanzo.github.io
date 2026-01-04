@@ -2,42 +2,45 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>VES – Voice Evolution Institute | Elisa Costanzo</title>
+  <title>VES | Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root{
-      --primario:#355c7b;
-      --secondario:#81277c;
-      --bianco:#ffffff;
-      --glass: rgba(7,10,20,0.78);
+      --blue:#355c7b;
+      --magenta:#81277c;
+      --white:#ffffff;
       --ink: rgba(255,255,255,0.95);
+      --glass: rgba(7,10,20,0.78);
+      --stroke: rgba(255,255,255,0.18);
     }
+
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      color:var(--bianco);
+      color:var(--white);
       min-height:100vh;
       background:
-        radial-gradient(circle at top left, rgba(79,123,158,0.55) 0, rgba(53,92,123,0.35) 42%, rgba(0,0,0,0) 70%),
-        radial-gradient(circle at top right, rgba(129,39,124,0.50) 0, rgba(129,39,124,0.28) 38%, rgba(0,0,0,0) 70%),
-        radial-gradient(circle at 40% 85%, rgba(53,92,123,0.32) 0, rgba(129,39,124,0.24) 40%, rgba(0,0,0,0) 75%),
+        radial-gradient(circle at 12% 12%, rgba(53,92,123,0.55) 0, rgba(53,92,123,0.28) 40%, rgba(0,0,0,0) 72%),
+        radial-gradient(circle at 88% 14%, rgba(129,39,124,0.52) 0, rgba(129,39,124,0.26) 42%, rgba(0,0,0,0) 72%),
+        radial-gradient(circle at 48% 86%, rgba(53,92,123,0.28) 0, rgba(129,39,124,0.22) 45%, rgba(0,0,0,0) 78%),
         linear-gradient(180deg, #0b1020 0%, #120b24 52%, #070914 100%);
     }
     a{color:inherit;text-decoration:none;}
     .muted{opacity:.82}
+    .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
 
     /* HEADER */
     header{
-      position:sticky;top:0;z-index:50;
+      position:sticky;top:0;z-index:60;
       backdrop-filter: blur(14px);
       background: linear-gradient(to right, rgba(12,18,28,0.88), rgba(26,18,43,0.72));
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
     }
     .header-inner{
-      max-width:1100px;margin:0 auto;
-      padding:0.75rem 1.2rem;
+      max-width:1150px;margin:0 auto;
+      padding:0.78rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
@@ -48,70 +51,90 @@
       box-shadow: 0 10px 18px rgba(0,0,0,0.28);
       line-height:0;
     }
-    .logo-img{height:110px;width:auto;display:block;object-fit:contain;}
+    .logo-img{height:120px;width:auto;display:block;object-fit:contain;}
+    .brand-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
     .brand-name{
-      font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-      font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:900;letter-spacing:.10em;text-transform:uppercase;
+      font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .brand-subtitle{font-size:.9rem;opacity:.82;line-height:1.35;max-width:56ch;}
+    .brand-sub{font-size:.92rem;opacity:.82;line-height:1.3;max-width:60ch;}
+
     .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
+
     .pill{
       border:1px solid rgba(255,255,255,0.55);
-      background:transparent;color:var(--bianco);
+      background:transparent;color:var(--white);
       padding:0.6rem 1.05rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
+      font-weight:800;cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       white-space:nowrap;
     }
     .menu-button{
-      border:none;background:var(--bianco);color:var(--secondario);
+      border:none;background:var(--white);color:var(--magenta);
       padding:0.6rem 1.2rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
+      font-weight:1000;cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
-      box-shadow:0 8px 18px rgba(0,0,0,0.35);
-      transition:transform .1s ease, box-shadow .1s ease;
+      box-shadow:0 10px 20px rgba(0,0,0,0.40);
+      transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
     }
-    .menu-button:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(0,0,0,0.45);}
+    .menu-button:hover{transform:translateY(-1px);box-shadow:0 14px 26px rgba(0,0,0,0.55);}
 
-    /* ✅ MENU (coerente) */
-    .menu-panel{
-      position:fixed; inset:0;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 55%),
-        rgba(0,0,0,0.78);
-      display:none; z-index:60;
-      padding:1.2rem;
+    /* top icons */
+    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.1rem;}
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 14px 24px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.10);
+      transition:transform .12s ease, filter .12s ease;
     }
-    .menu-panel.open{display:block;}
-    .menu-panel-inner{
-      max-width:520px;
+    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.08);}
+    .icon-btn svg{width:22px;height:22px;}
+    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.55), rgba(255,255,255,0.10));}
+    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.62), rgba(53,92,123,0.30));}
+    .icon-mail svg{color:#bfe1ff;}
+    .icon-ig svg{color:#ffd1ff;}
+
+    /* MENU overlay */
+    .menu-overlay{
+      position:fixed; inset:0; z-index:80;
+      display:none;
+      padding:1.2rem;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.42), rgba(0,0,0,0) 56%),
+        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.42), rgba(0,0,0,0) 56%),
+        rgba(0,0,0,0.78);
+    }
+    .menu-overlay.open{display:block;}
+    .menu-card{
+      max-width:560px;
       margin:4.2rem auto;
       padding:1.35rem 1.35rem 1.15rem;
+      border-radius:1.85rem;
       background:
         radial-gradient(circle at 30% 10%, rgba(129,39,124,0.22), rgba(0,0,0,0) 55%),
         radial-gradient(circle at 80% 40%, rgba(53,92,123,0.22), rgba(0,0,0,0) 60%),
         rgba(10,12,20,0.96);
-      border-radius:1.8rem;
-      box-shadow:0 26px 60px rgba(0,0,0,0.72);
       border:1px solid rgba(255,255,255,0.14);
+      box-shadow:0 26px 60px rgba(0,0,0,0.72);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
     }
     @keyframes pop{to{transform:translateY(0);}}
-    .menu-panel-header{
-      display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;
-    }
+    .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:900;opacity:.92;}
+    .menu-title h2{
+      font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1000;opacity:.92;
+    }
     .menu-title .sub{font-size:.92rem;opacity:.78;line-height:1.25;}
     .menu-close{
-      border:none;background:rgba(255,255,255,0.10);
-      color:var(--bianco);font-size:1.2rem;cursor:pointer;
-      width:44px;height:44px;border-radius:999px;
+      width:46px;height:46px;border-radius:999px;cursor:pointer;
       border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 10px 20px rgba(0,0,0,0.45);
+      background:rgba(255,255,255,0.10);
+      box-shadow:0 12px 22px rgba(0,0,0,0.45);
+      color:var(--white);font-size:1.2rem;
     }
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
@@ -125,100 +148,119 @@
     .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.09);border-color: rgba(255,255,255,0.18);}
     .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
     .menu-ico{
-      width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, rgba(129,39,124,0.40), rgba(53,92,123,0.25));
+      width:40px;height:40px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, rgba(129,39,124,0.42), rgba(53,92,123,0.28));
       border:1px solid rgba(255,255,255,0.16);
       box-shadow:0 14px 24px rgba(0,0,0,0.30);
       flex:0 0 auto;
     }
     .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
     .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-    .menu-text .t{font-weight:900;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .t{font-weight:1000;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-text .d{font-size:.92rem;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-pill{
       font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
       padding:.35rem .6rem;border-radius:999px;
       background:rgba(255,255,255,0.10);
       border:1px solid rgba(255,255,255,0.16);
-      opacity:.92;
-      flex:0 0 auto;
+      opacity:.92;flex:0 0 auto;
     }
 
     /* MAIN */
-    main{max-width:1100px;margin:0 auto;padding:1.6rem 1.2rem 3rem;}
-    section{margin-bottom:2.6rem;}
-    .section-title{font-size:1.05rem;text-transform:uppercase;letter-spacing:.2em;opacity:.9;margin-bottom:.7rem;}
-    .section-subtitle{font-size:2.25rem;line-height:1.05;margin-bottom:1rem;max-width:980px;}
+    main{max-width:1150px;margin:0 auto;padding:1.7rem 1.15rem 2.7rem;}
+    section{margin-bottom:3.2rem;}
+    .section-kicker{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.9;margin-bottom:.7rem;
+    }
+    .section-title{
+      font-size:2.35rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1000;
+    }
     .card{
       background:var(--glass);
-      border:1px solid rgba(255,255,255,0.2);
-      border-radius:1.6rem;
-      padding:1.5rem;
-      box-shadow:0 18px 38px rgba(0,0,0,0.5);
+      border:1px solid var(--stroke);
+      border-radius:1.75rem;
+      padding:1.55rem;
+      box-shadow:0 18px 38px rgba(0,0,0,0.52);
     }
-    .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
-    p{line-height:1.85;opacity:.97;font-size:1.05rem;margin-bottom:.9rem;}
-    ul{padding-left:1.1rem;line-height:1.75;opacity:.97;font-size:1.05rem;}
-    li{margin-bottom:.35rem;}
+    p{line-height:1.9;opacity:.97;font-size:1.08rem;margin-bottom:.95rem;}
 
+    /* VES blocks */
     .ves-head{
-      display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin-bottom:1rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+      margin-bottom:1rem;
     }
+    .ves-left{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;}
     .ves-logo{
-      height:64px;width:auto;display:block;object-fit:contain;
+      height:68px;width:auto;display:block;object-fit:contain;
       border-radius:12px;background:rgba(255,255,255,0.92);padding:6px;
       box-shadow:0 10px 18px rgba(0,0,0,0.28);
     }
-    .link-chip{
-      display:inline-flex;align-items:center;gap:.45rem;
-      padding:.55rem .85rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 12px 22px rgba(0,0,0,0.25);
-      font-weight:900;
-    }
-    .chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem;}
-
-    /* Aree di lavoro: griglia leggibile */
-    .areas{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-      margin-top:1rem;
-    }
-    .area{
-      border-radius:1.4rem;
-      border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.06);
-      box-shadow:0 16px 30px rgba(0,0,0,0.35);
-      padding:1.1rem;
-    }
-    .area h3{
-      font-size:1.1rem;
+    .btn{
+      border-radius:999px;
+      padding:0.78rem 1.25rem;
+      font-size:1rem;
       font-weight:1000;
-      margin-bottom:.4rem;
-      letter-spacing:.02em;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:var(--white);
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
     }
-    .area p{margin-bottom:0;}
+    .btn.primary{
+      border-color:transparent;
+      background:var(--white);
+      color:var(--magenta);
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn.link{border-color:rgba(255,255,255,0.28);background:rgba(0,0,0,0.10);}
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
+
+    .h2{
+      font-size:1.35rem;
+      font-weight:1100;
+      margin: .25rem 0 .85rem;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
+
+    /* bullet “aree di lavoro” */
+    .areas{
+      border-radius:1.35rem;
+      padding:1.15rem 1.1rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      box-shadow:0 16px 30px rgba(0,0,0,0.35);
+      margin: 1rem 0 1.1rem;
+    }
+    .areas h3{font-weight:1100;font-size:1.15rem;margin-bottom:.7rem;}
+    .area{
+      padding:.75rem 0;
+      border-top:1px solid rgba(255,255,255,0.10);
+    }
+    .area:first-of-type{border-top:none;padding-top:0;}
+    .area .t{font-weight:1100;font-size:1.06rem;margin-bottom:.2rem;}
+    .area .d{opacity:.95;line-height:1.8;font-size:1.05rem;}
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
-      padding:1.2rem;
+      padding:1.2rem 1.1rem;
       text-align:center;
       opacity:0.85;
       background:rgba(7,10,20,0.9);
     }
 
-    @media (max-width:980px){
-      .brand-subtitle{display:none;}
-      .areas{grid-template-columns:1fr;}
+    @media (max-width: 1020px){
+      .logo-img{height:98px;}
     }
-    @media (max-width:600px){
-      .header-inner{padding-inline:.8rem;}
-      main{padding-inline:.9rem;}
-      .logo-img{height:90px;}
-      .section-subtitle{font-size:1.75rem;}
-      .menu-panel-inner{margin:3.2rem auto;}
+    @media (max-width: 640px){
+      .brand-sub{display:none;}
+      .section-title{font-size:1.95rem;}
+      .menu-card{margin:3.2rem auto;}
     }
   </style>
 </head>
@@ -230,23 +272,40 @@
         <div class="logo-wrap">
           <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         </div>
-        <div>
+        <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-subtitle">VES – Certificazione e ricerca</div>
+          <div class="brand-sub">VES • Certificazione • Ricerca • Didattica della voce</div>
         </div>
       </div>
 
       <div class="header-actions">
+        <div class="top-icons" aria-label="Contatti rapidi">
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Vai ai contatti" title="Contatti">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8" />
+              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </a>
+          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram ExpresSING Studio" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.5 2.9h9A4.6 4.6 0 0 1 21.1 7.5v9A4.6 4.6 0 0 1 16.5 21.1h-9A4.6 4.6 0 0 1 2.9 16.5v-9A4.6 4.6 0 0 1 7.5 2.9Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
         <a class="pill" href="index.html">Home</a>
-        <button class="menu-button" id="menuButton" aria-label="Apri menu">☰ Menu</button>
+        <button class="menu-button" id="menuOpen" aria-label="Apri menu">☰ Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- MENU -->
-  <div class="menu-panel" id="menuPanel" aria-hidden="true">
-    <div class="menu-panel-inner">
-      <div class="menu-panel-header">
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-card">
+      <div class="menu-head">
         <div class="menu-title">
           <h2>Menu</h2>
           <div class="sub">Navigazione rapida</div>
@@ -255,14 +314,24 @@
       </div>
 
       <div class="menu-grid">
-        <a class="menu-item" href="index.html">
+        <a class="menu-item" href="index.html#chi-sono">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-7H10v7H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
+            <div class="menu-text"><div class="t">Ti parlo di me</div><div class="d">chi sono</div></div>
           </div>
-          <div class="menu-pill">start</div>
+          <div class="menu-pill">bio</div>
+        </a>
+
+        <a class="menu-item" href="percorsi.html#ves">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Percorsi VES</div><div class="d">torna ai percorsi</div></div>
+          </div>
+          <div class="menu-pill">ves</div>
         </a>
 
         <a class="menu-item" href="studio.html">
@@ -270,29 +339,19 @@
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8"/><path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">spazi e info</div></div>
+            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">pagina dedicata</div></div>
           </div>
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
+        <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
           </div>
-          <div class="menu-pill">tutti</div>
-        </a>
-
-        <a class="menu-item" href="case-study-aurora-blasi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Case study</div><div class="d">Aurora Blasi</div></div>
-          </div>
-          <div class="menu-pill">media</div>
+          <div class="menu-pill">cv</div>
         </a>
 
         <a class="menu-item" href="index.html#contatti">
@@ -310,27 +369,26 @@
 
   <main class="justify">
     <section>
-      <h2 class="section-title">VES</h2>
-      <div class="section-subtitle">Voice Evolution Institute</div>
+      <div class="section-kicker">Voice Evolution Institute</div>
+      <div class="section-title">VES • Certificazione e didattica della voce</div>
 
       <div class="card">
         <div class="ves-head">
-          <img class="ves-logo" src="Logo VES.jpg" alt="Logo VES" />
-          <div style="font-weight:1000;font-size:1.25rem;line-height:1.2;">Voice Evolution Institute</div>
+          <div class="ves-left">
+            <img class="ves-logo" src="Logo VES.jpg" alt="Logo VES" />
+            <div>
+              <div style="font-weight:1100;font-size:1.2rem;line-height:1.15;">Voice Evolution Institute</div>
+              <div class="muted">Approfondisci il percorso e i riferimenti</div>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top:0;">
+            <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
+          </div>
         </div>
 
-        <p class="muted">Sito ufficiale:</p>
-        <div class="chips">
-          <a class="link-chip" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Apri Voice Evolution Institute →</a>
-        </div>
-      </div>
-    </section>
+        <div class="h2">DIPLOMA IN CANTO MODERNO – VOICE EVOLUTION INSTITUTE</div>
 
-    <section>
-      <h2 class="section-title">Diploma</h2>
-      <div class="section-subtitle">DIPLOMA IN CANTO MODERNO – VOICE EVOLUTION INSTITUTE</div>
-
-      <div class="card">
         <p>
           Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute,
           un percorso che seguo e accompagno direttamente nel mio lavoro didattico.
@@ -345,62 +403,73 @@
           diverso da me, così da garantire una valutazione esterna, oggettiva e professionale.
         </p>
         <p>
-          Il lavoro si basa principalmente su lezioni individuali, che possono svolgersi in presenza, online o in modalità mista, permettendoti di organizzare lo studio in modo flessibile
-          e in linea con le tue esigenze. I programmi didattici ufficiali sono sempre consultabili tramite i link dedicati.
+          Il lavoro si basa principalmente su lezioni individuali, che possono svolgersi in presenza, online o in modalità mista,
+          permettendoti di organizzare lo studio in modo flessibile e in linea con le tue esigenze. I programmi didattici ufficiali sono sempre consultabili tramite i link dedicati.
         </p>
         <p>
-          Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento, dedicati a ear training, anatomia e fisiologia della voce, songwriting, armonie vocali
-          e preparazione alla performance. Questi momenti collettivi affiancano lo studio personale e offrono l’occasione di fare esperienza di gruppo e confronto con altri cantanti.
+          Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento, dedicati a ear training, anatomia e fisiologia della voce,
+          songwriting, armonie vocali e preparazione alla performance. Questi momenti collettivi affiancano lo studio personale e offrono l’occasione di fare esperienza di gruppo e confronto con altri cantanti.
         </p>
 
-        <p style="font-weight:1000;letter-spacing:.02em;margin-top:.8rem;">Le aree di lavoro del percorso</p>
-
         <div class="areas">
+          <h3>Le aree di lavoro del percorso</h3>
+
           <div class="area">
-            <h3>Tecnica vocale</h3>
-            <p>per sviluppare controllo, potenza e resistenza attraverso un allenamento costruito su misura.</p>
+            <div class="t">Tecnica vocale</div>
+            <div class="d">per sviluppare controllo, potenza e resistenza attraverso un allenamento costruito su misura.</div>
           </div>
+
           <div class="area">
-            <h3>Ear training</h3>
-            <p>per migliorare intonazione, ascolto e consapevolezza musicale.</p>
+            <div class="t">Ear training</div>
+            <div class="d">per migliorare intonazione, ascolto e consapevolezza musicale.</div>
           </div>
+
           <div class="area">
-            <h3>Stile</h3>
-            <p>per affrontare i principali linguaggi del canto moderno, valorizzando le caratteristiche di ogni genere.</p>
+            <div class="t">Stile</div>
+            <div class="d">per affrontare i principali linguaggi del canto moderno, valorizzando le caratteristiche di ogni genere.</div>
           </div>
+
           <div class="area">
-            <h3>Improvvisazione</h3>
-            <p>per stimolare creatività e libertà espressiva, rendendo la performance più personale.</p>
+            <div class="t">Improvvisazione</div>
+            <div class="d">per stimolare creatività e libertà espressiva, rendendo la performance più personale.</div>
           </div>
+
           <div class="area">
-            <h3>Interpretazione</h3>
-            <p>per comunicare in modo autentico ciò che desideri esprimere attraverso la voce.</p>
+            <div class="t">Interpretazione</div>
+            <div class="d">per comunicare in modo autentico ciò che desideri esprimere attraverso la voce.</div>
           </div>
+
           <div class="area">
-            <h3>Presenza scenica</h3>
-            <p>per salire sul palco con maggiore sicurezza e creare una connessione reale con il pubblico.</p>
+            <div class="t">Presenza scenica</div>
+            <div class="d">per salire sul palco con maggiore sicurezza e creare una connessione reale con il pubblico.</div>
           </div>
         </div>
 
-        <p style="margin-top:1rem;">
-          Completando tutti i livelli si ottiene il Diploma Professionale in Canto Moderno VES®, una certificazione privata rilasciata dal Voice Evolution Institute che attesta il livello
-          di competenza raggiunto. È un traguardo importante, ma anche una base solida da cui continuare a crescere come cantante e come artista.
+        <p>
+          Completando tutti i livelli si ottiene il Diploma Professionale in Canto Moderno VES®, una certificazione privata rilasciata dal Voice Evolution Institute
+          che attesta il livello di competenza raggiunto. È un traguardo importante, ma anche una base solida da cui continuare a crescere come cantante e come artista.
         </p>
         <p>
           Se senti il bisogno di dare una direzione più chiara al tuo percorso, di metterti alla prova e di lavorare sulla voce con metodo e continuità,
           questo diploma può essere uno strumento valido. Possiamo parlarne insieme, capire se è il percorso giusto per te e valutare come integrarlo al lavoro che stai già facendo sulla tua voce.
         </p>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">Richiedi info</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Formazione</h2>
-      <div class="section-subtitle">FORMAZIONE DOCENTI E DIDATTICA DELLA VOCE – VOICE EVOLUTION INSTITUTE</div>
+      <div class="section-kicker">Formazione</div>
+      <div class="section-title">Didattica della voce e formazione docenti</div>
 
       <div class="card">
+        <div class="h2">FORMAZIONE DOCENTI E DIDATTICA DELLA VOCE – VOICE EVOLUTION INSTITUTE</div>
+
         <p>
-          Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce
-          e alla preparazione degli insegnanti certificati.
+          Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce e alla preparazione degli insegnanti certificati.
         </p>
         <p>
           Se stai valutando un percorso di formazione per diventare insegnante di canto o di voce, è importante sapere che il Voice Evolution Institute è un sistema all’avanguardia,
@@ -420,31 +489,32 @@
           un momento utile per ricevere tutte le informazioni necessarie in modo chiaro e diretto.
         </p>
 
-        <div class="chips">
-          <a class="link-chip" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Vai al sito VES →</a>
-          <a class="link-chip" href="index.html#contatti">Scrivimi dal form →</a>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">Contattami</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Vai al sito VES →</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Elisa Costanzo</footer>
+  <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // MENU
-    const menuButton = document.getElementById("menuButton");
-    const menuPanel  = document.getElementById("menuPanel");
-    const menuClose  = document.getElementById("menuClose");
-    function openMenu(){ menuPanel.classList.add("open"); menuPanel.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuPanel.classList.remove("open"); menuPanel.setAttribute("aria-hidden","true"); }
-    menuButton.addEventListener("click", openMenu);
+    const menuOpen = document.getElementById("menuOpen");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const menuClose = document.getElementById("menuClose");
+    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+    menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
-    menuPanel.addEventListener("click", (e)=>{ if(e.target===menuPanel) closeMenu(); });
+    menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
     document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
   </script>
 </body>
 </html>
-
