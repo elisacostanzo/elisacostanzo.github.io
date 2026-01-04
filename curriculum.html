@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curriculum – Elisa Costanzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --primario:#355c7b;
+      --secondario:#81277c;
+      --bianco:#ffffff;
+      --glass: rgba(7,10,20,0.78);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color:var(--bianco);
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left, rgba(79,123,158,0.55) 0, rgba(53,92,123,0.35) 42%, rgba(0,0,0,0) 70%),
+        radial-gradient(circle at top right, rgba(129,39,124,0.50) 0, rgba(129,39,124,0.28) 38%, rgba(0,0,0,0) 70%),
+        radial-gradient(circle at 40% 85%, rgba(53,92,123,0.32) 0, rgba(129,39,124,0.24) 40%, rgba(0,0,0,0) 75%),
+        linear-gradient(180deg, #0b1020 0%, #120b24 52%, #070914 100%);
+    }
+
+    a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to right, rgba(12,18,28,0.88), rgba(26,18,43,0.72));
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-inner{
+      max-width:1100px;margin:0 auto;
+      padding:0.75rem 1.2rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
+
+    .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
+    .logo-img{height:110px;width:auto;display:block;object-fit:contain;}
+
+    .brand-name{
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:1.05rem;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+
+    .pill{
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:var(--bianco);
+      padding:0.6rem 1.1rem;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      white-space:nowrap;
+    }
+
+    main{
+      max-width:1100px;margin:0 auto;
+      padding:1.6rem 1.2rem 3rem;
+    }
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.85rem;
+      opacity:.9;
+      margin-bottom:.5rem;
+    }
+
+    h1{
+      font-size:2.2rem;
+      line-height:1.1;
+      margin-bottom:1rem;
+    }
+
+    .card{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:1.6rem;
+      padding:1.5rem;
+      box-shadow:0 18px 38px rgba(0,0,0,0.5);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1.2rem;
+      margin-top:1rem;
+    }
+
+    .section-title{
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      opacity:.9;
+      margin-bottom:.6rem;
+    }
+
+    ul{
+      padding-left:1.2rem;
+      line-height:1.7;
+      opacity:.97;
+      font-size:1.02rem;
+    }
+
+    li{margin-bottom:.35rem;}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.16);
+      padding:1.2rem;
+      font-size:0.95rem;
+      opacity:0.85;
+      text-align:center;
+      background:rgba(7,10,20,0.9);
+    }
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr;}
+      .logo-img{height:85px;}
+    }
+
+    @media (max-width: 600px){
+      h1{font-size:1.85rem;}
+      .header-inner{padding-inline:.8rem;}
+      main{padding-inline:.9rem;}
+      .logo-img{height:70px;}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        <div class="brand-name">Elisa Costanzo</div>
+      </div>
+      <!-- Home sempre presente -->
+      <a class="pill" href="index.html">Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="kicker">Curriculum</div>
+    <h1>Didattica & Performance – Songwriting</h1>
+
+    <div class="grid">
+      <div class="card">
+        <div class="section-title">Didattica</div>
+        <ul>
+          <li>Ottobre 2025 – Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale.</li>
+          <li>Maggio 2025 – Certified VES® Trainer – Voice Evolution Institute.</li>
+          <li>Settembre 2024 – Relatrice del workshop “Vocal tract stimulation exercises for resonance developement” alla Pan European Voice Conference 2024 (Santander, ES).</li>
+          <li>2022–2025 – Insegnante di canto e laboratori corali e vocali in collaborazione con la ASL presso il Centro Ottava, Roma.</li>
+          <li>2019–2024 – Selezionatrice e Vocal Coach per tecnica vocale, interpretazione, presenza scenica e laboratori corali del Tour Music Fest®.</li>
+          <li>2017 – Docente formato Voice to Teach®.</li>
+          <li>2013–2025 – Insegnante di canto presso la scuola di musica Armonie Musicali, Roma.</li>
+          <li>2012–2025 – Insegnante di canto presso l’Accademia Musicale “Risonanze”, Roma.</li>
+          <li>2022 – Diploma di II livello in Didattica della Musica presso il Conservatorio di Santa Cecilia, Roma, 110/110 e Lode.</li>
+          <li>2016 – Seminario “La Vocalità Estrema (Growl, Fischio)” a cura di F. Fussi, E. Biaviati, E. Bruni, Ravenna.</li>
+          <li>2013 – Masterclass a cura di Francesca Taverni: “Rent, la voce nell’opera rock”.</li>
+          <li>2012 – Masterclass a cura di Dean Bowman sulla musica afroamericana.</li>
+          <li>2012 – Corso di Song Writing a cura di Peter Cunnah presso The Institute di Londra.</li>
+          <li>2012 – Certificazione internazionale Rockschool UK, Grade 8, Vocals.</li>
+          <li>2012 – Masterclass a cura di Catherine Sadolin (Complete Vocal Technique).</li>
+          <li>2011 – Corso Internazionale “La Voce Artistica” diretto da Franco Fussi, Ravenna.</li>
+          <li>2010 – Corsi Voicecraft Base, Avanzato e Specialistico a cura di Elisa Turlà.</li>
+          <li>2011 – Master in Didattica del Canto Moderno presso Sonus Factory, Roma.</li>
+          <li>2010 – Laurea di I livello in Jazz – Canto, Conservatorio “G.B. Martini”, Bologna.</li>
+          <li>2010 – Laurea di I livello in DAMS – Didattica della Musica, Alma Mater Studiorum, Bologna.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Performance – Songwriting</div>
+        <ul>
+          <li>2018–2019 – Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino.</li>
+          <li>2019 – Pubblicazione del singolo <em>Onda dopo onda</em> (Noise Symphony Music).</li>
+          <li>2018 – Pubblicazione del singolo <em>Cosa Rimane</em> (Noise Symphony Music).</li>
+          <li>2018 – Menzione speciale per il testo del brano <em>Sulle dune più alte del mondo</em> al Concorso per autori di Mogol.</li>
+          <li>2017 – Vincitrice del Trofeo Rea, assegnato dalla giuria tecnica del Circuito Nazionale delle 100 Radio con il brano <em>Impermeabile</em>.</li>
+          <li>2015 – Ambasciatrice della musica italiana nella Giornata Internazionale delle Lingue presso l’Istituto Italiano di Cultura a Lisbona.</li>
+          <li>2015 – EP autoprodotto con brani originali, <em>La Prospettiva delle cose</em>.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
