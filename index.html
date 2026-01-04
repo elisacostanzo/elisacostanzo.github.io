@@ -50,7 +50,6 @@
       min-width:0;
     }
 
-    /* LOGO: nome file esatto */
     .logo-img{
       height:120px;
       width:auto;
@@ -94,13 +93,6 @@
       align-items:center;
       gap:.45rem;
       white-space:nowrap;
-    }
-
-    .pill.primary{
-      border-color:transparent;
-      background:var(--bianco);
-      color:var(--secondario);
-      box-shadow:0 10px 20px rgba(0,0,0,0.35);
     }
 
     .menu-button{
@@ -172,7 +164,7 @@
     /* LAYOUT */
     main{
       max-width:1100px;margin:0 auto;
-      padding:1.6rem 1.2rem 4rem;
+      padding:1.6rem 1.2rem 2.6rem;
     }
 
     section{margin-bottom:3rem;}
@@ -236,7 +228,7 @@
       align-items:center;margin-top:1rem;
     }
 
-    /* FOTO PROFILO: nome file esatto */
+    /* FOTO PROFILO */
     .hero-image{
       width:100%;
       max-width:540px;
@@ -297,11 +289,6 @@
       font-size:1.02rem;
       line-height:1.7;
       opacity:.95;
-      margin-bottom:.9rem;
-    }
-
-    .path-actions{
-      display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;
     }
 
     .btn{
@@ -363,31 +350,122 @@
       font-size:1.02rem;line-height:1.7;opacity:.95;
     }
 
-    /* CONTATTI */
-    .contact-grid{
-      display:grid;
-      grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr);
-      gap:1.4rem;
-      align-items:start;
-      margin-top:1rem;
+    /* CONTATTI: SOLO ICONE */
+    .contact-icons{
+      display:flex;
+      gap:.8rem;
+      align-items:center;
+      margin-top:.9rem;
+    }
+    .icon-btn{
+      width:48px;height:48px;
+      border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 14px 24px rgba(0,0,0,0.35);
+      transition:transform .12s ease, background .12s ease;
+    }
+    .icon-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);}
+    .icon-btn svg{width:22px;height:22px;opacity:.95;}
+
+    /* INSTAGRAM SCROLLER BANNER */
+    .ig-banner{
+      margin: 0 auto;
+      max-width: 1100px;
+      padding: 0 1.2rem 2.2rem;
     }
 
-    .contact-form{
-      display:grid;gap:.75rem;margin-top:1rem;
+    .ig-shell{
+      border-radius:1.6rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background:
+        radial-gradient(circle at 15% 30%, rgba(53,92,123,0.28), rgba(0,0,0,0) 60%),
+        radial-gradient(circle at 85% 40%, rgba(129,39,124,0.32), rgba(0,0,0,0) 60%),
+        rgba(7,10,20,0.70);
+      box-shadow:0 18px 34px rgba(0,0,0,0.55);
+      overflow:hidden;
+      padding:1rem;
     }
-    .field{display:grid;gap:.25rem;font-size:1rem;}
-    .field label{opacity:.9;}
-    .field input,.field textarea{
-      border-radius:.95rem;
-      border:1px solid rgba(255,255,255,0.35);
-      background:rgba(4,7,15,0.92);
-      color:var(--bianco);
-      padding:.7rem .9rem;
-      font:inherit;
-      resize:vertical;
-      min-height:44px;
+
+    .ig-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:.8rem;
     }
-    .field small{opacity:.78;font-size:.92rem;line-height:1.35;}
+    .ig-title{
+      display:flex;
+      flex-direction:column;
+      gap:.2rem;
+    }
+    .ig-title .k{
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      opacity:.9;
+    }
+    .ig-title .t{
+      font-size:1.5rem;
+      font-weight:800;
+      line-height:1.1;
+    }
+
+    .ig-strip{
+      position:relative;
+      overflow:hidden;
+      border-radius:1.2rem;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(0,0,0,0.18);
+    }
+
+    .ig-track{
+      display:flex;
+      gap:.9rem;
+      padding:1rem;
+      width:max-content;
+      animation: igscroll 35s linear infinite;
+    }
+
+    .ig-strip:hover .ig-track{ animation-play-state: paused; }
+
+    @keyframes igscroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    /* card post (placeholder / iframe wrapper) */
+    .ig-post{
+      width:260px;
+      height:320px;
+      border-radius:1.2rem;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 16px 28px rgba(0,0,0,0.45);
+      background:
+        radial-gradient(circle at 30% 15%, rgba(129,39,124,0.25), rgba(0,0,0,0) 60%),
+        radial-gradient(circle at 70% 80%, rgba(53,92,123,0.25), rgba(0,0,0,0) 60%),
+        rgba(7,10,20,0.62);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    .ig-post .ig-fake{
+      padding:1rem;
+      font-size:1.02rem;
+      line-height:1.55;
+      opacity:.95;
+    }
+
+    .ig-post iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+      background:#000;
+    }
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
@@ -411,8 +489,8 @@
       .hero-image{order:-1;max-width:600px;}
       .paths-grid{grid-template-columns:1fr;}
       .preview-row{grid-template-columns:1fr;}
-      .contact-grid{grid-template-columns:1fr;}
       .logo-img{height:90px;}
+      .ig-post{ width:240px; height:300px; }
     }
 
     @media (max-width: 600px){
@@ -420,6 +498,7 @@
       .section-subtitle{font-size:1.65rem;}
       .header-inner{padding-inline:.8rem;}
       main{padding-inline:.9rem;}
+      .ig-banner{padding-inline:.9rem;}
       .logo-img{height:70px;}
       .brand-subtitle{display:none;}
     }
@@ -463,6 +542,7 @@
         <li><a href="#spazio">Lo spazio <span>sperimentare</span></a></li>
         <li><a href="#ves">VES <span>certificazione e ricerca</span></a></li>
         <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
+        <li><a href="#instagram">Instagram <span>ultimi post</span></a></li>
       </ul>
     </div>
   </div>
@@ -496,7 +576,6 @@
         </div>
 
         <div class="hero-actions">
-          <!-- FIX: ora è un link vero (a), non un button -->
           <a class="btn primary"
              href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
             Prenota una call gratuita
@@ -511,7 +590,7 @@
       </div>
     </section>
 
-    <!-- PERCORSI -->
+    <!-- PERCORSI (senza bottoni nei riquadri) -->
     <section id="percorsi-preview">
       <h2 class="section-title">Percorsi</h2>
       <div class="section-subtitle">Scegli il tuo spazio di lavoro, e iniziamo da dove sei</div>
@@ -523,13 +602,6 @@
           <div class="path-text">
             Tecnica, espressività, postura e presenza scenica: un percorso costruito su misura, in presenza o online.
           </div>
-          <div class="path-actions">
-            <a class="btn primary" href="percorsi.html">Apri Percorso</a>
-            <a class="btn link"
-               href="mailto:elisacostanzo1@gmail.com?subject=Call%20-%20One%20to%20one%20cantanti&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20One%20to%20one%20(cantanti%2Fcantautori).%0D%0A%0D%0AGrazie!">
-              Prenota call
-            </a>
-          </div>
         </article>
 
         <article class="path-card">
@@ -537,13 +609,6 @@
           <div class="path-title">Comunicazione professionale</div>
           <div class="path-text">
             Respiro, ritmo, articolazione e sostenibilità: una voce efficace, stabile e naturale per il tuo lavoro.
-          </div>
-          <div class="path-actions">
-            <a class="btn primary" href="percorsi.html">Apri Percorso</a>
-            <a class="btn link"
-               href="mailto:elisacostanzo1@gmail.com?subject=Call%20-%20Voce%20parlata&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20il%20percorso%20Voce%20parlata.%0D%0A%0D%0AGrazie!">
-              Prenota call
-            </a>
           </div>
         </article>
 
@@ -553,13 +618,6 @@
           <div class="path-text">
             Lavoro su brani, identità, performance e studio: un ponte concreto verso la realizzazione discografica.
           </div>
-          <div class="path-actions">
-            <a class="btn primary" href="percorsi.html">Apri Percorso</a>
-            <a class="btn link"
-               href="mailto:elisacostanzo1@gmail.com?subject=Call%20-%20Progetto%20artistico&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20il%20percorso%20artistico%20e%20discografico.%0D%0A%0D%0AGrazie!">
-              Prenota call
-            </a>
-          </div>
         </article>
       </div>
 
@@ -568,7 +626,7 @@
       </div>
     </section>
 
-    <!-- LO SPAZIO (QUI DENTRO: VISITA LO STUDIO) -->
+    <!-- LO SPAZIO (qui dentro: visita lo studio) -->
     <section id="spazio">
       <h2 class="section-title">Lo spazio in cui puoi sperimentare</h2>
       <div class="card space-wrap">
@@ -594,7 +652,7 @@
       </div>
     </section>
 
-    <!-- VES -->
+    <!-- VES (Percorsi VES = primo pulsante -> solo sezione VES su percorsi.html) -->
     <section id="ves">
       <h2 class="section-title">VES certificazione e ricerca</h2>
       <div class="card ves-card">
@@ -609,12 +667,13 @@
           In collaborazione con il Voice Evolution Institute ho presentato il workshop
           <em>“Vocal tract stimulation exercises for resonance developement”</em> alla Pan European Voice Conference 2024 di Santander.
         </p>
+
         <div class="hero-actions">
-          <a class="btn primary"
+          <a class="btn primary" href="percorsi.html#ves">Percorsi VES →</a>
+          <a class="btn link"
              href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20info%20VES&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20maggiori%20informazioni%20su%20VES%20e%20percorsi%20collegati.%0D%0A%0D%0AGrazie!">
             Richiedi info
           </a>
-          <a class="btn link" href="percorsi.html">Percorsi VES →</a>
         </div>
       </div>
     </section>
@@ -628,6 +687,7 @@
         <div class="card">
           <p><strong>Didattica</strong> — Direttrice e Docente di ExpresSING Studio. Certified VES® Trainer. Relatrice alla Pan European Voice Conference 2024. Docenza, laboratori e coaching.</p>
           <p><strong>Performance & songwriting</strong> — Aperture concerti, pubblicazioni discografiche, premi e progetti originali.</p>
+
           <div class="hero-actions">
             <a class="btn primary" href="curriculum.html">Apri Curriculum completo</a>
             <a class="btn link"
@@ -644,7 +704,7 @@
           </div>
           <div class="hero-actions" style="margin-top:1rem;">
             <a class="btn primary"
-               href="mailto:elisacostanzo1@gmail.com?subject=Contattami%20-%20Curriculum&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20contattarti%20per%20richiedere%20materiale%20o%20informazioni.%0D%0A%0D%0AGrazie!">
+               href="mailto:elisacostanzo1@gmail.com?subject=Contatto%20-%20Materiale%20e%20info&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20contattarti%20per%20richiedere%20materiale%20o%20informazioni.%0D%0A%0D%0AGrazie!">
               Contattami
             </a>
           </div>
@@ -652,7 +712,7 @@
       </div>
     </section>
 
-    <!-- CONTATTI -->
+    <!-- CONTATTI (solo icone: bustina + IG) -->
     <section id="contatti">
       <h2 class="section-title">Contatti</h2>
       <div class="card">
@@ -669,48 +729,64 @@
           </a>
         </div>
 
-        <div class="contact-grid">
-          <div>
-            <form class="contact-form" onsubmit="return false;">
-              <div class="field">
-                <label for="nome">Nome</label>
-                <input id="nome" type="text" placeholder="Il tuo nome" />
-              </div>
+        <div class="contact-icons" aria-label="Icone contatti">
+          <!-- Email (bustina) -->
+          <a class="icon-btn" aria-label="Email" title="Email"
+             href="mailto:elisacostanzo1@gmail.com?subject=Contatto&body=Ciao%20Elisa%2C%0D%0A%0D%0A...">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8" />
+              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7"
+                stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </a>
 
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="nome@esempio.it" />
-              </div>
-
-              <div class="field">
-                <label for="messaggio">Messaggio</label>
-                <textarea id="messaggio" rows="4" placeholder="Scrivi qui il tuo messaggio"></textarea>
-                <small>
-                  Questo form è estetico. Per inviare davvero, usa i pulsanti “Prenota una call” o “Richiedi info”.
-                </small>
-              </div>
-            </form>
-          </div>
-
-          <div>
-            <div class="preview-box">
-              <div class="mini">
-                <strong>Hai una domanda veloce?</strong><br /><br />
-                Clicca “Richiedi info” e scrivimi in due righe cosa ti serve: ti rispondo con una proposta chiara e su misura.
-              </div>
-              <div class="hero-actions" style="margin-top:1rem;">
-                <a class="btn primary"
-                   href="mailto:elisacostanzo1@gmail.com?subject=Domanda%20veloce&body=Ciao%20Elisa%2C%0D%0A%0D%0AHo%20una%20domanda%20veloce%3A%20%0D%0A%0D%0AGrazie!">
-                  Contattami
-                </a>
-              </div>
-            </div>
-          </div>
+          <!-- Instagram -->
+          <a class="icon-btn" aria-label="Instagram" title="Instagram"
+             href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.5 2.9h9A4.6 4.6 0 0 1 21.1 7.5v9A4.6 4.6 0 0 1 16.5 21.1h-9A4.6 4.6 0 0 1 2.9 16.5v-9A4.6 4.6 0 0 1 7.5 2.9Z"
+                stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z"
+                stroke="currentColor" stroke-width="1.8"/>
+              <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+            </svg>
+          </a>
         </div>
-
       </div>
     </section>
   </main>
+
+  <!-- INSTAGRAM BANNER (scorrevole) -->
+  <section id="instagram" class="ig-banner" aria-label="Instagram banner">
+    <div class="ig-shell">
+      <div class="ig-head">
+        <div class="ig-title">
+          <div class="k">Instagram</div>
+          <div class="t">ExpresSING Studio</div>
+        </div>
+
+        <a class="btn link" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">
+          Vai al profilo →
+        </a>
+      </div>
+
+      <div class="ig-strip" role="region" aria-label="Post in scorrimento">
+        <!--
+          ✅ COME FUNZIONA:
+          - Per mostrare *davvero* i post, serve l'URL di ogni singolo post (es: https://www.instagram.com/p/XXXXX/).
+          - Qui sotto c’è JS che genera gli iframe embed.
+          - Appena mi dai 6-10 link di post, te li inserisco io al volo.
+        -->
+        <div class="ig-track" id="igTrack">
+          <!-- fallback visuale se non ci sono post -->
+          <div class="ig-post"><div class="ig-fake">Aggiungi qui i link dei post per vedere il feed scorrere.</div></div>
+          <div class="ig-post"><div class="ig-fake">Puoi usare 6–12 post: lo scorrimento sarà continuo.</div></div>
+          <div class="ig-post"><div class="ig-fake">Intanto questo banner rimanda al profilo Instagram.</div></div>
+          <div class="ig-post"><div class="ig-fake">Clicca “Vai al profilo” oppure l’icona IG nei contatti.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
@@ -725,6 +801,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // MENU
     const menuButton = document.getElementById("menuButton");
     const menuPanel  = document.getElementById("menuPanel");
     const menuClose  = document.getElementById("menuClose");
@@ -748,7 +825,46 @@
     document.querySelectorAll(".menu-list a").forEach((a) => {
       a.addEventListener("click", () => closeMenu());
     });
+
+    /*
+      INSTAGRAM SCROLLER
+      - Instagram non offre un "feed embed" libero del profilo senza API/token.
+      - Soluzione pulita: inserire qui gli URL dei singoli post (reel/post) e vengono embeddati.
+      - Quando ci sono abbastanza post, duplichiamo la lista per scorrimento infinito.
+    */
+
+    const igPostUrls = [
+      // INCOLLA QUI I LINK DEI POST, ESEMPIO:
+      // "https://www.instagram.com/p/XXXXXXXXX/",
+      // "https://www.instagram.com/reel/YYYYYYYYY/",
+    ];
+
+    function toEmbedUrl(url){
+      // Per post/reel: aggiungiamo /embed/ alla fine (Instagram supporta iframe embed su singoli contenuti)
+      let u = url.trim();
+      if(!u) return null;
+      if(!u.endsWith("/")) u += "/";
+      return u + "embed/";
+    }
+
+    const track = document.getElementById("igTrack");
+
+    if(igPostUrls.length > 0){
+      track.innerHTML = "";
+
+      const cards = igPostUrls.map((u) => {
+        const embed = toEmbedUrl(u);
+        const wrap = document.createElement("div");
+        wrap.className = "ig-post";
+        wrap.innerHTML = `<iframe loading="lazy" title="Instagram post" src="${embed}"></iframe>`;
+        return wrap;
+      });
+
+      // duplica per scorrimento continuo (50% della track nel keyframe)
+      const all = cards.concat(cards.map(c => c.cloneNode(true)));
+
+      all.forEach(el => track.appendChild(el));
+    }
   </script>
 </body>
 </html>
-
