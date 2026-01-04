@@ -50,11 +50,24 @@
       min-width:0;
     }
 
+    /* ✅ LOGO PIÙ VISIBILE (sfondo bianco + contorno) */
+    .logo-wrap{
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 18px;
+      padding: 10px 14px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
     .logo-img{
-      height:120px;
+      height:115px;
       width:auto;
       display:block;
       object-fit:contain;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
     }
 
     .brand-text{
@@ -192,6 +205,12 @@
       box-shadow:0 18px 38px rgba(0,0,0,0.5);
     }
 
+    /* ✅ TESTI GIUSTIFICATI */
+    .justify p, .justify li, .justify .mini{
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
     /* HERO */
     .hero{
       display:grid;
@@ -226,6 +245,33 @@
     .hero-actions{
       display:flex;gap:.7rem;flex-wrap:wrap;
       align-items:center;margin-top:1rem;
+    }
+
+    .btn{
+      border-radius:999px;
+      padding:0.72rem 1.25rem;
+      font-size:1rem;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:var(--bianco);
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+    }
+
+    .btn.primary{
+      border-color:transparent;
+      background:var(--bianco);
+      color:var(--secondario);
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .btn.link{
+      border-color:rgba(255,255,255,0.28);
+      background:rgba(0,0,0,0.12);
     }
 
     /* FOTO PROFILO */
@@ -289,33 +335,6 @@
       font-size:1.02rem;
       line-height:1.7;
       opacity:.95;
-    }
-
-    .btn{
-      border-radius:999px;
-      padding:0.72rem 1.25rem;
-      font-size:1rem;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:var(--bianco);
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-    }
-
-    .btn.primary{
-      border-color:transparent;
-      background:var(--bianco);
-      color:var(--secondario);
-      box-shadow:0 10px 20px rgba(0,0,0,0.35);
-    }
-
-    .btn.link{
-      border-color:rgba(255,255,255,0.28);
-      background:rgba(0,0,0,0.12);
     }
 
     /* LO SPAZIO */
@@ -425,7 +444,7 @@
       gap:.9rem;
       padding:1rem;
       width:max-content;
-      animation: igscroll 35s linear infinite;
+      animation: igscroll 38s linear infinite;
     }
 
     .ig-strip:hover .ig-track{ animation-play-state: paused; }
@@ -435,7 +454,6 @@
       to{ transform: translateX(-50%); }
     }
 
-    /* card post (placeholder / iframe wrapper) */
     .ig-post{
       width:260px;
       height:320px;
@@ -450,13 +468,6 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-    }
-
-    .ig-post .ig-fake{
-      padding:1rem;
-      font-size:1.02rem;
-      line-height:1.55;
-      opacity:.95;
     }
 
     .ig-post iframe{
@@ -483,13 +494,12 @@
     }
     .footer-links a{text-decoration:underline;text-underline-offset:3px;opacity:.92;}
 
-    /* RESPONSIVE */
     @media (max-width: 980px){
       .hero{grid-template-columns:1fr;gap:1.4rem;}
       .hero-image{order:-1;max-width:600px;}
       .paths-grid{grid-template-columns:1fr;}
       .preview-row{grid-template-columns:1fr;}
-      .logo-img{height:90px;}
+      .logo-img{height:85px;}
       .ig-post{ width:240px; height:300px; }
     }
 
@@ -506,11 +516,13 @@
 </head>
 
 <body>
-  <!-- HEADER -->
   <header>
     <div class="header-inner">
       <div class="brand">
-        <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        <div class="logo-wrap">
+          <!-- ✅ nome file corretto -->
+          <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        </div>
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-subtitle">Spazio di voce, espressione e presenza</div>
@@ -518,14 +530,12 @@
       </div>
 
       <div class="header-actions">
-        <!-- HOME sempre visibile -->
         <a class="pill" href="index.html">Home</a>
         <button class="menu-button" id="menuButton" aria-label="Apri menu">☰ Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- MENU -->
   <div class="menu-panel" id="menuPanel" aria-hidden="true">
     <div class="menu-panel-inner">
       <div class="menu-panel-header">
@@ -539,7 +549,10 @@
         <li><a href="studio.html">Studio <span>ExpresSING – Roma</span></a></li>
         <li><a href="percorsi.html">Percorsi <span>tutti i percorsi</span></a></li>
         <li><a href="curriculum.html">Curriculum <span>pagina dedicata</span></a></li>
-        <li><a href="#spazio">Lo spazio <span>sperimentare</span></a></li>
+
+        <!-- ✅ rinominato: ExpresSING Studio (non “spazio”) -->
+        <li><a href="#spazio">ExpresSING Studio <span>lo spazio in cui sperimentare</span></a></li>
+
         <li><a href="#ves">VES <span>certificazione e ricerca</span></a></li>
         <li><a href="#contatti">Contatti <span>scrivimi</span></a></li>
         <li><a href="#instagram">Instagram <span>ultimi post</span></a></li>
@@ -549,7 +562,7 @@
 
   <main>
     <!-- HERO -->
-    <section id="home" class="hero">
+    <section id="home" class="hero justify">
       <div>
         <div class="hero-kicker">TI PARLO DI ME</div>
         <h1 class="hero-title">Chi sono</h1>
@@ -569,19 +582,15 @@
             La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop –
             insieme al Voice Evolution Institute, di cui sono Certified Trainer – dedicato alla risonanza e alla stimolazione del tratto vocale.
           </p>
-          <p>
-            Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale e creativo.
-            Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.
-          </p>
         </div>
 
+        <!-- ✅ in ogni sezione: secondo pulsante = Menu -->
         <div class="hero-actions">
           <a class="btn primary"
              href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
             Prenota una call gratuita
           </a>
-
-          <a class="btn link" href="percorsi.html">Scopri i percorsi →</a>
+          <button class="btn link open-menu" type="button">Menu</button>
         </div>
       </div>
 
@@ -590,8 +599,8 @@
       </div>
     </section>
 
-    <!-- PERCORSI (senza bottoni nei riquadri) -->
-    <section id="percorsi-preview">
+    <!-- PERCORSI -->
+    <section id="percorsi-preview" class="justify">
       <h2 class="section-title">Percorsi</h2>
       <div class="section-subtitle">Scegli il tuo spazio di lavoro, e iniziamo da dove sei</div>
 
@@ -621,15 +630,17 @@
         </article>
       </div>
 
-      <div style="margin-top:1rem; display:flex; gap:.7rem; flex-wrap:wrap;">
+      <!-- ✅ unico bottone (come richiesto) + Menu come secondo -->
+      <div class="hero-actions" style="margin-top:1rem;">
         <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
+        <button class="btn link open-menu" type="button">Menu</button>
       </div>
     </section>
 
-    <!-- LO SPAZIO (qui dentro: visita lo studio) -->
-    <section id="spazio">
+    <!-- LO SPAZIO -->
+    <section id="spazio" class="justify">
       <h2 class="section-title">Lo spazio in cui puoi sperimentare</h2>
-      <div class="card space-wrap">
+      <div class="card space-wrap justify">
         <p>
           Ti accompagno a riconnetterti alla tua voce – quella che usi per parlare, cantare, raccontarti – come porta di accesso
           alle tue emozioni, al corpo e alla tua presenza nel mondo. Con percorsi individuali e di gruppo, puoi esplorare la tua
@@ -645,17 +656,18 @@
           <li>• Per chi vuole portare più autenticità nelle relazioni, nel lavoro, nella vita creativa.</li>
         </ul>
 
+        <!-- ✅ secondo pulsante = Menu -->
         <div class="hero-actions" style="margin-top:1rem;">
           <a class="btn primary" href="studio.html">Visita lo studio →</a>
-          <a class="btn link" href="percorsi.html">Vai ai percorsi →</a>
+          <button class="btn link open-menu" type="button">Menu</button>
         </div>
       </div>
     </section>
 
-    <!-- VES (Percorsi VES = primo pulsante -> solo sezione VES su percorsi.html) -->
-    <section id="ves">
+    <!-- VES -->
+    <section id="ves" class="justify">
       <h2 class="section-title">VES certificazione e ricerca</h2>
-      <div class="card ves-card">
+      <div class="card ves-card justify">
         <p>
           Dal 2025 sono <strong>Certified VES® Trainer</strong> presso il
           <a href="https://www.voiceevolutioninstitute.it/teaching" target="_blank" rel="noopener noreferrer">
@@ -668,37 +680,33 @@
           <em>“Vocal tract stimulation exercises for resonance developement”</em> alla Pan European Voice Conference 2024 di Santander.
         </p>
 
+        <!-- ✅ primo: Percorsi VES -> solo sezione VES, secondo: Menu -->
         <div class="hero-actions">
           <a class="btn primary" href="percorsi.html#ves">Percorsi VES →</a>
-          <a class="btn link"
-             href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20info%20VES&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20maggiori%20informazioni%20su%20VES%20e%20percorsi%20collegati.%0D%0A%0D%0AGrazie!">
-            Richiedi info
-          </a>
+          <button class="btn link open-menu" type="button">Menu</button>
         </div>
       </div>
     </section>
 
     <!-- CURRICULUM PREVIEW -->
-    <section id="curriculum-preview">
+    <section id="curriculum-preview" class="justify">
       <h2 class="section-title">Curriculum</h2>
       <div class="section-subtitle">Una breve anteprima</div>
 
       <div class="preview-row">
-        <div class="card">
+        <div class="card justify">
           <p><strong>Didattica</strong> — Direttrice e Docente di ExpresSING Studio. Certified VES® Trainer. Relatrice alla Pan European Voice Conference 2024. Docenza, laboratori e coaching.</p>
           <p><strong>Performance & songwriting</strong> — Aperture concerti, pubblicazioni discografiche, premi e progetti originali.</p>
 
+          <!-- ✅ secondo pulsante = Menu -->
           <div class="hero-actions">
             <a class="btn primary" href="curriculum.html">Apri Curriculum completo</a>
-            <a class="btn link"
-               href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20info%20Curriculum&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20sul%20tuo%20curriculum.%0D%0A%0D%0AGrazie!">
-              Richiedi info
-            </a>
+            <button class="btn link open-menu" type="button">Menu</button>
           </div>
         </div>
 
         <div class="preview-box">
-          <div class="mini">
+          <div class="mini justify">
             <strong>Profilo didattico o artistico?</strong><br /><br />
             Se mi scrivi cosa ti serve, ti invio i riferimenti e i materiali utili in base al contesto.
           </div>
@@ -707,30 +715,29 @@
                href="mailto:elisacostanzo1@gmail.com?subject=Contatto%20-%20Materiale%20e%20info&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20contattarti%20per%20richiedere%20materiale%20o%20informazioni.%0D%0A%0D%0AGrazie!">
               Contattami
             </a>
+            <button class="btn link open-menu" type="button">Menu</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTATTI (solo icone: bustina + IG) -->
-    <section id="contatti">
+    <!-- CONTATTI -->
+    <section id="contatti" class="justify">
       <h2 class="section-title">Contatti</h2>
-      <div class="card">
-        <div class="section-subtitle" style="font-size:1.7rem;">Scrivimi e partiamo da una call conoscitiva gratuita</div>
+      <div class="card justify">
+        <div class="section-subtitle" style="font-size:1.7rem;">Contattami</div>
 
+        <!-- ✅ secondo pulsante = Menu -->
         <div class="hero-actions">
           <a class="btn primary"
-             href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AObiettivo%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">
-            Prenota una call
-          </a>
-          <a class="btn link"
              href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20informazioni&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20chiederti%20informazioni%20su...%0D%0A%0D%0AGrazie!">
             Richiedi info
           </a>
+          <button class="btn link open-menu" type="button">Menu</button>
         </div>
 
+        <!-- Solo icone (email + IG) -->
         <div class="contact-icons" aria-label="Icone contatti">
-          <!-- Email (bustina) -->
           <a class="icon-btn" aria-label="Email" title="Email"
              href="mailto:elisacostanzo1@gmail.com?subject=Contatto&body=Ciao%20Elisa%2C%0D%0A%0D%0A...">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -740,7 +747,6 @@
             </svg>
           </a>
 
-          <!-- Instagram -->
           <a class="icon-btn" aria-label="Instagram" title="Instagram"
              href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -756,7 +762,7 @@
     </section>
   </main>
 
-  <!-- INSTAGRAM BANNER (scorrevole) -->
+  <!-- INSTAGRAM BANNER -->
   <section id="instagram" class="ig-banner" aria-label="Instagram banner">
     <div class="ig-shell">
       <div class="ig-head">
@@ -771,19 +777,7 @@
       </div>
 
       <div class="ig-strip" role="region" aria-label="Post in scorrimento">
-        <!--
-          ✅ COME FUNZIONA:
-          - Per mostrare *davvero* i post, serve l'URL di ogni singolo post (es: https://www.instagram.com/p/XXXXX/).
-          - Qui sotto c’è JS che genera gli iframe embed.
-          - Appena mi dai 6-10 link di post, te li inserisco io al volo.
-        -->
-        <div class="ig-track" id="igTrack">
-          <!-- fallback visuale se non ci sono post -->
-          <div class="ig-post"><div class="ig-fake">Aggiungi qui i link dei post per vedere il feed scorrere.</div></div>
-          <div class="ig-post"><div class="ig-fake">Puoi usare 6–12 post: lo scorrimento sarà continuo.</div></div>
-          <div class="ig-post"><div class="ig-fake">Intanto questo banner rimanda al profilo Instagram.</div></div>
-          <div class="ig-post"><div class="ig-fake">Clicca “Vai al profilo” oppure l’icona IG nei contatti.</div></div>
-        </div>
+        <div class="ig-track" id="igTrack"></div>
       </div>
     </div>
   </section>
@@ -826,32 +820,40 @@
       a.addEventListener("click", () => closeMenu());
     });
 
-    /*
-      INSTAGRAM SCROLLER
-      - Instagram non offre un "feed embed" libero del profilo senza API/token.
-      - Soluzione pulita: inserire qui gli URL dei singoli post (reel/post) e vengono embeddati.
-      - Quando ci sono abbastanza post, duplichiamo la lista per scorrimento infinito.
-    */
+    // ✅ Bottoni "Menu" dentro le sezioni
+    document.querySelectorAll(".open-menu").forEach(btn => {
+      btn.addEventListener("click", openMenu);
+    });
 
+    /* INSTAGRAM SCROLLER: URL che mi hai dato */
     const igPostUrls = [
-      // INCOLLA QUI I LINK DEI POST, ESEMPIO:
-      // "https://www.instagram.com/p/XXXXXXXXX/",
-      // "https://www.instagram.com/reel/YYYYYYYYY/",
+      "https://www.instagram.com/p/DQrm6JxDLnW/",
+      "https://www.instagram.com/p/DRPD54QDBvD/",
+      "https://www.instagram.com/p/DRW9WUsjOs5/?img_index=1",
+      "https://www.instagram.com/p/DSqtQhXDEdo/"
     ];
 
+    function normalizeIgUrl(url){
+      // rimuove query (es: ?img_index=1) e lascia un URL pulito
+      try{
+        const u = new URL(url);
+        u.search = "";
+        u.hash = "";
+        return u.toString().endsWith("/") ? u.toString() : (u.toString() + "/");
+      }catch(e){
+        return url;
+      }
+    }
+
     function toEmbedUrl(url){
-      // Per post/reel: aggiungiamo /embed/ alla fine (Instagram supporta iframe embed su singoli contenuti)
-      let u = url.trim();
-      if(!u) return null;
-      if(!u.endsWith("/")) u += "/";
-      return u + "embed/";
+      let clean = normalizeIgUrl(url.trim());
+      if(!clean.endsWith("/")) clean += "/";
+      return clean + "embed/";
     }
 
     const track = document.getElementById("igTrack");
 
     if(igPostUrls.length > 0){
-      track.innerHTML = "";
-
       const cards = igPostUrls.map((u) => {
         const embed = toEmbedUrl(u);
         const wrap = document.createElement("div");
@@ -860,9 +862,8 @@
         return wrap;
       });
 
-      // duplica per scorrimento continuo (50% della track nel keyframe)
+      // duplica per scorrimento continuo (il keyframe va al -50%)
       const all = cards.concat(cards.map(c => c.cloneNode(true)));
-
       all.forEach(el => track.appendChild(el));
     }
   </script>
