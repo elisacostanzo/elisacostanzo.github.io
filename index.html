@@ -10,88 +10,57 @@
       --blue:#355c7b;
       --magenta:#81277c;
       --white:#ffffff;
-      --ink: rgba(255,255,255,0.95);
-      --glass: rgba(7,10,20,0.78);
+      --glass: rgba(255,255,255,0.10);
       --stroke: rgba(255,255,255,0.18);
+      --shadow: rgba(0,0,0,0.35);
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      color:var(--white);
+      color:#fff;
       min-height:100vh;
       background:
-        radial-gradient(circle at 12% 12%, rgba(53,92,123,0.55) 0, rgba(53,92,123,0.28) 40%, rgba(0,0,0,0) 72%),
-        radial-gradient(circle at 88% 14%, rgba(129,39,124,0.52) 0, rgba(129,39,124,0.26) 42%, rgba(0,0,0,0) 72%),
-        radial-gradient(circle at 48% 86%, rgba(53,92,123,0.28) 0, rgba(129,39,124,0.22) 45%, rgba(0,0,0,0) 78%),
-        linear-gradient(180deg, #0b1020 0%, #120b24 52%, #070914 100%);
+        radial-gradient(circle at 10% 10%, rgba(53,92,123,0.55) 0, rgba(53,92,123,0.22) 48%, rgba(255,255,255,0) 76%),
+        radial-gradient(circle at 90% 18%, rgba(129,39,124,0.52) 0, rgba(129,39,124,0.20) 50%, rgba(255,255,255,0) 78%),
+        radial-gradient(circle at 50% 90%, rgba(129,39,124,0.18) 0, rgba(53,92,123,0.18) 55%, rgba(255,255,255,0) 82%),
+        linear-gradient(180deg, #151a2d 0%, #1a1630 55%, #121628 100%);
     }
     a{color:inherit;text-decoration:none;}
-    .muted{opacity:.82}
+    p, li{line-height:1.9;font-size:1.08rem;}
+    .muted{opacity:.85}
     .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
 
     /* HEADER */
     header{
-      position:sticky;top:0;z-index:60;
+      position:sticky; top:0; z-index:60;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to right, rgba(12,18,28,0.88), rgba(26,18,43,0.72));
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(to right, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.14);
     }
     .header-inner{
-      max-width:1150px;margin:0 auto;
+      max-width:1180px;margin:0 auto;
       padding:0.78rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    /* ✅ logo: piccolo rettangolo bianco appena più grande */
     .logo-wrap{
       display:inline-flex;align-items:center;justify-content:center;
       padding:6px;border-radius:12px;
       background: rgba(255,255,255,0.92);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.28);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.22);
       line-height:0;
     }
-    .logo-img{
-      height:120px;width:auto;display:block;object-fit:contain;
-    }
-    .brand-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .brand-text{display:flex;flex-direction:column;gap:.2rem;min-width:0;}
     .brand-name{
-      font-weight:900;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      font-size:1.02rem;
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:1000;letter-spacing:.10em;text-transform:uppercase;
+      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .brand-sub{font-size:.92rem;opacity:.82;line-height:1.3;max-width:60ch;}
+    .brand-sub{font-size:.95rem;opacity:.92;line-height:1.25;max-width:62ch;}
 
     .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
-
-    .pill{
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:var(--white);
-      padding:0.6rem 1.05rem;
-      border-radius:999px;
-      font-weight:800;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      white-space:nowrap;
-    }
-    .menu-button{
-      border:none;
-      background:var(--white);
-      color:var(--magenta);
-      padding:0.6rem 1.2rem;
-      border-radius:999px;
-      font-weight:1000;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      box-shadow:0 10px 20px rgba(0,0,0,0.40);
-      transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;
-    }
-    .menu-button:hover{transform:translateY(-1px);box-shadow:0 14px 26px rgba(0,0,0,0.55);}
 
     /* top icons */
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.1rem;}
@@ -99,418 +68,310 @@
       width:44px;height:44px;border-radius:999px;
       display:inline-flex;align-items:center;justify-content:center;
       border:1px solid rgba(255,255,255,0.22);
-      box-shadow:0 14px 24px rgba(0,0,0,0.25);
-      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 24px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.14);
       transition:transform .12s ease, filter .12s ease;
     }
     .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.08);}
     .icon-btn svg{width:22px;height:22px;}
-    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.55), rgba(255,255,255,0.10));}
+    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.55), rgba(255,255,255,0.12));}
     .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.62), rgba(53,92,123,0.30));}
-    .icon-mail svg{color:#bfe1ff;}
+    .icon-mail svg{color:#cbe9ff;}
     .icon-ig svg{color:#ffd1ff;}
 
-    /* ✅ MENU overlay (bello e coerente) */
+    .pill{
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;color:#fff;
+      padding:0.6rem 1.05rem;border-radius:999px;
+      font-weight:900;cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      white-space:nowrap;
+    }
+    .menu-button{
+      border:none;background:#fff;color:var(--magenta);
+      padding:0.6rem 1.2rem;border-radius:999px;
+      font-weight:1000;cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      box-shadow:0 10px 20px rgba(0,0,0,0.22);
+      transition:transform .12s ease, box-shadow .12s ease;
+      white-space:nowrap;
+    }
+    .menu-button:hover{transform:translateY(-1px);box-shadow:0 14px 26px rgba(0,0,0,0.30);}
+
+    /* MENU (UNICO + sottovoci) */
     .menu-overlay{
       position:fixed; inset:0; z-index:80;
       display:none;
       padding:1.2rem;
       background:
-        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.42), rgba(0,0,0,0) 56%),
-        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.42), rgba(0,0,0,0) 56%),
-        rgba(0,0,0,0.78);
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.35), rgba(0,0,0,0) 56%),
+        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.35), rgba(0,0,0,0) 56%),
+        rgba(10,12,20,0.62);
     }
     .menu-overlay.open{display:block;}
+
     .menu-card{
-      max-width:560px;
+      max-width:590px;
       margin:4.2rem auto;
       padding:1.35rem 1.35rem 1.15rem;
       border-radius:1.85rem;
       background:
-        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.22), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.22), rgba(0,0,0,0) 60%),
-        rgba(10,12,20,0.96);
-      border:1px solid rgba(255,255,255,0.14);
-      box-shadow:0 26px 60px rgba(0,0,0,0.72);
+        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.18), rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.18), rgba(0,0,0,0) 60%),
+        rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 26px 60px rgba(0,0,0,0.55);
+      backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{
-      font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1000;opacity:.92;
+      font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1000;opacity:.95;
     }
-    .menu-title .sub{font-size:.92rem;opacity:.78;line-height:1.25;}
+    .menu-title .sub{font-size:.92rem;opacity:.85;line-height:1.25;}
+
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
-      border:1px solid rgba(255,255,255,0.18);
-      background:rgba(255,255,255,0.10);
-      box-shadow:0 12px 22px rgba(0,0,0,0.45);
-      color:var(--white);font-size:1.2rem;
+      border:1px solid rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.16);
+      box-shadow:0 12px 22px rgba(0,0,0,0.25);
+      color:#fff;font-size:1.2rem;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
-      padding:.9rem 1rem;
-      border-radius:1.25rem;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      box-shadow:0 16px 30px rgba(0,0,0,0.35);
+      padding:.9rem 1rem;border-radius:1.25rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 16px 30px rgba(0,0,0,0.20);
       transition:transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .menu-item:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.18);
-    }
+    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
+
     .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
     .menu-ico{
       width:40px;height:40px;border-radius:999px;
       display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, rgba(129,39,124,0.42), rgba(53,92,123,0.28));
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 14px 24px rgba(0,0,0,0.30);
+      background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 24px rgba(0,0,0,0.18);
       flex:0 0 auto;
     }
     .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
     .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
     .menu-text .t{font-weight:1000;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .menu-text .d{font-size:.92rem;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .d{font-size:.92rem;opacity:.86;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-pill{
       font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
       padding:.35rem .6rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      opacity:.92;flex:0 0 auto;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      opacity:.95;flex:0 0 auto;
     }
 
-    /* MAIN */
-    main{max-width:1150px;margin:0 auto;padding:1.7rem 1.15rem 2.7rem;}
+    .menu-sub{
+      margin:.45rem 0 0;
+      padding-left:3.15rem;
+      display:grid;
+      gap:.45rem;
+    }
+    .menu-sub a{
+      padding:.55rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1000;
+      opacity:.92;
+    }
+    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
+
+    /* LAYOUT */
+    main{max-width:1180px;margin:0 auto;padding:1.6rem 1.15rem 2.8rem;}
     section{margin-bottom:3.2rem;}
     .section-kicker{
-      font-size:1.02rem;
-      text-transform:uppercase;
-      letter-spacing:.20em;
-      opacity:.9;
-      margin-bottom:.7rem;
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
     }
     .section-title{
-      font-size:2.35rem;
-      line-height:1.05;
-      margin-bottom:1rem;
-      max-width:980px;
-      font-weight:1000;
+      font-size:2.45rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1100;
     }
     .card{
       background:var(--glass);
       border:1px solid var(--stroke);
       border-radius:1.75rem;
       padding:1.55rem;
-      box-shadow:0 18px 38px rgba(0,0,0,0.52);
+      box-shadow:0 18px 38px var(--shadow);
+      backdrop-filter: blur(12px);
     }
-    p{line-height:1.9;opacity:.97;font-size:1.08rem;margin-bottom:.95rem;}
+
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.2rem;align-items:stretch;}
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+
+    .hero-photo{
+      width:100%;
+      height:100%;
+      min-height:420px;
+      border-radius:1.6rem;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 18px 40px rgba(0,0,0,0.30);
+      object-fit:cover;
+      display:block;
+    }
+
+    .h2{
+      font-size:1.15rem;
+      font-weight:1100;
+      margin: .15rem 0 .9rem;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
 
     .btn{
       border-radius:999px;
       padding:0.78rem 1.25rem;
       font-size:1rem;
-      font-weight:1000;
+      font-weight:1100;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
-      color:var(--white);
+      color:#fff;
       cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      white-space:nowrap;
     }
     .btn.primary{
       border-color:transparent;
-      background:var(--white);
+      background:#fff;
       color:var(--magenta);
-      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+      box-shadow:0 10px 20px rgba(0,0,0,0.22);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{border-color:rgba(255,255,255,0.28);background:rgba(0,0,0,0.10);}
+    .btn.link{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.10);}
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns:minmax(0, 1.65fr) minmax(330px, 1fr);
-      gap:2.1rem;
-      align-items:start;
-      padding-top:1.0rem;
+    /* Percorsi preview cards */
+    .tile{
+      border-radius:1.55rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 18px 34px rgba(0,0,0,0.20);
+      padding:1.15rem;
+      backdrop-filter: blur(10px);
+      display:flex;flex-direction:column;gap:.7rem;
+      min-height: 220px;
     }
-    .hero-card{padding:1.65rem;}
-    .hero-kicker{
-      text-transform:uppercase;
-      letter-spacing:.24em;
-      font-weight:900;
-      font-size:.86rem;
-      opacity:.86;
-      margin-bottom:.45rem;
-    }
-    .hero-h1{
-      font-size:2.75rem;
-      line-height:1.02;
-      margin-bottom:1.05rem;
-      font-weight:1100;
-    }
-    .hero-img{
-      border-radius:2rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.30);
-      box-shadow:0 24px 56px rgba(0,0,0,0.70);
-      background:rgba(0,0,0,0.18);
-    }
-    .hero-img img{
-      width:100%;
-      height:100%;
-      min-height:560px;
-      object-fit:cover;
-      display:block;
+    .tile p{font-size:1.03rem;opacity:.96}
+    .tile .tag{
+      display:inline-flex;width:fit-content;
+      padding:.35rem .65rem;border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.16);
+      letter-spacing:.14em;text-transform:uppercase;
+      font-weight:1100;font-size:.75rem;opacity:.95;
     }
 
-    /* PERCORSI */
-    .paths-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:1.1rem;
-      margin-top:1.1rem;
-    }
-    .path{
-      border-radius:1.75rem;
-      padding:1.25rem 1.25rem 1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 18px 34px rgba(0,0,0,0.52);
-      background:
-        radial-gradient(circle at 30% 15%, rgba(129,39,124,0.35) 0%, rgba(129,39,124,0.12) 45%, rgba(0,0,0,0) 70%),
-        radial-gradient(circle at 80% 35%, rgba(53,92,123,0.30) 0%, rgba(53,92,123,0.10) 50%, rgba(0,0,0,0) 75%),
-        linear-gradient(135deg, rgba(7,10,20,0.86), rgba(7,10,20,0.55));
-    }
-    .badge{
-      display:inline-block;
-      font-size:.75rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      opacity:.92;
-      padding:.35rem .65rem;
-      border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      margin-bottom:.7rem;
-      font-weight:900;
-    }
-    .path h3{
-      font-size:1.28rem;
-      font-weight:1100;
-      margin-bottom:.55rem;
-      line-height:1.15;
-    }
-    .path p{font-size:1.02rem;line-height:1.75;margin-bottom:0;opacity:.95;}
-
-    /* LO SPAZIO */
-    .space-grid{
-      display:grid;
-      grid-template-columns:minmax(0, 1.2fr) minmax(0, .8fr);
-      gap:1.1rem;
-      align-items:stretch;
-    }
-    .space-right{
-      border-radius:1.75rem;
-      padding:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background:rgba(255,255,255,0.06);
-      box-shadow:0 18px 34px rgba(0,0,0,0.45);
-    }
-    .space-right h3{font-weight:1100;font-size:1.2rem;margin-bottom:.55rem;}
-    .mini{font-size:1.02rem;line-height:1.75;opacity:.95;margin-bottom:.8rem;}
-
-    /* GALLERY home (Studio preview) */
-    .gallery{
-      margin-top:1rem;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:1rem;
-      align-items:stretch;
-    }
-    .gallery-main{
-      border-radius:1.75rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow:0 18px 34px rgba(0,0,0,0.55);
-      background:rgba(0,0,0,0.15);
-    }
-    .gallery-main img{
-      width:100%;
-      height:100%;
-      min-height:360px;
-      display:block;
-      object-fit:cover;
-    }
-    .gallery-grid{
+    /* ExpressING preview gallery */
+    .mini-gallery{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:1rem;
+      gap:.8rem;
+      margin-top:1rem;
     }
-    .thumb{
-      border-radius:1.45rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 14px 26px rgba(0,0,0,0.45);
-      cursor:pointer;
-      background:rgba(0,0,0,0.2);
-      position:relative;
-    }
-    .thumb img{
+    .mini-gallery img{
       width:100%;
-      height:100%;
-      min-height:155px;
-      display:block;
+      height:220px;
       object-fit:cover;
-    }
-    .cap{
-      position:absolute;left:10px;bottom:10px;
-      padding:.35rem .6rem;border-radius:999px;
-      background:rgba(0,0,0,0.55);
-      border:1px solid rgba(255,255,255,0.16);
-      font-weight:1000;
-      font-size:.9rem;
-      opacity:.95;
+      border-radius:1.25rem;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 16px 30px rgba(0,0,0,0.20);
+      display:block;
     }
 
-    /* VES preview */
-    .ves-head{
-      display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin-bottom:.9rem;
-    }
-    .ves-logo{
-      height:64px;width:auto;display:block;object-fit:contain;
-      border-radius:12px;background:rgba(255,255,255,0.92);padding:6px;
-      box-shadow:0 10px 18px rgba(0,0,0,0.28);
-    }
-    .chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem;}
-    .chip{
-      display:inline-flex;align-items:center;gap:.45rem;
-      padding:.55rem .85rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 12px 22px rgba(0,0,0,0.25);
-      font-weight:1000;
-    }
-
-    /* CONTATTI */
-    .form{display:grid;gap:.85rem;margin-top:.6rem;}
-    .row2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
-    .field{display:grid;gap:.28rem;font-size:1rem;}
-    .field label{opacity:.92;font-weight:900;letter-spacing:.02em;}
-    .field input,.field textarea{
-      border-radius:1.05rem;
-      border:1px solid rgba(255,255,255,0.35);
-      background:rgba(4,7,15,0.92);
-      color:var(--ink);
-      padding:.8rem .92rem;
-      font:inherit;
-      resize:vertical;
-      min-height:48px;
-      outline:none;
-    }
-    .field textarea{min-height:165px;}
-    .hint{font-size:.98rem;opacity:.78;line-height:1.5;margin-top:.25rem;}
-    .contact-icons{
-      display:flex;gap:.55rem;align-items:center;margin-top:.35rem;
-    }
-
-    /* IG banner */
+    /* IG banner scorrevole */
     .ig-banner{
-      border-top:1px solid rgba(255,255,255,0.14);
-      border-bottom:1px solid rgba(255,255,255,0.14);
-      background: rgba(7,10,20,0.72);
-      padding:1.1rem 0;
+      border-radius:1.75rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 18px 38px rgba(0,0,0,0.20);
+      padding:1rem;
       overflow:hidden;
-    }
-    .ig-wrap{max-width:1150px;margin:0 auto;padding:0 1.15rem;}
-    .ig-head{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-      margin-bottom:.9rem;
-    }
-    .ig-head .t{
-      font-weight:1100;
-      font-size:1.25rem;
-      letter-spacing:.02em;
-    }
-    .ig-head .s{opacity:.82;line-height:1.35;}
-    .marquee{
       position:relative;
-      overflow:hidden;
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
-    .marquee-track{
+    .ig-track{
       display:flex;
       gap:1rem;
       width:max-content;
-      animation: scroll 24s linear infinite;
-    }
-    @keyframes scroll{
-      from{transform:translateX(0);}
-      to{transform:translateX(-50%);}
+      animation: scrollLeft 38s linear infinite;
     }
     .ig-card{
-      width:320px;
-      border-radius:1.6rem;
+      width:330px;
+      border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
-      background:
-        radial-gradient(circle at 25% 15%, rgba(129,39,124,0.28), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 80% 45%, rgba(53,92,123,0.26), rgba(0,0,0,0) 60%),
-        rgba(255,255,255,0.06);
-      box-shadow:0 16px 30px rgba(0,0,0,0.42);
-      padding:1rem 1rem 1.05rem;
-      display:flex;
-      flex-direction:column;
-      gap:.55rem;
-      flex:0 0 auto;
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 18px 34px rgba(0,0,0,0.18);
+      overflow:hidden;
     }
-    .ig-card .top{
-      display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+    .ig-card iframe{
+      width:330px;
+      height:420px;
+      border:0;
+      display:block;
+      background:transparent;
     }
-    .ig-card .name{
-      font-weight:1100;
-      letter-spacing:.04em;
+    @keyframes scrollLeft{
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
-    .ig-card .mini{
-      opacity:.85;line-height:1.45;font-size:1.02rem;
-      margin:0;
+    .ig-hint{margin-top:.75rem;opacity:.85}
+
+    /* Contatti form */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .field{
+      width:100%;
+      border-radius:1.1rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.12);
+      padding:.9rem 1rem;
+      color:#fff;
+      outline:none;
+      font-size:1rem;
     }
-    .ig-card .go{
-      margin-top:.2rem;
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      font-weight:1100;
-      opacity:.95;
-    }
+    textarea.field{min-height:160px;resize:vertical;}
+    .field::placeholder{color:rgba(255,255,255,0.75);}
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
       padding:1.2rem 1.1rem;
       text-align:center;
       opacity:0.85;
-      background:rgba(7,10,20,0.9);
+      background:rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
     }
 
+    /* no captions/labels if present */
+    figure figcaption, .caption, .photo-label, .img-label { display:none !important; }
+
     @media (max-width: 1020px){
-      .hero{grid-template-columns:1fr;gap:1.35rem;}
-      .hero-img img{min-height:420px;}
-      .paths-grid{grid-template-columns:1fr;}
-      .space-grid{grid-template-columns:1fr;}
-      .gallery{grid-template-columns:1fr;}
-      .logo-img{height:98px;}
+      .grid-2{grid-template-columns:1fr;}
+      .hero-photo{min-height:360px;}
+      .grid-3{grid-template-columns:1fr;}
+      .contact-wrap{grid-template-columns:1fr;}
+      .logo-img{height:112px;}
+      .mini-gallery img{height:200px;}
     }
     @media (max-width: 640px){
       .brand-sub{display:none;}
-      .row2{grid-template-columns:1fr;}
-      .section-title{font-size:1.95rem;}
-      .hero-h1{font-size:2.25rem;}
+      .section-title{font-size:2.05rem;}
       .menu-card{margin:3.2rem auto;}
+      .ig-card, .ig-card iframe{width:300px;}
     }
   </style>
 </head>
@@ -546,13 +407,12 @@
           </a>
         </div>
 
-        <a class="pill" href="index.html">Home</a>
         <button class="menu-button" id="menuOpen" aria-label="Apri menu">☰ Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- MENU OVERLAY -->
+  <!-- MENU OVERLAY (UNICO) -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -564,35 +424,34 @@
       </div>
 
       <div class="menu-grid">
-        <a class="menu-item" href="index.html#chi-sono">
+        <a class="menu-item" href="index.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Ti parlo di me</div><div class="d">chi sono</div></div>
+            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
           </div>
-          <div class="menu-pill">bio</div>
+          <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="index.html#percorsi">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">panoramica</div></div>
-          </div>
-          <div class="menu-pill">start</div>
-        </a>
+            <div class="menu-pill">go</div>
+          </a>
 
-        <a class="menu-item" href="percorsi.html#ves">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Percorsi VES</div><div class="d">vai alla sezione VES</div></div>
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">One to one canto</a>
+            <a href="percorsi.html#voce">Voce parlata</a>
+            <a href="percorsi.html#artisti">Artisti emergenti</a>
+            <a href="percorsi.html#ves">VES</a>
           </div>
-          <div class="menu-pill">ves</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -624,7 +483,7 @@
           <div class="menu-pill">media</div>
         </a>
 
-        <a class="menu-item" href="index.html#contatti">
+        <a class="menu-item" href="#contatti">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -637,383 +496,235 @@
     </div>
   </div>
 
-  <main>
-    <!-- HERO / CHI SONO -->
-    <section id="chi-sono" class="hero justify">
-      <div class="card hero-card">
-        <div class="hero-kicker">TI PARLO DI ME</div>
-        <div class="hero-h1">Chi sono</div>
+  <main class="justify">
+    <!-- HERO -->
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-kicker">TI PARLO DI ME</div>
+          <div class="section-title">Chi sono</div>
 
-        <p>
-          Sono Elisa (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di esplorazione, cura e creatività.
-          Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.
-        </p>
-        <p>
-          Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno
-          permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale
-          (<a href="studio.html" style="text-decoration:underline; font-weight:900;">ExpresSING</a>): un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.
-        </p>
-        <p>
-          La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al Voice Evolution Institute,
-          di cui sono Certified Trainer (<a href="ves.html" style="text-decoration:underline; font-weight:900;">vai alla pagina VES</a>) – dedicato alla risonanza e alla stimolazione del tratto vocale.
-          Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
-        </p>
-        <p>
-          Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero.
-          Un’esperienza preziosa che ha affinato la mia capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante,
-          rispettando i bisogni che ogni artista porta nel proprio percorso.
-        </p>
-        <p>
-          Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale e creativo.
-          Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce ha una storia diversa, una necessità diversa,
-          e merita la giusta direzione per esprimersi al meglio.
-        </p>
-        <p>
-          Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività: nella parola, nel canto e – soprattutto – nella tua presenza.
-          Per me la voce non è solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con chi ti circonda.
-          Per questo il mio approccio è esperienziale, gentile e radicato nel qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.
-        </p>
-        <p>
-          Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti
-          e nella ricerca della loro identità vocale e artistica.
-        </p>
+          <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di esplorazione, cura e creatività.</p>
+          <p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
+          <p>Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale: un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.</p>
+          <p>La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al Voice Evolution Institute, di cui sono Certified Trainer – dedicato alla risonanza e alla stimolazione del tratto vocale. Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.</p>
+          <p>Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.</p>
+          <p>Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale e creativo. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce ha una storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi al meglio.</p>
+          <p>Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività: nella parola, nel canto e – soprattutto – nella tua presenza. Per me la voce non è solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con chi ti circonda. Per questo il mio approccio è esperienziale, gentile e radicato nel qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.</p>
+          <p>Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.</p>
 
-        <div class="actions">
-          <a class="btn primary" href="#contatti">Contattami</a>
-          <button class="btn link open-menu" type="button">Menu</button>
+          <div class="actions">
+            <a class="btn primary" href="#contatti">Contattami</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-img">
-        <img src="Elisa Costanzo profilo.jpg" alt="Elisa Costanzo - Foto profilo" />
+        <img class="hero-photo" src="Elisa Costanzo profilo.jpg" alt="Elisa Costanzo - Profilo" />
       </div>
     </section>
 
-    <!-- PERCORSI (subito visibile) -->
-    <section id="percorsi" class="justify">
+    <!-- PERCORSI (prima cosa “forte” dopo l’hero) -->
+    <section>
       <div class="section-kicker">Percorsi</div>
       <div class="section-title">Scegli la direzione, e iniziamo da dove sei</div>
 
-      <div class="paths-grid">
-        <article class="path">
-          <div class="badge">One to one</div>
-          <h3>Per cantanti e cantautori</h3>
-          <p>Tecnica, corpo, ascolto e interpretazione: un percorso individuale costruito su misura, sostenibile e concreto.</p>
-        </article>
+      <div class="grid-3">
+        <div class="tile">
+          <span class="tag">One to one</span>
+          <div class="h2">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</div>
+          <p class="muted">Un lavoro su misura, costruito su voce, corpo, respiro, tecnica ed espressività: con un ritmo sostenibile e obiettivi chiari.</p>
+        </div>
 
-        <article class="path">
-          <div class="badge">Voce parlata</div>
-          <h3>Comunicazione professionale</h3>
-          <p>Respiro, articolazione, ritmo e presenza: per una voce stabile, efficace e coerente con la tua identità comunicativa.</p>
-        </article>
+        <div class="tile">
+          <span class="tag">Voce parlata</span>
+          <div class="h2">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</div>
+          <p class="muted">Percorsi dedicati alla voce usata ogni giorno nel lavoro: chiarezza, efficacia, sostenibilità, gestione dello stress e presenza.</p>
+        </div>
 
-        <article class="path">
-          <div class="badge">Progetto</div>
-          <h3>Artisti emergenti</h3>
-          <p>Un lavoro sul progetto discografico: voce, brani, direzione artistica e performance, con metodo e visione.</p>
-        </article>
+        <div class="tile">
+          <span class="tag">Progetto</span>
+          <div class="h2">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</div>
+          <p class="muted">Allenamento vocale “a servizio” del progetto: identità artistica, interpretazione, preparazione a studio e performance, supporto emotivo.</p>
+        </div>
       </div>
 
       <div class="actions">
         <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
-        <a class="btn" href="percorsi.html#ves">Percorsi VES</a>
+        <a class="btn" href="percorsi.html#ves">Vai a VES</a>
         <button class="btn link open-menu" type="button">Menu</button>
+        <a class="btn" href="#contatti">Prenota una call gratuita</a>
       </div>
     </section>
 
     <!-- LO SPAZIO IN CUI PUOI SPERIMENTARE -->
-    <section class="justify">
-      <div class="section-kicker">ExpresSING</div>
+    <section>
+      <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
 
-      <div class="space-grid">
-        <div class="card">
-          <p>
-            ExpresSING è il mio Centro di Formazione Vocale: un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.
-            È lo spazio in cui puoi sperimentare con metodo, ascolto e presenza: nella parola, nel canto e nel tuo modo di stare in scena.
-          </p>
-          <p>
-            Lavoriamo con un approccio rispettoso e personalizzato: non esistono protocolli uguali per tutti, ma strumenti e strategie che vengono scelti e modellati
-            in base alle tue reali esigenze.
-          </p>
+      <div class="card">
+        <p>
+          ExpresSING Studio è un luogo in cui didattica, ricerca e creatività si incontrano ogni giorno:
+          uno spazio pensato per lavorare in modo concreto, gentile e profondo sulla tua voce.
+        </p>
 
-          <!-- ✅ “Visita lo studio” qui, come richiesto -->
-          <div class="actions">
-            <a class="btn primary" href="studio.html">Visita lo studio →</a>
-            <a class="btn" href="#contatti">Chiedi info</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-          </div>
-
-          <!-- Preview immagini Studio in home -->
-          <div class="gallery" aria-label="Anteprima studio">
-            <div class="gallery-main">
-              <img id="galleryMain" src="Foto ingresso.jpg" alt="Foto ingresso" />
-            </div>
-            <div class="gallery-grid">
-              <div class="thumb" data-img="Foto ingresso.jpg"><img src="Foto ingresso.jpg" alt="Ingresso"><div class="cap">Ingresso</div></div>
-              <div class="thumb" data-img="Sala performance 1.jpg"><img src="Sala performance 1.jpg" alt="Sala performance 1"><div class="cap">Performance</div></div>
-              <div class="thumb" data-img="Sala performance 2.jpg"><img src="Sala performance 2.jpg" alt="Sala performance 2"><div class="cap">Performance</div></div>
-              <div class="thumb" data-img="Sala regia 1.jpg"><img src="Sala regia 1.jpg" alt="Sala regia 1"><div class="cap">Regia</div></div>
-            </div>
-          </div>
+        <div class="mini-gallery" aria-label="Anteprima studio">
+          <!-- ✅ una sola “Foto ingresso” (niente duplicati) -->
+          <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
+          <img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" />
         </div>
 
-        <div class="space-right">
-          <h3>Vuoi orientarti?</h3>
-          <p class="mini">
-            Se non sai da dove partire, scrivimi: mi racconti il tuo obiettivo e ti propongo una direzione sostenibile,
-            costruita sulla tua voce e sulla tua storia.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="#contatti">Prenota una call gratuita</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-          </div>
+        <div class="actions">
+          <a class="btn primary" href="studio.html">Visita lo studio</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Chiedi info</a>
         </div>
       </div>
     </section>
 
-    <!-- VES PREVIEW (non riassunto e con rimandi corretti) -->
-    <section class="justify">
+    <!-- VES (solo certificazione e ricerca come preview) -->
+    <section>
       <div class="section-kicker">VES</div>
       <div class="section-title">Certificazione e ricerca</div>
 
       <div class="card">
-        <div class="ves-head">
-          <img class="ves-logo" src="Logo VES.jpg" alt="Logo VES" />
-          <div>
-            <div style="font-weight:1100;font-size:1.2rem;line-height:1.15;">Voice Evolution Institute</div>
-            <div class="muted">Percorsi VES®, diploma e formazione docenti</div>
-          </div>
-        </div>
-
         <p>
-          Nel mio lavoro integro strumenti e visione del Voice Evolution Institute. Se il tuo obiettivo è professionalizzarti come cantante,
-          posso proporti il Diploma in Canto Moderno VES®, un cammino strutturato e progressivo, con verifiche per livelli e una valutazione esterna.
+          Se vuoi approfondire i percorsi legati al Voice Evolution Institute (Diploma in Canto Moderno VES® e formazione docenti),
+          trovi tutto in modo strutturato nella sezione dedicata dentro “Percorsi”.
         </p>
-        <p>
-          Accanto al lavoro con cantanti, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce e alla preparazione degli insegnanti certificati,
-          con un focus sulla dimensione pedagogica e sulla relazione didattica.
-        </p>
-
-        <div class="chips">
-          <a class="chip" href="ves.html">Apri pagina VES →</a>
-          <a class="chip" href="percorsi.html#ves">Vai ai percorsi VES →</a>
-          <a class="chip" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
-        </div>
 
         <div class="actions">
-          <a class="btn primary" href="#contatti">Richiedi info</a>
+          <a class="btn primary" href="percorsi.html#ves">Vai alla sezione VES</a>
+          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
           <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Richiedi info</a>
         </div>
       </div>
     </section>
 
-    <!-- CURRICULUM preview + link -->
-    <section class="justify">
+    <!-- CURRICULUM preview -->
+    <section>
       <div class="section-kicker">Curriculum</div>
-      <div class="section-title">Esperienza, didattica e performance</div>
+      <div class="section-title">Formazione ed esperienza</div>
 
       <div class="card">
-        <p>
-          Se vuoi approfondire la mia formazione e le principali esperienze in ambito didattico e artistico, trovi tutto in una pagina dedicata.
-        </p>
+        <p>Una panoramica ordinata di didattica, formazione, performance e songwriting.</p>
         <div class="actions">
-          <a class="btn primary" href="curriculum.html">Apri curriculum →</a>
+          <a class="btn primary" href="curriculum.html">Apri curriculum</a>
           <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Contattami</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- IG banner -->
+    <section>
+      <div class="section-kicker">Instagram</div>
+      <div class="section-title">ExpresSING Studio • aggiornamenti e contenuti</div>
+
+      <div class="ig-banner">
+        <!-- traccia duplicata per loop fluido -->
+        <div class="ig-track" id="igTrack">
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DQrm6JxDLnW/embed" loading="lazy" title="Instagram Post 1"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DRPD54QDBvD/embed" loading="lazy" title="Instagram Post 2"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DSqtQhXDEdo/embed" loading="lazy" title="Instagram Post 4"></iframe>
+          </div>
+
+          <!-- duplicazione -->
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DQrm6JxDLnW/embed" loading="lazy" title="Instagram Post 1 duplicate"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DRPD54QDBvD/embed" loading="lazy" title="Instagram Post 2 duplicate"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3 duplicate"></iframe>
+          </div>
+          <div class="ig-card">
+            <iframe src="https://www.instagram.com/p/DSqtQhXDEdo/embed" loading="lazy" title="Instagram Post 4 duplicate"></iframe>
+          </div>
+        </div>
+
+        <div class="ig-hint">
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Vai al profilo Instagram →</a>
         </div>
       </div>
     </section>
 
     <!-- CONTATTI -->
-    <section id="contatti" class="justify">
+    <section id="contatti">
       <div class="section-kicker">Contatti</div>
-      <div class="section-title">Scrivimi: ti rispondo con una proposta su misura</div>
+      <div class="section-title">Scrivimi</div>
 
       <div class="card">
-        <div class="contact-icons">
-          <a class="icon-btn icon-mail" href="#contatti" aria-label="Email (form)" title="Email (form)">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8" />
-              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8" />
-            </svg>
-          </a>
+        <p class="muted">Compila il form: si aprirà il tuo client email con il messaggio già pronto (senza mostrare l’indirizzo nel sito).</p>
 
-          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer"
-             aria-label="Instagram ExpresSING Studio" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7.5 2.9h9A4.6 4.6 0 0 1 21.1 7.5v9A4.6 4.6 0 0 1 16.5 21.1h-9A4.6 4.6 0 0 1 2.9 16.5v-9A4.6 4.6 0 0 1 7.5 2.9Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="actions" style="margin-top:.85rem;">
-          <a class="btn primary" href="#" id="sendBtn">Invia richiesta</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-        </div>
-
-        <form class="form" id="contactForm">
-          <div class="row2">
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input id="nome" name="nome" type="text" placeholder="Nome" required />
+        <form id="contactForm">
+          <div class="contact-wrap">
+            <div>
+              <input class="field" type="text" id="name" name="name" placeholder="Nome e cognome" required />
             </div>
-            <div class="field">
-              <label for="cognome">Cognome</label>
-              <input id="cognome" name="cognome" type="text" placeholder="Cognome" required />
+            <div>
+              <input class="field" type="text" id="subject" name="subject" placeholder="Oggetto" required />
+            </div>
+            <div style="grid-column:1/-1;">
+              <textarea class="field" id="message" name="message" placeholder="Il tuo messaggio" required></textarea>
             </div>
           </div>
 
-          <div class="field">
-            <label for="email">La tua email</label>
-            <input id="email" name="email" type="email" placeholder="nome@esempio.it" required />
-          </div>
-
-          <div class="field">
-            <label for="argomento">Argomento</label>
-            <input id="argomento" name="argomento" type="text" placeholder="Es. info percorsi / studio / VES / progetto artistico..." />
-          </div>
-
-          <div class="field">
-            <label for="messaggio">Messaggio</label>
-            <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
-          </div>
-
-          <div class="hint">
-            Cliccando “Invia richiesta” si aprirà la tua email con il testo già compilato. L’indirizzo di destinazione non viene mostrato nella pagina.
+          <div class="actions">
+            <button class="btn primary" type="submit">Invia richiesta</button>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- IG banner con i link che mi hai dato -->
-  <div class="ig-banner" aria-label="Instagram banner">
-    <div class="ig-wrap">
-      <div class="ig-head">
-        <div>
-          <div class="t">Ultimi post</div>
-          <div class="s">Scorri e apri i contenuti su Instagram • <a href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;font-weight:1000;">@expressing_studio</a></div>
-        </div>
-        <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Visita profilo →</a>
-      </div>
-
-      <div class="marquee">
-        <div class="marquee-track" id="igTrack">
-          <!-- set A -->
-          <a class="ig-card" href="https://www.instagram.com/p/DQrm6JxDLnW/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DRPD54QDBvD/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DRW9WUsjOs5/?img_index=1" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <!-- set B (duplicato per loop fluido) -->
-          <a class="ig-card" href="https://www.instagram.com/p/DQrm6JxDLnW/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DRPD54QDBvD/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DRW9WUsjOs5/?img_index=1" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/p/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
-            <div class="top"><div class="name">Instagram Post</div><div class="badge">Apri</div></div>
-            <p class="mini">Contenuto dal profilo ExpresSING Studio.</p>
-            <div class="go">Apri su Instagram →</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
+    // anno footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // MENU
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
+
     function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
     function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-    document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // Gallery swap
-    const mainImg = document.getElementById("galleryMain");
-    document.querySelectorAll(".thumb").forEach(el => {
-      el.addEventListener("click", () => {
-        const target = el.getAttribute("data-img");
-        if(target) mainImg.src = target;
-      });
+    // FORM -> mailto senza mostrare email nel sito
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // email costruita via stringhe (non visibile in HTML)
+      const to = "elisacostanzo1" + "@" + "gmail.com";
+      const fullSubject = encodeURIComponent(subject + " — " + name);
+      const body = encodeURIComponent(message + "\n\n—\n" + name);
+
+      window.location.href = "mailto:" + to + "?subject=" + fullSubject + "&body=" + body;
     });
-
-    // Contatti: mailto precompilata (email non mostrata in pagina)
-    const TO = "elisacostanzo1@gmail.com";
-    function buildMailto(){
-      const nome = document.getElementById("nome").value.trim();
-      const cognome = document.getElementById("cognome").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const argomento = document.getElementById("argomento").value.trim();
-      const msg = document.getElementById("messaggio").value.trim();
-
-      const bodyLines = [
-        "Ciao Elisa,",
-        "",
-        "Ti scrivo dal sito.",
-        "",
-        `Nome: ${nome} ${cognome}`.trim(),
-        `Email: ${email}`,
-        argomento ? `Argomento: ${argomento}` : "",
-        "",
-        "Messaggio:",
-        msg,
-        "",
-        "Grazie!"
-      ].filter(Boolean);
-
-      return `mailto:${TO}?subject=${encodeURIComponent("Richiesta dal sito")}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    }
-    function goMail(){
-      const form = document.getElementById("contactForm");
-      if(!form.reportValidity()) return;
-      window.location.href = buildMailto();
-    }
-    document.getElementById("sendBtn").addEventListener("click", (e)=>{ e.preventDefault(); goMail(); });
   </script>
 </body>
 </html>
