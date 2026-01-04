@@ -1,1 +1,448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Percorsi – Elisa Costanzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --primario:#355c7b;
+      --secondario:#81277c;
+      --bianco:#ffffff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at top left, #4f7b9e 0, var(--primario) 40%, #2b1a3f 100%);
+      color:var(--bianco);
+      min-height:100vh;
+    }
+
+    a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to right, rgba(12,18,28,0.9), rgba(26,18,43,0.75));
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-inner{
+      max-width:1100px;margin:0 auto;
+      padding:0.8rem 1.2rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
+
+    .brand{display:flex;align-items:center;gap:1rem;}
+    .logo-img{height:120px;width:auto;display:block;object-fit:contain;}
+    .brand-name{font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:1rem;}
+    .brand-subtitle{font-size:0.75rem;opacity:0.8;}
+
+    .top-actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
+    .pill{
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;color:var(--bianco);
+      padding:0.6rem 1.1rem;border-radius:999px;
+      font-weight:700;cursor:pointer;text-decoration:none;
+      display:inline-flex;align-items:center;gap:.45rem;
+    }
+    .pill.primary{
+      border-color:transparent;background:var(--bianco);color:var(--secondario);
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    main{max-width:1100px;margin:0 auto;padding:1.6rem 1.2rem 4rem;}
+
+    .kicker{ text-transform:uppercase; letter-spacing:.2em; font-size:.8rem; opacity:.85; margin-bottom:.5rem; }
+    h1{ font-size:2.3rem; line-height:1.1; margin-bottom:0.8rem; }
+    .lead{max-width:900px;line-height:1.75;opacity:.96;margin-bottom:1.1rem;}
+
+    .card{
+      background:rgba(7,10,20,0.78);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:1.5rem;
+      padding:1.4rem;
+      box-shadow:0 16px 32px rgba(0,0,0,0.45);
+      margin-top:1.1rem;
+    }
+
+    .section-title{
+      margin-top:2rem;
+      font-size:1.1rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.9;
+      margin-bottom:.7rem;
+    }
+
+    /* ACCORDION (fisarmonica) */
+    .accordion{ display:grid; gap:.9rem; margin-top:1rem; }
+
+    details{
+      background:rgba(7,10,20,0.78);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:1.4rem;
+      box-shadow:0 14px 26px rgba(0,0,0,0.45);
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:1.1rem 1.2rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      user-select:none;
+    }
+
+    summary::-webkit-details-marker{display:none;}
+
+    .sum-left{display:flex;flex-direction:column;gap:.25rem;}
+    .sum-kicker{
+      font-size:.75rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.85;
+      color:#c6d9ec;
+    }
+    .sum-title{font-size:1.1rem;font-weight:800;}
+    .sum-icon{
+      font-size:1.2rem;
+      opacity:.95;
+      transition:transform .15s ease;
+    }
+
+    details[open] .sum-icon{ transform:rotate(45deg); }
+
+    .details-body{
+      padding:0 1.2rem 1.2rem;
+      border-top:1px solid rgba(255,255,255,0.12);
+    }
+
+    .details-body p{
+      margin-top:.8rem;
+      line-height:1.75;
+      opacity:.96;
+    }
+
+    .cta-row{
+      margin-top:1rem;
+      display:flex;
+      gap:.7rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      border-radius:999px;
+      padding:0.7rem 1.25rem;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:var(--bianco);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      cursor:pointer;
+    }
+
+    .btn.primary{
+      border-color:transparent;
+      background:var(--bianco);
+      color:var(--secondario);
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .mini{
+      font-size:.9rem;
+      opacity:.9;
+      line-height:1.6;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.16);
+      padding:1.2rem;
+      font-size:0.8rem;
+      opacity:0.85;
+      text-align:center;
+      background:rgba(7,10,20,0.9);
+    }
+
+    @media (max-width:900px){
+      .logo-img{height:90px;}
+    }
+    @media (max-width:600px){
+      h1{font-size:1.95rem;}
+      .logo-img{height:70px;}
+      .header-inner{padding-inline:.8rem;}
+      main{padding-inline:.9rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo-elisa-costanzo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        <div>
+          <div class="brand-name">Elisa Costanzo</div>
+          <div class="brand-subtitle">Percorsi & Progetti</div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <a class="pill" href="index.html">← Home</a>
+        <a class="pill primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">Prenota una call</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="kicker">Percorsi</div>
+    <h1>Come possiamo lavorare insieme</h1>
+    <p class="lead">
+      Qui trovi i percorsi principali: dalla voce cantata alla voce parlata, fino allo sviluppo del progetto discografico
+      e alla formazione legata al Voice Evolution Institute. Ogni percorso può svolgersi in presenza o online (quando applicabile),
+      con la stessa cura e attenzione.
+    </p>
+
+    <div class="card">
+      <p class="mini">
+        Per iniziare: scrivimi e prenota una call conoscitiva gratuita e senza impegno.
+        <br />
+        Email: <a href="mailto:elisacostanzo1@gmail.com?subject=Info%20Percorsi">elisacostanzo1@gmail.com</a>
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+        <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Domanda%20sui%20percorsi&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20chiederti%20informazioni%20su%3A%20%0D%0A%0D%0AGrazie!">Chiedi info via email</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">Percorsi</h2>
+    <div class="accordion">
+
+      <!-- 1 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">One to one</div>
+            <div class="sum-title">Per cantanti e cantautori</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Le lezioni one-to-one sono percorsi individuali pensati su misura per ogni allievo: che stia muovendo i primi passi
+            o lavorando su obiettivi più avanzati e professionali.
+          </p>
+          <p>
+            Il percorso parte sempre dalla persona: dalla sua voce e dalla sua storia. La voce è unica, così come lo è il modo in cui viene usata e vissuta.
+            Per questo il lavoro tiene conto di diversi aspetti: dal tipo di corda vocale alla struttura corporea, fino alle esperienze personali e artistiche
+            che influenzano il modo di usare la voce.
+          </p>
+          <p>
+            Il lavoro procede in modo graduale e consapevole, partendo dalla consapevolezza corporea per sviluppare nel tempo una maggiore propriocezione
+            e connessione con se stessi. Segue un lavoro sulla postura, finalizzato a favorire una respirazione funzionale alle necessità espressive, e un lavoro
+            di allenamento tecnico, costruito in modo mirato e progressivo, senza forzature.
+          </p>
+          <p>
+            Questo approccio è in linea con i principi del Voice Evolution Institute: osservazione, ascolto e adattamento del lavoro alle reali esigenze dell’allievo.
+            Le lezioni possono svolgersi in presenza o online.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20One%20to%20one%20cantanti&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20il%20percorso%20One%20to%20one%20(cantanti%2Fcantautori).%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AObiettivo%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20One%20to%20one%20cantanti&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20su%20One%20to%20one%20(cantanti%2Fcantautori).%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+      <!-- 2 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">One to one</div>
+            <div class="sum-title">Voce parlata e comunicazione professionale</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla voce parlata, pensati per te se utilizzi
+            la voce quotidianamente come strumento di lavoro: insegnante, speaker, formatore, professionista della comunicazione o se senti
+            il bisogno di parlare con maggiore efficacia, chiarezza e sostenibilità.
+          </p>
+          <p>
+            Il training coinvolge respiro, postura, articolazione, ritmo, prosodia e prossemica. L’obiettivo è sviluppare una voce funzionale,
+            stabile e naturale, capace di sostenere carichi vocali intensi senza affaticamento e coerente con lo scopo comunicativo.
+          </p>
+          <p>
+            Particolare attenzione è dedicata all’igiene vocale e a buone abitudini: riconoscere segnali di stress vocale, prevenire sovraccarichi
+            e tensioni e integrare strategie pratiche per proteggere la voce nel tempo. Il percorso include anche strumenti per gestire stress e ansia
+            da prestazione in situazioni pubbliche.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20Voce%20parlata&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20il%20percorso%20Voce%20parlata%20e%20comunicazione.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AContesto%20lavorativo%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Voce%20parlata&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20sul%20percorso%20Voce%20parlata%20e%20comunicazione.%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">Percorso artistico</div>
+            <div class="sum-title">Artisti emergenti & progetto discografico</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Una parte importante del mio lavoro è dedicata agli artisti emergenti, che accompagno in un percorso di crescita artistica e vocale,
+            seguendoli passo dopo passo nello sviluppo dei loro progetti discografici.
+          </p>
+          <p>
+            Il percorso non riguarda solo il training vocale, ma un lavoro specifico sull’artista e sul progetto. La voce viene allenata in funzione del
+            materiale musicale, affinando tecnica ed espressività in vista di registrazioni e performance. Analizziamo insieme i brani per valorizzare
+            interpretazione, fraseggio e dinamiche.
+          </p>
+          <p>
+            Non intervengo per dare una forma prestabilita: è fondamentale che sia l’artista a far emergere la propria identità. Il mio ruolo è facilitare
+            questo processo e creare le condizioni perché voce e brano trovino la loro direzione in modo autentico e personale.
+          </p>
+          <p>
+            Lavoriamo anche sugli aspetti emotivi legati alla performance (ansia da prestazione, tensioni, insicurezze). Inoltre posso accompagnarti
+            nelle sessioni di registrazione, curando preparazione tecnica e interpretativa.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20Artisti%20emergenti&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20il%20percorso%20Artisti%20emergenti%20e%20progetto%20discografico.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AProgetto%20(2%20righe)%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Artisti%20emergenti&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20sul%20percorso%20Artisti%20emergenti%20e%20progetto%20discografico.%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+      <!-- 4 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">Case study</div>
+            <div class="sum-title">Percorso artistico con Aurora Blasi</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Un esempio di percorso artistico che ho accompagnato fin dalle prime fasi è quello di Aurora Blasi, giovane cantautrice e content creator romana.
+            Il lavoro è iniziato dalle basi, con un percorso costruito passo dopo passo: voce, espressività e consapevolezza, fino alla definizione dell’identità artistica.
+          </p>
+          <p>
+            Il percorso ha portato Aurora alla pubblicazione del singolo di debutto “Zucchero” (Ballandi Music – distribuzione Sony Music Italy), con produzione artistica di Francesco Tosoni.
+            Una tappa significativa è stata la partecipazione al programma <em>Allegro ma non troppo</em> su RAI 3, ospite di Luca Barbareschi:
+            <a href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">guarda il reel</a>.
+          </p>
+          <p class="mini" style="margin-top:.6rem;">
+            Link utili: Spotify artista, Spotify “Zucchero”, Ballandi Music, Francesco Tosoni.
+            (Se vuoi, li inserisco anche qui come pulsanti ordinati.)
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20Percorso%20artistico&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20capire%20se%20un%20percorso%20artistico%20fa%20per%20me.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AProgetto%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Percorso%20artistico&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20su%20un%20percorso%20artistico%20(simile%20a%20case%20study%20Aurora).%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+      <!-- 5 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">VES</div>
+            <div class="sum-title">Diploma in Canto Moderno – Voice Evolution Institute</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute:
+            un percorso strutturato e progressivo articolato in quattro livelli, ciascuno con un esame di verifica.
+          </p>
+          <p>
+            Durante il percorso sarò io a seguirti nel lavoro settimanale. Al termine di ogni livello, l’esame viene sostenuto con un trainer VES® diverso da me,
+            per garantire una valutazione esterna, oggettiva e professionale.
+          </p>
+          <p>
+            Il lavoro è principalmente su lezioni individuali (in presenza/online/miste) e include laboratori gratuiti di approfondimento
+            (ear training, anatomia e fisiologia della voce, songwriting, armonie vocali, preparazione alla performance).
+          </p>
+          <p class="mini">
+            Aree di lavoro: tecnica vocale, ear training, stile, improvvisazione, interpretazione, presenza scenica.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20Diploma%20VES%20Canto%20Moderno&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20parlare%20del%20Diploma%20in%20Canto%20Moderno%20VES.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0ALivello%20attuale%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Diploma%20VES%20Canto%20Moderno&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20sul%20Diploma%20VES%20in%20Canto%20Moderno.%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+      <!-- 6 -->
+      <details>
+        <summary>
+          <div class="sum-left">
+            <div class="sum-kicker">VES</div>
+            <div class="sum-title">Formazione docenti e didattica della voce</div>
+          </div>
+          <div class="sum-icon">+</div>
+        </summary>
+        <div class="details-body">
+          <p>
+            Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce
+            e alla preparazione degli insegnanti certificati.
+          </p>
+          <p>
+            Il Voice Evolution Institute è un sistema all’avanguardia con una visione interdisciplinare della voce, dove collaborano vocal trainer, formatori e professionisti
+            dell’ambito artistico, pedagogico e scientifico. In questo contesto, faccio parte del corpo docente e mi occupo in modo specifico della formazione pedagogica:
+            didattica, relazione con l’allievo e costruzione di un approccio educativo coerente, etico e personalizzato.
+          </p>
+          <p>
+            Se desideri approfondire e capire se il percorso è in linea con i tuoi obiettivi formativi e professionali, puoi scrivermi e ti indirizzo verso la call informativa
+            con la segreteria dell’Istituto.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenota%20call%20-%20Formazione%20docenti%20VES&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20per%20capire%20la%20Formazione%20docenti%20VES%20e%20il%20percorso.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AObiettivo%3A%20%0D%0AOrari%20preferiti%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+            <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Info%20-%20Formazione%20docenti%20VES&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20informazioni%20sulla%20Formazione%20docenti%20VES%20e%20la%20call%20informativa.%0D%0A%0D%0AGrazie!">Chiedi info</a>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <h2 class="section-title">Contatto</h2>
+    <div class="card">
+      <p class="mini">
+        Scrivimi direttamente: <a href="mailto:elisacostanzo1@gmail.com?subject=Richiesta%20informazioni%20percorsi">elisacostanzo1@gmail.com</a>
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">Prenota una call gratuita</a>
+        <a class="btn" href="mailto:elisacostanzo1@gmail.com?subject=Domanda%20veloce&body=Ciao%20Elisa%2C%0D%0A%0D%0AHo%20una%20domanda%20veloce%3A%20%0D%0A%0D%0AGrazie!">Domanda veloce</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
