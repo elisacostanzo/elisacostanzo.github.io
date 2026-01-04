@@ -1,1 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Studio – Elisa Costanzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primario: #355c7b;
+      --secondario: #81277c;
+      --bianco: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #4f7b9e 0, var(--primario) 40%, #2b1a3f 100%);
+      color: var(--bianco);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to right, rgba(12,18,28,0.9), rgba(26,18,43,0.75));
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand { display: flex; align-items: center; gap: 1rem; }
+    .logo-img { height: 120px; width: auto; display: block; object-fit: contain; }
+    .brand-name { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 1rem; }
+    .brand-subtitle { font-size: 0.75rem; opacity: 0.8; }
+
+    .menu-right { display: flex; gap: .6rem; align-items: center; }
+
+    .pill {
+      border: 1px solid rgba(255,255,255,0.55);
+      background: transparent;
+      color: var(--bianco);
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    .pill.primary {
+      border-color: transparent;
+      background: var(--bianco);
+      color: var(--secondario);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+      text-decoration: none;
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 1.6rem 1.2rem 4rem; }
+
+    .kicker { text-transform: uppercase; letter-spacing: .2em; font-size: .8rem; opacity: .85; margin-bottom: .5rem; }
+    h1 { font-size: 2.3rem; line-height: 1.1; margin-bottom: 0.9rem; }
+    p { line-height: 1.75; opacity: .96; margin-bottom: .8rem; }
+
+    .card {
+      background: rgba(7,10,20,0.78);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.45);
+      margin-top: 1.1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .room {
+      border-radius: 1.4rem;
+      padding: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+    }
+
+    .room.performance { background: linear-gradient(135deg, rgba(53,92,123,0.55), rgba(255,255,255,0.06)); }
+    .room.regia { background: linear-gradient(135deg, rgba(129,39,124,0.55), rgba(255,255,255,0.06)); }
+
+    .room h2 {
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .room .tag {
+      display: inline-block;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity: .85;
+      margin-bottom: .7rem;
+    }
+
+    .arrow-cta {
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      padding: 0.65rem 1.1rem;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .arrow-cta .arr { font-size: 1.1rem; transform: translateY(1px); }
+
+    ul { padding-left: 1.1rem; opacity: .96; line-height: 1.7; }
+    li { margin-bottom: .25rem; }
+
+    .section-title {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: .9;
+      margin-bottom: .7rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.16);
+      padding: 1.2rem;
+      font-size: 0.8rem;
+      opacity: 0.85;
+      text-align: center;
+      background: rgba(7,10,20,0.9);
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .logo-img { height: 90px; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.95rem; }
+      .logo-img { height: 70px; }
+      .header-inner { padding-inline: .8rem; }
+      main { padding-inline: .9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo-elisa-costanzo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+        <div>
+          <div class="brand-name">Elisa Costanzo</div>
+          <div class="brand-subtitle">Studio & Formazione</div>
+        </div>
+      </div>
+
+      <div class="menu-right">
+        <a class="pill" href="index.html">← Home</a>
+        <a class="pill primary"
+           href="mailto:elisacostanzo1@gmail.com?subject=Prenotazione%20call%20conoscitiva&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20prenotare%20una%20call%20conoscitiva%20gratuita.%0D%0A%0D%0AMi%20chiamo%3A%20%0D%0AIl%20mio%20obiettivo%3A%20%0D%0APreferenze%20giorni%2Forari%3A%20%0D%0A%0D%0AGrazie!">
+          Prenota una call
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="kicker">Pagina dedicata allo studio</div>
+    <h1>ExpresSING Studio – Roma</h1>
+
+    <div class="card">
+      <p>
+        Lo studio si trova in <strong>via Sante Bargellini 52, a Roma</strong>, in una zona comoda e ben collegata.
+        È a due passi dalla stazione Tiburtina e dalla metro Monti Tiburtini, facilmente raggiungibile con metro,
+        autobus o in auto, con parcheggi disponibili nelle immediate vicinanze.
+      </p>
+      <p>
+        Il quartiere è tranquillo e ben servito, con un bel parco proprio alle spalle dello studio, perfetto per fare
+        una passeggiata prima o dopo la lezione e trascorrere qualche momento all’aria aperta, immersi nella natura.
+      </p>
+
+      <div class="grid-2" aria-label="Le due sale dello studio">
+        <div class="room performance">
+          <div class="tag">In presenza</div>
+          <h2>Sala Performance</h2>
+          <p>
+            Qui si svolgono le lezioni in presenza e i laboratori: è lo spazio del lavoro dal vivo,
+            dell’ascolto e dell’espressione vocale.
+          </p>
+          <ul>
+            <li>Impianto voce disponibile</li>
+            <li>Possibilità di registrare il lavoro svolto</li>
+            <li>Ideale per preparazione live e performance</li>
+          </ul>
+        </div>
+
+        <div class="room regia">
+          <div class="tag">Online & recording</div>
+          <h2>Sala Regia</h2>
+          <p>
+            Ospita le lezioni online e le registrazioni vocali, grazie a un ambiente curato e a una dotazione tecnica
+            pensata per garantire qualità di ascolto e ripresa.
+          </p>
+          <ul>
+            <li>Lezioni a distanza senza interrompere il percorso</li>
+            <li>Ambiente ottimizzato per ascolto e ripresa</li>
+            <li>Supporto per setup semplice (microfono, cuffie, scheda audio)</li>
+          </ul>
+        </div>
+      </div>
+
+      <a class="arrow-cta" href="#dettagli">
+        Ti racconto più dettagliatamente <span class="arr">↓</span>
+      </a>
+    </div>
+
+    <h2 id="dettagli" class="section-title">Dettagli e modalità di lavoro</h2>
+
+    <div class="card">
+      <p>
+        Nella <strong>Sala Performance</strong> hai la possibilità di utilizzare un impianto voce e di registrare tutto il
+        lavoro svolto insieme, dagli esercizi allo studio tecnico fino al lavoro sul brano. In questo modo puoi
+        riascoltare il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore
+        consapevolezza i passaggi successivi, dalla lezione seguente alla preparazione di un live o alle tue attività
+        professionali.
+      </p>
+      <p>
+        Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la <strong>Sala Regia</strong> ti
+        permette di proseguire il lavoro senza interrompere il percorso, comodamente da casa o dal tuo luogo di lavoro,
+        se lo consente. Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare
+        insieme, ovunque tu sia.
+      </p>
+      <p>
+        Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e
+        smart, che consente di ottenere risultati ottimali e costanti nel tempo.
+      </p>
+      <p>
+        Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
+        microfono, cuffie e una piccola scheda audio, strumenti facilmente reperibili e dai costi contenuti.
+        Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
+      </p>
+    </div>
+
+    <h2 class="section-title">Contatto diretto</h2>
+    <div class="card">
+      <p>
+        Vuoi informazioni sullo studio o sulle modalità di lavoro?
+        Scrivimi qui:
+        <a href="mailto:elisacostanzo1@gmail.com?subject=Info%20Studio%20ExpresSING">elisacostanzo1@gmail.com</a>
+      </p>
+      <p>
+        <a class="pill primary"
+           href="mailto:elisacostanzo1@gmail.com?subject=Info%20Studio%20ExpresSING&body=Ciao%20Elisa%2C%0D%0A%0D%0AVorrei%20ricevere%20informazioni%20sullo%20studio%20e%2Fo%20sulle%20lezioni.%0D%0A%0D%0AGrazie!">
+          Scrivimi per info
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
