@@ -6,31 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-   :root{
-  /* giallo “resistenza” (regolabile se vuoi più caldo/freddo) */
-  --yellow:#f6d24a;
-}
+    :root{
+      --blue:#355c7b;
+      --magenta:#81277c;
 
-/* evidenzia parole chiave */
-.hl{
-  color: var(--yellow);
-  font-weight: 1200;
-  text-shadow: 0 10px 22px rgba(0,0,0,0.22);
-}
+      /* giallo “resistenza lampadina” */
+      --yellow:#f6d24a;
 
-/* nelle card percorsi NIENTE giustificato */
-.tile p, .tile li{ 
-  text-align:left !important;
-  text-justify:auto !important;
-}
+      --glass: rgba(255,255,255,0.10);
+      --glass2: rgba(255,255,255,0.14);
+      --stroke: rgba(255,255,255,0.18);
+      --stroke2: rgba(255,255,255,0.24);
+      --shadow: rgba(0,0,0,0.22);
+      --shadow2: rgba(0,0,0,0.36);
 
-/* anche per le mini-sezioni (studio/ves/cv) se vuoi testo più “moderno” */
-.card p, .card li{
-  text-align:left;
-  text-justify:auto;
-}
+      --ink: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.86);
+    }
 
-      /* più colori del logo, meno tetro */
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      min-height:100vh;
+
+      /* colore forte ma non troppo scuro */
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -42,7 +43,13 @@
     a{color:inherit;text-decoration:none;}
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
-    .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
+
+    /* evidenzia parole chiave */
+    .hl{
+      color: var(--yellow);
+      font-weight: 1200;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
+    }
 
     /* HEADER */
     header{
@@ -67,24 +74,43 @@
     }
     .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
 
-<div class="brand-text">
-  <div class="brand-name">Elisa Costanzo</div>
-  <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
-
-  <div class="brand-subline">
-    <a class="header-chip" href="percorsi.html"><span class="dot"></span>Percorsi</a>
-    <a class="header-chip" href="studio.html"><span class="dot"></span>ExpresSING Studio</a>
-    <a class="header-chip" href="#contatti"><span class="dot"></span>Contatti</a>
-    <a class="header-chip" href="case-study-aurora-blasi.html"><span class="dot"></span>Case study</a>
-  </div>
-</div>
-
-   .brand-name{
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
+    .brand-name{
       font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
+    }
+
+    /* banner superiore meno “vuoto”: chips di navigazione */
+    .brand-subline{
+      display:flex;
+      gap:.55rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.35rem;
+    }
+    .header-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.45rem .78rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100;
+      font-size:.92rem;
+      opacity:.95;
+      transition: transform .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
+    .header-chip .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
+      box-shadow:0 10px 18px rgba(0,0,0,0.18);
     }
 
     .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
@@ -115,38 +141,8 @@
       white-space:nowrap;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
-    .brand-subline{
-  display:flex;
-  gap:.55rem;
-  flex-wrap:wrap;
-  align-items:center;
-  margin-top:.35rem;
-}
 
-.header-chip{
-  display:inline-flex;
-  align-items:center;
-  gap:.45rem;
-  padding:.45rem .78rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.10);
-  box-shadow:0 14px 26px rgba(0,0,0,0.14);
-  font-weight:1100;
-  font-size:.92rem;
-  opacity:.95;
-  transition: transform .12s ease, background .12s ease;
-}
-.header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
-
-.header-chip .dot{
-  width:8px;height:8px;border-radius:999px;
-  background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
-  box-shadow:0 10px 18px rgba(0,0,0,0.18);
-}
-
-
-    /* MENU (come tua versione buona) */
+    /* MENU OVERLAY */
     .menu-overlay{
       position:fixed; inset:0; z-index:80;
       display:none;
@@ -296,7 +292,7 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* PERCORSI preview cards — pill grande con titolo lungo */
+    /* PERCORSI CARDS */
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -334,14 +330,12 @@
       line-height:1.2;
     }
 
-    .tile h3{
-      font-size:1.18rem;
-      font-weight:1200;
-      margin-top:.2rem;
-      line-height:1.25;
-      text-transform:none;
-      letter-spacing:.02em;
+    /* IMPORTANT: sulle card NON giustificare */
+    .tile p, .tile li{
+      text-align:left !important;
+      text-justify:auto !important;
     }
+
     .tile p{font-size:1.05rem;opacity:.96}
     .tile ul{padding-left:1.1rem;margin-top:.2rem;}
     .tile li{margin:.2rem 0;opacity:.95}
@@ -364,7 +358,7 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* IG banner scorrevole */
+    /* IG banner */
     .ig-banner{
       border-radius:1.95rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -429,8 +423,6 @@
       backdrop-filter: blur(10px);
     }
 
-    figure figcaption, .caption, .photo-label, .img-label { display:none !important; }
-
     @media (max-width: 1020px){
       .grid-2{grid-template-columns:1fr;}
       .hero-photo{min-height:360px;}
@@ -458,6 +450,13 @@
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
+
+          <div class="brand-subline">
+            <a class="header-chip" href="percorsi.html"><span class="dot"></span>Percorsi</a>
+            <a class="header-chip" href="studio.html"><span class="dot"></span>ExpresSING Studio</a>
+            <a class="header-chip" href="#contatti"><span class="dot"></span>Contatti</a>
+            <a class="header-chip" href="case-study-aurora-blasi.html"><span class="dot"></span>Case study</a>
+          </div>
         </div>
       </div>
 
@@ -484,7 +483,7 @@
     </div>
   </header>
 
-  <!-- MENU OVERLAY (come richiesto) -->
+  <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -568,7 +567,7 @@
     </div>
   </div>
 
-  <main class="justify">
+  <main>
     <!-- HERO -->
     <section id="chi-sono">
       <div class="grid-2">
@@ -576,24 +575,21 @@
           <div class="section-kicker">TI PARLO DI ME</div>
           <div class="section-title">Chi sono</div>
 
-          <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di esplorazione, cura e creatività.</p>
+          <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di <span class="hl">esplorazione</span>, <span class="hl">cura</span> e <span class="hl">creatività</span>.</p>
           <p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
 
           <p>Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale (ExpresSING): un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.</p>
 
-         <p>
-  La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop –
-  insieme al <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer"><span class="hl">Voice Evolution Institute</span></a>,
-  di cui sono <span class="hl">Certified Trainer</span> – dedicato alla risonanza e alla stimolazione del tratto vocale.
-  Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
-</p>
-
+          <p>La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
+            <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer"><span class="hl">Voice Evolution Institute</span></a>,
+            di cui sono <span class="hl">Certified Trainer</span> – dedicato alla risonanza e alla stimolazione del tratto vocale. Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
+          </p>
 
           <p>Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.</p>
 
-          <p>Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale e creativo. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura. Perché ogni voce ha una storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi al meglio.</p>
+          <p>Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo <span class="hl">rispettoso</span>, <span class="hl">funzionale</span> e <span class="hl">creativo</span>. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.</p>
 
-          <p>Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività: nella parola, nel canto e – soprattutto – nella tua presenza. Per me la voce non è solo tecnica: è relazione. È il dialogo con la tua storia, con ciò che senti e con chi ti circonda. Per questo il mio approccio è esperienziale, gentile e radicato nel qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.</p>
+          <p>Intreccio ascolto, corpo e suono per aiutarti a ritrovare <span class="hl">libertà</span> ed <span class="hl">espressività</span>: nella parola, nel canto e – soprattutto – nella tua presenza.</p>
 
           <p>Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.</p>
 
@@ -608,48 +604,45 @@
       </div>
     </section>
 
-    <!-- PERCORSI (super visibili, pill con titolo lungo) -->
+    <!-- PERCORSI -->
     <section>
       <div class="section-kicker">Percorsi</div>
       <div class="section-title">Percorsi personalizzati: tecnica, libertà, identità</div>
 
       <div class="grid-3">
         <div class="tile" id="home-canto">
-  <span class="pill-title">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</span>
+          <span class="pill-title">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</span>
 
-  <p>
-    Le lezioni one-to-one sono percorsi individuali pensati <span class="hl">su misura</span> per ogni allievo:
-    che stia muovendo i primi passi o lavorando su obiettivi più avanzati e professionali.
-    Il percorso parte sempre dalla persona: dalla sua <span class="hl">voce</span> e dalla sua <span class="hl">storia</span>.
-  </p>
-  <ul>
-    <li><span class="hl">Consapevolezza corporea</span> e propriocezione</li>
-    <li><span class="hl">Postura</span> e <span class="hl">respirazione</span> funzionale</li>
-    <li>Allenamento tecnico <span class="hl">progressivo</span> senza forzature</li>
-    <li>Lavoro sul brano: <span class="hl">interpretazione</span> e <span class="hl">presenza</span></li>
-  </ul>
+          <p>
+            Le lezioni one-to-one sono percorsi individuali pensati <span class="hl">su misura</span> per ogni allievo:
+            il percorso parte sempre dalla persona, dalla sua <span class="hl">voce</span> e dalla sua <span class="hl">storia</span>.
+          </p>
+          <ul>
+            <li><span class="hl">Consapevolezza corporea</span> e propriocezione</li>
+            <li><span class="hl">Postura</span> e <span class="hl">respirazione</span> funzionale</li>
+            <li>Allenamento tecnico <span class="hl">progressivo</span> senza forzature</li>
+            <li>Lavoro sul brano: <span class="hl">interpretazione</span> e <span class="hl">presenza</span></li>
+          </ul>
 
-  <div class="actions">
-    <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
-    <button class="btn link open-menu" type="button">Menu</button>
-    <a class="btn" href="#contatti">Prenota una call gratuita</a>
-  </div>
-</div>
-
+          <div class="actions">
+            <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="#contatti">Prenota una call gratuita</a>
+          </div>
+        </div>
 
         <div class="tile" id="home-voce">
           <span class="pill-title">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</span>
-          <h3>Per chi usa la voce ogni giorno: chiarezza.hl, efficacia.hl, sostenibilità.hl.</h3>
 
           <p>
-            Percorsi dedicati alla voce parlata.hl per insegnanti, speaker, formatori e professionisti della comunicazione,
-            o per chi desidera parlare con maggiore efficacia e senza affaticamento.
+            Percorsi dedicati alla <span class="hl">voce parlata</span> per chi la usa ogni giorno nel lavoro:
+            <span class="hl">chiarezza</span>, <span class="hl">efficacia</span> e <span class="hl">sostenibilità</span>.
           </p>
           <ul>
             <li>Respiro, postura, articolazione e prosodia</li>
-            <li>Igiene vocale e prevenzione del sovraccarico</li>
-            <li>Gestione dello stress e ansia da prestazione</li>
-            <li>Presenza e coerenza con la tua identità comunicativa</li>
+            <li><span class="hl">Igiene vocale</span> e prevenzione del sovraccarico</li>
+            <li>Gestione dello <span class="hl">stress</span> e ansia da prestazione</li>
+            <li><span class="hl">Presenza</span> e coerenza con la tua identità comunicativa</li>
           </ul>
 
           <div class="actions">
@@ -661,14 +654,13 @@
 
         <div class="tile" id="home-artisti">
           <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
-          <h3>Un percorso che integra voce.hl, progetto.hl e identità artistica.hl.</h3>
 
           <p>
-            Accompagno artisti emergenti nello sviluppo dei loro progetti.hl discografici.hl: la voce viene allenata “a servizio” del materiale musicale,
-            affinando tecnica ed espressività per registrazioni.hl e performance.hl.
+            Un percorso che integra <span class="hl">voce</span>, <span class="hl">progetto</span> e <span class="hl">identità artistica</span>:
+            analisi dei brani, preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.
           </p>
           <ul>
-            <li>Analisi dei brani: fraseggio, dinamiche, interpretazione</li>
+            <li><span class="hl">Interpretazione</span>, fraseggio e dinamiche</li>
             <li>Preparazione a studio e live</li>
             <li>Supporto emotivo e presenza scenica</li>
             <li>Collaborazioni con produzione e studio</li>
@@ -690,15 +682,15 @@
       </div>
     </section>
 
-    <!-- LO SPAZIO IN CUI PUOI SPERIMENTARE (con più dettaglio) -->
+    <!-- STUDIO -->
     <section id="expressing">
       <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
 
       <div class="card">
         <p>
-          ExpresSING Studio è il luogo in cui didattica, ricerca e creatività si incontrano ogni giorno.
-          Qui puoi lavorare sulla tua voce in presenza oppure online, con un approccio concreto, rispettoso e personalizzato.
+          ExpresSING Studio è il luogo in cui <span class="hl">didattica</span>, <span class="hl">ricerca</span> e <span class="hl">creatività</span> si incontrano ogni giorno.
+          Qui puoi lavorare sulla tua voce in presenza oppure online, con un approccio concreto e personalizzato.
         </p>
         <p>
           Nello studio trovi due sale con funzioni diverse: <strong>Sala Performance</strong> (lezioni in presenza e laboratori)
@@ -706,7 +698,6 @@
         </p>
 
         <div class="mini-gallery" aria-label="Anteprima studio">
-          <!-- una sola foto ingresso + una performance (niente duplicati) -->
           <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
           <img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" />
         </div>
@@ -719,19 +710,19 @@
       </div>
     </section>
 
-    <!-- VES (con più contenuto in home, ma rimando alla sezione VES in percorsi) -->
+    <!-- VES -->
     <section id="home-ves">
       <div class="section-kicker">VES</div>
       <div class="section-title">Certificazione e ricerca</div>
 
       <div class="card">
         <p>
-          Nel mio lavoro, la ricerca e la formazione sono parte integrante della didattica.
-          Il percorso VES (Voice Evolution Institute) rappresenta un riferimento importante per un approccio evoluto e non standardizzato al training vocale.
+          Nel mio lavoro, la <span class="hl">ricerca</span> e la <span class="hl">formazione</span> sono parte integrante della didattica.
+          Il percorso VES rappresenta un riferimento importante per un approccio evoluto e non standardizzato al training vocale.
         </p>
         <p>
-          In “Percorsi” trovi in modo dettagliato le due aree principali:
-          <strong>Diploma in Canto Moderno VES®</strong> (con livelli ed esami) e <strong>Formazione docenti e didattica della voce</strong>.
+          In “Percorsi” trovi in modo dettagliato le due aree principali: <strong>Diploma in Canto Moderno VES®</strong>
+          e <strong>Formazione docenti e didattica della voce</strong>.
         </p>
 
         <div class="actions">
@@ -743,14 +734,14 @@
       </div>
     </section>
 
-    <!-- CURRICULUM (con anteprima più dettagliata) -->
+    <!-- CURRICULUM -->
     <section id="home-cv">
       <div class="section-kicker">Curriculum</div>
       <div class="section-title">Formazione, didattica e performance</div>
 
       <div class="card">
         <p>
-          Qui trovi un quadro completo di formazione e attività professionale: didattica, certificazioni, ricerca, performance e songwriting.
+          Una panoramica completa di <span class="hl">formazione</span>, <span class="hl">didattica</span>, <span class="hl">ricerca</span>, performance e songwriting.
           Se vuoi, puoi aprire la pagina dedicata e consultare l’elenco completo.
         </p>
 
@@ -768,7 +759,7 @@
       </div>
     </section>
 
-    <!-- IG banner -->
+    <!-- IG -->
     <section>
       <div class="section-kicker">Instagram</div>
       <div class="section-title">ExpresSING Studio • aggiornamenti e contenuti</div>
@@ -780,7 +771,6 @@
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DSqtQhXDEdo/embed" loading="lazy" title="Instagram Post 4"></iframe></div>
 
-          <!-- duplicazione per loop fluido -->
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DQrm6JxDLnW/embed" loading="lazy" title="Instagram Post 1 dup"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRPD54QDBvD/embed" loading="lazy" title="Instagram Post 2 dup"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3 dup"></iframe></div>
