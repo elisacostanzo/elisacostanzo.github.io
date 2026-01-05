@@ -2,266 +2,368 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Percorsi | Elisa Costanzo</title>
+  <title>Percorsi – Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root{
       --blue:#355c7b;
       --magenta:#81277c;
-      --white:#ffffff;
-      --ink: rgba(255,255,255,0.95);
-      --glass: rgba(7,10,20,0.78);
-      --stroke: rgba(255,255,255,0.18);
+      --yellow:#f6d24a;
+
+      --ink: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.86);
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
+
     body{
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      color:var(--white);
+      color: var(--ink);
       min-height:100vh;
       background:
-        radial-gradient(circle at 12% 12%, rgba(53,92,123,0.55) 0, rgba(53,92,123,0.28) 40%, rgba(0,0,0,0) 72%),
-        radial-gradient(circle at 88% 14%, rgba(129,39,124,0.52) 0, rgba(129,39,124,0.26) 42%, rgba(0,0,0,0) 72%),
-        radial-gradient(circle at 48% 86%, rgba(53,92,123,0.28) 0, rgba(129,39,124,0.22) 45%, rgba(0,0,0,0) 78%),
-        linear-gradient(180deg, #0b1020 0%, #120b24 52%, #070914 100%);
+        radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
+        radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
+        radial-gradient(860px 560px at 50% 92%, rgba(129,39,124,0.22) 0, rgba(53,92,123,0.22) 55%, rgba(0,0,0,0) 78%),
+        linear-gradient(180deg, #25314b 0%, #2a2350 52%, #1d2441 100%);
+      background-attachment: fixed;
     }
+
     a{color:inherit;text-decoration:none;}
-    .muted{opacity:.82}
-    .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
+    p, li{line-height:1.85;font-size:1.06rem;}
+    .muted{opacity:.88}
+
+    /* evidenzia parole chiave: giallo + grassetto */
+    .hl{
+      color: var(--yellow);
+      font-weight: 1200;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      text-decoration: underline;
+      text-decoration-color: rgba(246,210,74,0.35);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+    }
+
+    input, textarea, button{
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    }
 
     /* HEADER */
     header{
-      position:sticky;top:0;z-index:60;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to right, rgba(12,18,28,0.88), rgba(26,18,43,0.72));
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .header-inner{
-      max-width:1150px;margin:0 auto;
-      padding:0.78rem 1.15rem;
+      max-width:1180px;margin:0 auto;
+      padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
+
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    .logo-wrap{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:6px;border-radius:12px;
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.28);
-      line-height:0;
-    }
-    .logo-img{height:120px;width:auto;display:block;object-fit:contain;}
-    .brand-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
+    .logo-wrap{background:transparent;border:none;box-shadow:none;padding:0;line-height:0;}
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
     .brand-name{
-      font-weight:900;letter-spacing:.10em;text-transform:uppercase;
-      font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
+      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .brand-sub{font-size:.92rem;opacity:.82;line-height:1.3;max-width:60ch;}
+    .brand-sub{font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;}
+
+    .brand-subline{
+      display:flex;
+      gap:.55rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.35rem;
+    }
+    .header-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.45rem .78rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100;
+      font-size:.92rem;
+      opacity:.95;
+      transition: transform .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
+    .header-chip .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
+      box-shadow:0 10px 18px rgba(0,0,0,0.18);
+    }
 
     .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
 
-    .pill{
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;color:var(--white);
-      padding:0.6rem 1.05rem;border-radius:999px;
-      font-weight:800;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      white-space:nowrap;
-    }
-    .menu-button{
-      border:none;background:var(--white);color:var(--magenta);
-      padding:0.6rem 1.2rem;border-radius:999px;
-      font-weight:1000;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      box-shadow:0 10px 20px rgba(0,0,0,0.40);
-      transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;
-    }
-    .menu-button:hover{transform:translateY(-1px);box-shadow:0 14px 26px rgba(0,0,0,0.55);}
-
-    /* top icons */
-    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.1rem;}
+    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
       display:inline-flex;align-items:center;justify-content:center;
       border:1px solid rgba(255,255,255,0.22);
-      box-shadow:0 14px 24px rgba(0,0,0,0.25);
-      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.14);
       transition:transform .12s ease, filter .12s ease;
     }
-    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.08);}
+    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
     .icon-btn svg{width:22px;height:22px;}
-    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.55), rgba(255,255,255,0.10));}
-    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.62), rgba(53,92,123,0.30));}
-    .icon-mail svg{color:#bfe1ff;}
-    .icon-ig svg{color:#ffd1ff;}
+    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.70), rgba(255,255,255,0.08));}
+    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.72), rgba(53,92,123,0.25));}
+    .icon-mail svg{color:#d7f1ff;}
+    .icon-ig svg{color:#ffe0ff;}
 
-    /* MENU overlay */
+    .menu-button{
+      border:none;background:#fff;color:var(--magenta);
+      padding:0.62rem 1.2rem;border-radius:999px;
+      font-weight:1100;cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+      transition:transform .12s ease, box-shadow .12s ease;
+      white-space:nowrap;
+    }
+    .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
+
+    /* MENU OVERLAY */
     .menu-overlay{
       position:fixed; inset:0; z-index:80;
       display:none;
       padding:1.2rem;
       background:
-        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.42), rgba(0,0,0,0) 56%),
-        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.42), rgba(0,0,0,0) 56%),
-        rgba(0,0,0,0.78);
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
+        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
+        rgba(8,10,16,0.55);
     }
     .menu-overlay.open{display:block;}
     .menu-card{
-      max-width:560px;
+      max-width:590px;
       margin:4.2rem auto;
       padding:1.35rem 1.35rem 1.15rem;
       border-radius:1.85rem;
       background:
-        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.22), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.22), rgba(0,0,0,0) 60%),
-        rgba(10,12,20,0.96);
-      border:1px solid rgba(255,255,255,0.14);
-      box-shadow:0 26px 60px rgba(0,0,0,0.72);
+        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.20), rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%),
+        rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 26px 60px rgba(0,0,0,0.42);
+      backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
     }
     @keyframes pop{to{transform:translateY(0);}}
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{
-      font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1000;opacity:.92;
-    }
-    .menu-title .sub{font-size:.92rem;opacity:.78;line-height:1.25;}
+    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
-      border:1px solid rgba(255,255,255,0.18);
-      background:rgba(255,255,255,0.10);
-      box-shadow:0 12px 22px rgba(0,0,0,0.45);
-      color:var(--white);font-size:1.2rem;
+      border:1px solid rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.16);
+      box-shadow:0 12px 22px rgba(0,0,0,0.20);
+      color:#fff;font-size:1.2rem;
     }
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
       padding:.9rem 1rem;border-radius:1.25rem;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      box-shadow:0 16px 30px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
       transition:transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.09);border-color: rgba(255,255,255,0.18);}
+    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
     .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
     .menu-ico{
       width:40px;height:40px;border-radius:999px;
       display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, rgba(129,39,124,0.42), rgba(53,92,123,0.28));
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 14px 24px rgba(0,0,0,0.30);
+      background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 24px rgba(0,0,0,0.16);
       flex:0 0 auto;
     }
     .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
     .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-    .menu-text .t{font-weight:1000;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .menu-text .d{font-size:.92rem;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .t{font-weight:1100;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-pill{
       font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
       padding:.35rem .6rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      opacity:.92;flex:0 0 auto;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      opacity:.95;flex:0 0 auto;
     }
+    .menu-sub{
+      margin:.45rem 0 0;
+      padding-left:3.15rem;
+      display:grid;
+      gap:.45rem;
+    }
+    .menu-sub a{
+      padding:.55rem .85rem;
+      border-radius:1.05rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1100;
+      opacity:.92;
+      line-height:1.25;
+      text-transform:none;
+      letter-spacing:normal;
+      font-size:.95rem;
+    }
+    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* MAIN */
-    main{max-width:1150px;margin:0 auto;padding:1.7rem 1.15rem 2.7rem;}
-    section{margin-bottom:3.2rem;}
+    main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
+    section{margin-bottom:3.25rem;}
+
     .section-kicker{
       font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.9;margin-bottom:.7rem;
+      opacity:.92;margin-bottom:.7rem;
     }
     .section-title{
-      font-size:2.35rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1000;
+      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
+
     .card{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:1.75rem;
-      padding:1.55rem;
-      box-shadow:0 18px 38px rgba(0,0,0,0.52);
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:1.85rem;
+      padding:1.6rem;
+      box-shadow:0 20px 44px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
     }
-    p{line-height:1.9;opacity:.97;font-size:1.08rem;margin-bottom:.95rem;}
 
     .btn{
       border-radius:999px;
-      padding:0.78rem 1.25rem;
+      padding:0.82rem 1.28rem;
       font-size:1rem;
-      font-weight:1000;
+      font-weight:1200;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
-      color:var(--white);
+      color:#fff;
       cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
     }
     .btn.primary{
       border-color:transparent;
-      background:var(--white);
+      background:#fff;
       color:var(--magenta);
-      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{border-color:rgba(255,255,255,0.28);background:rgba(0,0,0,0.10);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* VES highlight */
-    .ves-head{
-      display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin-bottom:.9rem;
+    /* SECTION NAV */
+    .toc{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      margin-top:.9rem;
     }
-    .ves-logo{
-      height:64px;width:auto;display:block;object-fit:contain;
-      border-radius:12px;background:rgba(255,255,255,0.92);padding:6px;
-      box-shadow:0 10px 18px rgba(0,0,0,0.28);
+    .toc a{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.55rem .85rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      font-weight:1100;
+      opacity:.96;
+      transition: transform .12s ease, background .12s ease;
     }
-    .chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem;}
-    .chip{
-      display:inline-flex;align-items:center;gap:.45rem;
-      padding:.55rem .85rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 12px 22px rgba(0,0,0,0.25);
-      font-weight:1000;
+    .toc a:hover{transform:translateY(-1px); background: rgba(255,255,255,0.14);}
+
+    /* “pill title” come index */
+    .pill-title{
+      display:inline-flex;
+      width:fit-content;
+      padding:.55rem .95rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+      font-weight:1200;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.86rem;
+      line-height:1.2;
+      margin-bottom:.85rem;
     }
 
-    /* quick jump */
-    .jump{
+    /* schemi aree di lavoro (più leggibile) */
+    .areas{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:.9rem;
       margin-top:1rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-      border-radius:1.35rem;
-      padding:1rem 1.1rem;
+    }
+    .area{
+      border-radius:1.4rem;
       border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.06);
-      box-shadow:0 16px 30px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+      backdrop-filter: blur(10px);
     }
-    .jump .t{font-weight:1100;font-size:1.08rem;}
-    .arrow{
-      display:inline-flex;align-items:center;gap:.5rem;
-      padding:.6rem 1rem;
+    .area h4{
+      font-size:1.02rem;
+      font-weight:1200;
+      margin-bottom:.35rem;
+      letter-spacing:.02em;
+    }
+    .area p{
+      font-size:1.01rem;
+      opacity:.95;
+      line-height:1.65;
+    }
+
+    /* divisore leggero */
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,0.14);
+      margin:1.2rem 0;
       border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.18);
-      font-weight:1100;
     }
+
+    /* layout per sezioni lunghe */
+    .stack{display:flex;flex-direction:column;gap:.95rem;}
+    .stack p{ text-align:justify; }
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
       padding:1.2rem 1.1rem;
       text-align:center;
-      opacity:0.85;
-      background:rgba(7,10,20,0.9);
+      opacity:0.9;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
     }
 
     @media (max-width: 1020px){
-      .logo-img{height:98px;}
+      .logo-img{height:112px;}
+      .areas{grid-template-columns:1fr;}
     }
     @media (max-width: 640px){
       .brand-sub{display:none;}
-      .section-title{font-size:1.95rem;}
+      .section-title{font-size:2.15rem;}
       .menu-card{margin:3.2rem auto;}
     }
   </style>
@@ -276,7 +378,14 @@
         </div>
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Percorsi • One-to-one • Progetti artistici • VES</div>
+          <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
+
+          <div class="brand-subline">
+            <a class="header-chip" href="index.html"><span class="dot"></span>Home</a>
+            <a class="header-chip" href="studio.html"><span class="dot"></span>ExpresSING Studio</a>
+            <a class="header-chip" href="#ves"><span class="dot"></span>VES</a>
+            <a class="header-chip" href="index.html#contatti"><span class="dot"></span>Contatti</a>
+          </div>
         </div>
       </div>
 
@@ -298,7 +407,6 @@
           </a>
         </div>
 
-        <a class="pill" href="index.html">Home</a>
         <button class="menu-button" id="menuOpen" aria-label="Apri menu">☰ Menu</button>
       </div>
     </div>
@@ -316,55 +424,34 @@
       </div>
 
       <div class="menu-grid">
-        <a class="menu-item" href="#top">
+        <a class="menu-item" href="index.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">inizio pagina</div></div>
+            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
           </div>
-          <div class="menu-pill">top</div>
+          <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="#one-to-one-canto">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">One to one</div><div class="d">cantanti e cantautori</div></div>
-          </div>
-          <div class="menu-pill">1:1</div>
-        </a>
+            <div class="menu-pill">go</div>
+          </a>
 
-        <a class="menu-item" href="#one-to-one-voce">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Voce parlata</div><div class="d">comunicazione professionale</div></div>
+          <div class="menu-sub">
+            <a href="#canto">Lezioni one to one – per cantanti e cantautori</a>
+            <a href="#voce">Lezioni one to one – voce parlata e comunicazione professionale</a>
+            <a href="#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="#ves">VES</a>
           </div>
-          <div class="menu-pill">pro</div>
-        </a>
-
-        <a class="menu-item" href="#artisti">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Artisti emergenti</div><div class="d">progetto discografico</div></div>
-          </div>
-          <div class="menu-pill">proj</div>
-        </a>
-
-        <a class="menu-item" href="#ves">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Sezione VES</div><div class="d">certificazione e ricerca</div></div>
-          </div>
-          <div class="menu-pill">ves</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -409,280 +496,233 @@
     </div>
   </div>
 
-  <main id="top" class="justify">
+  <main>
+    <!-- INTRO -->
     <section>
       <div class="section-kicker">Percorsi</div>
-      <div class="section-title">Scegli il tuo percorso e iniziamo da dove sei</div>
+      <div class="section-title">Scegliamo insieme la direzione giusta per la tua voce</div>
 
       <div class="card">
         <p>
-          Qui trovi i percorsi principali: lezioni individuali per canto e voce parlata, accompagnamento per artisti emergenti e la sezione VES dedicata a certificazione e ricerca.
-          Se non sai da dove partire, scrivimi dal form: ti aiuto a orientarti in base al tuo obiettivo.
+          Qui trovi una panoramica completa dei percorsi. Il punto di partenza è sempre l’ascolto:
+          la tua <span class="hl">storia</span>, i tuoi <span class="hl">obiettivi</span> e ciò che la tua voce sta chiedendo in questo momento.
+          Possiamo lavorare in presenza o online, con un ritmo <span class="hl">sostenibile</span> e un approccio <span class="hl">gentile</span>, ma concreto.
         </p>
 
-        <div class="actions">
-          <a class="btn primary" href="#ves">Percorsi VES</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html#contatti">Prenota una call gratuita</a>
+        <div class="toc" aria-label="Vai alle sezioni">
+          <a href="#canto">🎤 Cantanti e cantautori</a>
+          <a href="#voce">🗣️ Voce parlata</a>
+          <a href="#artisti">🎧 Artisti emergenti</a>
+          <a href="#ves">✨ VES</a>
         </div>
 
-        <div class="jump">
-          <div class="t">Vai direttamente alle sezioni:</div>
-          <a class="arrow" href="#one-to-one-canto">Canto ↓</a>
-          <a class="arrow" href="#one-to-one-voce">Voce parlata ↓</a>
-          <a class="arrow" href="#artisti">Artisti ↓</a>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">Scrivimi</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
     </section>
 
-    <!-- ONE TO ONE - CANTO -->
-    <section id="one-to-one-canto">
-      <div class="section-kicker">Lezioni one to one</div>
-      <div class="section-title">Per cantanti e cantautori</div>
+    <!-- CANTO -->
+    <section id="canto">
+      <div class="section-kicker">Percorso</div>
+      <div class="section-title">Lezioni one to one – per cantanti e cantautori</div>
 
       <div class="card">
-        <p>
-          Le lezioni one-to-one sono percorsi individuali pensati su misura per ogni allievo: che stia muovendo i primi passi o lavorando su obiettivi più avanzati e professionali.
-        </p>
-        <p>
-          Il percorso parte sempre dalla persona: dalla sua voce e dalla sua storia. Come saprai, la voce è unica, così come lo è il modo in cui viene usata e vissuta.
-          Per questo il lavoro tiene conto di diversi aspetti: dal tipo di corda vocale alla struttura corporea, fino alle esperienze personali e artistiche che influenzano il modo di usare la voce.
-        </p>
-        <p>
-          Il lavoro procede in modo graduale e consapevole, partendo dalla consapevolezza corporea, per sviluppare nel tempo una maggiore propriocezione e connessione con se stessi.
-        </p>
-        <p>
-          Segue un lavoro sulla postura, finalizzato a favorire una respirazione funzionale alle necessità espressive, e un lavoro di allenamento tecnico, costruito in modo mirato e progressivo, senza forzature.
-        </p>
-        <p>
-          Ogni elemento viene affrontato in relazione agli altri, perché la voce non è mai un gesto isolato, ma il risultato di un sistema che coinvolge corpo, respiro, intenzione ed espressione.
-        </p>
-        <p>
-          Questo approccio si ispira a una visione della didattica vocale evoluta e non standardizzata, in linea con i principi del Voice Evolution Institute,
-          di cui sono Certified Vocal Trainer, che pone al centro l’osservazione, l’ascolto e l’adattamento del lavoro alle reali esigenze dell’allievo.
-          Non esistono protocolli uguali per tutti, ma strumenti e strategie che vengono scelti e modellati di volta in volta.
-        </p>
-        <p>
-          Le lezioni one-to-one possono svolgersi in presenza, nella Sala Performance, oppure online, attraverso la Sala Regia, mantenendo la stessa cura, attenzione e qualità del lavoro.
-          In entrambi i casi, l’obiettivo è accompagnarti in un percorso di crescita vocale consapevole, concreto e duraturo.
-        </p>
-        <p>
-          Se senti che questo approccio può fare al caso tuo, prenota una call conoscitiva gratuita, senza impegno: un primo incontro per conoscerci, confrontarci sui tuoi obiettivi e capire se possiamo lavorare insieme.
-        </p>
+        <span class="pill-title">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</span>
+
+        <div class="stack">
+          <p>
+            Le lezioni one-to-one sono percorsi individuali pensati <span class="hl">su misura</span> per ogni allievo: che stia muovendo i primi passi o lavorando su obiettivi più avanzati e professionali.
+            Il percorso parte sempre dalla persona: dalla sua <span class="hl">voce</span> e dalla sua <span class="hl">storia</span>.
+          </p>
+
+          <p>
+            Il lavoro procede in modo graduale e consapevole, partendo dalla <span class="hl">consapevolezza corporea</span>, per sviluppare nel tempo una maggiore propriocezione e connessione con se stessi.
+            Segue un lavoro sulla <span class="hl">postura</span>, finalizzato a favorire una respirazione funzionale alle necessità espressive, e un lavoro di allenamento tecnico, costruito in modo mirato e progressivo, <span class="hl">senza forzature</span>.
+          </p>
+
+          <p>
+            Ogni elemento viene affrontato in relazione agli altri, perché la voce non è mai un gesto isolato, ma il risultato di un sistema che coinvolge corpo, respiro, intenzione ed espressione.
+            Questo approccio si ispira a una visione della didattica vocale evoluta e non standardizzata, in linea con i principi del <span class="hl">Voice Evolution Institute</span>, che pone al centro l’osservazione, l’ascolto e l’adattamento del lavoro alle reali esigenze dell’allievo.
+          </p>
+
+          <p>
+            Le lezioni possono svolgersi in presenza, nella <span class="hl">Sala Performance</span>, oppure online, attraverso la <span class="hl">Sala Regia</span>, mantenendo la stessa cura, attenzione e qualità del lavoro.
+            In entrambi i casi, l’obiettivo è accompagnarti in un percorso di crescita vocale <span class="hl">consapevole</span>, <span class="hl">concreto</span> e duraturo.
+          </p>
+        </div>
 
         <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Prenota una call gratuita, senza impegno</a>
+          <a class="btn primary" href="index.html#contatti">Prenota una call gratuita</a>
           <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
     </section>
 
-    <!-- ONE TO ONE - VOCE PARLATA -->
-    <section id="one-to-one-voce">
-      <div class="section-kicker">Lezioni one to one</div>
-      <div class="section-title">Voce parlata e comunicazione professionale</div>
+    <!-- VOCE PARLATA -->
+    <section id="voce">
+      <div class="section-kicker">Percorso</div>
+      <div class="section-title">Lezioni one to one – voce parlata e comunicazione professionale</div>
 
       <div class="card">
-        <p>
-          Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla voce parlata, pensati per te se utilizzi la voce quotidianamente come strumento di lavoro:
-          insegnante, speaker, formatore, professionista della comunicazione o semplicemente se senti il bisogno di parlare con maggiore efficacia, chiarezza e sostenibilità.
-        </p>
-        <p>
-          Il training non riguarda solo l’emissione, ma un insieme di aspetti che coinvolgono respiro, postura, articolazione, ritmo, prosodia e prossemica.
-          L’obiettivo è aiutarti a sviluppare una voce funzionale, stabile e naturale, capace di sostenere anche carichi di lavoro vocali intensi, senza affaticamento e,
-          soprattutto, adeguata allo scopo comunicativo che desideri raggiungere.
-        </p>
-        <p>
-          Un’attenzione particolare è dedicata all’igiene vocale e alla costruzione di buone abitudini: impari a riconoscere i segnali di stress vocale,
-          a prevenire sovraccarichi e tensioni e a integrare strategie pratiche per proteggere la tua voce nel tempo.
-          Questo significa lavorare sulla gestione dello sforzo, sull’organizzazione dell’uso vocale nella giornata e su comportamenti utili a mantenere la voce sana ed efficiente.
-        </p>
-        <p>
-          Il percorso include anche strumenti per fronteggiare lo stress e l’ansia da prestazione, frequenti in situazioni come lezioni, conferenze, presentazioni o interventi in pubblico,
-          aiutandoti a parlare con maggiore sicurezza e presenza.
-        </p>
-        <p>
-          Le lezioni sono completamente personalizzate e costruite sulle tue esigenze specifiche, con l’obiettivo di rendere la tua voce parlata efficiente, efficace, sostenibile e,
-          soprattutto, coerente con la tua identità comunicativa.
-        </p>
-        <p>
-          Se senti che questo approccio può fare al caso tuo, prenota una call conoscitiva gratuita, senza impegno: un primo incontro per conoscerci, confrontarci sui tuoi obiettivi e capire se possiamo lavorare insieme.
-        </p>
+        <span class="pill-title">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</span>
+
+        <div class="stack">
+          <p>
+            Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla <span class="hl">voce parlata</span>, pensati per te se utilizzi la voce quotidianamente come strumento di lavoro:
+            insegnante, speaker, formatore, professionista della comunicazione o semplicemente se senti il bisogno di parlare con maggiore <span class="hl">efficacia</span>, <span class="hl">chiarezza</span> e <span class="hl">sostenibilità</span>.
+          </p>
+
+          <p>
+            Il training non riguarda solo l’emissione, ma un insieme di aspetti che coinvolgono respiro, postura, articolazione, ritmo, prosodia e prossemica.
+            L’obiettivo è aiutarti a sviluppare una voce <span class="hl">funzionale</span>, stabile e naturale, capace di sostenere anche carichi di lavoro vocali intensi, senza affaticamento.
+          </p>
+
+          <p>
+            Un’attenzione particolare è dedicata all’<span class="hl">igiene vocale</span> e alla costruzione di buone abitudini: impari a riconoscere i segnali di stress vocale, a prevenire sovraccarichi e tensioni e a integrare strategie pratiche per proteggere la tua voce nel tempo.
+            Il percorso include anche strumenti per fronteggiare lo <span class="hl">stress</span> e l’ansia da prestazione.
+          </p>
+
+          <p>
+            Le lezioni sono completamente <span class="hl">personalizzate</span> e costruite sulle tue esigenze specifiche, con l’obiettivo di rendere la tua voce parlata efficiente, efficace, sostenibile e coerente con la tua <span class="hl">identità comunicativa</span>.
+          </p>
+        </div>
 
         <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Prenota una call gratuita, senza impegno</a>
+          <a class="btn primary" href="index.html#contatti">Richiedi info</a>
           <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
     </section>
 
-    <!-- ARTISTI -->
+    <!-- ARTISTI EMERGENTI -->
     <section id="artisti">
-      <div class="section-kicker">Artisti</div>
+      <div class="section-kicker">Percorso</div>
       <div class="section-title">Artisti emergenti e sviluppo del progetto discografico</div>
 
       <div class="card">
-        <p>
-          Una parte importante del mio lavoro è dedicata agli artisti emergenti, che accompagno in un percorso di crescita artistica e vocale, seguendoli passo dopo passo nello sviluppo dei loro progetti discografici.
-        </p>
-        <p>
-          Il percorso non riguarda solo il training vocale, ma un lavoro specifico sull’artista e sul progetto. La voce viene allenata in funzione del materiale musicale, affinando tecnica ed espressività in vista di registrazioni e performance.
-        </p>
-        <p>
-          Il lavoro sui brani è un momento centrale del percorso: analizzo insieme all’artista le canzoni per costruire un lavoro accurato che ne valorizzi ogni aspetto, non solo tecnico ma anche interpretativo, di fraseggio e di dinamiche.
-        </p>
-        <p>
-          Non intervengo per dare una forma prestabilita: per me è fondamentale che sia l’artista a esprimersi e a far emergere la propria identità. Il mio ruolo è quello di facilitare questo processo, creando le condizioni perché la voce e il brano possano trovare la loro direzione in modo autentico e personale.
-        </p>
-        <p>
-          Accanto al lavoro artistico e vocale, divento anche una guida e un supporto nella gestione degli aspetti emotivi legati alla performance. Ansia da prestazione, tensioni, momenti di sconforto o di insicurezza fanno spesso parte del percorso di un artista.
-          Insieme lavoriamo per riconoscere e affrontare questi stati, sviluppando maggiore consapevolezza, fiducia e presenza, affinché l’energia emotiva possa diventare una risorsa e non un ostacolo.
-        </p>
-        <p>
-          Accompagno inoltre l’artista nelle sessioni di registrazione, curando la preparazione tecnica e interpretativa per affrontare lo studio con maggiore consapevolezza, efficacia e professionalità.
-        </p>
-        <p>
-          Questo lavoro si inserisce anche all’interno di una collaborazione attiva con Noise Symphony Music, realtà con cui condivido una visione attenta alla qualità artistica e allo sviluppo autentico dei progetti.
-        </p>
-        <p>
-          Con Francesco Tosoni, produttore con cui seguo gli artisti nella fase di produzione, contribuisco a creare un ponte concreto tra il percorso vocale, il lavoro creativo e la realizzazione discografica.
-        </p>
-        <p>
-          L’obiettivo è costruire un progetto solido, coerente e autentico, pronto ad affacciarsi a un contesto musicale sempre più competitivo.
-        </p>
-        <p>
-          Se senti che è il momento di lavorare in modo strutturato sul tuo progetto artistico, prenota una call conoscitiva gratuita, senza impegno: un primo incontro per conoscerci, confrontarci sui tuoi obiettivi e capire se possiamo lavorare insieme.
-        </p>
+        <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
+
+        <div class="stack">
+          <p>
+            Una parte importante del mio lavoro è dedicata agli <span class="hl">artisti emergenti</span>, che accompagno in un percorso di crescita artistica e vocale, seguendoli passo dopo passo nello sviluppo dei loro progetti discografici.
+            Il percorso non riguarda solo il training vocale, ma un lavoro specifico sull’artista e sul <span class="hl">progetto</span>.
+          </p>
+
+          <p>
+            Il lavoro sui brani è un momento centrale: analizzo insieme all’artista le canzoni per costruire un lavoro accurato che ne valorizzi ogni aspetto, non solo tecnico ma anche interpretativo, di fraseggio e di dinamiche.
+            Per me è fondamentale che sia l’artista a esprimersi e a far emergere la propria <span class="hl">identità</span>.
+          </p>
+
+          <p>
+            Accanto al lavoro artistico e vocale, divento anche un supporto nella gestione degli aspetti emotivi legati alla performance:
+            ansia da prestazione, tensioni, momenti di sconforto o insicurezza.
+            Insieme lavoriamo per trasformare l’energia emotiva in una <span class="hl">risorsa</span>.
+          </p>
+
+          <p>
+            Accompagno inoltre l’artista nelle sessioni di registrazione, curando la preparazione tecnica e interpretativa per affrontare lo studio con maggiore consapevolezza, efficacia e professionalità.
+            Questo lavoro si inserisce anche all’interno di collaborazioni con produttori e studio, per creare un ponte concreto tra percorso vocale, lavoro creativo e realizzazione discografica.
+          </p>
+        </div>
 
         <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Prenota una call gratuita, senza impegno</a>
+          <a class="btn primary" href="index.html#contatti">Prenota una call gratuita</a>
           <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="case-study-aurora-blasi.html">Vedi case study →</a>
+          <a class="btn" href="case-study-aurora-blasi.html">Vedi case study</a>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
     </section>
 
     <!-- VES -->
     <section id="ves">
-     <section id="ves">
-  <div class="section-kicker">VES</div>
-  <div class="section-title">Certificazione e ricerca</div>
+      <div class="section-kicker">VES</div>
+      <div class="section-title">Certificazione e ricerca</div>
 
-  <div class="card">
-    <div class="ves-head">
-      <img class="ves-logo" src="Logo VES.jpg" alt="Logo VES" />
-      <div>
-        <div style="font-weight:1100;font-size:1.2rem;line-height:1.15;">Voice Evolution Institute</div>
-        <div class="muted">Percorsi • Diploma • Didattica della voce</div>
-      </div>
-    </div>
+      <div class="card">
+        <p class="muted">
+          Di seguito trovi le due aree principali del percorso VES: <span class="hl">Diploma in Canto Moderno</span> e <span class="hl">Formazione docenti</span>.
+          Se vuoi, puoi consultare il sito ufficiale VES.
+        </p>
 
-    <!-- ✅ Solo pulsante Sito VES -->
-    <div class="actions" style="margin-top:.2rem;">
-      <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
-      <a class="btn primary" href="index.html#contatti">Richiedi info</a>
-      <button class="btn link open-menu" type="button">Menu</button>
-    </div>
+        <div class="divider"></div>
 
-    <!-- ✅ Due riquadri con TUTTO il testo -->
-    <div style="margin-top:1.2rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-      <!-- RIQUADRO 1 -->
-      <div style="
-        border-radius:1.75rem;
-        border:1px solid rgba(255,255,255,0.16);
-        background:rgba(255,255,255,0.06);
-        box-shadow:0 18px 34px rgba(0,0,0,0.45);
-        padding:1.25rem;
-      " class="justify">
-        <div style="font-size:1.15rem;font-weight:1100;margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.02em;">
-          DIPLOMA IN CANTO MODERNO – VOICE EVOLUTION INSTITUTE
+        <span class="pill-title">Diploma in canto moderno – Voice Evolution Institute</span>
+        <div class="stack">
+          <p>
+            Se il tuo obiettivo è <span class="hl">professionalizzarti</span> come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute, un percorso che seguo e accompagno direttamente nel mio lavoro didattico.
+            È un cammino strutturato e progressivo, pensato per chi desidera costruire competenze tecniche, musicali ed espressive solide.
+          </p>
+          <p>
+            Il diploma è articolato in quattro livelli, ognuno con un esame di verifica. Durante il percorso sarò io a seguirti nel lavoro settimanale, accompagnandoti nella preparazione tecnica, musicale ed espressiva.
+            Al termine di ogni livello, l’esame viene sostenuto con un trainer del sistema VES®, diverso da me, così da garantire una valutazione esterna, oggettiva e professionale.
+          </p>
+          <p>
+            Il lavoro si basa principalmente su lezioni individuali (in presenza, online o in modalità mista). Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento (ear training, anatomia e fisiologia della voce, songwriting, armonie vocali, preparazione alla performance).
+          </p>
         </div>
 
-        <p>Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute, un percorso che seguo e accompagno direttamente nel mio lavoro didattico.</p>
-        <p>Si tratta di un cammino strutturato e progressivo, pensato per chi desidera costruire competenze tecniche, musicali ed espressive solide. Non è una formazione veloce, ma un percorso che richiede tempo, continuità e un coinvolgimento reale.</p>
-        <p>Il diploma è articolato in quattro livelli, e ognuno di essi prevede un esame di verifica. Durante il percorso sarò io a seguirti nel lavoro settimanale, accompagnandoti passo dopo passo nella preparazione tecnica, musicale ed espressiva. Al termine di ogni livello, l’esame viene sostenuto con un trainer del sistema VES®, diverso da me, così da garantire una valutazione esterna, oggettiva e professionale.</p>
-        <p>Il lavoro si basa principalmente su lezioni individuali, che possono svolgersi in presenza, online o in modalità mista, permettendoti di organizzare lo studio in modo flessibile e in linea con le tue esigenze. I programmi didattici ufficiali sono sempre consultabili tramite i link dedicati.</p>
-        <p>Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento, dedicati a ear training, anatomia e fisiologia della voce, songwriting, armonie vocali e preparazione alla performance. Questi momenti collettivi affiancano lo studio personale e offrono l’occasione di fare esperienza di gruppo e confronto con altri cantanti.</p>
+        <div class="divider"></div>
 
-        <div style="
-          margin:1rem 0 1.05rem;
-          border-radius:1.35rem;
-          padding:1rem 1rem;
-          border:1px solid rgba(255,255,255,0.16);
-          background: rgba(255,255,255,0.06);
-          box-shadow:0 16px 30px rgba(0,0,0,0.35);
-        ">
-          <div style="font-weight:1100;margin-bottom:.55rem;">Le aree di lavoro del percorso</div>
+        <span class="pill-title">Le aree di lavoro del percorso</span>
 
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Tecnica vocale</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per sviluppare controllo, potenza e resistenza attraverso un allenamento costruito su misura.</div>
+        <!-- versione più schematica -->
+        <div class="areas" aria-label="Aree di lavoro">
+          <div class="area">
+            <h4><span class="hl">Tecnica vocale</span></h4>
+            <p>Controllo, potenza e resistenza con allenamento <span class="hl">su misura</span>.</p>
           </div>
-
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Ear training</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per migliorare intonazione, ascolto e consapevolezza musicale.</div>
+          <div class="area">
+            <h4><span class="hl">Ear training</span></h4>
+            <p>Intonazione, ascolto e consapevolezza <span class="hl">musicale</span>.</p>
           </div>
-
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Stile</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per affrontare i principali linguaggi del canto moderno, valorizzando le caratteristiche di ogni genere.</div>
+          <div class="area">
+            <h4><span class="hl">Stile</span></h4>
+            <p>Attraversare i linguaggi del canto moderno valorizzando la tua <span class="hl">identità</span>.</p>
           </div>
-
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Improvvisazione</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per stimolare creatività e libertà espressiva, rendendo la performance più personale.</div>
+          <div class="area">
+            <h4><span class="hl">Improvvisazione</span></h4>
+            <p>Creatività e libertà espressiva: rendere la performance più <span class="hl">personale</span>.</p>
           </div>
-
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Interpretazione</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per comunicare in modo autentico ciò che desideri esprimere attraverso la voce.</div>
+          <div class="area">
+            <h4><span class="hl">Interpretazione</span></h4>
+            <p>Comunicare con autenticità ciò che vuoi esprimere attraverso la <span class="hl">voce</span>.</p>
           </div>
-
-          <div style="padding:.65rem 0;border-top:1px solid rgba(255,255,255,0.10);">
-            <div style="font-weight:1100;">Presenza scenica</div>
-            <div class="muted" style="opacity:.95;line-height:1.8;">per salire sul palco con maggiore sicurezza e creare una connessione reale con il pubblico.</div>
+          <div class="area">
+            <h4><span class="hl">Presenza scenica</span></h4>
+            <p>Sicurezza sul palco e connessione reale con il <span class="hl">pubblico</span>.</p>
           </div>
         </div>
 
-        <p>Completando tutti i livelli si ottiene il Diploma Professionale in Canto Moderno VES®, una certificazione privata rilasciata dal Voice Evolution Institute che attesta il livello di competenza raggiunto. È un traguardo importante, ma anche una base solida da cui continuare a crescere come cantante e come artista.</p>
-        <p>Se senti il bisogno di dare una direzione più chiara al tuo percorso, di metterti alla prova e di lavorare sulla voce con metodo e continuità, questo diploma può essere uno strumento valido. Possiamo parlarne insieme, capire se è il percorso giusto per te e valutare come integrarlo al lavoro che stai già facendo sulla tua voce.</p>
-      </div>
+        <div class="divider"></div>
 
-      <!-- RIQUADRO 2 -->
-      <div style="
-        border-radius:1.75rem;
-        border:1px solid rgba(255,255,255,0.16);
-        background:rgba(255,255,255,0.06);
-        box-shadow:0 18px 34px rgba(0,0,0,0.45);
-        padding:1.25rem;
-      " class="justify">
-        <div style="font-size:1.15rem;font-weight:1100;margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.02em;">
-          FORMAZIONE DOCENTI E DIDATTICA DELLA VOCE – VOICE EVOLUTION INSTITUTE
+        <span class="pill-title">Formazione docenti e didattica della voce – Voice Evolution Institute</span>
+        <div class="stack">
+          <p>
+            Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce e alla preparazione degli insegnanti certificati.
+            Il Voice Evolution Institute è un sistema all’avanguardia, costruito su una visione ampia e interdisciplinare della voce.
+          </p>
+          <p>
+            In questo contesto, faccio parte del corpo docente e mi occupo in modo specifico della formazione <span class="hl">pedagogica</span>, accompagnandoti nello sviluppo delle competenze legate alla didattica, alla relazione con l’allievo e alla costruzione di un approccio educativo coerente, etico e personalizzato.
+          </p>
+          <p>
+            Se desideri approfondire questo percorso, puoi contattare direttamente la segreteria dell’Istituto per una call informativa.
+          </p>
         </div>
-
-        <p>Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce e alla preparazione degli insegnanti certificati.</p>
-        <p>Se stai valutando un percorso di formazione per diventare insegnante di canto o di voce, è importante sapere che il Voice Evolution Institute è un sistema all’avanguardia, costruito su una visione ampia e interdisciplinare della voce. All’interno del percorso lavorano e collaborano diverse figure professionali — vocal trainer, formatori, professionisti dell’ambito artistico, pedagogico e scientifico — con l’obiettivo comune di formare insegnanti consapevoli, competenti e aggiornati.</p>
-        <p>In questo contesto, faccio parte del corpo docente e mi occupo in modo specifico della formazione pedagogica, accompagnandoti nello sviluppo delle competenze legate alla didattica, alla relazione con l’allievo e alla costruzione di un approccio educativo coerente, etico e personalizzato.</p>
-        <p>Il lavoro formativo non riguarda solo cosa insegnare, ma soprattutto come farlo: osservazione, ascolto, capacità di adattare il metodo e responsabilità nel lavoro sulla voce altrui. La didattica diventa così uno spazio di confronto e crescita, in cui la voce viene affrontata come un sistema complesso che coinvolge corpo, comunicazione, intenzione ed esperienza.</p>
-        <p>Se desideri approfondire questo percorso e capire se è in linea con i tuoi obiettivi formativi e professionali, puoi contattare direttamente la segreteria dell’Istituto per una call informativa, un momento utile per ricevere tutte le informazioni necessarie in modo chiaro e diretto.</p>
 
         <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Contattami</a>
+          <a class="btn primary" href="index.html#contatti">Scrivimi</a>
+          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
           <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
-    </div>
-  </div>
-
-  <style>
-    /* responsive per i due riquadri */
-    @media (max-width: 980px){
-      #ves .card > div[style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
-    }
-  </style>
-</section>
-
+    </section>
   </main>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
@@ -694,12 +734,20 @@
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
-    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+
+    function openMenu(){
+      menuOverlay.classList.add("open");
+      menuOverlay.setAttribute("aria-hidden","false");
+    }
+    function closeMenu(){
+      menuOverlay.classList.remove("open");
+      menuOverlay.setAttribute("aria-hidden","true");
+    }
+
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-    document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
   </script>
