@@ -2,268 +2,393 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Case Study – Aurora Blasi | Elisa Costanzo</title>
+  <title>Case study – Aurora Blasi | Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root{
-      --primario:#355c7b;
-      --secondario:#81277c;
-      --bianco:#ffffff;
-      --glass: rgba(7,10,20,0.78);
-      --ink: rgba(255,255,255,0.95);
+      --blue:#355c7b;
+      --magenta:#81277c;
+      --yellow:#f6d24a;
+      --ink: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.86);
     }
+
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
+
     body{
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      color:var(--bianco);
+      color: var(--ink);
       min-height:100vh;
       background:
-        radial-gradient(circle at top left, rgba(79,123,158,0.55) 0, rgba(53,92,123,0.35) 42%, rgba(0,0,0,0) 70%),
-        radial-gradient(circle at top right, rgba(129,39,124,0.50) 0, rgba(129,39,124,0.28) 38%, rgba(0,0,0,0) 70%),
-        radial-gradient(circle at 40% 85%, rgba(53,92,123,0.32) 0, rgba(129,39,124,0.24) 40%, rgba(0,0,0,0) 75%),
-        linear-gradient(180deg, #0b1020 0%, #120b24 52%, #070914 100%);
+        radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
+        radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
+        radial-gradient(860px 560px at 50% 92%, rgba(129,39,124,0.22) 0, rgba(53,92,123,0.22) 55%, rgba(0,0,0,0) 78%),
+        linear-gradient(180deg, #25314b 0%, #2a2350 52%, #1d2441 100%);
+      background-attachment: fixed;
     }
+
     a{color:inherit;text-decoration:none;}
-    .muted{opacity:.82}
+    p, li{line-height:1.85;font-size:1.06rem;}
+    .muted{opacity:.88}
+
+    .hl{
+      color: var(--yellow);
+      font-weight: 1200;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      text-decoration: underline;
+      text-decoration-color: rgba(246,210,74,0.35);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+    }
 
     /* HEADER */
     header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to right, rgba(12,18,28,0.88), rgba(26,18,43,0.72));
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .header-inner{
-      max-width:1100px;margin:0 auto;
-      padding:0.75rem 1.2rem;
+      max-width:1180px;margin:0 auto;
+      padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    .logo-wrap{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:6px;border-radius:12px;
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.28);
-      line-height:0;
-    }
-    .logo-img{height:110px;width:auto;display:block;object-fit:contain;}
+    .logo-wrap{background:transparent;border:none;box-shadow:none;padding:0;line-height:0;}
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
     .brand-name{
-      font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-      font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
+      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .brand-subtitle{font-size:.9rem;opacity:.82;line-height:1.35;max-width:56ch;}
+    .brand-sub{font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;}
+    .brand-subline{
+      display:flex; gap:.55rem; flex-wrap:wrap; align-items:center; margin-top:.35rem;
+    }
+    .header-chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.45rem .78rem; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100; font-size:.92rem; opacity:.95;
+      transition: transform .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
+    .header-chip .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
+      box-shadow:0 10px 18px rgba(0,0,0,0.18);
+    }
+
     .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
-    .pill{
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;color:var(--bianco);
-      padding:0.6rem 1.05rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      white-space:nowrap;
+    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 14px 26px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.14);
+      transition:transform .12s ease, filter .12s ease;
     }
+    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
+    .icon-btn svg{width:22px;height:22px;}
+    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.70), rgba(255,255,255,0.08));}
+    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.72), rgba(53,92,123,0.25));}
+    .icon-mail svg{color:#d7f1ff;}
+    .icon-ig svg{color:#ffe0ff;}
+
     .menu-button{
-      border:none;background:var(--bianco);color:var(--secondario);
-      padding:0.6rem 1.2rem;border-radius:999px;
-      font-weight:900;cursor:pointer;
+      border:none;background:#fff;color:var(--magenta);
+      padding:0.62rem 1.2rem;border-radius:999px;
+      font-weight:1100;cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
-      box-shadow:0 8px 18px rgba(0,0,0,0.35);
-      transition:transform .1s ease, box-shadow .1s ease;
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+      transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
     }
-    .menu-button:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(0,0,0,0.45);}
+    .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
- /* ===== MENU (UNICO) ===== */
-.menu-overlay{
-  position:fixed; inset:0; z-index:80;
-  display:none;
-  padding:1.2rem;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(129,39,124,0.35), rgba(0,0,0,0) 56%),
-    radial-gradient(circle at 80% 30%, rgba(53,92,123,0.35), rgba(0,0,0,0) 56%),
-    rgba(10,12,20,0.62);
-}
-.menu-overlay.open{display:block;}
-
-.menu-card{
-  max-width:590px;
-  margin:4.2rem auto;
-  padding:1.35rem 1.35rem 1.15rem;
-  border-radius:1.85rem;
-  background:
-    radial-gradient(circle at 30% 10%, rgba(129,39,124,0.18), rgba(0,0,0,0) 55%),
-    radial-gradient(circle at 80% 40%, rgba(53,92,123,0.18), rgba(0,0,0,0) 60%),
-    rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.18);
-  box-shadow:0 26px 60px rgba(0,0,0,0.55);
-  backdrop-filter: blur(14px);
-  transform: translateY(10px);
-  animation: pop .18s ease-out forwards;
-}
-@keyframes pop{to{transform:translateY(0);}}
-
-.menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
-.menu-title{display:flex;flex-direction:column;gap:.2rem;}
-.menu-title h2{
-  font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1000;opacity:.95;
-}
-.menu-title .sub{font-size:.92rem;opacity:.85;line-height:1.25;}
-
-.menu-close{
-  width:46px;height:46px;border-radius:999px;cursor:pointer;
-  border:1px solid rgba(255,255,255,0.22);
-  background:rgba(255,255,255,0.16);
-  box-shadow:0 12px 22px rgba(0,0,0,0.25);
-  color:#fff;font-size:1.2rem;
-}
-
-.menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
-
-.menu-item{
-  display:flex;align-items:center;justify-content:space-between;gap:.9rem;
-  padding:.9rem 1rem;border-radius:1.25rem;
-  border:1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.12);
-  box-shadow:0 16px 30px rgba(0,0,0,0.20);
-  transition:transform .12s ease, background .12s ease, border-color .12s ease;
-}
-.menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
-
-.menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
-.menu-ico{
-  width:40px;height:40px;border-radius:999px;
-  display:inline-flex;align-items:center;justify-content:center;
-  background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
-  border:1px solid rgba(255,255,255,0.18);
-  box-shadow:0 14px 24px rgba(0,0,0,0.18);
-  flex:0 0 auto;
-}
-.menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
-
-.menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-.menu-text .t{font-weight:1000;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.menu-text .d{font-size:.92rem;opacity:.86;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
-.menu-pill{
-  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
-  padding:.35rem .6rem;border-radius:999px;
-  background:rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.18);
-  opacity:.95;flex:0 0 auto;
-}
-
-/* sottocartelle Percorsi */
-.menu-sub{
-  margin:.45rem 0 0;
-  padding-left:3.15rem;
-  display:grid;
-  gap:.45rem;
-}
-.menu-sub a{
-  padding:.55rem .85rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.10);
-  display:inline-flex;
-  width:fit-content;
-  font-weight:900;
-  opacity:.92;
-}
-.menu-sub a:hover{opacity:1;transform:translateY(-1px);}
+    /* MENU OVERLAY */
+    .menu-overlay{
+      position:fixed; inset:0; z-index:80;
+      display:none; padding:1.2rem;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
+        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
+        rgba(8,10,16,0.55);
+    }
+    .menu-overlay.open{display:block;}
+    .menu-card{
+      max-width:590px; margin:4.2rem auto;
+      padding:1.35rem 1.35rem 1.15rem;
+      border-radius:1.85rem;
+      background:
+        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.20), rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%),
+        rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 26px 60px rgba(0,0,0,0.42);
+      backdrop-filter: blur(14px);
+      transform: translateY(10px);
+      animation: pop .18s ease-out forwards;
+    }
+    @keyframes pop{to{transform:translateY(0);}}
+    .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
+    .menu-title{display:flex;flex-direction:column;gap:.2rem;}
+    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
+    .menu-close{
+      width:46px;height:46px;border-radius:999px;cursor:pointer;
+      border:1px solid rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.16);
+      box-shadow:0 12px 22px rgba(0,0,0,0.20);
+      color:#fff;font-size:1.2rem;
+    }
+    .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
+    .menu-item{
+      display:flex;align-items:center;justify-content:space-between;gap:.9rem;
+      padding:.9rem 1rem;border-radius:1.25rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
+    .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
+    .menu-ico{
+      width:40px;height:40px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 24px rgba(0,0,0,0.16);
+      flex:0 0 auto;
+    }
+    .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
+    .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
+    .menu-text .t{font-weight:1100;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-pill{
+      font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+      padding:.35rem .6rem;border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      opacity:.95;flex:0 0 auto;
+    }
+    .menu-sub{
+      margin:.45rem 0 0;
+      padding-left:3.15rem;
+      display:grid;
+      gap:.45rem;
+    }
+    .menu-sub a{
+      padding:.55rem .85rem;
+      border-radius:1.05rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1100;
+      opacity:.92;
+      line-height:1.25;
+      text-transform:none;
+      letter-spacing:normal;
+      font-size:.95rem;
+    }
+    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* MAIN */
-    main{max-width:1100px;margin:0 auto;padding:1.6rem 1.2rem 3rem;}
-    section{margin-bottom:2.6rem;}
+    main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
+    section{margin-bottom:3.25rem;}
+    .section-kicker{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
+    }
     .section-title{
-      font-size:1.05rem;text-transform:uppercase;letter-spacing:.2em;opacity:.9;margin-bottom:.7rem;
+      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
-    .section-subtitle{
-      font-size:2.25rem;line-height:1.05;margin-bottom:1rem;max-width:920px;
-    }
+
     .card{
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,0.2);
-      border-radius:1.6rem;
-      padding:1.5rem;
-      box-shadow:0 18px 38px rgba(0,0,0,0.5);
+      width:100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:1.85rem;
+      padding:1.6rem;
+      box-shadow:0 20px 44px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
     }
-    .justify p, .justify li{ text-align: justify; text-justify: inter-word; }
-    p{line-height:1.85;opacity:.97;font-size:1.05rem;margin-bottom:.9rem;}
-    ul{padding-left:1.1rem;line-height:1.75;opacity:.97;font-size:1.05rem;}
-    li{margin-bottom:.35rem;}
 
     .btn{
       border-radius:999px;
-      padding:0.72rem 1.25rem;
-      font-size:1rem;font-weight:900;
+      padding:0.82rem 1.28rem;
+      font-size:1rem;
+      font-weight:1200;
       border:1px solid rgba(255,255,255,0.55);
-      background:transparent;color:var(--bianco);
-      cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;
-    }
-    .btn.primary{
-      border-color:transparent;background:var(--bianco);color:var(--secondario);
-      box-shadow:0 10px 20px rgba(0,0,0,0.35);
-    }
-    .btn.link{border-color:rgba(255,255,255,0.28);background:rgba(0,0,0,0.12);}
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
-
-    /* MEDIA grid */
-    .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
-    .media-card{
-      border-radius:1.6rem;overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 18px 34px rgba(0,0,0,0.5);
-      background:rgba(0,0,0,0.18);
-    }
-    .media-head{
-      padding:1rem;display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;
-      border-bottom:1px solid rgba(255,255,255,0.10);
-    }
-    .media-title{font-weight:900;font-size:1.1rem;}
-    .tag{
-      font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
-      opacity:.9;padding:.35rem .65rem;border-radius:999px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.18);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
       white-space:nowrap;
     }
-    .embed{width:100%;border:0;display:block;background:#000;}
-    .spotify{height:352px;}
-    .yt-wrap{position:relative;padding-top:56.25%;background:#000;}
-    .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-    .fallback{
-      padding:1rem;border-top:1px solid rgba(255,255,255,0.10);
-      display:flex;gap:.6rem;flex-wrap:wrap;
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
-    .links-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem;}
-    .link-chip{
-      display:inline-flex;align-items:center;gap:.45rem;
-      padding:.55rem .85rem;border-radius:999px;
+    .btn:hover{transform:translateY(-1px);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.10);
+    }
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
+
+    /* Layouts */
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.1rem;align-items:stretch;}
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+    @media (max-width: 1020px){
+      .grid-2,.grid-3{grid-template-columns:1fr;}
+      .logo-img{height:112px;}
+      .menu-card{margin:3.2rem auto;}
+    }
+    @media (max-width: 640px){
+      .brand-sub{display:none;}
+      .section-title{font-size:2.15rem;}
+    }
+
+    /* “Wow” badges */
+    .tag{
+      display:inline-flex;
+      width:fit-content;
+      padding:.55rem .9rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100;
+      opacity:.95;
+      margin-bottom:.9rem;
+      gap:.45rem;
+      align-items:center;
+    }
+    .tag .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(246,210,74,0.92), rgba(129,39,124,0.65));
+      box-shadow:0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    /* Highlights list */
+    .highlights{
+      list-style:none;
+      display:grid;
+      gap:.7rem;
+      margin-top:.9rem;
+    }
+    .highlights li{
+      display:flex;gap:.65rem;align-items:flex-start;
+      padding:.9rem 1rem;
+      border-radius:1.45rem;
       border:1px solid rgba(255,255,255,0.16);
-      box-shadow:0 12px 22px rgba(0,0,0,0.25);
-      font-weight:800;
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      backdrop-filter: blur(10px);
+      font-weight:1100;
+    }
+    .emoji{font-size:1.15rem; line-height:1.2; margin-top:.05rem;}
+
+    /* Media */
+    .media-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin-top:1.05rem;
+    }
+    .media-card{
+      border-radius:1.75rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 20px 44px rgba(0,0,0,0.18);
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+    }
+    .media-head{
+      padding:1rem 1.1rem .9rem;
+      display:flex;align-items:center;justify-content:space-between;gap:.9rem;
+    }
+    .media-title{
+      display:flex;flex-direction:column;gap:.1rem;min-width:0;
+    }
+    .media-title b{
+      font-size:1.05rem;
+      font-weight:1200;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .media-title span{opacity:.9;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .badge{
+      padding:.45rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      font-weight:1100;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+    .media-embed{
+      width:100%;
+      height:360px;
+      border:0;
+      display:block;
+      background:transparent;
+    }
+    .media-actions{
+      padding:1rem 1.1rem 1.1rem;
+      display:flex;gap:.65rem;flex-wrap:wrap;
+    }
+
+    /* Links “partner” */
+    .link-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:.85rem;
+      margin-top:1rem;
+    }
+    .link-card{
+      border-radius:1.55rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+      backdrop-filter: blur(10px);
+      transition: transform .12s ease, background .12s ease;
+      display:flex;flex-direction:column;gap:.35rem;
+      min-height:92px;
+    }
+    .link-card:hover{transform:translateY(-1px);background:rgba(255,255,255,0.12);}
+    .link-card b{font-weight:1200;}
+    .link-card span{opacity:.9;font-size:.95rem;}
+
+    @media (max-width: 1020px){
+      .media-grid{grid-template-columns:1fr;}
+      .link-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width: 560px){
+      .link-grid{grid-template-columns:1fr;}
     }
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
-      padding:1.2rem;
+      padding:1.2rem 1.1rem;
       text-align:center;
-      opacity:0.85;
-      background:rgba(7,10,20,0.9);
-    }
-
-    @media (max-width:980px){
-      .media-grid{grid-template-columns:1fr;}
-      .brand-subtitle{display:none;}
-    }
-    @media (max-width:600px){
-      .header-inner{padding-inline:.8rem;}
-      main{padding-inline:.9rem;}
-      .logo-img{height:90px;}
-      .section-subtitle{font-size:1.75rem;}
-      .menu-panel-inner{margin:3.2rem auto;}
+      opacity:0.9;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
     }
   </style>
 </head>
@@ -275,23 +400,46 @@
         <div class="logo-wrap">
           <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         </div>
-        <div>
+        <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-subtitle">Case study: Aurora Blasi</div>
+          <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
+
+          <div class="brand-subline">
+            <a class="header-chip" href="index.html"><span class="dot"></span>Home</a>
+            <a class="header-chip" href="percorsi.html"><span class="dot"></span>Percorsi</a>
+            <a class="header-chip" href="#media"><span class="dot"></span>Media</a>
+            <a class="header-chip" href="index.html#contatti"><span class="dot"></span>Contatti</a>
+          </div>
         </div>
       </div>
 
       <div class="header-actions">
-        <a class="pill" href="index.html">Home</a>
-        <button class="menu-button" id="menuButton" aria-label="Apri menu">☰ Menu</button>
+        <div class="top-icons" aria-label="Contatti rapidi">
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Vai ai contatti" title="Contatti">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8" />
+              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </a>
+          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram ExpresSING Studio" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.5 2.9h9A4.6 4.6 0 0 1 21.1 7.5v9A4.6 4.6 0 0 1 16.5 21.1h-9A4.6 4.6 0 0 1 2.9 16.5v-9A4.6 4.6 0 0 1 7.5 2.9Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <button class="menu-button" id="menuOpen" aria-label="Apri menu">☰ Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- MENU -->
-  <div class="menu-panel" id="menuPanel" aria-hidden="true">
-    <div class="menu-panel-inner">
-      <div class="menu-panel-header">
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-card">
+      <div class="menu-head">
         <div class="menu-title">
           <h2>Menu</h2>
           <div class="sub">Navigazione rapida</div>
@@ -303,41 +451,60 @@
         <a class="menu-item" href="index.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-7H10v7H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Home</div><div class="d">torna alla pagina principale</div></div>
+            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
           </div>
-          <div class="menu-pill">start</div>
+          <div class="menu-pill">home</div>
         </a>
+
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            </div>
+            <div class="menu-pill">go</div>
+          </a>
+
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">Lezioni one to one – per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one – voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#ves">VES</a>
+          </div>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8"/><path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">spazi, sale, info</div></div>
+            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">pagina dedicata</div></div>
           </div>
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
+        <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
           </div>
-          <div class="menu-pill">tutti</div>
+          <div class="menu-pill">cv</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html#ves">
+        <a class="menu-item" href="case-study-aurora-blasi.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">VES</div><div class="d">certificazione e ricerca</div></div>
+            <div class="menu-text"><div class="t">Case study</div><div class="d">Aurora Blasi</div></div>
           </div>
-          <div class="menu-pill">ves</div>
+          <div class="menu-pill">media</div>
         </a>
 
         <a class="menu-item" href="index.html#contatti">
@@ -354,138 +521,229 @@
   </div>
 
   <main>
-    <section class="justify">
-      <h2 class="section-title">Case study</h2>
-      <div class="section-subtitle">Percorso artistico con Aurora Blasi</div>
+    <!-- INTRO -->
+    <section>
+      <div class="section-kicker">Case study</div>
+      <div class="section-title">Aurora Blasi</div>
 
-      <div class="card justify">
-        <p>
-          Un esempio di percorso artistico che ho accompagnato fin dalle prime fasi è quello di Aurora Blasi, giovane cantautrice e content creator romana.
-        </p>
-        <p>
-          Il nostro lavoro è iniziato dalle basi, attraverso un percorso di crescita vocale e artistica costruito passo dopo passo. Insieme abbiamo lavorato
-          sulla voce, sull’espressività e sulla consapevolezza, accompagnando lo sviluppo della sua identità artistica e del modo di stare nella musica e sulla scena.
-        </p>
-        <p>
-          Aurora ha iniziato a raccontarsi attraverso la musica partendo dalle sue esperienze di strada e dalla condivisione sui social, trasformando gradualmente
-          questa spinta iniziale in un progetto musicale sempre più definito.
-        </p>
-        <p>
-          Questo percorso ha portato Aurora a confrontarsi con contesti professionali strutturati, fino alla pubblicazione del singolo di debutto “Zucchero”
-          con Ballandi Music, distribuito da Sony Music Italy, con la produzione artistica di Francesco Tosoni.
-        </p>
-        <p>
-          La partecipazione al programma Allegro ma non troppo su RAI 3, ospite di Luca Barbareschi, è stata un passaggio intenso e significativo:
-          un momento in cui l’emozione dell’esposizione si è trasformata in presenza e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
-          <span class="muted">(video)</span>
-        </p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="tag"><span class="dot"></span>🎧 Percorso artistico (real case)</div>
 
-        <div class="links-row">
-          <a class="link-chip" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">Apri reel RAI3 →</a>
-          <a class="link-chip" href="https://www.instagram.com/ballandimusic/" target="_blank" rel="noopener noreferrer">Ballandi Music →</a>
-          <a class="link-chip" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">Francesco Tosoni →</a>
+          <p>
+            Un esempio di percorso artistico che ho accompagnato fin dalle prime fasi è quello di <span class="hl">Aurora Blasi</span>, giovane cantautrice e content creator romana.
+          </p>
+          <p>
+            Il nostro lavoro è iniziato dalle basi, attraverso un percorso di crescita vocale e artistica costruito passo dopo passo. Insieme abbiamo lavorato sulla <span class="hl">voce</span>, sull’<span class="hl">espressività</span> e sulla <span class="hl">consapevolezza</span>, accompagnando lo sviluppo della sua identità artistica e del modo di stare nella musica e sulla scena.
+          </p>
+          <p>
+            Aurora ha iniziato a raccontarsi attraverso la musica partendo dalle sue esperienze di strada e dalla condivisione sui social, trasformando gradualmente questa spinta iniziale in un progetto musicale sempre più definito.
+          </p>
+          <p>
+            Questo percorso ha portato Aurora a confrontarsi con contesti professionali strutturati, fino alla pubblicazione del singolo di debutto <span class="hl">“Zucchero”</span> con <span class="hl">Ballandi Music</span>, distribuito da Sony Music Italy, con la produzione artistica di <span class="hl">Francesco Tosoni</span>.
+          </p>
+          <p>
+            La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su RAI 3, ospite di Luca Barbareschi, è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
+          </p>
+          <p>
+            Questa esperienza è il risultato di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista. La collaborazione tra le figure professionali coinvolte (trainer vocale, produttore artistico, etichetta discografica) ha reso possibile il passaggio da un’idea iniziale a un’uscita discografica strutturata, sostenuta da una produzione di qualità e da un contesto professionale solido.
+          </p>
+          <p>
+            Il lavoro prosegue anche oggi e guarda avanti, con un <span class="hl">nuovo singolo</span> in uscita.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#media">Ascolta & guarda</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="index.html#contatti">Scrivimi</a>
+          </div>
         </div>
 
-        <p style="margin-top:1rem;">
-          Questa esperienza è il risultato di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista.
-          La collaborazione tra le figure professionali coinvolte (trainer vocale, produttore artistico, etichetta discografica) ha reso possibile il passaggio
-          da un’idea iniziale a un’uscita discografica strutturata, sostenuta da una produzione di qualità e da un contesto professionale solido.
-        </p>
-        <p>
-          Il lavoro prosegue anche oggi e guarda avanti, con un nuovo singolo in uscita.
-        </p>
+        <div class="card">
+          <div class="tag"><span class="dot"></span>✨ Cosa rende “forte” questo percorso</div>
 
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Contattami</a>
-          <button class="btn link open-menu" type="button">Menu</button>
+          <ul class="highlights">
+            <li><span class="emoji">🎙️</span> Allenamento <span class="hl">tecnico</span> + lavoro su <span class="hl">identità</span> e presenza</li>
+            <li><span class="emoji">🧠</span> Gestione di <span class="hl">ansia</span>, emozioni e “tenuta” in contesti pubblici</li>
+            <li><span class="emoji">🎧</span> Preparazione per <span class="hl">studio</span> (registrazioni) e <span class="hl">performance</span></li>
+            <li><span class="emoji">🤝</span> Teamwork con <span class="hl">produzione</span> e realtà discografiche</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="percorsi.html#artisti">Percorso artisti emergenti</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="index.html#contatti">Scrivimi</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="justify">
-      <h2 class="section-title">Media</h2>
-      <div class="section-subtitle">Brani (Spotify) e video (YouTube)</div>
+    <!-- MEDIA -->
+    <section id="media">
+      <div class="section-kicker">Media</div>
+      <div class="section-title">🎶 Brani + 🎬 Video (super visibili)</div>
 
-      <div class="media-grid">
-        <!-- Spotify 1 -->
-        <div class="media-card">
-          <div class="media-head"><div class="media-title">Spotify – “Zucchero”</div><div class="tag">Ascolta</div></div>
-          <iframe class="embed spotify" loading="lazy"
-            src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          <div class="fallback">
-            <a class="btn primary" target="_blank" rel="noopener noreferrer"
-              href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=595a6924d5324e85">Apri su Spotify →</a>
-            <button class="btn link open-menu" type="button">Menu</button>
+      <div class="card">
+        <p class="muted">
+          Qui sotto trovi i contenuti principali: due brani su Spotify e due video su YouTube.
+          (Se qualche embed non si carica su alcuni browser, i pulsanti “Apri” funzionano sempre.)
+        </p>
+
+        <div class="media-grid">
+          <!-- SPOTIFY 1 -->
+          <div class="media-card">
+            <div class="media-head">
+              <div class="media-title">
+                <b>Spotify – “Zucchero”</b>
+                <span>Ascolto diretto</span>
+              </div>
+              <div class="badge">🎧 Spotify</div>
+            </div>
+            <iframe class="media-embed"
+              src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX?utm_source=generator"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Zucchero">
+            </iframe>
+            <div class="media-actions">
+              <a class="btn primary" href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=595a6924d5324e85" target="_blank" rel="noopener noreferrer">Apri su Spotify</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+            </div>
           </div>
-        </div>
 
-        <!-- Spotify 2 -->
-        <div class="media-card">
-          <div class="media-head"><div class="media-title">Spotify – Track</div><div class="tag">Ascolta</div></div>
-          <iframe class="embed spotify" loading="lazy"
-            src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          <div class="fallback">
-            <a class="btn primary" target="_blank" rel="noopener noreferrer"
-              href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=04f7034388094612">Apri su Spotify →</a>
-            <button class="btn link open-menu" type="button">Menu</button>
+          <!-- SPOTIFY 2 -->
+          <div class="media-card">
+            <div class="media-head">
+              <div class="media-title">
+                <b>Spotify – Brano</b>
+                <span>Ascolto diretto</span>
+              </div>
+              <div class="badge">🎧 Spotify</div>
+            </div>
+            <iframe class="media-embed"
+              src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda?utm_source=generator"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Track 2">
+            </iframe>
+            <div class="media-actions">
+              <a class="btn primary" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=04f7034388094612" target="_blank" rel="noopener noreferrer">Apri su Spotify</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+            </div>
           </div>
-        </div>
 
-        <!-- YouTube 1 -->
-        <div class="media-card">
-          <div class="media-head"><div class="media-title">YouTube – Video</div><div class="tag">Guarda</div></div>
-          <div class="yt-wrap">
-            <iframe loading="lazy"
-              src="https://www.youtube-nocookie.com/embed/ayLHDQ279IM"
+          <!-- YOUTUBE 1 -->
+          <div class="media-card">
+            <div class="media-head">
+              <div class="media-title">
+                <b>YouTube – Video</b>
+                <span>Guarda il contenuto</span>
+              </div>
+              <div class="badge">🎬 YouTube</div>
+            </div>
+            <iframe class="media-embed"
+              src="https://www.youtube.com/embed/ayLHDQ279IM"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              loading="lazy"
+              title="YouTube video 1">
+            </iframe>
+            <div class="media-actions">
+              <a class="btn primary" href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri su YouTube</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+            </div>
           </div>
-          <div class="fallback">
-            <a class="btn primary" target="_blank" rel="noopener noreferrer"
-              href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1">Apri su YouTube →</a>
-            <button class="btn link open-menu" type="button">Menu</button>
+
+          <!-- YOUTUBE 2 -->
+          <div class="media-card">
+            <div class="media-head">
+              <div class="media-title">
+                <b>YouTube – Video</b>
+                <span>Guarda il contenuto</span>
+              </div>
+              <div class="badge">🎬 YouTube</div>
+            </div>
+            <iframe class="media-embed"
+              src="https://www.youtube.com/embed/dgbq1KNOPzo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              title="YouTube video 2">
+            </iframe>
+            <div class="media-actions">
+              <a class="btn primary" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1" target="_blank" rel="noopener noreferrer">Apri su YouTube</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+            </div>
           </div>
         </div>
 
-        <!-- YouTube 2 -->
-        <div class="media-card">
-          <div class="media-head"><div class="media-title">YouTube – Video</div><div class="tag">Guarda</div></div>
-          <div class="yt-wrap">
-            <iframe loading="lazy"
-              src="https://www.youtube-nocookie.com/embed/dgbq1KNOPzo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div class="fallback">
-            <a class="btn primary" target="_blank" rel="noopener noreferrer"
-              href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1">Apri su YouTube →</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-          </div>
+        <div class="actions" style="margin-top:1.15rem;">
+          <a class="btn primary" href="index.html#contatti">Scrivimi</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="percorsi.html#artisti">Torna al percorso</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK UTILI -->
+    <section>
+      <div class="section-kicker">Link utili</div>
+      <div class="section-title">🔗 Team & piattaforme</div>
+
+      <div class="card">
+        <p class="muted">
+          Qui trovi i riferimenti collegati al progetto: etichetta, produzione e contenuti TV.
+        </p>
+
+        <div class="link-grid">
+          <a class="link-card" href="https://www.instagram.com/ballandimusic/" target="_blank" rel="noopener noreferrer">
+            <b>Ballandi Music</b>
+            <span>Instagram ufficiale</span>
+          </a>
+
+          <a class="link-card" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">
+            <b>Noise Symphony</b>
+            <span>Sito ufficiale</span>
+          </a>
+
+          <a class="link-card" href="https://www.francescotosoni.com" target="_blank" rel="noopener noreferrer">
+            <b>Francesco Tosoni</b>
+            <span>Producer – sito</span>
+          </a>
+
+          <a class="link-card" href="https://www.raiplay.it/video/2025/12/Allegro-ma-non-troppo---Puntata-del-21122025-ef06f831-1a4b-4d76-9d20-a10eadd9f709.html"
+             target="_blank" rel="noopener noreferrer">
+            <b>RaiPlay</b>
+            <span>Allegro ma non troppo</span>
+          </a>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">Scrivimi</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html">Home</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Elisa Costanzo</footer>
+  <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // MENU
-    const menuButton = document.getElementById("menuButton");
-    const menuPanel  = document.getElementById("menuPanel");
-    const menuClose  = document.getElementById("menuClose");
-    function openMenu(){ menuPanel.classList.add("open"); menuPanel.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuPanel.classList.remove("open"); menuPanel.setAttribute("aria-hidden","true"); }
-    menuButton.addEventListener("click", openMenu);
+    const menuOpen = document.getElementById("menuOpen");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const menuClose = document.getElementById("menuClose");
+
+    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+
+    menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
-    menuPanel.addEventListener("click", (e)=>{ if(e.target===menuPanel) closeMenu(); });
-    document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+    menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
   </script>
 </body>
 </html>
-
