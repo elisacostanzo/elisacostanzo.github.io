@@ -39,6 +39,13 @@
       background-attachment: fixed;
     }
 
+    .menu-sub a{
+  font-weight:1100;
+  text-transform:none;   /* <-- importante */
+  letter-spacing: normal;
+  font-size:.95rem;
+}
+
     a{color:inherit;text-decoration:none;}
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
@@ -265,33 +272,37 @@
       box-shadow:0 20px 44px rgba(0,0,0,0.22);
       backdrop-filter: blur(12px);
     }
-<p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di <span class="hl">esplorazione</span>, <span class="hl">cura</span> e <span class="hl">creatività</span>.</p>
-<p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
+    /* Tendina "Chi sono" */
+.details{
+  margin-top:.75rem;
+  border-radius:1.25rem;
+  border:1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  overflow:hidden;
+}
+.details summary{
+  list-style:none;
+  cursor:pointer;
+  padding: .95rem 1.05rem;
+  font-weight:1200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.details summary::-webkit-details-marker{ display:none; }
+.details summary .hint{ opacity:.88; font-weight:1100; font-size:.95rem; }
+.details summary .chev{
+  width:38px;height:38px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+  transition: transform .12s ease;
+}
+.details[open] summary .chev{ transform: rotate(180deg); }
+.details .content{ padding: 0 1.05rem 1.05rem; }
 
-<details class="details">
-  <summary>
-    <span class="hint">Leggi la mia storia completa</span>
-    <span class="chev">⌄</span>
-  </summary>
-  <div class="content">
-    <p>Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale (ExpresSING): un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.</p>
-
-    <p>La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
-      <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer"><span class="hl">Voice Evolution Institute</span></a>,
-      di cui sono <span class="hl">Certified Trainer</span> – dedicato alla risonanza e alla stimolazione del tratto vocale. Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
-    </p>
-
-    <p>Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.</p>
-
-    <p>Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo <span class="hl">rispettoso</span>, <span class="hl">funzionale</span> e <span class="hl">creativo</span>. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.</p>
-
-    <p>Intreccio ascolto, corpo e suono per aiutarti a ritrovare <span class="hl">libertà</span> ed <span class="hl">espressività</span>: nella parola, nel canto e – soprattutto – nella tua presenza.</p>
-
-    <p>Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.</p>
-  </div>
-</details>
-
-    
     .grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:1.25rem;align-items:stretch;}
     .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
 
@@ -491,91 +502,6 @@ textarea.field{
   .contact-grid{grid-template-columns:1fr;}
 }
 
-  <!-- MENU OVERLAY -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <div class="menu-card">
-      <div class="menu-head">
-        <div class="menu-title">
-          <h2>Menu</h2>
-          <div class="sub">Navigazione rapida</div>
-        </div>
-        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
-      </div>
-
-      <div class="menu-grid">
-        <a class="menu-item" href="index.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
-          </div>
-          <div class="menu-pill">home</div>
-        </a>
-
-        <div>
-          <a class="menu-item" href="percorsi.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
-            </div>
-            <div class="menu-pill">go</div>
-          </a>
-
-          <!-- SOTTOCARTELLE con i titoli COMPLETI -->
-          <div class="menu-sub">
-            <a href="percorsi.html#canto">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</a>
-            <a href="percorsi.html#voce">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</a>
-            <a href="percorsi.html#artisti">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</a>
-            <a href="percorsi.html#ves">VES</a>
-          </div>
-        </div>
-
-        <a class="menu-item" href="studio.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8"/><path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">pagina dedicata</div></div>
-          </div>
-          <div class="menu-pill">studio</div>
-        </a>
-
-        <a class="menu-item" href="curriculum.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
-          </div>
-          <div class="menu-pill">cv</div>
-        </a>
-
-        <a class="menu-item" href="case-study-aurora-blasi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Case study</div><div class="d">Aurora Blasi</div></div>
-          </div>
-          <div class="menu-pill">media</div>
-        </a>
-
-        <a class="menu-item" href="#contatti">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Contatti</div><div class="d">scrivimi dal form</div></div>
-          </div>
-          <div class="menu-pill">mail</div>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main>
     <!-- HERO -->
     <section id="chi-sono">
@@ -660,6 +586,12 @@ textarea.field{
             <a class="btn" href="#contatti">Richiedi info</a>
           </div>
         </div>
+    <div class="menu-sub">
+  <a href="percorsi.html#canto">Lezioni one to one – per cantanti e cantautori</a>
+  <a href="percorsi.html#voce">Lezioni one to one – voce parlata e comunicazione professionale</a>
+  <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+  <a href="percorsi.html#ves">VES</a>
+</div>
 
         <div class="tile" id="home-artisti">
           <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
@@ -682,6 +614,7 @@ textarea.field{
           </div>
         </div>
       </div>
+    input, textarea, button{ font-family: Calibri, "Segoe UI", Arial, sans-serif; }
 
       <div class="actions" style="margin-top:1.15rem;">
         <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
@@ -706,10 +639,11 @@ textarea.field{
           e <strong>Sala Regia</strong> (lezioni online e registrazioni vocali), con una dotazione tecnica pensata per garantire qualità di ascolto e ripresa.
         </p>
 
-        <div class="mini-gallery" aria-label="Anteprima studio">
-          <div class="img-frame"><img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" /></div>
-          <div class="img-frame"><img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" /></div>
-        </div>
+       <div class="mini-gallery" aria-label="Anteprima studio">
+  <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
+  <img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" />
+</div>
+
 
         <div class="actions">
           <a class="btn primary" href="studio.html">Visita lo studio</a>
