@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -14,73 +15,6 @@
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
     }
-/* mini “booking-style” (senza inventare distanze) */
-.poi{
-  margin-top:1rem;
-  border-radius:1.55rem;
-  border:1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.07);
-  box-shadow:0 18px 40px rgba(0,0,0,0.14);
-  padding:1.1rem 1.15rem;
-  backdrop-filter: blur(10px);
-}
-
-.poi-title{
-  font-weight:1200;
-  font-size:1.08rem;
-  margin-bottom:.75rem;
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-}
-
-.poi-list{
-  list-style:none;
-  display:grid;
-  gap:.55rem;
-  margin:0;
-  padding:0;
-}
-
-.poi-item{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:.85rem;
-  padding:.65rem .75rem;
-  border-radius:1.2rem;
-  border:1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-}
-
-.poi-left{
-  display:flex;
-  align-items:center;
-  gap:.55rem;
-  min-width:0;
-}
-
-.poi-emoji{font-size:1.05rem;}
-.poi-name{
-  font-weight:1100;
-  opacity:.95;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.poi-dist{
-  font-weight:1200;
-  color: var(--yellow);
-  white-space:nowrap;
-  opacity:.95;
-}
-
-.poi-note{
-  margin-top:.75rem;
-  font-size:.98rem;
-  opacity:.88;
-}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -353,103 +287,93 @@
       filter: saturate(1.08) contrast(1.04);
     }
 
-    /* Info box più “pieno” */
-    .addr{
-      margin-top:.9rem;
-      padding:1rem 1.05rem;
-      border-radius:1.45rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 16px 34px rgba(0,0,0,0.14);
-    }
-    .addr h4{
-      font-weight:1200;
-      font-size:1.12rem;
-      margin-bottom:.45rem;
-      display:flex;gap:.55rem;align-items:center;
-    }
-    .addr p{margin:.2rem 0;}
-    .pillrow{
-      display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem;
-    }
-    .pill{
-      display:inline-flex;
-      gap:.45rem;
-      align-items:center;
-      padding:.55rem .85rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;
-      font-size:.95rem;
-      opacity:.95;
-    }
-
+    /* come arrivare */
     .quick{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:.9rem;
-      margin-top:1rem;
+      gap:1rem;
+      margin-top:1.2rem;
+      justify-items:stretch;
     }
     .q{
-      border-radius:1.4rem;
+      border-radius:1.55rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.07);
-      box-shadow:0 16px 34px rgba(0,0,0,0.14);
-      padding:1rem 1.05rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1.15rem 1.15rem;
       backdrop-filter: blur(10px);
       text-align:left;
     }
     .q h4{
       font-weight:1200;
-      font-size:1.05rem;
-      margin-bottom:.25rem;
-      display:flex;align-items:center;gap:.45rem;
+      font-size:1.10rem;
+      margin-bottom:.35rem;
+      display:flex;align-items:center;gap:.55rem;
     }
-<div class="poi" aria-label="Punti utili nelle vicinanze">
-  <div class="poi-title">📍 Nelle vicinanze</div>
+    .q p{opacity:.92}
 
-  <ul class="poi-list">
-    <li class="poi-item">
-      <div class="poi-left">
-        <span class="poi-emoji">☕</span>
-        <span class="poi-name">Bar</span>
-      </div>
-      <span class="poi-dist">— m</span>
-    </li>
+    /* booking-style POI (distanze vuote: — m/km) */
+    .poi{
+      margin-top:1rem;
+      border-radius:1.55rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1.1rem 1.15rem;
+      backdrop-filter: blur(10px);
+    }
+    .poi-title{
+      font-weight:1200;
+      font-size:1.08rem;
+      margin-bottom:.75rem;
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+    }
+    .poi-list{
+      list-style:none;
+      display:grid;
+      gap:.55rem;
+      margin:0;
+      padding:0;
+    }
+    .poi-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.85rem;
+      padding:.65rem .75rem;
+      border-radius:1.2rem;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+    .poi-left{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      min-width:0;
+    }
+    .poi-emoji{font-size:1.05rem;}
+    .poi-name{
+      font-weight:1100;
+      opacity:.95;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .poi-dist{
+      font-weight:1200;
+      color: var(--yellow);
+      white-space:nowrap;
+      opacity:.95;
+    }
+    .poi-note{
+      margin-top:.75rem;
+      font-size:.98rem;
+      opacity:.88;
+    }
 
-    <li class="poi-item">
-      <div class="poi-left">
-        <span class="poi-emoji">🍝</span>
-        <span class="poi-name">Ristoranti</span>
-      </div>
-      <span class="poi-dist">— m</span>
-    </li>
-
-    <li class="poi-item">
-      <div class="poi-left">
-        <span class="poi-emoji">🏋️</span>
-        <span class="poi-name">Palestre</span>
-      </div>
-      <span class="poi-dist">— m</span>
-    </li>
-
-    <li class="poi-item">
-      <div class="poi-left">
-        <span class="poi-emoji">🌳</span>
-        <span class="poi-name">Parco</span>
-      </div>
-      <span class="poi-dist">— m</span>
-    </li>
-  </ul>
-
-  <div class="poi-note">
-    Distanze in <span class="hl">m/km</span>: puoi inserirle dopo averle verificate su Google Maps.
-  </div>
-</div>
-
-    /* FOTO WOW */
+    /* 3 foto sotto */
     .triple{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -608,11 +532,11 @@
       .hero-photo{min-height:340px;}
       .quick{grid-template-columns:1fr;}
       .triple{grid-template-columns:1fr;}
+      .menu-card{margin:3.2rem auto;}
     }
     @media (max-width: 640px){
       .brand-sub{display:none;}
       .section-title{font-size:2.15rem;}
-      .menu-card{margin:3.2rem auto;}
     }
 
     footer{
@@ -762,35 +686,70 @@
       <div class="grid-2">
         <div class="card">
           <p>
-            📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
-            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto.
+            Lo studio si trova in <span class="hl">una zona comoda e ben collegata</span>:
+            a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>.
+            È facilmente raggiungibile con metro, autobus o in auto, con <span class="hl">parcheggi</span> disponibili nelle immediate vicinanze.
           </p>
 
-          <div class="addr">
-            <h4>🧭 Indirizzo & info utili</h4>
-            <p><span class="hl">Via Sante Bargellini 52</span> – Roma</p>
-            <p class="muted">Zona tranquilla e ben servita, con un <span class="hl">parco</span> proprio alle spalle dello studio.</p>
+          <p class="muted" style="margin-top:.75rem;">
+            Il quartiere è tranquillo e ben servito, con un <span class="hl">parco</span> proprio alle spalle dello studio,
+            perfetto per una passeggiata prima o dopo la lezione.
+          </p>
 
-            <div class="pillrow" aria-label="Pill info">
-              <span class="pill">🚉 Stazione Tiburtina</span>
-              <span class="pill">Ⓜ️ Metro Monti Tiburtini</span>
-              <span class="pill">🅿️ Parcheggi vicini</span>
-              <span class="pill">🌿 Parco dietro lo studio</span>
-            </div>
-          </div>
-
-          <div class="quick" aria-label="Info rapide">
+          <div class="quick" aria-label="Come arrivare">
             <div class="q">
               <h4>🚉 <span class="hl">Stazione Tiburtina</span></h4>
               <p>Collegamenti rapidi e comodi in città.</p>
             </div>
             <div class="q">
               <h4>Ⓜ️ <span class="hl">Metro Monti Tiburtini</span></h4>
-              <p>Metro e bus a pochi minuti.</p>
+              <p>Metro e bus a pochi minuti a piedi.</p>
             </div>
             <div class="q">
-              <h4>🅿️ <span class="hl">Parcheggi</span></h4>
-              <p>Disponibili nelle immediate vicinanze.</p>
+              <h4>🅿️ <span class="hl">Parcheggi vicini</span></h4>
+              <p>Soluzioni pratiche nelle immediate vicinanze.</p>
+            </div>
+          </div>
+
+          <div class="poi" aria-label="Punti utili nelle vicinanze">
+            <div class="poi-title">📍 Nelle vicinanze</div>
+
+            <ul class="poi-list">
+              <li class="poi-item">
+                <div class="poi-left">
+                  <span class="poi-emoji">☕</span>
+                  <span class="poi-name">Bar</span>
+                </div>
+                <span class="poi-dist">— m</span>
+              </li>
+
+              <li class="poi-item">
+                <div class="poi-left">
+                  <span class="poi-emoji">🍝</span>
+                  <span class="poi-name">Ristoranti</span>
+                </div>
+                <span class="poi-dist">— m</span>
+              </li>
+
+              <li class="poi-item">
+                <div class="poi-left">
+                  <span class="poi-emoji">🏋️</span>
+                  <span class="poi-name">Palestre</span>
+                </div>
+                <span class="poi-dist">— m</span>
+              </li>
+
+              <li class="poi-item">
+                <div class="poi-left">
+                  <span class="poi-emoji">🌳</span>
+                  <span class="poi-name">Parco</span>
+                </div>
+                <span class="poi-dist">— m</span>
+              </li>
+            </ul>
+
+            <div class="poi-note">
+              Distanze in <span class="hl">m/km</span>: inseriscile dopo averle verificate su Google Maps.
             </div>
           </div>
 
@@ -804,7 +763,7 @@
         <img class="hero-photo" src="Foto ingresso.jpg" alt="Ingresso ExpresSING Studio" />
       </div>
 
-      <!-- 3 foto WOW sotto -->
+      <!-- 3 foto WOW sotto (con la nuova in mezzo) -->
       <div class="triple" aria-label="Dettagli dello studio">
         <div class="shot">
           <img src="Sala performance 1.jpg" alt="Sala Performance" />
@@ -812,13 +771,12 @@
         </div>
 
         <div class="shot">
-          <!-- nuova: performance 3 va qui -->
-          <img src="Sala performance 3.jpg" alt="Sala Performance – Dettaglio" />
+          <img src="Sala performance 3.jpg" alt="Dettaglio studio" />
           <div class="badge"><span class="dot"></span> Dettagli studio</div>
         </div>
 
         <div class="shot">
-          <img src="Sala regia 2.jpg" alt="Sala Regia" />
+          <img src="Sala regia 1.jpg" alt="Sala Regia" />
           <div class="badge"><span class="dot"></span> Sala Regia</div>
         </div>
       </div>
@@ -843,7 +801,6 @@
         <div class="rooms">
           <article class="room">
             <div class="room-media">
-              <!-- Grande Performance: quella grande con tutta la sala -->
               <img src="Sala performance 2.jpg" alt="Sala Performance" />
             </div>
             <div class="room-body">
@@ -869,8 +826,8 @@
 
           <article class="room">
             <div class="room-media">
-              <!-- Grande Regia: quella con la sedia -->
-              <img src="Sala regia 1.jpg" alt="Sala Regia" />
+              <!-- QUI: grande regia = foto con la sedia -->
+              <img src="Sala regia 2.jpg" alt="Sala Regia" />
             </div>
             <div class="room-body">
               <div class="room-title">🎧 Sala Regia</div>
@@ -888,8 +845,8 @@
 
               <p>
                 Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
-                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>,
-                strumenti facilmente reperibili e dai costi contenuti. Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
+                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>.
+                Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
               </p>
 
               <div class="actions">
