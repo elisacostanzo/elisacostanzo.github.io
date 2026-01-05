@@ -44,9 +44,7 @@
       text-decoration-thickness: 2px;
     }
 
-    input, textarea, button{
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
-    }
+    input, textarea, button{font-family: Calibri, "Segoe UI", Arial, sans-serif;}
 
     /* HEADER */
     header{
@@ -279,9 +277,9 @@
     /* LAYOUT */
     .grid-2{display:grid;grid-template-columns:1.08fr .92fr;gap:1.25rem;align-items:stretch;}
     .stack{display:flex;flex-direction:column;gap:.95rem;}
-    .stack p{ text-align:justify; }
+    .stack p{ text-align:left; } /* niente giustificato */
 
-    /* HERO PHOTO */
+    /* HERO PHOTO (minimo taglio) */
     .hero-photo{
       width:100%;
       height:100%;
@@ -289,12 +287,36 @@
       border-radius:1.85rem;
       border:1px solid rgba(255,255,255,0.18);
       box-shadow:0 22px 50px rgba(0,0,0,0.30);
-      object-fit:cover;
+      object-fit:contain;   /* taglia il meno possibile */
+      background: rgba(0,0,0,0.18);
       display:block;
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* GALLERY UNIFORME (stesse dimensioni) */
+    /* Info rapide (non giustificato) */
+    .quick{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:.9rem;
+      margin-top:1rem;
+    }
+    .q{
+      border-radius:1.4rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 16px 34px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+      backdrop-filter: blur(10px);
+      text-align:left;
+    }
+    .q h4{
+      font-weight:1200;
+      font-size:1.05rem;
+      margin-bottom:.25rem;
+      display:flex;align-items:center;gap:.45rem;
+    }
+
+    /* GALLERY UNIFORME (stesse dimensioni, minimo taglio) */
     .gallery{
       margin-top:1rem;
       display:grid;
@@ -305,7 +327,10 @@
       border-radius:1.55rem;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.18), rgba(0,0,0,0) 60%),
+        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.18), rgba(0,0,0,0) 60%),
+        rgba(0,0,0,0.14);
       box-shadow:0 20px 44px rgba(0,0,0,0.18);
       backdrop-filter: blur(10px);
       position:relative;
@@ -314,20 +339,29 @@
     .g-item img{
       width:100%;
       height:100%;
-      object-fit:cover; /* riempie bene senza “foto piccola” */
+      object-fit:contain;   /* MINIMO TAGLIO */
       display:block;
+      padding:.35rem;       /* aria per evitare “taglio visivo” sui bordi */
       filter:saturate(1.06) contrast(1.02);
-      transform: scale(1.02);
     }
-    /* overlay leggero in basso per leggere eventuale caption (senza nomi sulle foto) */
+
+    /* card maps dentro la griglia, stessa dimensione */
+    .g-map{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
     .g-cap{
       position:absolute;
       left:0; right:0; bottom:0;
-      padding:.7rem .85rem;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.55));
+      padding:.65rem .85rem;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.65));
       font-weight:1100;
       opacity:.98;
       font-size:.98rem;
+      pointer-events:none;
     }
 
     /* “TI RACCONTO…” con freccia */
@@ -373,12 +407,14 @@
     .room-media{
       aspect-ratio: 16 / 9;
       overflow:hidden;
+      background: rgba(0,0,0,0.16);
     }
     .room-media img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:contain; /* minimo taglio anche qui */
       display:block;
+      padding:.35rem;
       filter:saturate(1.06) contrast(1.02);
     }
     .room-body{padding:1.05rem 1.1rem 1.1rem;}
@@ -387,33 +423,29 @@
       font-size:1.22rem;
       margin-bottom:.45rem;
     }
+    .room-body p{ text-align:justify; } /* qui va bene per testi lunghi */
 
-    /* info box rapidi */
-    .quick{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:.9rem;
+    /* Map section sotto (oltre alla tile) */
+    .map-wrap{
       margin-top:1rem;
+      border-radius:1.55rem;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.14);
+      box-shadow:0 20px 44px rgba(0,0,0,0.18);
+      aspect-ratio: 16 / 9;
     }
-    .q{
-      border-radius:1.4rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 16px 34px rgba(0,0,0,0.14);
-      padding:1rem 1.05rem;
-      backdrop-filter: blur(10px);
-    }
-    .q h4{
-      font-weight:1200;
-      font-size:1.05rem;
-      margin-bottom:.25rem;
-      display:flex;align-items:center;gap:.45rem;
+    .map-wrap iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
     }
 
     /* responsive */
     @media (max-width: 1020px){
       .logo-img{height:112px;}
-      .grid-2{grid-template-columns:1fr; }
+      .grid-2{grid-template-columns:1fr;}
       .gallery{grid-template-columns:1fr;}
       .rooms{grid-template-columns:1fr;}
       .quick{grid-template-columns:1fr;}
@@ -574,7 +606,7 @@
           <div class="stack">
             <p>
               📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
-              È a due passi dalla <span class="hl">stazione Tiburtina</span> e dalla metro <span class="hl">Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto, con parcheggi disponibili nelle immediate vicinanze.
+              È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto, con parcheggi disponibili nelle immediate vicinanze.
             </p>
             <p>
               🌿 Il quartiere è tranquillo e ben servito, con un bel parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione e per ritagliarsi un momento all’aria aperta.
@@ -582,16 +614,16 @@
 
             <div class="quick" aria-label="Info rapide">
               <div class="q">
-                <h4>🚇 <span class="hl">Tiburtina</span></h4>
-                <p>Stazione e collegamenti rapidi in città.</p>
+                <h4>🚉 <span class="hl">Stazione Tiburtina</span></h4>
+                <p>Collegamenti rapidi e comodi in città.</p>
               </div>
               <div class="q">
-                <h4>Ⓜ️ <span class="hl">Monti Tiburtini</span></h4>
+                <h4>Ⓜ️ <span class="hl">Metro Monti Tiburtini</span></h4>
                 <p>Metro e bus a pochi minuti.</p>
               </div>
               <div class="q">
                 <h4>🅿️ <span class="hl">Parcheggi</span></h4>
-                <p>Disponibili nelle vicinanze.</p>
+                <p>Disponibili nelle immediate vicinanze.</p>
               </div>
             </div>
 
@@ -603,12 +635,11 @@
           </div>
         </div>
 
-        <!-- immagine hero: ingresso -->
         <img class="hero-photo" src="Foto ingresso.jpg" alt="ExpresSING Studio – ingresso" />
       </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- GALLERY + MAP TILE -->
     <section>
       <div class="section-kicker">Anteprima</div>
       <div class="section-title">Uno sguardo allo studio</div>
@@ -618,19 +649,52 @@
           📷 Alcune immagini per entrare nell’atmosfera: spazio, ascolto e lavoro concreto sulla <span class="hl">voce</span>.
         </p>
 
-        <div class="gallery" aria-label="Galleria Studio">
+        <div class="gallery" aria-label="Galleria Studio e mappa">
           <div class="g-item">
             <img src="Foto ingresso.jpg" alt="Ingresso studio" />
             <div class="g-cap">📍 Ingresso</div>
           </div>
+
           <div class="g-item">
-            <img src="Sala performance 1.jpg" alt="Sala Performance" />
+            <img src="Sala performance 2.jpg" alt="Sala Performance" />
             <div class="g-cap">🎤 Sala Performance</div>
           </div>
+
           <div class="g-item">
-            <img src="Sala regia 1.jpg" alt="Sala Regia" />
+            <img src="Sala performance 1.jpg" alt="Sala Performance – dettaglio" />
+            <div class="g-cap">🎶 Performance (dettaglio)</div>
+          </div>
+
+          <div class="g-item">
+            <img src="Sala regia 2.jpg" alt="Sala Regia" />
             <div class="g-cap">🎧 Sala Regia</div>
           </div>
+
+          <div class="g-item">
+            <img src="Sala regia 1.jpg" alt="Sala Regia – dettaglio" />
+            <div class="g-cap">🎛️ Regia (dettaglio)</div>
+          </div>
+
+          <!-- 6° riquadro: MAPS -->
+          <div class="g-item" aria-label="Mappa studio">
+            <iframe
+              class="g-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052,%20Roma&output=embed"
+              title="Mappa – ExpresSING Studio">
+            </iframe>
+            <div class="g-cap">🗺️ Dove siamo</div>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:1.05rem;">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer"
+             href="https://www.google.com/maps/dir/?api=1&destination=Via%20Sante%20Bargellini%2052%2C%20Roma">
+            Ottieni indicazioni →
+          </a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html#contatti">Scrivimi</a>
         </div>
 
         <div class="down-hint">
@@ -641,7 +705,7 @@
         <div class="actions">
           <a class="btn primary" href="#sale">Vai alle sale</a>
           <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html#contatti">Scrivimi</a>
+          <a class="btn" href="percorsi.html">Vedi i percorsi</a>
         </div>
       </div>
     </section>
@@ -716,8 +780,21 @@
           </div>
         </div>
 
+        <!-- MAP GRANDE (opzionale ma utile) -->
+        <div class="map-wrap" aria-label="Mappa grande – ExpresSING Studio">
+          <iframe
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052,%20Roma&output=embed"
+            title="Mappa – ExpresSING Studio">
+          </iframe>
+        </div>
+
         <div class="actions" style="margin-top:1.15rem;">
-          <a class="btn primary" href="percorsi.html">Vedi i percorsi</a>
+          <a class="btn primary" target="_blank" rel="noopener noreferrer"
+             href="https://www.google.com/maps/dir/?api=1&destination=Via%20Sante%20Bargellini%2052%2C%20Roma">
+            Ottieni indicazioni →
+          </a>
           <button class="btn link open-menu" type="button">Menu</button>
           <a class="btn" href="index.html">Home</a>
           <a class="btn" href="index.html#contatti">Scrivimi</a>
