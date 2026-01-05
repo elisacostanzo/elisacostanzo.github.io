@@ -507,6 +507,49 @@
       background:rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
     }
+    .quickbar{
+  border-top: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+  backdrop-filter: blur(16px);
+}
+.quickbar-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:.65rem 1.15rem;
+  display:flex;
+  gap:.55rem;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.qbtn{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.52rem .9rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.10);
+  box-shadow:0 14px 26px rgba(0,0,0,0.14);
+  font-weight:1100;
+  font-size:.92rem;
+  opacity:.95;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.qbtn:hover{
+  transform:translateY(-1px);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.26);
+}
+.qbtn-primary{
+  background:#fff;
+  border-color: transparent;
+  color: var(--magenta);
+  box-shadow:0 12px 26px rgba(0,0,0,0.20);
+}
+.qbtn-primary:hover{
+  background:#fff;
+}
+
   </style>
 </head>
 
@@ -517,6 +560,16 @@
         <div class="logo-wrap">
           <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         </div>
+        
+<div class="quickbar">
+  <div class="quickbar-inner">
+    <a class="qbtn" href="percorsi.html">🎯 Percorsi</a>
+    <a class="qbtn" href="studio.html">🏡 ExpresSING Studio</a>
+    <a class="qbtn" href="curriculum.html">📚 Curriculum</a>
+    <a class="qbtn" href="artisti.html">🎧 Artisti</a>
+    <a class="qbtn qbtn-primary" href="#contatti">✉️ Scrivimi</a>
+  </div>
+</div>
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
