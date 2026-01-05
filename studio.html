@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>ExpresSING Studio – Elisa Costanzo</title>
+  <title>ExpresSING Studio • Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -17,11 +18,11 @@
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
-
     body{
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -31,7 +32,7 @@
     }
 
     a{color:inherit;text-decoration:none;}
-    p, li{line-height:1.85;font-size:1.06rem;}
+    p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
     .hl{
@@ -44,8 +45,6 @@
       text-decoration-thickness: 2px;
     }
 
-    input, textarea, button{font-family: Calibri, "Segoe UI", Arial, sans-serif;}
-
     /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
@@ -54,34 +53,65 @@
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .header-inner{
-      max-width:1180px;margin:0 auto;
+      max-width:1180px;
+      margin:0 auto;
       padding:0.85rem 1.15rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      min-width:0;
+      flex: 1 1 auto;
+    }
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex: 0 0 auto;
+      white-space:nowrap;
     }
 
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    .logo-wrap{background:transparent;border:none;box-shadow:none;padding:0;line-height:0;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-wrap{line-height:0;}
+    .logo-img{
+      height: 132px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:.18rem;
+      min-width:0;
+      max-width: 640px;
+    }
     .brand-name{
       font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .brand-sub{font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;}
+    .brand-sub{
+      font-size:.96rem;opacity:.96;line-height:1.25;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
 
-    .brand-subline{
+    .header-quick{
       display:flex;
       gap:.55rem;
       flex-wrap:wrap;
       align-items:center;
       margin-top:.35rem;
     }
-    .header-chip{
+    .menu-chip{
       display:inline-flex;
       align-items:center;
       gap:.45rem;
-      padding:.45rem .78rem;
+      padding:.48rem .85rem;
       border-radius:999px;
       border:1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.10);
@@ -89,17 +119,16 @@
       font-weight:1100;
       font-size:.92rem;
       opacity:.95;
+      cursor:pointer;
       transition: transform .12s ease, background .12s ease;
       white-space:nowrap;
     }
-    .header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
-    .header-chip .dot{
+    .menu-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
+    .menu-chip .dot{
       width:8px;height:8px;border-radius:999px;
       background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
       box-shadow:0 10px 18px rgba(0,0,0,0.18);
     }
-
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
@@ -213,15 +242,12 @@
       opacity:.92;
       line-height:1.25;
       text-transform:none;
-      letter-spacing:normal;
-      font-size:.95rem;
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* MAIN */
+    /* LAYOUT */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-
     .section-kicker{
       font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
       opacity:.92;margin-bottom:.7rem;
@@ -231,9 +257,7 @@
       max-width:980px;font-weight:1200;
       text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
-
     .card{
-      width:100%;
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
       border:1px solid rgba(255,255,255,0.18);
       border-radius:1.85rem;
@@ -242,6 +266,72 @@
       backdrop-filter: blur(12px);
     }
 
+    .grid-2{display:grid;grid-template-columns: 1.1fr .9fr; gap:1.25rem; align-items:stretch;}
+    .grid-3{display:grid;grid-template-columns: repeat(3, 1fr); gap:1rem; align-items:stretch;}
+
+    /* FRAME IMMAGINI: tutte coerenti e “wow” senza schiacciamenti */
+    .frame{
+      border-radius:1.55rem;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 18px 38px rgba(0,0,0,0.18);
+      overflow:hidden;
+      background: rgba(255,255,255,0.06);
+    }
+    .frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.12) contrast(1.06);
+      transform: scale(1.01); /* micro “wow” */
+    }
+
+    /* ingresso + info */
+    .ingresso-frame{aspect-ratio: 4 / 3;}
+    .ingresso-frame img{object-position: 50% 58%;}
+
+    .info-grid{
+      display:grid;
+      gap:1rem;
+    }
+
+    .pill-row{
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+      margin-top:.25rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.55rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100;
+      font-size:.95rem;
+      opacity:.95;
+    }
+    .pill .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
+      box-shadow:0 10px 18px rgba(0,0,0,0.18);
+    }
+
+    .nearby{
+      margin-top:.25rem;
+      padding:.95rem 1rem;
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+    .nearby ul{padding-left:1.1rem; margin-top:.35rem;}
+    .nearby li{margin:.18rem 0; opacity:.95; text-align:left;}
+
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
     .btn{
       border-radius:999px;
       padding:0.82rem 1.28rem;
@@ -261,176 +351,39 @@
       color:var(--magenta);
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
-    .btn:hover{transform:translateY(-1px);}
     .btn.link{
       border-color:rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.10);
     }
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
+    .btn:hover{transform:translateY(-1px);}
 
-    /* HERO */
-    .grid-2{display:grid;grid-template-columns:1.15fr .85fr;gap:1.25rem;align-items:stretch;}
-    .hero-photo{
-      width:100%;
-      height:100%;
-      min-height:460px;
-      border-radius:1.85rem;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 22px 50px rgba(0,0,0,0.30);
-      object-fit:cover;
-      display:block;
-      filter: saturate(1.06) contrast(1.02);
-      transition: transform .35s ease, filter .35s ease;
-    }
-    .hero-photo:hover{
-      transform: scale(1.03);
-      filter: saturate(1.10) contrast(1.04);
-    }
+    /* galleria 3 foto extra */
+    .gallery-frame{aspect-ratio: 4 / 3;}
+    .gallery-frame img{object-position:center;}
 
-    /* BLOCCO UNICO: dintorni e collegamenti */
-    .around{
-      width:100%;
-      margin-top:1.1rem;
-      border-radius:1.55rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 18px 40px rgba(0,0,0,0.14);
-      padding:1.1rem 1.15rem;
-      backdrop-filter: blur(10px);
-    }
-    .around-title{
-      font-weight:1200;
-      font-size:1.08rem;
-      margin-bottom:.75rem;
-      display:flex;align-items:center;gap:.6rem;
-    }
-    .around-list{
-      list-style:none;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:.6rem .7rem;
-      margin:0;
-      padding:0;
-    }
-    .around-item{
-      width:100%;
-      display:flex;
-      align-items:center;
-      gap:.65rem;
-      padding:.7rem .8rem;
-      border-radius:1.2rem;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      justify-content:flex-start;
-    }
-    .around-emoji{font-size:1.05rem;}
-    .around-name{
-      font-weight:1100;
-      opacity:.95;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .around-note{
-      margin-top:.75rem;
-      font-size:.98rem;
-      opacity:.88;
-    }
-
-    /* 3 foto sotto (wow) senza testi sopra */
-    .triple{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:.95rem;
-      margin-top:1rem;
-    }
-    .shot{
-      border-radius:1.55rem;
-      overflow:hidden;
-      position:relative;
-      box-shadow:0 24px 54px rgba(0,0,0,0.22);
-      background: rgba(0,0,0,0.16);
-      aspect-ratio: 4 / 3;
-      border:1px solid rgba(255,255,255,0.12);
-    }
-    .shot::before{
-      content:"";
-      position:absolute;inset:-2px;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(246,210,74,0.18), rgba(0,0,0,0) 45%),
-        radial-gradient(circle at 86% 18%, rgba(129,39,124,0.18), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 55% 92%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%);
-      opacity:.85;
-      pointer-events:none;
-      transition: opacity .35s ease;
-    }
-    .shot:hover::before{opacity:1;}
-    .shot img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      filter: saturate(1.07) contrast(1.03);
-      transform: scale(1.02);
-      transition: transform .45s ease, filter .45s ease;
-    }
-    .shot:hover img{
-      transform: scale(1.10);
-      filter: saturate(1.12) contrast(1.05);
-    }
-
-    /* SALE */
-    .rooms{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1rem;
-      margin-top:1rem;
-    }
+    /* sezioni sale */
     .room{
-      border-radius:1.85rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 20px 44px rgba(0,0,0,0.18);
-      backdrop-filter: blur(10px);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
     }
-    .room-media{
-      aspect-ratio: 16 / 8;
-      background: rgba(0,0,0,0.18);
-      position:relative;
+    .room-top{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
+      align-items:stretch;
     }
-    .room-media::after{
-      content:"";
-      position:absolute;inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 78%, rgba(0,0,0,0.34) 100%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .room-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      filter:saturate(1.08) contrast(1.03);
-      transform: scale(1.02);
-      transition: transform .45s ease;
-    }
-    .room:hover .room-media img{ transform: scale(1.06); }
-    .room-body{padding:1.05rem 1.15rem 1.1rem;}
-    .room-title{font-weight:1200;font-size:1.22rem;margin-bottom:.45rem;}
-    .room-body p{ text-align:justify; }
+    .room-photo{aspect-ratio: 16 / 9;}
+    .room-photo img{object-position: 50% 45%;}
 
     /* mappa */
-    .map-wrap{
-      margin-top:1rem;
-      border-radius:1.85rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.14);
-      box-shadow:0 22px 48px rgba(0,0,0,0.18);
-      aspect-ratio: 16 / 9;
+    .map-frame{aspect-ratio: 16 / 9;}
+    .map-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
     }
-    .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
 
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
@@ -441,21 +394,15 @@
       backdrop-filter: blur(10px);
     }
 
-    /* responsive */
     @media (max-width: 1020px){
-      .logo-img{height:112px;}
       .grid-2{grid-template-columns:1fr;}
-      .hero-photo{min-height:340px;}
-      .triple{grid-template-columns:1fr;}
-      .around-list{grid-template-columns:1fr;}
-      .menu-card{margin:3.2rem auto;}
-    }
-    @media (max-width: 640px){
-      .brand-sub{display:none;}
-      .section-title{font-size:2.15rem;}
-    }
-    @media (max-width: 900px){
-      .triple{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr;}
+      .logo-img{height:112px;}
+      .brand-text{max-width:none;}
+      .ingresso-frame{aspect-ratio: 16 / 10;}
+      .gallery-frame{aspect-ratio: 16 / 10;}
+      .room-photo{aspect-ratio: 16 / 10;}
+      .map-frame{aspect-ratio: 16 / 11;}
     }
   </style>
 </head>
@@ -467,33 +414,36 @@
         <div class="logo-wrap">
           <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
         </div>
+
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Vocal Trainer • Cantante • Direttrice di coro • Cantautrice</div>
+          <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
 
-          <div class="brand-subline">
-            <a class="header-chip" href="index.html"><span class="dot"></span>Home</a>
-            <a class="header-chip" href="percorsi.html"><span class="dot"></span>Percorsi</a>
-            <a class="header-chip" href="#sale"><span class="dot"></span>Sale</a>
-            <a class="header-chip" href="#mappa"><span class="dot"></span>Dove siamo</a>
+          <!-- BOTTONI RAPIDI: tutte le voci principali tranne quella corrente (Studio) -->
+          <div class="header-quick">
+            <a class="menu-chip" href="index.html"><span class="dot"></span> Home</a>
+            <a class="menu-chip" href="percorsi.html"><span class="dot"></span> Percorsi</a>
+            <a class="menu-chip" href="curriculum.html"><span class="dot"></span> Curriculum</a>
+            <a class="menu-chip" href="artisti.html"><span class="dot"></span> Artisti</a>
           </div>
         </div>
       </div>
 
       <div class="header-actions">
-        <div class="top-icons" aria-label="Contatti rapidi">
-          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Vai ai contatti" title="Contatti">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8" />
-              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8" />
+        <div class="top-icons">
+          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9A4.7 4.7 0 0 1 16.5 21.2h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M17.2 6.9h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
           </a>
-          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer"
-             aria-label="Instagram ExpresSING Studio" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7.5 2.9h9A4.6 4.6 0 0 1 21.1 7.5v9A4.6 4.6 0 0 1 16.5 21.1h-9A4.6 4.6 0 0 1 2.9 16.5v-9A4.6 4.6 0 0 1 7.5 2.9Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M17.4 6.6h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+
+          <!-- su studio porto ai contatti dell’index -->
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Vai ai contatti">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/>
             </svg>
           </a>
         </div>
@@ -535,11 +485,10 @@
             </div>
             <div class="menu-pill">go</div>
           </a>
-
           <div class="menu-sub">
-            <a href="percorsi.html#canto">Lezioni one to one – per cantanti e cantautori</a>
-            <a href="percorsi.html#voce">Lezioni one to one – voce parlata e comunicazione professionale</a>
-            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#canto">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</a>
+            <a href="percorsi.html#voce">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</a>
+            <a href="percorsi.html#artisti">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</a>
             <a href="percorsi.html#ves">VES</a>
           </div>
         </div>
@@ -565,28 +514,20 @@
         </a>
 
         <div>
-  <a class="menu-item" href="artisti.html">
-    <div class="menu-left">
-      <div class="menu-ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/>
-        </svg>
-      </div>
-      <div class="menu-text">
-        <div class="t">Artisti</div>
-        <div class="d">percorsi e case study</div>
-      </div>
-    </div>
-    <div class="menu-pill">pro</div>
-  </a>
-
-  <!-- SOTTOCARTELLE -->
-  <div class="menu-sub">
-    <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-    <a href="case-study-narciso.html">Narciso</a>
-  </div>
-</div>
-
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e case study</div></div>
+            </div>
+            <div class="menu-pill">pro</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="case-study-narciso.html">Narciso</a>
+          </div>
+        </div>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -602,141 +543,126 @@
   </div>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO STUDIO -->
     <section>
       <div class="section-kicker">ExpresSING Studio</div>
-      <div class="section-title">Lo studio e come arrivare</div>
+      <div class="section-title">Uno spazio pensato per lavorare bene ✨</div>
 
       <div class="grid-2">
-        <div class="card">
+        <div class="frame ingresso-frame" aria-label="Foto ingresso studio">
+          <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
+        </div>
+
+        <div class="card info-grid">
           <p>
-            Lo studio si trova in una zona <span class="hl">comoda e ben collegata</span>, facilmente raggiungibile con
-            mezzi pubblici o in auto. Il quartiere è tranquillo e ben servito, con un <span class="hl">parco</span>
-            proprio alle spalle dello studio.
+            Lo studio si trova in <span class="hl">via Sante Bargellini 52, Roma</span>, in una zona comoda e ben collegata.
+            È a due passi dalla <span class="hl">stazione Tiburtina</span> e dalla <span class="hl">metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto, con parcheggi disponibili nelle immediate vicinanze.
           </p>
 
-          <div class="around" aria-label="Dintorni e collegamenti">
-            <div class="around-title">📍 Dintorni e collegamenti (immediate vicinanze)</div>
+          <div class="pill-row" aria-label="Come arrivare">
+            <span class="pill"><span class="dot"></span> Stazione Tiburtina</span>
+            <span class="pill"><span class="dot"></span> Metro Monti Tiburtini</span>
+            <span class="pill"><span class="dot"></span> Fermate autobus</span>
+            <span class="pill"><span class="dot"></span> In auto (parcheggi nelle vicinanze)</span>
+          </div>
 
-            <ul class="around-list">
-              <li class="around-item"><span class="around-emoji">🚉</span><span class="around-name">Stazione Tiburtina</span></li>
-              <li class="around-item"><span class="around-emoji">Ⓜ️</span><span class="around-name">Metro Monti Tiburtini</span></li>
-              <li class="around-item"><span class="around-emoji">🚌</span><span class="around-name">Fermate autobus</span></li>
-              <li class="around-item"><span class="around-emoji">🅿️</span><span class="around-name">Parcheggi nelle vicinanze</span></li>
-
-              <li class="around-item"><span class="around-emoji">☕</span><span class="around-name">Bar</span></li>
-              <li class="around-item"><span class="around-emoji">🛒</span><span class="around-name">Supermercati</span></li>
-              <li class="around-item"><span class="around-emoji">🍝</span><span class="around-name">Ristoranti</span></li>
-              <li class="around-item"><span class="around-emoji">🏋️</span><span class="around-name">Palestre</span></li>
+          <div class="nearby">
+            <p class="muted" style="text-align:left;">
+              Nelle immediate vicinanze trovi anche:
+            </p>
+            <ul>
+              <li>bar</li>
+              <li>supermercati</li>
+              <li>ristoranti</li>
+              <li>palestre</li>
+              <li>fermate autobus e metro</li>
+              <li>un parco alle spalle dello studio (ideale per una passeggiata prima o dopo la lezione)</li>
             </ul>
-
-            <div class="around-note">
-              Se vuoi, trovi la <span class="hl">mappa</span> in fondo alla pagina con il pulsante “Apri su Google Maps”.
-            </div>
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="#mappa">Ottieni indicazioni</a>
+            <a class="btn primary" href="#sale">Scopri le sale</a>
+            <a class="btn" href="#mappa">Ottieni indicazioni</a>
             <button class="btn link open-menu" type="button">Menu</button>
-            <a class="btn" href="index.html">Home</a>
+            <a class="btn" href="index.html#contatti">Chiedi info</a>
           </div>
         </div>
-
-        <img class="hero-photo" src="Foto ingresso.jpg" alt="Ingresso ExpresSING Studio" />
       </div>
+    </section>
 
-      <!-- 3 foto sotto (wow) -->
-      <div class="triple" aria-label="Dettagli dello studio">
-        <div class="shot">
-          <img src="Sala performance 1.jpg" alt="Dettaglio studio" />
-        </div>
-        <div class="shot">
-          <img src="Sala performance 3.jpg" alt="Dettaglio studio" />
-        </div>
-        <div class="shot">
-          <img src="Sala regia 1.jpg" alt="Dettaglio studio" />
-        </div>
-      </div>
+    <!-- GALLERY (3 foto extra, wow, coerenti) -->
+    <section>
+      <div class="section-kicker">Atmosfera</div>
+      <div class="section-title">Uno studio vivo, curato, funzionale 🎧</div>
 
-      <div class="actions" style="margin-top:1.05rem;">
-        <a class="btn primary" href="#sale">Vai alle sale</a>
-        <button class="btn link open-menu" type="button">Menu</button>
-        <a class="btn" href="percorsi.html">Vedi i percorsi</a>
+      <div class="grid-3">
+        <div class="frame gallery-frame">
+          <img src="Sala performance 3.jpg" alt="ExpresSING Studio - Dettagli sala" />
+        </div>
+        <div class="frame gallery-frame">
+          <img src="Sala performance 2.jpg" alt="ExpresSING Studio - Sala Performance" />
+        </div>
+        <div class="frame gallery-frame">
+          <img src="Sala regia 2.jpg" alt="ExpresSING Studio - Sala Regia" />
+        </div>
       </div>
     </section>
 
     <!-- SALE -->
     <section id="sale">
-      <div class="section-kicker">Sale</div>
-      <div class="section-title">In presenza e online</div>
+      <div class="section-kicker">Le sale</div>
+      <div class="section-title">Due ambienti, due modalità di lavoro 🎙️</div>
 
-      <div class="card">
-        <p class="muted">
-          Lo studio è organizzato in due sale, ognuna con una funzione distinta:
-          <span class="hl">Sala Performance</span> (lezioni in presenza e laboratori) e
-          <span class="hl">Sala Regia</span> (lezioni online e registrazioni vocali).
-        </p>
+      <div class="card room" style="margin-bottom:1.2rem;">
+        <div class="room-top">
+          <div class="frame room-photo">
+            <!-- Sala Performance: foto grande con tutta la sala -->
+            <img src="Sala performance 1.jpg" alt="Sala Performance - ExpresSING Studio" style="object-position:50% 45%;" />
+          </div>
 
-        <div class="rooms">
-          <article class="room">
-            <div class="room-media">
-              <img src="Sala performance 2.jpg" alt="Sala Performance" />
+          <div>
+            <p style="text-align:left;">
+              <strong>Sala Performance</strong> — qui si svolgono le lezioni in presenza e i laboratori: è lo spazio del lavoro dal vivo, dell’ascolto e dell’espressione vocale.
+            </p>
+
+            <p style="text-align:left;">
+              Nella Sala Performance hai la possibilità di utilizzare un impianto voce e di registrare tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico fino al lavoro sul brano.
+              In questo modo puoi riascoltare il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi, dalla lezione seguente alla preparazione di un live o alle tue attività professionali.
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="index.html#contatti">Prenota una call gratuita</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+              <a class="btn" href="#mappa">Ottieni indicazioni</a>
             </div>
-            <div class="room-body">
-              <div class="room-title">🎤 Sala Performance</div>
+          </div>
+        </div>
+      </div>
 
-              <p>
-                Nella Sala Performance hai la possibilità di utilizzare un <span class="hl">impianto voce</span> e di
-                <span class="hl">registrare</span> tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico
-                fino al lavoro sul brano.
-              </p>
+      <div class="card room">
+        <div class="room-top">
+          <div class="frame room-photo">
+            <!-- Sala Regia: quella con la sedia (se non è questa, basta cambiare filename) -->
+            <img src="Sala regia 1.jpg" alt="Sala Regia - ExpresSING Studio" style="object-position:50% 45%;" />
+          </div>
 
-              <p>
-                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una
-                lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi, dalla lezione seguente
-                alla preparazione di un <span class="hl">live</span> o alle tue attività professionali.
-              </p>
+          <div>
+            <p style="text-align:left;">
+              <strong>Sala Regia</strong> — ospita le lezioni online e le registrazioni vocali, grazie a un ambiente curato e a una dotazione tecnica pensata per garantire qualità di ascolto e ripresa.
+            </p>
 
-              <div class="actions">
-                <a class="btn primary" href="index.html#contatti">Scrivimi</a>
-                <button class="btn link open-menu" type="button">Menu</button>
-                <a class="btn" href="#mappa">Ottieni indicazioni</a>
-              </div>
+            <p style="text-align:left;">
+              Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette di proseguire il lavoro senza interrompere il percorso, comodamente da casa o dal tuo luogo di lavoro, se lo consente.
+              Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme, ovunque tu sia. Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e smart, che consente di ottenere risultati ottimali e costanti nel tempo.
+              Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice: microfono, cuffie e una piccola scheda audio, strumenti facilmente reperibili e dai costi contenuti. Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="index.html#contatti">Prenota una call gratuita</a>
+              <button class="btn link open-menu" type="button">Menu</button>
+              <a class="btn" href="#mappa">Ottieni indicazioni</a>
             </div>
-          </article>
-
-          <article class="room">
-            <div class="room-media">
-              <img src="Sala regia 2.jpg" alt="Sala Regia" />
-            </div>
-            <div class="room-body">
-              <div class="room-title">🎧 Sala Regia</div>
-
-              <p>
-                Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette
-                di proseguire il lavoro senza interrompere il percorso, comodamente da casa o dal tuo luogo di lavoro, se lo consente.
-              </p>
-
-              <p>
-                Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme, ovunque tu sia.
-                Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e
-                <span class="hl">smart</span>, che consente di ottenere risultati ottimali e costanti nel tempo.
-              </p>
-
-              <p>
-                Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
-                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>,
-                strumenti facilmente reperibili e dai costi contenuti. Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere
-                l’attrezzatura più adatta alle tue esigenze.
-              </p>
-
-              <div class="actions">
-                <a class="btn primary" href="index.html#contatti">Scrivimi</a>
-                <button class="btn link open-menu" type="button">Menu</button>
-                <a class="btn" href="#mappa">Ottieni indicazioni</a>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -744,25 +670,24 @@
     <!-- MAPPA -->
     <section id="mappa">
       <div class="section-kicker">Dove siamo</div>
-      <div class="section-title">Via Sante Bargellini 52, Roma</div>
+      <div class="section-title">Ottieni indicazioni 📍</div>
 
       <div class="card">
-        <p class="muted">🗺️ Apri la mappa e ottieni il percorso più comodo per arrivare in studio.</p>
+        <p style="text-align:left;">
+          Apri la mappa per visualizzare il percorso e ottenere indicazioni verso <span class="hl">via Sante Bargellini 52, Roma</span>.
+        </p>
 
-        <div class="map-wrap" aria-label="Mappa – ExpresSING Studio">
+        <div class="frame map-frame" style="margin-top:1rem;">
           <iframe
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052,%20Roma&output=embed"
-            title="Mappa – ExpresSING Studio">
+            src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052%20Roma&output=embed"
+            title="Mappa - ExpresSING Studio">
           </iframe>
         </div>
 
         <div class="actions" style="margin-top:1rem;">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer"
-             href="https://www.google.com/maps/dir/?api=1&destination=Via%20Sante%20Bargellini%2052%2C%20Roma">
-            Apri su Google Maps →
-          </a>
+          <a class="btn primary" href="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052%20Roma" target="_blank" rel="noopener noreferrer">Apri su Google Maps →</a>
           <button class="btn link open-menu" type="button">Menu</button>
           <a class="btn" href="index.html#contatti">Scrivimi</a>
         </div>
@@ -780,17 +705,22 @@
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
 
-    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+    function openMenu(){
+      menuOverlay.classList.add("open");
+      menuOverlay.setAttribute("aria-hidden","false");
+    }
+    function closeMenu(){
+      menuOverlay.classList.remove("open");
+      menuOverlay.setAttribute("aria-hidden","true");
+    }
 
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
+
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
   </script>
 </body>
 </html>
-
-
