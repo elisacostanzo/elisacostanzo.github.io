@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -234,6 +233,7 @@
     }
 
     .card{
+      width:100%;
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
       border:1px solid rgba(255,255,255,0.18);
       border-radius:1.85rem;
@@ -279,42 +279,18 @@
       box-shadow:0 22px 50px rgba(0,0,0,0.30);
       object-fit:cover;
       display:block;
-      filter: saturate(1.05) contrast(1.02);
+      filter: saturate(1.06) contrast(1.02);
       transition: transform .35s ease, filter .35s ease;
     }
     .hero-photo:hover{
       transform: scale(1.03);
-      filter: saturate(1.08) contrast(1.04);
+      filter: saturate(1.10) contrast(1.04);
     }
 
-    /* come arrivare */
-    .quick{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:1rem;
-      margin-top:1.2rem;
-      justify-items:stretch;
-    }
-    .q{
-      border-radius:1.55rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 18px 40px rgba(0,0,0,0.14);
-      padding:1.15rem 1.15rem;
-      backdrop-filter: blur(10px);
-      text-align:left;
-    }
-    .q h4{
-      font-weight:1200;
-      font-size:1.10rem;
-      margin-bottom:.35rem;
-      display:flex;align-items:center;gap:.55rem;
-    }
-    .q p{opacity:.92}
-
-    /* booking-style POI (distanze vuote: — m/km) */
-    .poi{
-      margin-top:1rem;
+    /* BLOCCO UNICO: dintorni e collegamenti */
+    .around{
+      width:100%;
+      margin-top:1.1rem;
       border-radius:1.55rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.07);
@@ -322,59 +298,46 @@
       padding:1.1rem 1.15rem;
       backdrop-filter: blur(10px);
     }
-    .poi-title{
+    .around-title{
       font-weight:1200;
       font-size:1.08rem;
       margin-bottom:.75rem;
-      display:flex;
-      align-items:center;
-      gap:.6rem;
+      display:flex;align-items:center;gap:.6rem;
     }
-    .poi-list{
+    .around-list{
       list-style:none;
       display:grid;
-      gap:.55rem;
+      grid-template-columns: 1fr 1fr;
+      gap:.6rem .7rem;
       margin:0;
       padding:0;
     }
-  .poi-item{
-  display:flex;
-  align-items:center;
-  gap:.85rem;
-  padding:.65rem .75rem;
-  border-radius:1.2rem;
-  border:1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  justify-content:flex-start;
-}
-
-    .poi-left{
+    .around-item{
+      width:100%;
       display:flex;
       align-items:center;
-      gap:.55rem;
-      min-width:0;
+      gap:.65rem;
+      padding:.7rem .8rem;
+      border-radius:1.2rem;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      justify-content:flex-start;
     }
-    .poi-emoji{font-size:1.05rem;}
-    .poi-name{
+    .around-emoji{font-size:1.05rem;}
+    .around-name{
       font-weight:1100;
       opacity:.95;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .poi-dist{
-      font-weight:1200;
-      color: var(--yellow);
-      white-space:nowrap;
-      opacity:.95;
-    }
-    .poi-note{
+    .around-note{
       margin-top:.75rem;
       font-size:.98rem;
       opacity:.88;
     }
 
-    /* 3 foto sotto */
+    /* 3 foto sotto (wow) senza testi sopra */
     .triple{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -394,8 +357,8 @@
       content:"";
       position:absolute;inset:-2px;
       background:
-        radial-gradient(circle at 15% 10%, rgba(246,210,74,0.18), rgba(0,0,0,0) 45%),
-        radial-gradient(circle at 85% 20%, rgba(129,39,124,0.18), rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 18% 12%, rgba(246,210,74,0.18), rgba(0,0,0,0) 45%),
+        radial-gradient(circle at 86% 18%, rgba(129,39,124,0.18), rgba(0,0,0,0) 55%),
         radial-gradient(circle at 55% 92%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%);
       opacity:.85;
       pointer-events:none;
@@ -414,33 +377,6 @@
     .shot:hover img{
       transform: scale(1.10);
       filter: saturate(1.12) contrast(1.05);
-    }
-    .badge{
-      position:absolute;
-      left:14px;
-      bottom:14px;
-      padding:.55rem .8rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.20);
-      background: rgba(0,0,0,0.28);
-      backdrop-filter: blur(10px);
-      box-shadow:0 18px 34px rgba(0,0,0,0.22);
-      font-weight:1200;
-      opacity:0;
-      transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
-      display:flex;gap:.45rem;align-items:center;
-      max-width: calc(100% - 28px);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .shot:hover .badge{opacity:1;transform: translateY(0);}
-    .badge .dot{
-      width:8px;height:8px;border-radius:999px;
-      background: linear-gradient(135deg, rgba(246,210,74,0.95), rgba(255,255,255,0.35));
-      box-shadow:0 10px 18px rgba(0,0,0,0.18);
-      flex:0 0 auto;
     }
 
     /* SALE */
@@ -496,50 +432,6 @@
     }
     .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
 
-    /* Torna su */
-    .to-top{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:70;
-      width:52px;
-      height:52px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.14);
-      backdrop-filter: blur(12px);
-      box-shadow:0 18px 34px rgba(0,0,0,0.22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      opacity:0;
-      pointer-events:none;
-      transform: translateY(8px);
-      transition: opacity .2s ease, transform .2s ease, filter .2s ease;
-    }
-    .to-top.show{
-      opacity:1;
-      pointer-events:auto;
-      transform: translateY(0);
-    }
-    .to-top:hover{filter:brightness(1.08);}
-    .to-top span{font-size:1.1rem;font-weight:1200;}
-
-    /* responsive */
-    @media (max-width: 1020px){
-      .logo-img{height:112px;}
-      .grid-2{grid-template-columns:1fr;}
-      .hero-photo{min-height:340px;}
-      .quick{grid-template-columns:1fr;}
-      .triple{grid-template-columns:1fr;}
-      .menu-card{margin:3.2rem auto;}
-    }
-    @media (max-width: 640px){
-      .brand-sub{display:none;}
-      .section-title{font-size:2.15rem;}
-    }
-
     footer{
       border-top:1px solid rgba(255,255,255,0.16);
       padding:1.2rem 1.1rem;
@@ -547,6 +439,23 @@
       opacity:0.9;
       background:rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
+    }
+
+    /* responsive */
+    @media (max-width: 1020px){
+      .logo-img{height:112px;}
+      .grid-2{grid-template-columns:1fr;}
+      .hero-photo{min-height:340px;}
+      .triple{grid-template-columns:1fr;}
+      .around-list{grid-template-columns:1fr;}
+      .menu-card{margin:3.2rem auto;}
+    }
+    @media (max-width: 640px){
+      .brand-sub{display:none;}
+      .section-title{font-size:2.15rem;}
+    }
+    @media (max-width: 900px){
+      .triple{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -682,62 +591,35 @@
     <!-- HERO -->
     <section>
       <div class="section-kicker">ExpresSING Studio</div>
-      <div class="section-title">Lo spazio in cui puoi sperimentare</div>
+      <div class="section-title">Lo studio e come arrivare</div>
 
       <div class="grid-2">
         <div class="card">
           <p>
-            Lo studio si trova in <span class="hl">una zona comoda e ben collegata</span>:
-            a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>.
-            È facilmente raggiungibile con metro, autobus o in auto, con <span class="hl">parcheggi</span> disponibili nelle immediate vicinanze.
+            Lo studio si trova in una zona <span class="hl">comoda e ben collegata</span>, facilmente raggiungibile con
+            mezzi pubblici o in auto. Il quartiere è tranquillo e ben servito, con un <span class="hl">parco</span>
+            proprio alle spalle dello studio.
           </p>
 
-          <p class="muted" style="margin-top:.75rem;">
-            Il quartiere è tranquillo e ben servito, con un <span class="hl">parco</span> proprio alle spalle dello studio,
-            perfetto per una passeggiata prima o dopo la lezione.
-          </p>
+          <div class="around" aria-label="Dintorni e collegamenti">
+            <div class="around-title">📍 Dintorni e collegamenti (immediate vicinanze)</div>
 
-          <div class="quick" aria-label="Come arrivare">
-            <div class="q">
-              <h4>🚉 <span class="hl">Stazione Tiburtina</span></h4>
-              <p>Collegamenti rapidi e comodi in città.</p>
+            <ul class="around-list">
+              <li class="around-item"><span class="around-emoji">🚉</span><span class="around-name">Stazione Tiburtina</span></li>
+              <li class="around-item"><span class="around-emoji">Ⓜ️</span><span class="around-name">Metro Monti Tiburtini</span></li>
+              <li class="around-item"><span class="around-emoji">🚌</span><span class="around-name">Fermate autobus</span></li>
+              <li class="around-item"><span class="around-emoji">🅿️</span><span class="around-name">Parcheggi nelle vicinanze</span></li>
+
+              <li class="around-item"><span class="around-emoji">☕</span><span class="around-name">Bar</span></li>
+              <li class="around-item"><span class="around-emoji">🛒</span><span class="around-name">Supermercati</span></li>
+              <li class="around-item"><span class="around-emoji">🍝</span><span class="around-name">Ristoranti</span></li>
+              <li class="around-item"><span class="around-emoji">🏋️</span><span class="around-name">Palestre</span></li>
+            </ul>
+
+            <div class="around-note">
+              Se vuoi, trovi la <span class="hl">mappa</span> in fondo alla pagina con il pulsante “Apri su Google Maps”.
             </div>
-            <div class="q">
-              <h4>Ⓜ️ <span class="hl">Metro Monti Tiburtini</span></h4>
-              <p>Metro e bus a pochi minuti a piedi.</p>
-            </div>
-            <div class="q">
-              <h4>🅿️ <span class="hl">Parcheggi vicini</span></h4>
-           
-        <div class="poi" aria-label="Nelle immediate vicinanze">
-  <div class="poi-title">📍 Nelle immediate vicinanze</div>
-
-  <ul class="poi-list">
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">☕</span><span class="poi-name">Bar</span></div>
-    </li>
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">🛒</span><span class="poi-name">Supermercati</span></div>
-    </li>
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">🍝</span><span class="poi-name">Ristoranti</span></div>
-    </li>
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">🏋️</span><span class="poi-name">Palestre</span></div>
-    </li>
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">🚌</span><span class="poi-name">Fermate autobus</span></div>
-    </li>
-    <li class="poi-item">
-      <div class="poi-left"><span class="poi-emoji">Ⓜ️</span><span class="poi-name">Metro</span></div>
-    </li>
-  </ul>
-
-  <div class="poi-note">
-    Zona <span class="hl">comoda</span> e <span class="hl">ben servita</span> per spostamenti e servizi.
-  </div>
-</div>
-
+          </div>
 
           <div class="actions">
             <a class="btn primary" href="#mappa">Ottieni indicazioni</a>
@@ -749,21 +631,16 @@
         <img class="hero-photo" src="Foto ingresso.jpg" alt="Ingresso ExpresSING Studio" />
       </div>
 
-      <!-- 3 foto WOW sotto (con la nuova in mezzo) -->
+      <!-- 3 foto sotto (wow) -->
       <div class="triple" aria-label="Dettagli dello studio">
         <div class="shot">
-          <img src="Sala performance 1.jpg" alt="Sala Performance" />
-          <div class="badge"><span class="dot"></span> Sala Performance</div>
+          <img src="Sala performance 1.jpg" alt="Dettaglio studio" />
         </div>
-
         <div class="shot">
           <img src="Sala performance 3.jpg" alt="Dettaglio studio" />
-          <div class="badge"><span class="dot"></span> Dettagli studio</div>
         </div>
-
         <div class="shot">
-          <img src="Sala regia 1.jpg" alt="Sala Regia" />
-          <div class="badge"><span class="dot"></span> Sala Regia</div>
+          <img src="Sala regia 1.jpg" alt="Dettaglio studio" />
         </div>
       </div>
 
@@ -781,7 +658,9 @@
 
       <div class="card">
         <p class="muted">
-          Due ambienti pensati per lavorare con <span class="hl">cura</span>, <span class="hl">qualità d’ascolto</span> e <span class="hl">continuità</span>.
+          Lo studio è organizzato in due sale, ognuna con una funzione distinta:
+          <span class="hl">Sala Performance</span> (lezioni in presenza e laboratori) e
+          <span class="hl">Sala Regia</span> (lezioni online e registrazioni vocali).
         </p>
 
         <div class="rooms">
@@ -793,13 +672,15 @@
               <div class="room-title">🎤 Sala Performance</div>
 
               <p>
-                Nella Sala Performance hai la possibilità di utilizzare un <span class="hl">impianto voce</span> e di <span class="hl">registrare</span> tutto il lavoro svolto insieme,
-                dagli esercizi allo studio tecnico fino al lavoro sul brano.
+                Nella Sala Performance hai la possibilità di utilizzare un <span class="hl">impianto voce</span> e di
+                <span class="hl">registrare</span> tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico
+                fino al lavoro sul brano.
               </p>
 
               <p>
-                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza
-                i passaggi successivi, dalla lezione seguente alla preparazione di un <span class="hl">live</span> o alle tue attività professionali.
+                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una
+                lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi, dalla lezione seguente
+                alla preparazione di un <span class="hl">live</span> o alle tue attività professionali.
               </p>
 
               <div class="actions">
@@ -812,27 +693,27 @@
 
           <article class="room">
             <div class="room-media">
-              <!-- QUI: grande regia = foto con la sedia -->
               <img src="Sala regia 2.jpg" alt="Sala Regia" />
             </div>
             <div class="room-body">
               <div class="room-title">🎧 Sala Regia</div>
 
               <p>
-                Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette di proseguire il lavoro senza interrompere il percorso,
-                comodamente da casa o dal tuo luogo di lavoro, se lo consente.
+                Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette
+                di proseguire il lavoro senza interrompere il percorso, comodamente da casa o dal tuo luogo di lavoro, se lo consente.
               </p>
 
               <p>
                 Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme, ovunque tu sia.
-                Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e <span class="hl">smart</span>,
-                che consente di ottenere risultati ottimali e costanti nel tempo.
+                Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e
+                <span class="hl">smart</span>, che consente di ottenere risultati ottimali e costanti nel tempo.
               </p>
 
               <p>
                 Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
-                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>.
-                Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
+                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>,
+                strumenti facilmente reperibili e dai costi contenuti. Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere
+                l’attrezzatura più adatta alle tue esigenze.
               </p>
 
               <div class="actions">
@@ -875,8 +756,6 @@
     </section>
   </main>
 
-  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
-
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
@@ -896,17 +775,8 @@
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
-
-    // TO TOP
-    const toTop = document.getElementById("toTop");
-    function toggleToTop(){
-      if(window.scrollY > 520) toTop.classList.add("show");
-      else toTop.classList.remove("show");
-    }
-    window.addEventListener("scroll", toggleToTop, {passive:true});
-    toggleToTop();
-    toTop.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
+
 
