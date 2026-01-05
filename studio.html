@@ -267,7 +267,7 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* HERO come “prima”: testo a sinistra + foto ingresso a destra */
+    /* HERO come prima */
     .grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:1.25rem;align-items:stretch;}
     .hero-photo{
       width:100%;
@@ -279,9 +279,13 @@
       object-fit:cover;
       display:block;
       filter: saturate(1.05) contrast(1.02);
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .hero-photo:hover{
+      transform: scale(1.03);
+      filter: saturate(1.08) contrast(1.04);
     }
 
-    /* box info (non giustificato) */
     .quick{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -304,7 +308,7 @@
       display:flex;align-items:center;gap:.45rem;
     }
 
-    /* 3 foto sotto (non ingresso): un po’ più piccole */
+    /* 3 foto sotto */
     .triple{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -323,7 +327,7 @@
       width:100%;
       height:100%;
       display:block;
-      object-fit:cover; /* niente bordi, zoom leggero ok */
+      object-fit:cover;
       filter: saturate(1.07) contrast(1.02);
       transform: scale(1.02);
       transition: transform .35s ease, filter .35s ease;
@@ -333,7 +337,7 @@
       filter: saturate(1.10) contrast(1.04);
     }
 
-    /* Sale più “piccole” */
+    /* Sale compatte ma testo esteso */
     .rooms{
       display:grid;
       grid-template-columns:1fr;
@@ -349,7 +353,7 @@
       backdrop-filter: blur(10px);
     }
     .room-media{
-      aspect-ratio: 16 / 8; /* più bassa rispetto a prima */
+      aspect-ratio: 16 / 8;
       background: rgba(0,0,0,0.18);
     }
     .room-media img{
@@ -366,7 +370,7 @@
     .room-title{font-weight:1200;font-size:1.22rem;margin-bottom:.45rem;}
     .room-body p{ text-align:justify; }
 
-    /* mappa finale */
+    /* mappa */
     .map-wrap{
       margin-top:1rem;
       border-radius:1.85rem;
@@ -476,7 +480,7 @@
     </div>
   </header>
 
-  <!-- MENU OVERLAY (uguale allo stile che avete già) -->
+  <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -561,7 +565,7 @@
   </div>
 
   <main>
-    <!-- HERO “come prima” -->
+    <!-- HERO -->
     <section>
       <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
@@ -570,10 +574,10 @@
         <div class="card">
           <p>
             📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
-            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>.
+            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto.
           </p>
           <p>
-            🌿 Il quartiere è tranquillo e ben servito, con un parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione.
+            🌿 Il quartiere è tranquillo e ben servito, con un parco proprio alle spalle dello studio, perfetto per fare una passeggiata prima o dopo la lezione.
           </p>
 
           <div class="quick" aria-label="Info rapide">
@@ -601,7 +605,7 @@
         <img class="hero-photo" src="Foto ingresso.jpg" alt="Ingresso ExpresSING Studio" />
       </div>
 
-      <!-- 3 foto “non usate” sotto -->
+      <!-- 3 foto sotto (non riuso performance 2, e uso regie + performance 1) -->
       <div class="triple" aria-label="Dettagli dello studio">
         <div class="shot"><img src="Sala performance 1.jpg" alt="Sala Performance" /></div>
         <div class="shot"><img src="Sala regia 2.jpg" alt="Sala Regia" /></div>
@@ -615,7 +619,7 @@
       </div>
     </section>
 
-    <!-- SALE (più compatte) -->
+    <!-- SALE (testi estesi) -->
     <section id="sale">
       <div class="section-kicker">Sale</div>
       <div class="section-title">In presenza e online</div>
@@ -628,16 +632,22 @@
         <div class="rooms">
           <article class="room">
             <div class="room-media">
-              <img src="Sala performance 2.jpg" alt="Sala Performance" />
+              <!-- nuova foto: performance 3 -->
+              <img src="Sala performance 3.jpg" alt="Sala Performance" />
             </div>
             <div class="room-body">
               <div class="room-title">🎤 Sala Performance</div>
-              <p class="muted">
-                Lezioni in presenza e laboratori: lo spazio del lavoro dal vivo, dell’ascolto e dell’espressione vocale.
-              </p>
+
               <p>
-                Possibilità di <span class="hl">registrare</span> il lavoro svolto insieme per riascolto e studio mirato tra una lezione e l’altra.
+                Nella Sala Performance hai la possibilità di utilizzare un <span class="hl">impianto voce</span> e di <span class="hl">registrare</span> tutto il lavoro svolto insieme,
+                dagli esercizi allo studio tecnico fino al lavoro sul brano.
               </p>
+
+              <p>
+                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza
+                i passaggi successivi, dalla lezione seguente alla preparazione di un <span class="hl">live</span> o alle tue attività professionali.
+              </p>
+
               <div class="actions">
                 <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
@@ -652,12 +662,24 @@
             </div>
             <div class="room-body">
               <div class="room-title">🎧 Sala Regia</div>
-              <p class="muted">
-                Lezioni online e registrazioni vocali: ambiente curato e dotazione tecnica per qualità di ascolto e ripresa.
-              </p>
+
               <p>
-                Ideale se vivi fuori Roma: soluzione comoda, flessibile e <span class="hl">smart</span>, con attrezzatura semplice e guidata.
+                Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette di proseguire il lavoro senza interrompere il percorso,
+                comodamente da casa o dal tuo luogo di lavoro, se lo consente.
               </p>
+
+              <p>
+                Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme, ovunque tu sia.
+                Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione comoda, flessibile e <span class="hl">smart</span>,
+                che consente di ottenere risultati ottimali e costanti nel tempo.
+              </p>
+
+              <p>
+                Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
+                <span class="hl">microfono</span>, <span class="hl">cuffie</span> e una piccola <span class="hl">scheda audio</span>,
+                strumenti facilmente reperibili e dai costi contenuti. Ti consiglierò e guiderò io in ogni passo, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
+              </p>
+
               <div class="actions">
                 <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
