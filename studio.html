@@ -267,189 +267,94 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,0.14);
-      margin:1.2rem 0;
-      border-radius:999px;
-    }
-
-    /* LAYOUT */
-    .grid-2{display:grid;grid-template-columns:1.08fr .92fr;gap:1.25rem;align-items:stretch;}
-    .stack{display:flex;flex-direction:column;gap:.95rem;}
-    .stack p{ text-align:left; } /* niente giustificato */
-
-    /* HERO PHOTO (minimo taglio) */
-    .hero-photo{
-      width:100%;
-      height:100%;
-      min-height:420px;
-      border-radius:1.85rem;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 22px 50px rgba(0,0,0,0.30);
-      object-fit:contain;   /* taglia il meno possibile */
-      background: rgba(0,0,0,0.18);
-      display:block;
-      filter: saturate(1.05) contrast(1.02);
-    }
-
-    /* Info rapide (non giustificato) */
-    .quick{
+    /* layout: niente colonna foto accanto */
+    .lead{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:.9rem;
+      grid-template-columns:1fr;
+      gap:1rem;
+    }
+    .lead p{ text-align:left; }
+
+    /* gallery 4 foto grandi, senza bordi visibili */
+    .studio-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
       margin-top:1rem;
     }
-    .q{
-      border-radius:1.4rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 16px 34px rgba(0,0,0,0.14);
-      padding:1rem 1.05rem;
-      backdrop-filter: blur(10px);
-      text-align:left;
-    }
-    .q h4{
-      font-weight:1200;
-      font-size:1.05rem;
-      margin-bottom:.25rem;
-      display:flex;align-items:center;gap:.45rem;
-    }
-
-    /* GALLERY UNIFORME (stesse dimensioni, minimo taglio) */
-    .gallery{
-      margin-top:1rem;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:.95rem;
-    }
-    .g-item{
+    .shot{
       border-radius:1.55rem;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.18), rgba(0,0,0,0) 60%),
-        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.18), rgba(0,0,0,0) 60%),
-        rgba(0,0,0,0.14);
-      box-shadow:0 20px 44px rgba(0,0,0,0.18);
-      backdrop-filter: blur(10px);
       position:relative;
-      aspect-ratio: 4 / 3; /* tutti uguali */
+      box-shadow:0 26px 60px rgba(0,0,0,0.22);
+      background: rgba(0,0,0,0.18);
+      aspect-ratio: 4 / 3; /* grande e consistente */
     }
-    .g-item img{
+    .shot img{
       width:100%;
       height:100%;
-      object-fit:contain;   /* MINIMO TAGLIO */
       display:block;
-      padding:.35rem;       /* aria per evitare “taglio visivo” sui bordi */
-      filter:saturate(1.06) contrast(1.02);
+      object-fit:cover; /* niente bordi, taglio minimo ma leggibile */
+      filter: saturate(1.08) contrast(1.02);
+      transform: scale(1.02);
     }
-
-    /* card maps dentro la griglia, stessa dimensione */
-    .g-map{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-
-    .g-cap{
-      position:absolute;
-      left:0; right:0; bottom:0;
-      padding:.65rem .85rem;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.65));
-      font-weight:1100;
-      opacity:.98;
-      font-size:.98rem;
+    /* overlay leggerissimo per “pulire” */
+    .shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 10%, rgba(129,39,124,0.16), rgba(0,0,0,0) 60%),
+                  radial-gradient(circle at 80% 40%, rgba(53,92,123,0.16), rgba(0,0,0,0) 60%);
       pointer-events:none;
+      opacity:.9;
     }
 
-    /* “TI RACCONTO…” con freccia */
-    .down-hint{
-      margin-top:.95rem;
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      padding:.85rem 1rem;
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 18px 38px rgba(0,0,0,0.14);
-      backdrop-filter: blur(10px);
-      width:fit-content;
-    }
-    .arrow{
-      width:36px;height:36px;border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-size:1.05rem;
-    }
-
-    /* “SALE” cards */
+    /* sale: una sotto l’altra con foto grande */
     .rooms{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-      margin-top:1.05rem;
+      grid-template-columns:1fr;
+      gap:1.1rem;
+      margin-top:1rem;
     }
     .room{
-      border-radius:1.65rem;
+      border-radius:1.85rem;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.08);
-      box-shadow:0 20px 44px rgba(0,0,0,0.16);
-      overflow:hidden;
+      box-shadow:0 26px 60px rgba(0,0,0,0.20);
       backdrop-filter: blur(10px);
-      display:flex;
-      flex-direction:column;
     }
     .room-media{
       aspect-ratio: 16 / 9;
-      overflow:hidden;
-      background: rgba(0,0,0,0.16);
+      background: rgba(0,0,0,0.18);
     }
     .room-media img{
       width:100%;
       height:100%;
-      object-fit:contain; /* minimo taglio anche qui */
+      object-fit:cover; /* niente bordi, foto piena */
       display:block;
-      padding:.35rem;
       filter:saturate(1.06) contrast(1.02);
+      transform: scale(1.02);
     }
-    .room-body{padding:1.05rem 1.1rem 1.1rem;}
-    .room-title{
-      font-weight:1200;
-      font-size:1.22rem;
-      margin-bottom:.45rem;
-    }
-    .room-body p{ text-align:justify; } /* qui va bene per testi lunghi */
+    .room-body{padding:1.2rem 1.2rem 1.25rem;}
+    .room-title{font-weight:1200;font-size:1.28rem;margin-bottom:.55rem;}
+    .room-body p{ text-align:justify; }
 
-    /* Map section sotto (oltre alla tile) */
+    /* mappa finale */
     .map-wrap{
       margin-top:1rem;
-      border-radius:1.55rem;
+      border-radius:1.85rem;
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
       background: rgba(0,0,0,0.14);
-      box-shadow:0 20px 44px rgba(0,0,0,0.18);
+      box-shadow:0 26px 60px rgba(0,0,0,0.20);
       aspect-ratio: 16 / 9;
     }
-    .map-wrap iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
+    .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
 
     /* responsive */
     @media (max-width: 1020px){
       .logo-img{height:112px;}
-      .grid-2{grid-template-columns:1fr;}
-      .gallery{grid-template-columns:1fr;}
-      .rooms{grid-template-columns:1fr;}
-      .quick{grid-template-columns:1fr;}
-      .hero-photo{min-height:340px;}
+      .studio-grid{grid-template-columns:1fr;}
     }
     @media (max-width: 640px){
       .brand-sub{display:none;}
@@ -483,7 +388,7 @@
             <a class="header-chip" href="index.html"><span class="dot"></span>Home</a>
             <a class="header-chip" href="percorsi.html"><span class="dot"></span>Percorsi</a>
             <a class="header-chip" href="#sale"><span class="dot"></span>Sale</a>
-            <a class="header-chip" href="index.html#contatti"><span class="dot"></span>Contatti</a>
+            <a class="header-chip" href="#mappa"><span class="dot"></span>Dove siamo</a>
           </div>
         </div>
       </div>
@@ -596,113 +501,38 @@
   </div>
 
   <main>
-    <!-- HERO -->
+    <!-- INTRO -->
     <section>
       <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="stack">
-            <p>
-              📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
-              È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto, con parcheggi disponibili nelle immediate vicinanze.
-            </p>
-            <p>
-              🌿 Il quartiere è tranquillo e ben servito, con un bel parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione e per ritagliarsi un momento all’aria aperta.
-            </p>
+      <div class="card">
+        <div class="lead">
+          <p>
+            📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
+            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto.
+          </p>
 
-            <div class="quick" aria-label="Info rapide">
-              <div class="q">
-                <h4>🚉 <span class="hl">Stazione Tiburtina</span></h4>
-                <p>Collegamenti rapidi e comodi in città.</p>
-              </div>
-              <div class="q">
-                <h4>Ⓜ️ <span class="hl">Metro Monti Tiburtini</span></h4>
-                <p>Metro e bus a pochi minuti.</p>
-              </div>
-              <div class="q">
-                <h4>🅿️ <span class="hl">Parcheggi</span></h4>
-                <p>Disponibili nelle immediate vicinanze.</p>
-              </div>
-            </div>
+          <p>
+            🌿 Il quartiere è tranquillo e ben servito, con un parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione e per ritagliarsi un momento all’aria aperta.
+          </p>
 
-            <div class="actions">
-              <a class="btn primary" href="index.html#contatti">Chiedi info</a>
-              <button class="btn link open-menu" type="button">Menu</button>
-              <a class="btn" href="index.html">Home</a>
-            </div>
+          <div class="actions">
+            <a class="btn primary" href="#mappa">Ottieni indicazioni</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="index.html">Home</a>
           </div>
         </div>
 
-        <img class="hero-photo" src="Foto ingresso.jpg" alt="ExpresSING Studio – ingresso" />
-      </div>
-    </section>
-
-    <!-- GALLERY + MAP TILE -->
-    <section>
-      <div class="section-kicker">Anteprima</div>
-      <div class="section-title">Uno sguardo allo studio</div>
-
-      <div class="card">
-        <p class="muted">
-          📷 Alcune immagini per entrare nell’atmosfera: spazio, ascolto e lavoro concreto sulla <span class="hl">voce</span>.
-        </p>
-
-        <div class="gallery" aria-label="Galleria Studio e mappa">
-          <div class="g-item">
-            <img src="Foto ingresso.jpg" alt="Ingresso studio" />
-            <div class="g-cap">📍 Ingresso</div>
-          </div>
-
-          <div class="g-item">
-            <img src="Sala performance 2.jpg" alt="Sala Performance" />
-            <div class="g-cap">🎤 Sala Performance</div>
-          </div>
-
-          <div class="g-item">
-            <img src="Sala performance 1.jpg" alt="Sala Performance – dettaglio" />
-            <div class="g-cap">🎶 Performance (dettaglio)</div>
-          </div>
-
-          <div class="g-item">
-            <img src="Sala regia 2.jpg" alt="Sala Regia" />
-            <div class="g-cap">🎧 Sala Regia</div>
-          </div>
-
-          <div class="g-item">
-            <img src="Sala regia 1.jpg" alt="Sala Regia – dettaglio" />
-            <div class="g-cap">🎛️ Regia (dettaglio)</div>
-          </div>
-
-          <!-- 6° riquadro: MAPS -->
-          <div class="g-item" aria-label="Mappa studio">
-            <iframe
-              class="g-map"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052,%20Roma&output=embed"
-              title="Mappa – ExpresSING Studio">
-            </iframe>
-            <div class="g-cap">🗺️ Dove siamo</div>
-          </div>
+        <!-- 4 FOTO GRANDI (no ingresso, no caption, niente bordi visibili) -->
+        <div class="studio-grid" aria-label="Foto studio">
+          <div class="shot"><img src="Sala performance 2.jpg" alt="Sala Performance" /></div>
+          <div class="shot"><img src="Sala performance 1.jpg" alt="Sala Performance" /></div>
+          <div class="shot"><img src="Sala regia 2.jpg" alt="Sala Regia" /></div>
+          <div class="shot"><img src="Sala regia 1.jpg" alt="Sala Regia" /></div>
         </div>
 
         <div class="actions" style="margin-top:1.05rem;">
-          <a class="btn primary" target="_blank" rel="noopener noreferrer"
-             href="https://www.google.com/maps/dir/?api=1&destination=Via%20Sante%20Bargellini%2052%2C%20Roma">
-            Ottieni indicazioni →
-          </a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html#contatti">Scrivimi</a>
-        </div>
-
-        <div class="down-hint">
-          <span class="arrow">⬇️</span>
-          <div><strong>Ti racconto più dettagliatamente…</strong></div>
-        </div>
-
-        <div class="actions">
           <a class="btn primary" href="#sale">Vai alle sale</a>
           <button class="btn link open-menu" type="button">Menu</button>
           <a class="btn" href="percorsi.html">Vedi i percorsi</a>
@@ -722,9 +552,9 @@
 
         <div class="rooms">
           <!-- Sala Performance -->
-          <div class="room">
+          <article class="room">
             <div class="room-media">
-              <img src="Sala performance 2.jpg" alt="Sala Performance – lezione e laboratorio" />
+              <img src="Sala performance 2.jpg" alt="Sala Performance" />
             </div>
             <div class="room-body">
               <div class="room-title">🎤 Sala Performance</div>
@@ -732,26 +562,23 @@
                 Nella Sala Performance si svolgono le lezioni in presenza e i laboratori: è lo spazio del lavoro dal vivo, dell’ascolto e dell’espressione vocale.
               </p>
 
-              <div class="divider"></div>
-
               <p>
-                Qui hai la possibilità di utilizzare un impianto voce e di <span class="hl">registrare</span> tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico fino al lavoro sul brano.
-              </p>
-              <p>
-                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi, dalla lezione seguente alla preparazione di un live o alle tue attività professionali.
+                Hai la possibilità di utilizzare un impianto voce e di <span class="hl">registrare</span> tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico fino al lavoro sul brano.
+                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi.
               </p>
 
               <div class="actions">
-                <a class="btn primary" href="index.html#contatti">Chiedi info</a>
+                <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
+                <a class="btn" href="#mappa">Ottieni indicazioni</a>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- Sala Regia -->
-          <div class="room">
+          <article class="room">
             <div class="room-media">
-              <img src="Sala regia 2.jpg" alt="Sala Regia – lezioni online e registrazioni vocali" />
+              <img src="Sala regia 2.jpg" alt="Sala Regia" />
             </div>
             <div class="room-body">
               <div class="room-title">🎧 Sala Regia</div>
@@ -759,29 +586,34 @@
                 La Sala Regia ospita le lezioni online e le registrazioni vocali, grazie a un ambiente curato e a una dotazione tecnica pensata per garantire qualità di ascolto e ripresa.
               </p>
 
-              <div class="divider"></div>
-
               <p>
-                Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette di proseguire il lavoro senza interrompere il percorso, comodamente da casa o dal tuo luogo di lavoro.
-              </p>
-              <p>
-                Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme, ovunque tu sia: una soluzione comoda, flessibile e <span class="hl">smart</span>, che consente di ottenere risultati ottimali e costanti nel tempo.
-              </p>
-              <p>
-                Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione semplice: microfono, cuffie e una piccola scheda audio.
-                Ti guiderò io nella scelta dell’attrezzatura più adatta alle tue esigenze.
+                Se vivi fuori Roma o all’estero, puoi proseguire il lavoro senza interrompere il percorso: una soluzione comoda, flessibile e <span class="hl">smart</span>.
+                Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione semplice (microfono, cuffie e una piccola scheda audio).
+                Ti guiderò io nella scelta dell’attrezzatura più adatta.
               </p>
 
               <div class="actions">
-                <a class="btn primary" href="index.html#contatti">Chiedi info</a>
+                <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
+                <a class="btn" href="#mappa">Ottieni indicazioni</a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <!-- MAP GRANDE (opzionale ma utile) -->
-        <div class="map-wrap" aria-label="Mappa grande – ExpresSING Studio">
+    <!-- MAPPA FINALE -->
+    <section id="mappa">
+      <div class="section-kicker">Dove siamo</div>
+      <div class="section-title">Via Sante Bargellini 52, Roma</div>
+
+      <div class="card">
+        <p class="muted">
+          🗺️ Apri la mappa e ottieni il percorso più comodo per arrivare in studio.
+        </p>
+
+        <div class="map-wrap" aria-label="Mappa – ExpresSING Studio">
           <iframe
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -790,13 +622,12 @@
           </iframe>
         </div>
 
-        <div class="actions" style="margin-top:1.15rem;">
+        <div class="actions" style="margin-top:1rem;">
           <a class="btn primary" target="_blank" rel="noopener noreferrer"
              href="https://www.google.com/maps/dir/?api=1&destination=Via%20Sante%20Bargellini%2052%2C%20Roma">
-            Ottieni indicazioni →
+            Apri su Google Maps →
           </a>
           <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html">Home</a>
           <a class="btn" href="index.html#contatti">Scrivimi</a>
         </div>
       </div>
