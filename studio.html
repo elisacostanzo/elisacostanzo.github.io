@@ -267,52 +267,77 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* layout: niente colonna foto accanto */
-    .lead{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1rem;
+    /* HERO come “prima”: testo a sinistra + foto ingresso a destra */
+    .grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:1.25rem;align-items:stretch;}
+    .hero-photo{
+      width:100%;
+      height:100%;
+      min-height:460px;
+      border-radius:1.85rem;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 22px 50px rgba(0,0,0,0.30);
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.02);
     }
-    .lead p{ text-align:left; }
 
-    /* gallery 4 foto grandi, senza bordi visibili */
-    .studio-grid{
+    /* box info (non giustificato) */
+    .quick{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap:.9rem;
+      margin-top:1rem;
+    }
+    .q{
+      border-radius:1.4rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 16px 34px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+      backdrop-filter: blur(10px);
+      text-align:left;
+    }
+    .q h4{
+      font-weight:1200;
+      font-size:1.05rem;
+      margin-bottom:.25rem;
+      display:flex;align-items:center;gap:.45rem;
+    }
+
+    /* 3 foto sotto (non ingresso): un po’ più piccole */
+    .triple{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:.95rem;
       margin-top:1rem;
     }
     .shot{
       border-radius:1.55rem;
       overflow:hidden;
       position:relative;
-      box-shadow:0 26px 60px rgba(0,0,0,0.22);
-      background: rgba(0,0,0,0.18);
-      aspect-ratio: 4 / 3; /* grande e consistente */
+      box-shadow:0 22px 48px rgba(0,0,0,0.18);
+      background: rgba(0,0,0,0.16);
+      aspect-ratio: 4 / 3;
     }
     .shot img{
       width:100%;
       height:100%;
       display:block;
-      object-fit:cover; /* niente bordi, taglio minimo ma leggibile */
-      filter: saturate(1.08) contrast(1.02);
+      object-fit:cover; /* niente bordi, zoom leggero ok */
+      filter: saturate(1.07) contrast(1.02);
       transform: scale(1.02);
+      transition: transform .35s ease, filter .35s ease;
     }
-    /* overlay leggerissimo per “pulire” */
-    .shot::after{
-      content:"";
-      position:absolute; inset:0;
-      background: radial-gradient(circle at 30% 10%, rgba(129,39,124,0.16), rgba(0,0,0,0) 60%),
-                  radial-gradient(circle at 80% 40%, rgba(53,92,123,0.16), rgba(0,0,0,0) 60%);
-      pointer-events:none;
-      opacity:.9;
+    .shot:hover img{
+      transform: scale(1.08);
+      filter: saturate(1.10) contrast(1.04);
     }
 
-    /* sale: una sotto l’altra con foto grande */
+    /* Sale più “piccole” */
     .rooms{
       display:grid;
       grid-template-columns:1fr;
-      gap:1.1rem;
+      gap:1rem;
       margin-top:1rem;
     }
     .room{
@@ -320,23 +345,25 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.08);
-      box-shadow:0 26px 60px rgba(0,0,0,0.20);
+      box-shadow:0 20px 44px rgba(0,0,0,0.18);
       backdrop-filter: blur(10px);
     }
     .room-media{
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 8; /* più bassa rispetto a prima */
       background: rgba(0,0,0,0.18);
     }
     .room-media img{
       width:100%;
       height:100%;
-      object-fit:cover; /* niente bordi, foto piena */
+      object-fit:cover;
       display:block;
       filter:saturate(1.06) contrast(1.02);
       transform: scale(1.02);
+      transition: transform .35s ease;
     }
-    .room-body{padding:1.2rem 1.2rem 1.25rem;}
-    .room-title{font-weight:1200;font-size:1.28rem;margin-bottom:.55rem;}
+    .room:hover .room-media img{ transform: scale(1.06); }
+    .room-body{padding:1.05rem 1.15rem 1.1rem;}
+    .room-title{font-weight:1200;font-size:1.22rem;margin-bottom:.45rem;}
     .room-body p{ text-align:justify; }
 
     /* mappa finale */
@@ -346,15 +373,48 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
       background: rgba(0,0,0,0.14);
-      box-shadow:0 26px 60px rgba(0,0,0,0.20);
+      box-shadow:0 22px 48px rgba(0,0,0,0.18);
       aspect-ratio: 16 / 9;
     }
     .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
 
+    /* Torna su */
+    .to-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:70;
+      width:52px;
+      height:52px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
+      box-shadow:0 18px 34px rgba(0,0,0,0.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      opacity:0;
+      pointer-events:none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease, filter .2s ease;
+    }
+    .to-top.show{
+      opacity:1;
+      pointer-events:auto;
+      transform: translateY(0);
+    }
+    .to-top:hover{filter:brightness(1.08);}
+    .to-top span{font-size:1.1rem;font-weight:1200;}
+
     /* responsive */
     @media (max-width: 1020px){
       .logo-img{height:112px;}
-      .studio-grid{grid-template-columns:1fr;}
+      .grid-2{grid-template-columns:1fr;}
+      .hero-photo{min-height:340px;}
+      .quick{grid-template-columns:1fr;}
+      .triple{grid-template-columns:1fr;}
     }
     @media (max-width: 640px){
       .brand-sub{display:none;}
@@ -416,7 +476,7 @@
     </div>
   </header>
 
-  <!-- MENU OVERLAY -->
+  <!-- MENU OVERLAY (uguale allo stile che avete già) -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -501,21 +561,35 @@
   </div>
 
   <main>
-    <!-- INTRO -->
+    <!-- HERO “come prima” -->
     <section>
       <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
 
-      <div class="card">
-        <div class="lead">
+      <div class="grid-2">
+        <div class="card">
           <p>
             📍 Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a <span class="hl">Roma</span>, in una zona comoda e ben collegata.
-            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto.
+            È a due passi dalla <span class="hl">Stazione Tiburtina</span> e dalla <span class="hl">Metro Monti Tiburtini</span>.
+          </p>
+          <p>
+            🌿 Il quartiere è tranquillo e ben servito, con un parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione.
           </p>
 
-          <p>
-            🌿 Il quartiere è tranquillo e ben servito, con un parco proprio alle spalle dello studio: perfetto per una passeggiata prima o dopo la lezione e per ritagliarsi un momento all’aria aperta.
-          </p>
+          <div class="quick" aria-label="Info rapide">
+            <div class="q">
+              <h4>🚉 <span class="hl">Stazione Tiburtina</span></h4>
+              <p>Collegamenti rapidi e comodi in città.</p>
+            </div>
+            <div class="q">
+              <h4>Ⓜ️ <span class="hl">Metro Monti Tiburtini</span></h4>
+              <p>Metro e bus a pochi minuti.</p>
+            </div>
+            <div class="q">
+              <h4>🅿️ <span class="hl">Parcheggi</span></h4>
+              <p>Disponibili nelle immediate vicinanze.</p>
+            </div>
+          </div>
 
           <div class="actions">
             <a class="btn primary" href="#mappa">Ottieni indicazioni</a>
@@ -524,34 +598,34 @@
           </div>
         </div>
 
-        <!-- 4 FOTO GRANDI (no ingresso, no caption, niente bordi visibili) -->
-        <div class="studio-grid" aria-label="Foto studio">
-          <div class="shot"><img src="Sala performance 2.jpg" alt="Sala Performance" /></div>
-          <div class="shot"><img src="Sala performance 1.jpg" alt="Sala Performance" /></div>
-          <div class="shot"><img src="Sala regia 2.jpg" alt="Sala Regia" /></div>
-          <div class="shot"><img src="Sala regia 1.jpg" alt="Sala Regia" /></div>
-        </div>
+        <img class="hero-photo" src="Foto ingresso.jpg" alt="Ingresso ExpresSING Studio" />
+      </div>
 
-        <div class="actions" style="margin-top:1.05rem;">
-          <a class="btn primary" href="#sale">Vai alle sale</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="percorsi.html">Vedi i percorsi</a>
-        </div>
+      <!-- 3 foto “non usate” sotto -->
+      <div class="triple" aria-label="Dettagli dello studio">
+        <div class="shot"><img src="Sala performance 1.jpg" alt="Sala Performance" /></div>
+        <div class="shot"><img src="Sala regia 2.jpg" alt="Sala Regia" /></div>
+        <div class="shot"><img src="Sala regia 1.jpg" alt="Sala Regia" /></div>
+      </div>
+
+      <div class="actions" style="margin-top:1.05rem;">
+        <a class="btn primary" href="#sale">Vai alle sale</a>
+        <button class="btn link open-menu" type="button">Menu</button>
+        <a class="btn" href="percorsi.html">Vedi i percorsi</a>
       </div>
     </section>
 
-    <!-- SALE -->
+    <!-- SALE (più compatte) -->
     <section id="sale">
       <div class="section-kicker">Sale</div>
-      <div class="section-title">Come lavoriamo (in presenza e online)</div>
+      <div class="section-title">In presenza e online</div>
 
       <div class="card">
         <p class="muted">
-          Ogni ambiente è pensato per favorire <span class="hl">qualità d’ascolto</span>, <span class="hl">cura</span> e <span class="hl">continuità</span> del lavoro.
+          Due ambienti pensati per lavorare con <span class="hl">cura</span>, <span class="hl">qualità d’ascolto</span> e <span class="hl">continuità</span>.
         </p>
 
         <div class="rooms">
-          <!-- Sala Performance -->
           <article class="room">
             <div class="room-media">
               <img src="Sala performance 2.jpg" alt="Sala Performance" />
@@ -559,14 +633,11 @@
             <div class="room-body">
               <div class="room-title">🎤 Sala Performance</div>
               <p class="muted">
-                Nella Sala Performance si svolgono le lezioni in presenza e i laboratori: è lo spazio del lavoro dal vivo, dell’ascolto e dell’espressione vocale.
+                Lezioni in presenza e laboratori: lo spazio del lavoro dal vivo, dell’ascolto e dell’espressione vocale.
               </p>
-
               <p>
-                Hai la possibilità di utilizzare un impianto voce e di <span class="hl">registrare</span> tutto il lavoro svolto insieme, dagli esercizi allo studio tecnico fino al lavoro sul brano.
-                In questo modo puoi <span class="hl">riascoltare</span> il materiale, esercitarti in modo mirato tra una lezione e l’altra e affrontare con maggiore consapevolezza i passaggi successivi.
+                Possibilità di <span class="hl">registrare</span> il lavoro svolto insieme per riascolto e studio mirato tra una lezione e l’altra.
               </p>
-
               <div class="actions">
                 <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
@@ -575,7 +646,6 @@
             </div>
           </article>
 
-          <!-- Sala Regia -->
           <article class="room">
             <div class="room-media">
               <img src="Sala regia 2.jpg" alt="Sala Regia" />
@@ -583,15 +653,11 @@
             <div class="room-body">
               <div class="room-title">🎧 Sala Regia</div>
               <p class="muted">
-                La Sala Regia ospita le lezioni online e le registrazioni vocali, grazie a un ambiente curato e a una dotazione tecnica pensata per garantire qualità di ascolto e ripresa.
+                Lezioni online e registrazioni vocali: ambiente curato e dotazione tecnica per qualità di ascolto e ripresa.
               </p>
-
               <p>
-                Se vivi fuori Roma o all’estero, puoi proseguire il lavoro senza interrompere il percorso: una soluzione comoda, flessibile e <span class="hl">smart</span>.
-                Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione semplice (microfono, cuffie e una piccola scheda audio).
-                Ti guiderò io nella scelta dell’attrezzatura più adatta.
+                Ideale se vivi fuori Roma: soluzione comoda, flessibile e <span class="hl">smart</span>, con attrezzatura semplice e guidata.
               </p>
-
               <div class="actions">
                 <a class="btn primary" href="index.html#contatti">Scrivimi</a>
                 <button class="btn link open-menu" type="button">Menu</button>
@@ -603,15 +669,13 @@
       </div>
     </section>
 
-    <!-- MAPPA FINALE -->
+    <!-- MAPPA -->
     <section id="mappa">
       <div class="section-kicker">Dove siamo</div>
       <div class="section-title">Via Sante Bargellini 52, Roma</div>
 
       <div class="card">
-        <p class="muted">
-          🗺️ Apri la mappa e ottieni il percorso più comodo per arrivare in studio.
-        </p>
+        <p class="muted">🗺️ Apri la mappa e ottieni il percorso più comodo per arrivare in studio.</p>
 
         <div class="map-wrap" aria-label="Mappa – ExpresSING Studio">
           <iframe
@@ -634,6 +698,8 @@
     </section>
   </main>
 
+  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
+
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
@@ -644,14 +710,8 @@
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
 
-    function openMenu(){
-      menuOverlay.classList.add("open");
-      menuOverlay.setAttribute("aria-hidden","false");
-    }
-    function closeMenu(){
-      menuOverlay.classList.remove("open");
-      menuOverlay.setAttribute("aria-hidden","true");
-    }
+    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
 
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
@@ -659,6 +719,16 @@
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+
+    // TO TOP
+    const toTop = document.getElementById("toTop");
+    function toggleToTop(){
+      if(window.scrollY > 520) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    }
+    window.addEventListener("scroll", toggleToTop, {passive:true});
+    toggleToTop();
+    toTop.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
