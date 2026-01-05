@@ -337,16 +337,17 @@
       margin:0;
       padding:0;
     }
-    .poi-item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:.85rem;
-      padding:.65rem .75rem;
-      border-radius:1.2rem;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-    }
+  .poi-item{
+  display:flex;
+  align-items:center;
+  gap:.85rem;
+  padding:.65rem .75rem;
+  border-radius:1.2rem;
+  border:1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  justify-content:flex-start;
+}
+
     .poi-left{
       display:flex;
       align-items:center;
@@ -707,51 +708,36 @@
             </div>
             <div class="q">
               <h4>🅿️ <span class="hl">Parcheggi vicini</span></h4>
-              <p>Soluzioni pratiche nelle immediate vicinanze.</p>
-            </div>
-          </div>
+           
+        <div class="poi" aria-label="Nelle immediate vicinanze">
+  <div class="poi-title">📍 Nelle immediate vicinanze</div>
 
-          <div class="poi" aria-label="Punti utili nelle vicinanze">
-            <div class="poi-title">📍 Nelle vicinanze</div>
+  <ul class="poi-list">
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">☕</span><span class="poi-name">Bar</span></div>
+    </li>
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">🛒</span><span class="poi-name">Supermercati</span></div>
+    </li>
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">🍝</span><span class="poi-name">Ristoranti</span></div>
+    </li>
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">🏋️</span><span class="poi-name">Palestre</span></div>
+    </li>
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">🚌</span><span class="poi-name">Fermate autobus</span></div>
+    </li>
+    <li class="poi-item">
+      <div class="poi-left"><span class="poi-emoji">Ⓜ️</span><span class="poi-name">Metro</span></div>
+    </li>
+  </ul>
 
-            <ul class="poi-list">
-              <li class="poi-item">
-                <div class="poi-left">
-                  <span class="poi-emoji">☕</span>
-                  <span class="poi-name">Bar</span>
-                </div>
-                <span class="poi-dist">— m</span>
-              </li>
+  <div class="poi-note">
+    Zona <span class="hl">comoda</span> e <span class="hl">ben servita</span> per spostamenti e servizi.
+  </div>
+</div>
 
-              <li class="poi-item">
-                <div class="poi-left">
-                  <span class="poi-emoji">🍝</span>
-                  <span class="poi-name">Ristoranti</span>
-                </div>
-                <span class="poi-dist">— m</span>
-              </li>
-
-              <li class="poi-item">
-                <div class="poi-left">
-                  <span class="poi-emoji">🏋️</span>
-                  <span class="poi-name">Palestre</span>
-                </div>
-                <span class="poi-dist">— m</span>
-              </li>
-
-              <li class="poi-item">
-                <div class="poi-left">
-                  <span class="poi-emoji">🌳</span>
-                  <span class="poi-name">Parco</span>
-                </div>
-                <span class="poi-dist">— m</span>
-              </li>
-            </ul>
-
-            <div class="poi-note">
-              Distanze in <span class="hl">m/km</span>: inseriscile dopo averle verificate su Google Maps.
-            </div>
-          </div>
 
           <div class="actions">
             <a class="btn primary" href="#mappa">Ottieni indicazioni</a>
