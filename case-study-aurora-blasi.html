@@ -10,6 +10,7 @@
       --blue:#355c7b;
       --magenta:#81277c;
       --yellow:#f6d24a;
+
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
     }
@@ -32,6 +33,7 @@
     a{color:inherit;text-decoration:none;}
     p, li{line-height:1.85;font-size:1.06rem;}
     .muted{opacity:.88}
+    .no-justify{ text-align:left; text-justify:auto; }
 
     .hl{
       color: var(--yellow);
@@ -250,11 +252,17 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Layouts */
     .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.1rem;align-items:stretch;}
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+    .media-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin-top:1.05rem;
+    }
+
     @media (max-width: 1020px){
-      .grid-2,.grid-3{grid-template-columns:1fr;}
+      .grid-2{grid-template-columns:1fr;}
+      .media-grid{grid-template-columns:1fr;}
       .logo-img{height:112px;}
       .menu-card{margin:3.2rem auto;}
     }
@@ -263,53 +271,129 @@
       .section-title{font-size:2.15rem;}
     }
 
-    /* “Wow” badges */
-    .tag{
+    /* HERO CARD “WOW” */
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:1rem;
+      align-items:stretch;
+    }
+    .hero-art{
+      border-radius:1.85rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background:
+        radial-gradient(520px 320px at 18% 15%, rgba(246,210,74,0.18) 0, rgba(0,0,0,0) 60%),
+        radial-gradient(620px 360px at 80% 18%, rgba(129,39,124,0.25) 0, rgba(0,0,0,0) 62%),
+        radial-gradient(640px 420px at 45% 90%, rgba(53,92,123,0.25) 0, rgba(0,0,0,0) 65%),
+        rgba(255,255,255,0.08);
+      box-shadow:0 22px 50px rgba(0,0,0,0.26);
+      padding:1.55rem 1.55rem 1.35rem;
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-art::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        linear-gradient(135deg, rgba(246,210,74,0.10), rgba(0,0,0,0) 45%),
+        radial-gradient(circle at 25% 10%, rgba(246,210,74,0.10), rgba(0,0,0,0) 52%),
+        radial-gradient(circle at 85% 30%, rgba(129,39,124,0.14), rgba(0,0,0,0) 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-art > *{position:relative; z-index:1;}
+
+    .hero-kicker{
       display:inline-flex;
-      width:fit-content;
+      align-items:center;
+      gap:.55rem;
       padding:.55rem .9rem;
       border-radius:999px;
-      background: rgba(255,255,255,0.12);
       border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;
-      opacity:.95;
-      margin-bottom:.9rem;
-      gap:.45rem;
-      align-items:center;
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 16px 36px rgba(0,0,0,0.16);
+      font-weight:1200;
+      width:fit-content;
+      margin-bottom:.85rem;
     }
-    .tag .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, rgba(246,210,74,0.92), rgba(129,39,124,0.65));
-      box-shadow:0 10px 20px rgba(0,0,0,0.18);
+    .hero-kicker .spark{filter: drop-shadow(0 10px 16px rgba(0,0,0,0.22));}
+    .hero-title{
+      font-size:2.15rem;
+      line-height:1.05;
+      font-weight:1200;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.22);
+    }
+    .hero-sub{
+      margin-top:.75rem;
+      font-size:1.05rem;
+      opacity:.92;
+      max-width:68ch;
     }
 
-    /* Highlights list */
-    .highlights{
-      list-style:none;
+    .hero-stats{
+      margin-top:1.1rem;
       display:grid;
-      gap:.7rem;
-      margin-top:.9rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap:.75rem;
     }
-    .highlights li{
-      display:flex;gap:.65rem;align-items:flex-start;
-      padding:.9rem 1rem;
-      border-radius:1.45rem;
+    .stat{
+      border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:.9rem .95rem;
       backdrop-filter: blur(10px);
-      font-weight:1100;
+      min-height:92px;
     }
-    .emoji{font-size:1.15rem; line-height:1.2; margin-top:.05rem;}
+    .stat b{font-size:1.02rem;font-weight:1200;}
+    .stat span{display:block;margin-top:.25rem;opacity:.9;font-size:.95rem;line-height:1.35;}
 
-    /* Media */
-    .media-grid{
+    @media (max-width: 1020px){
+      .hero-wrap{grid-template-columns:1fr;}
+      .hero-stats{grid-template-columns:1fr;}
+      .hero-title{font-size:2rem;}
+    }
+
+    /* “Cosa rende forte” – layout migliore, NO justify */
+    .strength{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:1rem;
-      margin-top:1.05rem;
+      margin-top:1rem;
     }
+    .strength .box{
+      border-radius:1.55rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1.05rem 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    .strength .box h3{
+      font-size:1.12rem;
+      font-weight:1200;
+      margin-bottom:.55rem;
+      display:flex;gap:.55rem;align-items:center;
+    }
+    .strength .box p{
+      text-align:left;
+      text-justify:auto;
+      font-size:1.02rem;
+      opacity:.95;
+    }
+    .strength ul{
+      margin-top:.55rem;
+      padding-left:1.05rem;
+      display:grid;
+      gap:.35rem;
+    }
+    .strength li{ text-align:left; font-size:1.02rem; opacity:.95; }
+    @media (max-width: 1020px){
+      .strength{grid-template-columns:1fr;}
+    }
+
+    /* Media cards */
     .media-card{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -355,7 +439,7 @@
     /* Links “partner” */
     .link-grid{
       display:grid;
-      grid-template-columns:repeat(4, 1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:.85rem;
       margin-top:1rem;
     }
@@ -375,10 +459,6 @@
     .link-card span{opacity:.9;font-size:.95rem;}
 
     @media (max-width: 1020px){
-      .media-grid{grid-template-columns:1fr;}
-      .link-grid{grid-template-columns:1fr 1fr;}
-    }
-    @media (max-width: 560px){
       .link-grid{grid-template-columns:1fr;}
     }
 
@@ -402,7 +482,7 @@
         </div>
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
+          <div class="brand-sub">Vocal Trainer • Cantante • Direttrice di coro • Cantautrice</div>
 
           <div class="brand-subline">
             <a class="header-chip" href="index.html"><span class="dot"></span>Home</a>
@@ -521,15 +601,43 @@
   </div>
 
   <main>
-    <!-- INTRO -->
+    <!-- HERO -->
     <section>
       <div class="section-kicker">Case study</div>
       <div class="section-title">Aurora Blasi</div>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="tag"><span class="dot"></span>🎧 Percorso artistico (real case)</div>
+      <div class="hero-wrap">
+        <div class="hero-art">
+          <div class="hero-kicker"><span class="spark">✨</span> Percorso artistico (real case)</div>
+          <div class="hero-title">Dal lavoro sulle basi a un’uscita discografica strutturata</div>
+          <p class="hero-sub">
+            Un lavoro che intreccia <span class="hl">tecnica</span>, <span class="hl">identità</span> e <span class="hl">presenza</span>:
+            la voce non come “modello da copiare”, ma come direzione personale da costruire nel tempo.
+          </p>
 
+          <div class="hero-stats" aria-label="Punti chiave">
+            <div class="stat">
+              <b>🎙️ Voce</b>
+              <span>Allenamento tecnico e cura dell’emissione, senza forzature.</span>
+            </div>
+            <div class="stat">
+              <b>🧩 Identità</b>
+              <span>Espressività, consapevolezza, modo di stare nella musica e sulla scena.</span>
+            </div>
+            <div class="stat">
+              <b>🎧 Output</b>
+              <span>Preparazione a studio e live + pubblicazione “Zucchero”.</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="#media">Ascolta & guarda</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="index.html#contatti">Scrivimi</a>
+          </div>
+        </div>
+
+        <div class="card">
           <p>
             Un esempio di percorso artistico che ho accompagnato fin dalle prime fasi è quello di <span class="hl">Aurora Blasi</span>, giovane cantautrice e content creator romana.
           </p>
@@ -543,31 +651,12 @@
             Questo percorso ha portato Aurora a confrontarsi con contesti professionali strutturati, fino alla pubblicazione del singolo di debutto <span class="hl">“Zucchero”</span> con <span class="hl">Ballandi Music</span>, distribuito da Sony Music Italy, con la produzione artistica di <span class="hl">Francesco Tosoni</span>.
           </p>
           <p>
-            La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su RAI 3, ospite di Luca Barbareschi, è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
+            La partecipazione al programma su RAI 3 è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
           </p>
           <p>
-            Questa esperienza è il risultato di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista. La collaborazione tra le figure professionali coinvolte (trainer vocale, produttore artistico, etichetta discografica) ha reso possibile il passaggio da un’idea iniziale a un’uscita discografica strutturata, sostenuta da una produzione di qualità e da un contesto professionale solido.
-          </p>
-          <p>
+            Questa esperienza è il risultato di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista.
             Il lavoro prosegue anche oggi e guarda avanti, con un <span class="hl">nuovo singolo</span> in uscita.
           </p>
-
-          <div class="actions">
-            <a class="btn primary" href="#media">Ascolta & guarda</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-            <a class="btn" href="index.html#contatti">Scrivimi</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tag"><span class="dot"></span>✨ Cosa rende “forte” questo percorso</div>
-
-          <ul class="highlights">
-            <li><span class="emoji">🎙️</span> Allenamento <span class="hl">tecnico</span> + lavoro su <span class="hl">identità</span> e presenza</li>
-            <li><span class="emoji">🧠</span> Gestione di <span class="hl">ansia</span>, emozioni e “tenuta” in contesti pubblici</li>
-            <li><span class="emoji">🎧</span> Preparazione per <span class="hl">studio</span> (registrazioni) e <span class="hl">performance</span></li>
-            <li><span class="emoji">🤝</span> Teamwork con <span class="hl">produzione</span> e realtà discografiche</li>
-          </ul>
 
           <div class="actions">
             <a class="btn primary" href="percorsi.html#artisti">Percorso artisti emergenti</a>
@@ -578,17 +667,54 @@
       </div>
     </section>
 
+    <!-- COSA RENDE FORTE -->
+    <section>
+      <div class="section-kicker">Dietro le quinte</div>
+      <div class="section-title">Cosa rende forte questo percorso</div>
+
+      <div class="card">
+        <div class="strength">
+          <div class="box">
+            <h3>🎙️ Voce & presenza</h3>
+            <p class="no-justify">
+              Il lavoro non si limita alla “prestazione”: costruisce una voce <span class="hl">solida</span> e una presenza <span class="hl">credibile</span>.
+              Tecnica, ascolto e corpo si allineano per rendere l’espressione più libera e sostenibile.
+            </p>
+            <ul>
+              <li>Allenamento tecnico <span class="hl">progressivo</span> e mirato</li>
+              <li>Espressività e <span class="hl">consapevolezza</span> in performance</li>
+              <li>Gestione di <span class="hl">tensioni</span> e “tenuta” emotiva</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>🎧 Progetto & team</h3>
+            <p class="no-justify">
+              La voce viene allenata in funzione del materiale: brani, studio, live. In parallelo si lavora sulla direzione del progetto,
+              con un dialogo reale tra figure professionali (trainer, produzione, etichetta).
+            </p>
+            <ul>
+              <li>Preparazione a <span class="hl">registrazioni</span> e sessioni studio</li>
+              <li>Lavoro su brani: fraseggio, dinamiche, <span class="hl">interpretazione</span></li>
+              <li>Passaggio da idea a uscita <span class="hl">strutturata</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#media">Vai ai contenuti</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="index.html#contatti">Scrivimi</a>
+        </div>
+      </div>
+    </section>
+
     <!-- MEDIA -->
     <section id="media">
       <div class="section-kicker">Media</div>
-      <div class="section-title">🎶 Brani + 🎬 Video (super visibili)</div>
+      <div class="section-title">Ascolta e guarda</div>
 
       <div class="card">
-        <p class="muted">
-          Qui sotto trovi i contenuti principali: due brani su Spotify e due video su YouTube.
-          (Se qualche embed non si carica su alcuni browser, i pulsanti “Apri” funzionano sempre.)
-        </p>
-
         <div class="media-grid">
           <!-- SPOTIFY 1 -->
           <div class="media-card">
@@ -603,8 +729,7 @@
               src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX?utm_source=generator"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              title="Spotify Zucchero">
-            </iframe>
+              title="Spotify Zucchero"></iframe>
             <div class="media-actions">
               <a class="btn primary" href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=595a6924d5324e85" target="_blank" rel="noopener noreferrer">Apri su Spotify</a>
               <button class="btn link open-menu" type="button">Menu</button>
@@ -624,8 +749,7 @@
               src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda?utm_source=generator"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              title="Spotify Track 2">
-            </iframe>
+              title="Spotify Track 2"></iframe>
             <div class="media-actions">
               <a class="btn primary" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=04f7034388094612" target="_blank" rel="noopener noreferrer">Apri su Spotify</a>
               <button class="btn link open-menu" type="button">Menu</button>
@@ -645,8 +769,7 @@
               src="https://www.youtube.com/embed/ayLHDQ279IM"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               loading="lazy"
-              title="YouTube video 1">
-            </iframe>
+              title="YouTube video 1"></iframe>
             <div class="media-actions">
               <a class="btn primary" href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri su YouTube</a>
               <button class="btn link open-menu" type="button">Menu</button>
@@ -666,8 +789,7 @@
               src="https://www.youtube.com/embed/dgbq1KNOPzo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               loading="lazy"
-              title="YouTube video 2">
-            </iframe>
+              title="YouTube video 2"></iframe>
             <div class="media-actions">
               <a class="btn primary" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1" target="_blank" rel="noopener noreferrer">Apri su YouTube</a>
               <button class="btn link open-menu" type="button">Menu</button>
@@ -686,13 +808,9 @@
     <!-- LINK UTILI -->
     <section>
       <div class="section-kicker">Link utili</div>
-      <div class="section-title">🔗 Team & piattaforme</div>
+      <div class="section-title">🔗 Riferimenti</div>
 
       <div class="card">
-        <p class="muted">
-          Qui trovi i riferimenti collegati al progetto: etichetta, produzione e contenuti TV.
-        </p>
-
         <div class="link-grid">
           <a class="link-card" href="https://www.instagram.com/ballandimusic/" target="_blank" rel="noopener noreferrer">
             <b>Ballandi Music</b>
@@ -704,15 +822,9 @@
             <span>Sito ufficiale</span>
           </a>
 
-          <a class="link-card" href="https://www.francescotosoni.com" target="_blank" rel="noopener noreferrer">
-            <b>Francesco Tosoni</b>
-            <span>Producer – sito</span>
-          </a>
-
-          <a class="link-card" href="https://www.raiplay.it/video/2025/12/Allegro-ma-non-troppo---Puntata-del-21122025-ef06f831-1a4b-4d76-9d20-a10eadd9f709.html"
-             target="_blank" rel="noopener noreferrer">
-            <b>RaiPlay</b>
-            <span>Allegro ma non troppo</span>
+          <a class="link-card" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">
+            <b>Reel (Instagram)</b>
+            <span>Guarda il reel</span>
           </a>
         </div>
 
@@ -730,7 +842,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // MENU
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
@@ -747,3 +858,4 @@
   </script>
 </body>
 </html>
+
