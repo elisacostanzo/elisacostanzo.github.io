@@ -449,18 +449,87 @@
       .header-actions{margin-top:.25rem;}
       .menu-button{padding:.58rem 1.05rem;}
     }
-/* MOBILE: nascondi i bottoni di navigazione sotto il nome (usa il menu) */
+/* =========================
+   MOBILE HEADER LAYOUT FIX
+   ========================= */
 @media (max-width: 600px){
-  .nav-pills{ display:none !important; }  /* come deciso: su mobile niente 4 bottoni */
-  .logo-img{ height:108px; }
 
-  .brand-name{ font-size:1.12rem; }
-  .brand-sub{ font-size:.94rem; }
+  /* nascondi i 4 bottoni su mobile (come deciso) */
+  .nav-pills{ display:none !important; }
 
-  /* evita che “mangi spazio” e resta pulito */
-  .header-inner{ align-items:center; }
-  .brand{ align-items:center; }
-  .brand-text{ gap:.18rem; }
+  /* header: due colonne (sx brand, dx azioni) */
+  .header-inner{
+    align-items: flex-start;
+    gap: .75rem;
+  }
+
+  /* sinistra: logo + testo più compatti */
+  .brand{
+    align-items: flex-start;
+    gap: .75rem;
+    min-width: 0;
+  }
+
+  .logo-img{
+    height: 104px; /* più compatto */
+  }
+
+  /* testo: ELISA COSTANZO su riga 1, sub su 2-3 righe */
+  .brand-text{
+    gap: .18rem;
+    min-width: 0;
+  }
+
+  .brand-name{
+    /* mantieni MAIUSCOLO: non tocchiamo text-transform */
+    font-size: 1.02rem;
+    line-height: 1.05;
+    letter-spacing: .11em;
+    white-space: nowrap;       /* ELISA COSTANZO su una riga */
+    overflow: hidden;
+    text-overflow: ellipsis;   /* se schermi molto stretti */
+  }
+
+  .brand-sub{
+    font-size: .90rem;
+    line-height: 1.15;
+    max-width: 30ch;           /* forza una 2ª/3ª riga elegante */
+    white-space: normal;
+  }
+
+  /* destra: menu in alto e icone in colonna sotto */
+  .header-actions{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .55rem;
+    margin-top: .05rem;
+    z-index: 90;
+    flex: 0 0 auto;
+  }
+
+  /* Menu sempre in alto a destra */
+  .menu-button{
+    order: 0;
+    padding: .56rem 1.02rem;
+    font-size: .98rem;
+  }
+
+  /* icone sotto, in colonna */
+  .top-icons{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+    margin-right: 0;
+  }
+
+  .icon-btn{
+    width: 42px;
+    height: 42px;
+  }
+
+  /* piccoli aggiustamenti per evitare “schiacciamenti” */
+  .brand-sub{ opacity: .95; }
 }
     footer{
       max-width:1180px;
