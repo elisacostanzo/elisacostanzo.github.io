@@ -67,7 +67,9 @@
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
 
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
+    .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+
+    /* LOGO senza riquadro */
     .logo-wrap{
       background: transparent !important;
       border: none !important;
@@ -76,6 +78,7 @@
       padding: 0 !important;
       border-radius: 0 !important;
       line-height: 0;
+      flex:0 0 auto;
     }
     .logo-img{
       height: 140px;
@@ -85,16 +88,30 @@
       padding: 0 !important;
     }
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
       font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
+
+    /* ✅ RUOLI: una riga per voce + pallino giallo (anche desktop, ma senza “ingombrare”) */
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
+      display:block;
+    }
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+      text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* === NAV PILLS sotto al sottotitolo (stile screenshot) === */
+    /* NAV PILLS (desktop) */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -141,11 +158,8 @@
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
-    @media (max-width: 520px){
-      .nav-pills .btn{ padding:0.70rem 1.0rem; font-size:1.02rem; }
-    }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
+    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
@@ -155,6 +169,7 @@
       box-shadow:0 14px 26px rgba(0,0,0,0.18);
       background: rgba(255,255,255,0.14);
       transition:transform .12s ease, filter .12s ease;
+      flex:0 0 auto;
     }
     .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
     .icon-btn svg{width:22px;height:22px;}
@@ -171,21 +186,23 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY */
+    /* MENU OVERLAY (scroll fix) */
     .menu-overlay{
-      position:fixed; inset:0; z-index:80;
+      position:fixed; inset:0; z-index:90;
       display:none;
       padding:1.2rem;
       background:
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
-      overflow:auto; /* <— così puoi scorrere se serve */
+      overflow:auto;
     }
     .menu-overlay.open{display:block;}
+
     .menu-card{
       max-width:590px;
       margin:4.2rem auto;
@@ -201,7 +218,7 @@
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
 
-      max-height: calc(100vh - 7rem); /* <— menu leggibile su mobile */
+      max-height: calc(100vh - 7rem);
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
@@ -215,7 +232,6 @@
       background:rgba(255,255,255,0.16);
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
       color:#fff;font-size:1.2rem;
-      flex:0 0 auto;
     }
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
@@ -339,7 +355,7 @@
       padding:1.25rem;
       backdrop-filter: blur(10px);
       display:flex;flex-direction:column;gap:.85rem;
-      min-height: 310px;
+      min-height: 340px;
       position:relative;
       overflow:hidden;
     }
@@ -369,35 +385,30 @@
     }
 
     /* sulle card NON giustificare */
-    .tile p{ text-align:left !important; text-justify:auto !important; }
+    .tile p, .tile li{ text-align:left !important; text-justify:auto !important; }
     .tile p{font-size:1.05rem;opacity:.96}
+    .tile ul{padding-left:1.1rem;margin-top:.2rem;}
+    .tile li{margin:.2rem 0;opacity:.95}
 
-    /* ExpressING preview gallery — due immagini più grandi, non schiacciate */
+    /* ExpressING preview gallery */
     .mini-gallery{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:.95rem;
+      gap:.85rem;
       margin-top:1rem;
-      align-items:stretch;
+      align-items:start;
     }
     .mini-gallery img{
       width:100%;
-      height:260px;            /* più grandi e “piene” */
+      height:auto;
       display:block;
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.18);
       box-shadow:0 18px 38px rgba(0,0,0,0.18);
       filter: saturate(1.05) contrast(1.02);
-      object-fit:cover;        /* “wow” e non schiacciate */
-      object-position:center;
     }
     @media (max-width: 1020px){
-      .grid-2{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
       .mini-gallery{ grid-template-columns:1fr; }
-      .mini-gallery img{ height:280px; }
-      .hero-photo{min-height:420px;}
-      main{padding-top:1.2rem;}
     }
 
     /* IG banner */
@@ -440,43 +451,6 @@
     }
     .ig-hint{margin-top:.85rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;}
 
-    /* DETAILS (tendina) */
-    details.details{
-      margin-top: .75rem;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      border-radius: 1.35rem;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
-    }
-    details.details summary{
-      cursor: pointer;
-      list-style: none;
-      padding: 0.95rem 1.05rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      font-weight:1100;
-      user-select:none;
-    }
-    details.details summary::-webkit-details-marker{display:none;}
-    details.details .hint{opacity:.92}
-    details.details .chev{
-      width: 34px; height: 34px;
-      border-radius: 999px;
-      display:flex; align-items:center; justify-content:center;
-      border: 1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.10);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
-      transition: transform .16s ease;
-      flex: 0 0 auto;
-    }
-    details.details[open] .chev{transform: rotate(180deg);}
-    details.details .content{
-      padding: 0.2rem 1.05rem 1.1rem;
-    }
-
     /* CONTATTI */
     .contact-note{
       margin-top:.6rem;
@@ -486,6 +460,7 @@
       background: rgba(255,255,255,0.07);
       box-shadow: 0 18px 40px rgba(0,0,0,0.14);
     }
+
     .contact-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -493,6 +468,7 @@
       margin-top:1rem;
       align-items:start;
     }
+
     .field{
       width:100%;
       border-radius:1.35rem;
@@ -506,21 +482,75 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 16px 34px rgba(0,0,0,0.16);
       transition: border-color .12s ease, background .12s ease, box-shadow .12s ease, transform .12s ease;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
     }
+
     .field:focus{
       border-color: rgba(246,210,74,0.55);
       background: rgba(255,255,255,0.12);
       box-shadow: 0 18px 42px rgba(0,0,0,0.20), 0 0 0 4px rgba(246,210,74,0.10);
       transform: translateY(-1px);
     }
+
     textarea.field{
       min-height:180px;
       resize:vertical;
     }
+
     .field::placeholder{color:rgba(255,255,255,0.78);}
+
     @media (max-width: 1020px){
       .contact-grid{grid-template-columns:1fr;}
+      .grid-2{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr;}
+      .hero-photo{min-height:360px;}
+    }
+
+    /* ✅ MOBILE HEADER: più compatto, senza toccare desktop */
+    @media (max-width: 600px){
+      /* nav pills nascosti su mobile (come desideri) */
+      .nav-pills{ display:none !important; }
+
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+      }
+
+      .logo-img{ height:92px; }
+
+      .brand-name{
+        font-size:.96rem;           /* più piccolo così non taglia “ZO” */
+        letter-spacing:.11em;
+        white-space:nowrap;
+        overflow:visible;
+        text-overflow:clip;
+      }
+
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+      .brand-sub span{
+        display:block;
+        white-space:nowrap;
+        margin:.12rem 0;
+      }
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
+      .icon-btn{ width:40px; height:40px; }
     }
 
     footer{
@@ -539,17 +569,24 @@
         <div class="logo-wrap">
           <img class="logo-img" src="Elisa Costanzo Logo.png" alt="Elisa Costanzo - Logo" />
         </div>
+
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Vocal Trainer • Cantante • Direttrice di coro • Cantautrice</div>
 
-          <!-- ✅ QUI: pulsanti “pill soft” sotto al sottotitolo -->
+          <!-- ✅ ruoli con pallini gialli -->
+          <div class="brand-sub">
+            <span>Vocal Trainer</span>
+            <span>Cantante</span>
+            <span>Direttrice di coro</span>
+            <span>Cantautrice</span>
+          </div>
+
+          <!-- pulsanti top (desktop; su mobile sono nascosti via CSS) -->
           <div class="nav-pills" id="navPills"></div>
         </div>
       </div>
 
       <div class="header-actions">
-        <!-- ✅ icone IG + posta restano in alto a destra come prima -->
         <div class="top-icons">
           <a class="icon-btn icon-mail" href="#contatti" aria-label="Scrivimi (vai ai contatti)">
             <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -576,7 +613,6 @@
       </div>
 
       <div class="menu-grid">
-        <!-- (in HOME il tasto Home nel menu ci sta, qui va bene) -->
         <a class="menu-item" href="index.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
@@ -598,7 +634,6 @@
             <div class="menu-pill">go</div>
           </a>
 
-          <!-- sottocartelle: NON in maiuscolo -->
           <div class="menu-sub">
             <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
             <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
@@ -627,7 +662,6 @@
           <div class="menu-pill">cv</div>
         </a>
 
-        <!-- ✅ ARTISTI + sottocartelle -->
         <div>
           <a class="menu-item" href="artisti.html">
             <div class="menu-left">
@@ -666,15 +700,14 @@
           <div class="section-title">Chi sono</div>
 
           <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di <span class="hl">esplorazione</span>, <span class="hl">cura</span> e <span class="hl">creatività</span>.</p>
-          <p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
+          <p>Sono Vocal Trainer, Cantante, Direttrice di coro e Cantautrice.</p>
 
-          <!-- ✅ tendina come prima -->
-          <details class="details">
-            <summary>
-              <span class="hint">Leggi la mia storia completa</span>
-              <span class="chev">⌄</span>
+          <details class="details" style="margin-top:1rem;">
+            <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1rem;border-radius:1.25rem;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.08);box-shadow:0 18px 40px rgba(0,0,0,0.14);">
+              <span style="font-weight:1200;opacity:.95;">Leggi la mia storia completa</span>
+              <span style="width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.20);background:rgba(255,255,255,0.10);box-shadow:0 14px 26px rgba(0,0,0,0.12);">⌄</span>
             </summary>
-            <div class="content">
+            <div style="padding:1rem .1rem 0;">
               <p>Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale (ExpresSING): un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.</p>
 
               <p>La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
@@ -693,8 +726,9 @@
           </details>
 
           <div class="actions">
-            <a class="btn primary" href="#contatti">✉️ Scrivimi</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn primary" href="#contatti">Contattami</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="studio.html">ExpresSING Studio</a>
           </div>
         </div>
 
@@ -715,8 +749,9 @@
             il percorso parte sempre dalla persona, dalla sua <span class="hl">voce</span> e dalla sua <span class="hl">storia</span>.
           </p>
           <div class="actions">
-            <a class="btn primary" href="percorsi.html#canto">✨ Approfondisci</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="#contatti">Prenota una call gratuita</a>
           </div>
         </div>
 
@@ -727,8 +762,9 @@
             <span class="hl">chiarezza</span>, <span class="hl">efficacia</span> e <span class="hl">sostenibilità</span>.
           </p>
           <div class="actions">
-            <a class="btn primary" href="percorsi.html#voce">✨ Approfondisci</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn primary" href="percorsi.html#voce">Leggi tutto</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="#contatti">Prenota una call gratuita</a>
           </div>
         </div>
 
@@ -736,19 +772,21 @@
           <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
           <p>
             Un percorso che integra <span class="hl">voce</span>, <span class="hl">progetto</span> e <span class="hl">identità artistica</span>:
-            lavoro sui brani, preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.
+            analisi dei brani, preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.
           </p>
           <div class="actions">
-            <a class="btn primary" href="percorsi.html#artisti">✨ Approfondisci</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn primary" href="percorsi.html#artisti">Leggi tutto</a>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="artisti.html">Vai ad Artisti</a>
           </div>
         </div>
       </div>
 
       <div class="actions" style="margin-top:1.15rem;">
-        <a class="btn primary" href="percorsi.html">🎯 Vedi tutti i percorsi</a>
-        <button class="btn link open-menu" type="button">☰ Menu</button>
-        <a class="btn" href="#contatti">✉️ Scrivimi</a>
+        <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
+        <a class="btn" href="percorsi.html#ves">Vai a VES</a>
+        <button class="btn link open-menu" type="button">Menu</button>
+        <a class="btn" href="#contatti">Contattami</a>
       </div>
     </section>
 
@@ -769,29 +807,9 @@
         </div>
 
         <div class="actions">
-          <a class="btn primary" href="studio.html">🏡 Visita lo studio</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="#contatti">✉️ Chiedi info</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VES -->
-    <section id="home-ves">
-      <div class="section-kicker">VES</div>
-      <div class="section-title">Certificazione e ricerca</div>
-
-      <div class="card">
-        <p>
-          Nel mio lavoro, la <span class="hl">ricerca</span> e la <span class="hl">formazione</span> sono parte integrante della didattica.
-          Il percorso VES rappresenta un riferimento importante per un approccio evoluto e non standardizzato al training vocale.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="percorsi.html#ves">🔎 Vai a VES</a>
-          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">🌐 Sito VES</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="#contatti">✉️ Richiedi info</a>
+          <a class="btn primary" href="studio.html">Visita lo studio</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Chiedi info</a>
         </div>
       </div>
     </section>
@@ -799,7 +817,7 @@
     <!-- CURRICULUM -->
     <section id="home-cv">
       <div class="section-kicker">Curriculum</div>
-      <div class="section-title">Formazione, didattica e performance</div>
+      <div class="section-title">Formazione, didattica e performance 📚</div>
 
       <div class="card">
         <p>
@@ -808,28 +826,28 @@
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="curriculum.html">📚 Apri curriculum</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="#contatti">✉️ Contattami</a>
+          <a class="btn primary" href="curriculum.html">Apri curriculum</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Contattami</a>
         </div>
       </div>
     </section>
 
     <!-- ARTISTI -->
-    <section id="home-artisti-section">
+    <section id="home-artists">
       <div class="section-kicker">Artisti</div>
-      <div class="section-title">Percorsi artistici e case study 🎧</div>
+      <div class="section-title">Case study e progetti 🎧</div>
 
       <div class="card">
         <p>
-          Se lavori su un progetto artistico, possiamo costruire insieme un percorso che unisce <span class="hl">training</span>, <span class="hl">identità</span> e <span class="hl">performance</span>:
-          dal lavoro sulla voce alla preparazione per studio, live e contenuti.
+          Una sezione dedicata agli artisti che seguo: percorsi reali, crescita nel tempo e lavoro di squadra.
+          Trovi due sottosezioni: <span class="hl">Aurora Blasi</span> e <span class="hl">Narciso</span>.
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="artisti.html">🎧 Vai alla pagina Artisti</a>
-          <a class="btn" href="case-study-aurora-blasi.html">✨ Aurora Blasi</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn primary" href="artisti.html">Apri Artisti</a>
+          <button class="btn link open-menu" type="button">Menu</button>
+          <a class="btn" href="#contatti">Scrivimi</a>
         </div>
       </div>
     </section>
@@ -846,7 +864,6 @@
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DSqtQhXDEdo/embed" loading="lazy" title="Instagram Post 4"></iframe></div>
 
-          <!-- dup per loop -->
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DQrm6JxDLnW/embed" loading="lazy" title="Instagram Post 1 dup"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRPD54QDBvD/embed" loading="lazy" title="Instagram Post 2 dup"></iframe></div>
           <div class="ig-card"><iframe src="https://www.instagram.com/p/DRW9WUsjOs5/embed" loading="lazy" title="Instagram Post 3 dup"></iframe></div>
@@ -854,9 +871,9 @@
         </div>
 
         <div class="ig-hint">
-          <a class="btn primary" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📸 Vai al profilo Instagram</a>
-          <a class="btn" href="#contatti">✉️ Scrivimi</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn primary" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Vai al profilo Instagram →</a>
+          <a class="btn" href="#contatti">Scrivimi</a>
+          <button class="btn link open-menu" type="button">Menu</button>
         </div>
       </div>
     </section>
@@ -885,9 +902,9 @@
           </div>
 
           <div class="actions">
-            <button class="btn primary" type="submit">✉️ Invia richiesta</button>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-            <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+            <button class="btn primary" type="submit">Invia richiesta</button>
+            <button class="btn link open-menu" type="button">Menu</button>
+            <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </form>
       </div>
@@ -903,33 +920,30 @@
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
-
     function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
     function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
-
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-
-    // chiudi menu cliccando un link
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // NAV PILLS sotto al sottotitolo (in HOME: no Home, mostra le altre)
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente - qui siamo in home, quindi escludo index)
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-
-      // in index vogliamo le altre pagine (senza Home)
-      const links = [
+      const current = "index.html";
+      const pages = [
+        { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
         { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
         { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
-
-      nav.innerHTML = links.map(p => `
+      const visible = pages.filter(p => p.href !== current);
+      visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
+      nav.innerHTML = visible.map(p => `
         <a class="btn" href="${p.href}">
           <span class="emoji">${p.emoji}</span> ${p.label}
         </a>
@@ -951,3 +965,4 @@
   </script>
 </body>
 </html>
+
