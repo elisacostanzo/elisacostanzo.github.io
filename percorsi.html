@@ -51,20 +51,22 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
+
     .header-inner{
       max-width:1180px;margin:0 auto;
       padding:0.85rem 1.15rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
     }
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    .logo-wrap{line-height:0;}
+
+    .brand{display:flex;align-items:flex-start;gap:1rem;min-width:0;flex:1;}
+    .logo-wrap{line-height:0;flex:0 0 auto;}
     .logo-img{
       height: 140px;
       width: auto;
       display:block;
       object-fit:contain;
     }
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
       font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -73,7 +75,7 @@
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
     }
 
-    /* NAV PILLS sotto al sottotitolo */
+    /* NAV PILLS */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -120,11 +122,18 @@
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
-    @media (max-width: 520px){
-      .nav-pills .btn{ padding:0.70rem 1.0rem; font-size:1.02rem; }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      margin-top:.15rem;
+      position:relative;
+      z-index:80; /* assicura clic su Menu su mobile */
     }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -133,6 +142,7 @@
       box-shadow:0 14px 26px rgba(0,0,0,0.18);
       background: rgba(255,255,255,0.14);
       transition:transform .12s ease, filter .12s ease;
+      flex:0 0 auto;
     }
     .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
     .icon-btn svg{width:22px;height:22px;}
@@ -149,12 +159,13 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
     /* MENU OVERLAY */
     .menu-overlay{
-      position:fixed; inset:0; z-index:80;
+      position:fixed; inset:0; z-index:90;
       display:none;
       padding:1.2rem;
       background:
@@ -266,7 +277,6 @@
       backdrop-filter: blur(12px);
     }
 
-    /* Hero intro percorsi */
     .hero-row{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -281,7 +291,6 @@
       margin-top:1rem;
     }
 
-    /* Pills section title */
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -297,7 +306,6 @@
       line-height:1.2;
     }
 
-    /* buttons in page */
     .btn{
       border-radius:999px;
       padding:0.82rem 1.28rem;
@@ -324,7 +332,7 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* DETAILS blocks per leggibilità */
+    /* DETAILS blocks */
     details.block{
       margin-top:1rem;
       border: 1px solid rgba(255,255,255,0.16);
@@ -344,17 +352,8 @@
       user-select:none;
     }
     details.block summary::-webkit-details-marker{display:none;}
-    .sum-left{
-      display:flex;
-      flex-direction:column;
-      gap:.12rem;
-      min-width:0;
-    }
-    .sum-left .t{
-      font-weight:1200;
-      font-size:1.15rem;
-      line-height:1.2;
-    }
+    .sum-left{display:flex;flex-direction:column;gap:.12rem;min-width:0;}
+    .sum-left .t{font-weight:1200;font-size:1.15rem;line-height:1.2;}
     .sum-left .d{
       font-size:.98rem;
       opacity:.9;
@@ -374,11 +373,9 @@
       flex: 0 0 auto;
     }
     details.block[open] .chev{transform: rotate(180deg);}
-    .block-content{
-      padding: .25rem 1.05rem 1.15rem;
-    }
+    .block-content{padding: .25rem 1.05rem 1.15rem;}
 
-    /* “Aree di lavoro” schematiche */
+    /* Aree di lavoro schematiche */
     .areas{
       margin-top:1rem;
       display:grid;
@@ -400,13 +397,8 @@
       align-items:center;
       gap:.55rem;
     }
-    .area p{
-      font-size:1.02rem;
-      opacity:.92;
-      line-height:1.55;
-    }
+    .area p{font-size:1.02rem;opacity:.92;line-height:1.55;}
 
-    /* anchor chips */
     .chip{
       border:1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.10);
@@ -451,6 +443,13 @@
       .areas{grid-template-columns:1fr;}
     }
 
+    @media (max-width: 600px){
+      .header-inner{align-items:flex-start;}
+      .logo-img{height:120px;}
+      .header-actions{margin-top:.25rem;}
+      .menu-button{padding:.58rem 1.05rem;}
+    }
+
     footer{
       max-width:1180px;
       margin:0 auto;
@@ -469,16 +468,14 @@
         </div>
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Vocal Trainer • Cantante • Direttrice di coro • Cantautrice</div>
-
-          <!-- nav pills (Home sempre prima, esclusa pagina corrente) -->
+          <div class="brand-sub">Vocal Trainer • cantante • direttrice di coro • cantautrice</div>
           <div class="nav-pills" id="navPills"></div>
         </div>
       </div>
 
       <div class="header-actions">
         <div class="top-icons">
-          <a class="icon-btn icon-mail" href="#contatti" aria-label="Scrivimi (vai ai contatti)">
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
             <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
           <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
@@ -567,7 +564,7 @@
           </div>
         </div>
 
-        <a class="menu-item" href="#contatti">
+        <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
@@ -590,31 +587,31 @@
 
           <p>
             Qui trovi i miei percorsi principali: dal lavoro one-to-one per <span class="hl">cantanti</span> e <span class="hl">cantautori</span>, alla
-            <span class="hl">voce parlata</span> per la comunicazione professionale, fino allo sviluppo del <span class="hl">progetto discografico</span>.
+            <span class="hl">voce parlata</span> per la comunicazione professionale, fino allo sviluppo del <span class="hl">progetto artistico</span>.
           </p>
 
           <div class="quick-nav">
-            <a class="chip" href="#canto"><span class="emoji">🎤</span> Canto one-to-one</a>
+            <a class="chip" href="#canto"><span class="emoji">🎤</span> Voce cantata</a>
             <a class="chip" href="#voce"><span class="emoji">🗣️</span> Voce parlata</a>
             <a class="chip" href="#artisti"><span class="emoji">🎧</span> Progetto artistico</a>
             <a class="chip" href="#ves"><span class="emoji">🔬</span> VES</a>
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="#contatti">✉️ Prenota una call gratuita</a>
+            <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
         <div class="card">
-          <div class="pill-title">Come lavoriamo</div>
+          <div class="pill-title">Modalità di lavoro</div>
           <p>
             Ogni percorso è costruito con un approccio <span class="hl">esperienziale</span>, gentile e concreto:
             osservazione, ascolto e strategie <span class="hl">su misura</span>. Niente modelli imposti: lavoriamo su ciò che ti serve davvero,
             con un ritmo <span class="hl">sostenibile</span> per te.
           </p>
           <p class="muted" style="margin-top:.6rem;">
-            👉 I pulsanti “Apri” ti portano subito alla sezione giusta. Se vuoi orientarti insieme, scrivimi: rispondo volentieri.
+            👉 Se vuoi orientarti insieme, scrivimi dalla home: rispondo volentieri.
           </p>
         </div>
       </div>
@@ -634,8 +631,8 @@
         <details class="block" open>
           <summary>
             <div class="sum-left">
-              <div class="t">Cosa facciamo (in pratica)</div>
-              <div class="d">Dal corpo al suono, fino al brano e alla presenza</div>
+              <div class="t">Su cosa lavoriamo</div>
+              <div class="d">Corpo, respiro, tecnica e brano</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
@@ -663,7 +660,7 @@
         </details>
 
         <div class="actions">
-          <a class="btn primary" href="#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -685,7 +682,7 @@
           <summary>
             <div class="sum-left">
               <div class="t">Su cosa lavoriamo</div>
-              <div class="d">Respiro, postura, articolazione, ritmo e presenza</div>
+              <div class="d">Voce stabile, chiara e sostenibile</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
@@ -710,7 +707,7 @@
         </details>
 
         <div class="actions">
-          <a class="btn primary" href="#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -731,8 +728,8 @@
         <details class="block">
           <summary>
             <div class="sum-left">
-              <div class="t">Focus del percorso</div>
-              <div class="d">Brani, identità, studio, live e gestione emotiva</div>
+              <div class="t">Su cosa lavoriamo</div>
+              <div class="d">Brani, identità e preparazione a studio e live</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
@@ -757,7 +754,7 @@
         </details>
 
         <div class="actions">
-          <a class="btn primary" href="#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
           <a class="btn" href="artisti.html">🎧 Vai alla pagina Artisti</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
@@ -840,7 +837,7 @@
           <summary>
             <div class="sum-left">
               <div class="t">Formazione docenti e didattica della voce — Voice Evolution Institute</div>
-              <div class="d">Pedagogia, relazione con l’allievo e approccio etico</div>
+              <div class="d">Pedagogia e relazione</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
@@ -861,41 +858,10 @@
         </details>
 
         <div class="actions">
-          <a class="btn primary" href="#contatti">✉️ Richiedi info</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Richiedi info</a>
           <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">🌐 Sito VES</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
-      </div>
-    </section>
-
-    <!-- CONTATTI (ancora mailto, senza mostrare email) -->
-    <section id="contatti">
-      <div class="section-kicker">Contatti</div>
-      <div class="section-title">Scrivimi ✉️</div>
-
-      <div class="card">
-        <p class="muted">
-          Compila il form: si aprirà il tuo client email con il messaggio già pronto (senza mostrare l’indirizzo nel sito).
-        </p>
-
-        <form id="contactForm" style="margin-top:1rem;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
-            <div>
-              <input class="field" type="text" id="name" name="name" placeholder="Nome e cognome" required />
-            </div>
-            <div>
-              <input class="field" type="text" id="subject" name="subject" placeholder="Oggetto" required />
-            </div>
-            <div style="grid-column:1/-1;">
-              <textarea class="field" id="message" name="message" placeholder="Il tuo messaggio" required></textarea>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button class="btn primary" type="submit">✉️ Invia richiesta</button>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
-        </form>
       </div>
     </section>
   </main>
@@ -933,7 +899,6 @@
         { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
-      // Home sempre primo
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
       nav.innerHTML = visible.map(p => `
         <a class="btn" href="${p.href}">
@@ -941,19 +906,6 @@
         </a>
       `).join("");
     })();
-
-    // FORM -> mailto senza mostrare email nel sito
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      const to = "elisacostanzo1" + "@" + "gmail.com";
-      const fullSubject = encodeURIComponent(subject + " — " + name);
-      const body = encodeURIComponent(message + "\n\n—\n" + name);
-      window.location.href = "mailto:" + to + "?subject=" + fullSubject + "&body=" + body;
-    });
 
     // Back to top
     const toTop = document.getElementById("toTop");
