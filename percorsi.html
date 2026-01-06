@@ -449,7 +449,14 @@
       .header-actions{margin-top:.25rem;}
       .menu-button{padding:.58rem 1.05rem;}
     }
-
+/* MOBILE: nascondi i bottoni di navigazione sotto il nome (usa il menu) */
+@media (max-width: 600px){
+  .nav-pills{ display:none !important; }
+  .header-inner{ align-items:center; }
+  .brand{ align-items:center; }
+  .brand-text{ gap:.18rem; }
+  .logo-img{ height:112px; }
+}
     footer{
       max-width:1180px;
       margin:0 auto;
