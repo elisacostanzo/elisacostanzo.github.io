@@ -44,20 +44,33 @@
       text-decoration-thickness: 2px;
     }
 
-    /* HEADER (DESKTOP: NON TOCCATO) */
+    /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
       background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
-    .header-inner{
-  max-width:1180px;margin:0 auto;
-  padding:0.85rem 1.15rem;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem; /* <-- center */
-}
 
-.brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;} /* <-- center */
+    /* ✅ centrato come in home */
+    .header-inner{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0.85rem 1.15rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+
+    /* ✅ centrato come in home */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      min-width:0;
+      flex:1;
+    }
 
     .logo-wrap{line-height:0;flex:0 0 auto;}
     .logo-img{
@@ -67,7 +80,13 @@
       object-fit:contain;
     }
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:.22rem;
+      min-width:0;
+      flex:1;
+    }
 
     .brand-name{
       font-weight:1100;
@@ -79,11 +98,24 @@
       text-overflow:ellipsis;
     }
 
+    /* ✅ ruoli: una riga ciascuno + pallino giallo (DESKTOP E MOBILE) */
     .brand-sub{
       font-size:.96rem;
       opacity:.96;
       line-height:1.25;
       max-width:64ch;
+      display:block;
+    }
+    .brand-sub span{
+      display:block;            /* <-- una riga ciascuno */
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+      text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
     /* NAV PILLS (desktop ok; su mobile li nascondiamo) */
@@ -183,7 +215,7 @@
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
-      overflow:auto; /* <-- IMPORTANTISSIMO */
+      overflow:auto;
     }
     .menu-overlay.open{display:block;}
 
@@ -202,8 +234,8 @@
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
 
-      max-height: calc(100vh - 7rem); /* <-- IMPORTANTISSIMO */
-      overflow:auto;                  /* <-- IMPORTANTISSIMO */
+      max-height: calc(100vh - 7rem);
+      overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
 
@@ -459,18 +491,11 @@
       .areas{grid-template-columns:1fr;}
     }
 
-    /* =========================
-       MOBILE HEADER (SOLO MOBILE)
-       - ruoli: una riga ciascuno con puntino
-       - icone IG/mail: sulla stessa riga
-       - Menu in alto a destra
-       - nav pills nascosti
-       ========================= */
+    /* MOBILE HEADER (solo mobile: nav pills nascosti, menu sopra e icone sotto) */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
 
       .header-inner{
-        align-items:flex-start;
         gap:.6rem;
       }
 
@@ -481,7 +506,6 @@
 
       .logo-img{ height:96px; }
 
-      /* Nome: un filo più piccolo SOLO su mobile, così non taglia "ZO" */
       .brand-name{
         font-size:.96rem;
         letter-spacing:.11em;
@@ -490,26 +514,12 @@
         text-overflow:clip;
       }
 
-      /* Ruoli: forziamo la colonna e UNA RIGA per span */
       .brand-sub{
         font-size:.86rem;
         line-height:1.35;
         max-width:34ch;
-        white-space:normal;
-        display:block;           /* <-- importante */
-      }
-      .brand-sub span{
-        display:block;           /* <-- una riga ciascuno */
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
-      .brand-sub span::before{
-        content:"• ";
-        color:var(--yellow);
-        font-weight:900;
       }
 
-      /* Azioni: menu sopra, icone sotto sulla stessa riga */
       .header-actions{
         flex-direction:column;
         align-items:flex-end;
@@ -546,7 +556,6 @@
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
 
-          <!-- SUB: qui ogni voce sta in uno span (serve per mobile) -->
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -554,7 +563,6 @@
             <span>Cantautrice</span>
           </div>
 
-          <!-- nav pills desktop (mobile nascosti via CSS) -->
           <div class="nav-pills" id="navPills"></div>
         </div>
       </div>
@@ -1003,3 +1011,4 @@
   </script>
 </body>
 </html>
+
