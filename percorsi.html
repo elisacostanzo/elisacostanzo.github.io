@@ -450,13 +450,13 @@
       .menu-button{padding:.58rem 1.05rem;}
     }
 /* =========================
-   MOBILE HEADER – VERSIONE COMPATTA
+   MOBILE HEADER – FIX LEGGIBILITÀ
    ========================= */
 @media (max-width: 600px){
 
-  /* nasconde i pulsanti rapidi (home, percorsi, ecc.) */
-  .nav-pills{ 
-    display:none !important; 
+  /* nasconde i pulsanti rapidi */
+  .nav-pills{
+    display:none !important;
   }
 
   .header-inner{
@@ -464,36 +464,38 @@
     gap: .6rem;
   }
 
-  /* BLOCCO BRAND */
   .brand{
     align-items: flex-start;
     gap: .6rem;
     min-width: 0;
+    flex: 1;
   }
 
   .logo-img{
-    height: 100px;
+    height: 96px;
   }
 
   .brand-text{
-    gap: .25rem;
+    gap: .3rem;
+    min-width: 0;
   }
 
-  /* ELISA COSTANZO */
+  /* NOME */
   .brand-name{
-    font-size: 1.02rem;
-    line-height: 1.05;
+    font-size: .95rem;              /* ↓ leggermente più piccolo */
+    line-height: 1.1;
     letter-spacing: .12em;
-    white-space: nowrap;
+    white-space: normal;            /* ← IMPORTANTISSIMO */
+    word-break: keep-all;
   }
 
-  /* elenco verticale con puntino */
+  /* SOTTOTITOLI: UNA RIGA OGNUNO */
   .brand-sub{
-    font-size: .88rem;
+    font-size: .86rem;
     line-height: 1.35;
     display: flex;
     flex-direction: column;
-    gap: .12rem;
+    gap: .15rem;
   }
 
   .brand-sub span{
@@ -503,27 +505,29 @@
     white-space: nowrap;
   }
 
+  /* puntino per TUTTI */
   .brand-sub span::before{
     content: "•";
     color: var(--yellow);
     font-weight: 900;
+    line-height: 1;
   }
 
-  /* azioni a destra */
+  /* AZIONI A DESTRA */
   .header-actions{
     flex-direction: column;
     align-items: flex-end;
     gap: .45rem;
     z-index: 90;
+    flex-shrink: 0;
   }
 
-  /* MENU sempre in alto */
   .menu-button{
     padding: .5rem 1rem;
     font-size: .95rem;
   }
 
-  /* icone IG + MAIL sulla stessa linea */
+  /* ICONE IG + MAIL SU UNA SOLA RIGA */
   .top-icons{
     display: flex;
     flex-direction: row;
@@ -532,8 +536,8 @@
   }
 
   .icon-btn{
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 }
 
