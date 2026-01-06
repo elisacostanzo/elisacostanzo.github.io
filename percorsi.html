@@ -450,87 +450,93 @@
       .menu-button{padding:.58rem 1.05rem;}
     }
 /* =========================
-   MOBILE HEADER LAYOUT FIX
+   MOBILE HEADER – VERSIONE COMPATTA
    ========================= */
 @media (max-width: 600px){
 
-  /* nascondi i 4 bottoni su mobile (come deciso) */
-  .nav-pills{ display:none !important; }
-
-  /* header: due colonne (sx brand, dx azioni) */
-  .header-inner{
-    align-items: flex-start;
-    gap: .75rem;
+  /* nasconde i pulsanti rapidi (home, percorsi, ecc.) */
+  .nav-pills{ 
+    display:none !important; 
   }
 
-  /* sinistra: logo + testo più compatti */
+  .header-inner{
+    align-items: flex-start;
+    gap: .6rem;
+  }
+
+  /* BLOCCO BRAND */
   .brand{
     align-items: flex-start;
-    gap: .75rem;
+    gap: .6rem;
     min-width: 0;
   }
 
   .logo-img{
-    height: 104px; /* più compatto */
+    height: 100px;
   }
 
-  /* testo: ELISA COSTANZO su riga 1, sub su 2-3 righe */
   .brand-text{
-    gap: .18rem;
-    min-width: 0;
+    gap: .25rem;
   }
 
+  /* ELISA COSTANZO */
   .brand-name{
-    /* mantieni MAIUSCOLO: non tocchiamo text-transform */
     font-size: 1.02rem;
     line-height: 1.05;
-    letter-spacing: .11em;
-    white-space: nowrap;       /* ELISA COSTANZO su una riga */
-    overflow: hidden;
-    text-overflow: ellipsis;   /* se schermi molto stretti */
+    letter-spacing: .12em;
+    white-space: nowrap;
   }
 
+  /* elenco verticale con puntino */
   .brand-sub{
-    font-size: .90rem;
-    line-height: 1.15;
-    max-width: 30ch;           /* forza una 2ª/3ª riga elegante */
-    white-space: normal;
+    font-size: .88rem;
+    line-height: 1.35;
+    display: flex;
+    flex-direction: column;
+    gap: .12rem;
   }
 
-  /* destra: menu in alto e icone in colonna sotto */
+  .brand-sub span{
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    white-space: nowrap;
+  }
+
+  .brand-sub span::before{
+    content: "•";
+    color: var(--yellow);
+    font-weight: 900;
+  }
+
+  /* azioni a destra */
   .header-actions{
     flex-direction: column;
     align-items: flex-end;
-    gap: .55rem;
-    margin-top: .05rem;
+    gap: .45rem;
     z-index: 90;
-    flex: 0 0 auto;
   }
 
-  /* Menu sempre in alto a destra */
+  /* MENU sempre in alto */
   .menu-button{
-    order: 0;
-    padding: .56rem 1.02rem;
-    font-size: .98rem;
+    padding: .5rem 1rem;
+    font-size: .95rem;
   }
 
-  /* icone sotto, in colonna */
+  /* icone IG + MAIL sulla stessa linea */
   .top-icons{
-    order: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: .45rem;
     margin-right: 0;
   }
 
   .icon-btn{
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
-
-  /* piccoli aggiustamenti per evitare “schiacciamenti” */
-  .brand-sub{ opacity: .95; }
 }
+
     footer{
       max-width:1180px;
       margin:0 auto;
