@@ -410,29 +410,14 @@
       font-size:1.03rem;
     }
 
-    .link-row{
-      margin-top:.85rem;
+    /* Only the two CTAs */
+    .cta-2{
+      margin-top:.95rem;
       display:flex;
+      gap:.7rem;
       flex-wrap:wrap;
-      gap:.55rem;
       align-items:center;
     }
-    .mini-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.58rem .86rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;
-      opacity:.94;
-      transition: transform .12s ease, background .12s ease;
-      font-size:.98rem;
-      white-space:nowrap;
-    }
-    .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
 
     /* back to top */
     .to-top{
@@ -612,7 +597,7 @@
               <div class="menu-ico" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
               </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">case study e progetti</div></div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
             </div>
             <div class="menu-pill">go</div>
           </a>
@@ -641,36 +626,36 @@
       <div class="hero-row">
         <div class="card">
           <div class="section-kicker">Artisti</div>
-          <div class="section-title">Quando la voce incontra un progetto 🎯🎶</div>
+          <div class="section-title">Voce + progetto: un lavoro di squadra 🎯🎶</div>
 
           <p>
-            Lavorare con un artista non significa “aggiustare una voce”: significa costruire un percorso in cui <span class="hl">tecnica</span>,
-            <span class="hl">identità</span> e <span class="hl">presenza</span> si allineano al progetto.
+            Quando un artista cresce, crescono insieme <span class="hl">voce</span>, <span class="hl">identità</span> e <span class="hl">direzione</span>.
+            Il mio ruolo è integrare tecnica, ascolto e consapevolezza, collegando il training a ciò che davvero serve: brani, studio, live e comunicazione.
           </p>
           <p>
-            È (quasi sempre) un lavoro di <span class="hl">squadra</span>: vocal trainer / vocal coach, <span class="hl">produttore artistico</span>,
-            studio di registrazione, musicisti, etichetta, comunicazione. Ognuno porta una competenza diversa, e il risultato cresce quando tutte le figure
-            lavorano nella stessa direzione — a completo servizio dell’artista.
+            È un lavoro di <span class="hl">squadra</span>: vocal trainer / vocal coach, <span class="hl">produttore artistico</span>, studio di registrazione,
+            musicisti, etichetta e comunicazione. Quando tutte le figure lavorano nella stessa direzione, il passaggio da un’idea a un’uscita strutturata
+            diventa reale, sostenibile e coerente.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
+            <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
             <a class="btn" href="percorsi.html#artisti">🎧 Il percorso “Progetto artistico”</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
         <div class="card">
-          <div class="pill-title">Cosa facciamo insieme</div>
+          <div class="pill-title">Cosa curiamo insieme</div>
           <p style="text-align:left;">
             🎤 Preparazione a <span class="hl">studio</span> e <span class="hl">live</span><br/>
             🧩 Lavoro sul brano: <span class="hl">interpretazione</span>, fraseggio, dinamiche<br/>
-            🧠 Supporto su <span class="hl">ansia</span> e gestione emotiva della performance<br/>
-            🧭 Allineamento tra voce, stile e <span class="hl">identità</span> artistica
+            🧠 Gestione emotiva: <span class="hl">ansia</span>, focus e presenza<br/>
+            🧭 Coerenza tra voce, stile e <span class="hl">identità</span>
           </p>
 
           <div class="actions" style="margin-top:1rem;">
-            <a class="btn primary" href="#artisti-list">🎧 Vedi gli artisti</a>
+            <a class="btn primary" href="#artisti-list">🎧 Scopri gli artisti</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
@@ -680,28 +665,27 @@
     <!-- LISTA ARTISTI -->
     <section id="artisti-list">
       <div class="section-kicker">Artisti</div>
-      <div class="section-title">Case study & progetti ✨</div>
+      <div class="section-title">Percorsi seguiti ✨</div>
 
       <div class="grid-2">
-        <!-- AURORA (NO DESCRIZIONE) -->
+        <!-- AURORA -->
         <div class="artist">
           <div class="artist-top">
             <div class="artist-name">Aurora Blasi</div>
-            <div class="tag">🎧 Case study</div>
+            <div class="tag">🎧 Artista</div>
           </div>
 
           <p>
-            Un esempio di percorso seguito nel tempo, dalle basi fino a contesti professionali strutturati.
-            Se ti va, puoi leggere il case study completo con brani, video e contesto del lavoro.
+            Un percorso seguito nel tempo, con lavoro su voce, espressività, presenza e direzione artistica.
           </p>
 
-          <div class="link-row">
-            <a class="mini-btn" href="case-study-aurora-blasi.html">➡️ Leggi di più sul percorso</a>
-            <a class="mini-btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          <div class="cta-2">
+            <a class="btn primary" href="case-study-aurora-blasi.html">🎶 Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
 
-        <!-- NARCISO (NO DESCRIZIONE) -->
+        <!-- NARCISO -->
         <div class="artist" id="narciso">
           <div class="artist-top">
             <div class="artist-name">Narciso</div>
@@ -709,29 +693,35 @@
           </div>
 
           <p>
-            Percorso artistico seguito nel lavoro su voce, progetto e preparazione a studio / performance.
-            Qui sotto trovi dei contenuti; per approfondire, possiamo creare anche una pagina dedicata come per Aurora.
+            Un percorso che unisce training vocale, scelte interpretative e messa a fuoco del progetto.
           </p>
 
-          <div class="link-row">
-            <a class="mini-btn" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎧 Spotify 1</a>
-            <a class="mini-btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎧 Spotify 2</a>
-            <a class="mini-btn" href="https://www.youtube.com/watch?v=_7V26wjZ5yE&list=RD_7V26wjZ5yE&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 1</a>
-            <a class="mini-btn" href="https://www.youtube.com/watch?v=qPoqctyaJ5s&list=RDqPoqctyaJ5s&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 2</a>
-            <a class="mini-btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🏷️ Noise Symphony</a>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+          <div class="cta-2">
+            <a class="btn primary" href="#narciso-media">🎶 Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="actions" style="margin-top:1.15rem;">
-        <a class="btn primary" href="index.html#contatti">✉️ Parliamo del tuo percorso</a>
-        <a class="btn" href="percorsi.html#artisti">🎧 Torna al percorso</a>
-        <button class="btn link open-menu" type="button">☰ Menu</button>
+    <!-- NARCISO MEDIA -->
+    <section id="narciso-media">
+      <div class="section-kicker">Narciso</div>
+      <div class="section-title">Ascolta & guarda 🎧▶️</div>
+
+      <div class="card">
+        <p class="muted" style="text-align:left;">
+          Apri i contenuti esterni (Spotify / YouTube) e la pagina di Noise Symphony.
+        </p>
+
+        <div class="actions" style="margin-top:1rem;">
+          <a class="btn primary" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎧 Spotify 1</a>
+          <a class="btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎧 Spotify 2</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=_7V26wjZ5yE&list=RD_7V26wjZ5yE&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 1</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=qPoqctyaJ5s&list=RDqPoqctyaJ5s&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 2</a>
+          <a class="btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🏷️ Noise Symphony</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
       </div>
     </section>
   </main>
