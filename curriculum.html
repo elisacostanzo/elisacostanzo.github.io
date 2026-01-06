@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Curriculum • Elisa Costanzo</title>
+  <title>Curriculum — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -10,10 +10,6 @@
       --blue:#355c7b;
       --magenta:#81277c;
       --yellow:#f6d24a;
-
-      --glass: rgba(255,255,255,0.10);
-      --stroke: rgba(255,255,255,0.18);
-      --shadow: rgba(0,0,0,0.22);
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
@@ -25,6 +21,7 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -47,7 +44,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* HEADER (coerente con index) */
+    /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -59,41 +56,105 @@
       padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;}
-    .logo-wrap{line-height:0;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;}
+    .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+
+    .logo-wrap{line-height:0;flex:0 0 auto;}
+    .logo-img{
+      height: 140px;
+      width: auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
-      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
-      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
-    .brand-sub{
-      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
-
-    .brand-subline{
-      display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;margin-top:.35rem;
-    }
-    .header-chip{
-      display:inline-flex;align-items:center;gap:.45rem;
-      padding:.45rem .78rem;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;font-size:.92rem;opacity:.95;
-      transition: transform .12s ease, background .12s ease;
+      font-weight:1100;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:1.04rem;
       white-space:nowrap;
-    }
-    .header-chip:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.14); }
-    .header-chip .dot{
-      width:8px;height:8px;border-radius:999px;
-      background: linear-gradient(135deg, rgba(129,39,124,0.95), rgba(53,92,123,0.95));
-      box-shadow:0 10px 18px rgba(0,0,0,0.18);
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
+    /* Ruoli: una riga ciascuno + pallino giallo */
+    .brand-sub{
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.25;
+      max-width:64ch;
+      display:block;
+    }
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+      text-shadow:0 10px 18px rgba(0,0,0,0.16);
+    }
+
+    /* NAV PILLS (desktop) */
+    .nav-pills{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
+    }
+    .nav-pills .btn{
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 1100;
+      letter-spacing: .01em;
+
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.96);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      white-space: nowrap;
+
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .nav-pills .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 18px 34px rgba(0,0,0,0.22);
+    }
+    .nav-pills .emoji{
+      font-size: 1.08em;
+      line-height: 1;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
+    }
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
@@ -103,6 +164,7 @@
       box-shadow:0 14px 26px rgba(0,0,0,0.18);
       background: rgba(255,255,255,0.14);
       transition:transform .12s ease, filter .12s ease;
+      flex:0 0 auto;
     }
     .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
     .icon-btn svg{width:22px;height:22px;}
@@ -119,22 +181,26 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU overlay */
+    /* MENU OVERLAY (scroll) */
     .menu-overlay{
-      position:fixed; inset:0; z-index:80;
+      position:fixed; inset:0; z-index:90;
       display:none;
       padding:1.2rem;
       background:
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
+      overflow:auto;
     }
     .menu-overlay.open{display:block;}
+
     .menu-card{
-      max-width:590px;margin:4.2rem auto;
+      max-width:590px;
+      margin:4.2rem auto;
       padding:1.35rem 1.35rem 1.15rem;
       border-radius:1.85rem;
       background:
@@ -146,8 +212,12 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
+
+      max-height: calc(100vh - 7rem);
+      overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -158,7 +228,9 @@
       background:rgba(255,255,255,0.16);
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
       color:#fff;font-size:1.2rem;
+      flex:0 0 auto;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -192,16 +264,19 @@
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
-      display:grid;gap:.45rem;
+      display:grid;
+      gap:.45rem;
     }
     .menu-sub a{
       padding:.55rem .85rem;
       border-radius:1.05rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.10);
-      display:inline-flex;width:fit-content;
-      font-weight:1100;opacity:.92;line-height:1.25;
-      text-transform:none;
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1100;
+      opacity:.92;
+      line-height:1.25;
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
@@ -228,101 +303,6 @@
       backdrop-filter: blur(12px);
     }
 
-    .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:1.1rem;align-items:start;}
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
-
-    /* timeline */
-    .cv-block{margin-top:.85rem;}
-    .cv-title{
-      display:flex;align-items:center;gap:.6rem;
-      font-size:1.15rem;font-weight:1200;letter-spacing:.04em;
-      margin:1.1rem 0 .6rem;
-      text-transform:uppercase;
-    }
-    .cv-list{list-style:none;padding-left:0;}
-    .cv-item{
-      display:grid;
-      grid-template-columns: 170px 1fr;
-      gap:.9rem;
-      padding:.75rem .85rem;
-      border-radius:1.25rem;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 14px 28px rgba(0,0,0,0.14);
-      margin:.55rem 0;
-    }
-    .cv-when{
-      font-weight:1200;
-      color:rgba(255,255,255,0.92);
-      opacity:.98;
-      white-space:nowrap;
-    }
-    .cv-what{opacity:.95;}
-    .cv-what a{ text-decoration: underline; text-underline-offset:3px; }
-
-    @media (max-width: 900px){
-      .grid-2{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
-      .cv-item{grid-template-columns:1fr;gap:.25rem;}
-      .cv-when{opacity:.9}
-    }
-
-    /* media */
-    .media-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:1rem;
-      margin-top:1rem;
-      align-items:stretch;
-    }
-    .media-card{
-      border-radius:1.55rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 18px 38px rgba(0,0,0,0.18);
-      overflow:hidden;
-    }
-    .media-head{
-      padding:1rem 1rem .85rem;
-      display:flex;align-items:center;justify-content:space-between;gap:.8rem;
-    }
-    .media-head .t{
-      font-weight:1200;
-      letter-spacing:.04em;
-      display:flex;align-items:center;gap:.55rem;
-      font-size:1.02rem;
-    }
-    .media-head .tag{
-      font-size:.78rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      padding:.35rem .6rem;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.10);
-      opacity:.92;
-      white-space:nowrap;
-    }
-    .embed{
-      width:100%;
-      aspect-ratio: 16 / 9;
-      border:0;
-      display:block;
-      background:transparent;
-    }
-    .embed-ig{
-      width:100%;
-      height:520px;
-      border:0;
-      display:block;
-      background:transparent;
-    }
-    .media-foot{
-      padding:.9rem 1rem 1.05rem;
-      display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;
-    }
-
-    /* buttons */
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
     .btn{
       border-radius:999px;
       padding:0.82rem 1.28rem;
@@ -342,80 +322,257 @@
       color:var(--magenta);
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
+    .btn:hover{transform:translateY(-1px);}
     .btn.link{
       border-color:rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.10);
     }
-    .btn:hover{transform:translateY(-1px);}
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* back to top */
-    .to-top{
-      position:fixed; right:18px; bottom:18px;
-      width:52px;height:52px;border-radius:999px;
+    /* Layout: intro + chips */
+    .hero-row{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:1.1rem;
+      align-items:stretch;
+    }
+
+    /* badge card */
+    .pill-title{
+      display:inline-flex;
+      width:fit-content;
+      padding:.55rem .95rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+      font-weight:1200;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.86rem;
+      line-height:1.2;
+      margin-bottom:.8rem;
+    }
+
+    /* Timeline */
+    .timeline{
+      margin-top:.9rem;
+      display:grid;
+      gap:.75rem;
+    }
+    .t-item{
+      position:relative;
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+      overflow:hidden;
+    }
+    .t-item::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(129,39,124,0.32), rgba(0,0,0,0) 52%),
+        radial-gradient(circle at 92% 10%, rgba(53,92,123,0.32), rgba(0,0,0,0) 56%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .t-item > *{position:relative; z-index:1;}
+
+    .t-top{
+      display:flex;
+      gap:.75rem;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .t-role{
+      font-weight:1200;
+      font-size:1.08rem;
+      line-height:1.25;
+    }
+    .t-when{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.38rem .65rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.12);
+      font-weight:1100;
+      opacity:.92;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+    .t-desc{
+      margin-top:.45rem;
+      opacity:.92;
+      line-height:1.6;
+      font-size:1.03rem;
+      text-align:left;
+    }
+
+    /* Media grid */
+    .media-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+      margin-top:1rem;
+      align-items:stretch;
+    }
+    .media-card{
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 38px rgba(0,0,0,0.14);
+      padding:1rem 1rem;
+    }
+    .media-card h4{
+      font-size:1.05rem;
+      font-weight:1200;
+      margin-bottom:.35rem;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+    }
+    .media-card p{font-size:1.02rem;opacity:.92;line-height:1.55;text-align:left;}
+    .media-links{
+      margin-top:.65rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+    }
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.58rem .86rem;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      font-weight:1100;
+      opacity:.94;
+      transition: transform .12s ease, background .12s ease;
+      font-size:.98rem;
+      white-space:nowrap;
+    }
+    .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
+
+    /* Back to top */
+    .to-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:40;
+      width:52px;height:52px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.24);
       background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 40px rgba(0,0,0,0.26);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
       backdrop-filter: blur(12px);
       display:none;
-      align-items:center;justify-content:center;
+      align-items:center;
+      justify-content:center;
       cursor:pointer;
-      z-index:70;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
+    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
+    .to-top span{font-size:1.25rem;}
     .to-top.show{display:flex;}
-    .to-top span{font-size:1.1rem;font-weight:1200;}
+
+    @media (max-width: 1020px){
+      main{padding-top:1.2rem;}
+      .hero-row{grid-template-columns:1fr;}
+      .media-grid{grid-template-columns:1fr;}
+    }
+
+    /* MOBILE HEADER */
+    @media (max-width: 600px){
+      .nav-pills{ display:none !important; }
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+      }
+      .logo-img{ height:92px; }
+
+      .brand-name{
+        font-size:.96rem;
+        letter-spacing:.11em;
+        white-space:nowrap;
+        overflow:visible;
+        text-overflow:clip;
+      }
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+      .brand-sub span{
+        display:block;
+        white-space:nowrap;
+        margin:.12rem 0;
+      }
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
+      .icon-btn{ width:40px; height:40px; }
+    }
 
     footer{
-      border-top:1px solid rgba(255,255,255,0.16);
-      padding:1.2rem 1.1rem;
-      text-align:center;
-      opacity:0.9;
-      background:rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 1.15rem 2.2rem;
+      opacity:.9;
     }
   </style>
 </head>
 
 <body>
-  <header id="top">
+  <header>
     <div class="header-inner">
       <div class="brand">
         <div class="logo-wrap">
-          <img src="Elisa Costanzo Logo.png" alt="Logo Elisa Costanzo" class="logo-img" />
+          <img class="logo-img" src="Elisa Costanzo Logo.png" alt="Elisa Costanzo - Logo" />
         </div>
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">Vocal Trainer • Cantante • Direttrice di coro • Cantautrice</div>
-
-          <!-- chip: tutte le principali tranne quella corrente -->
-          <div class="brand-subline">
-            <a class="header-chip" href="index.html"><span class="dot"></span> Home</a>
-            <a class="header-chip" href="percorsi.html"><span class="dot"></span> Percorsi</a>
-            <a class="header-chip" href="studio.html"><span class="dot"></span> ExpresSING Studio</a>
-            <a class="header-chip" href="artisti.html"><span class="dot"></span> Artisti</a>
+          <div class="brand-sub">
+            <span>Vocal Trainer</span>
+            <span>Cantante</span>
+            <span>Direttrice di coro</span>
+            <span>Cantautrice</span>
           </div>
+
+          <div class="nav-pills" id="navPills"></div>
         </div>
       </div>
 
       <div class="header-actions">
         <div class="top-icons">
-          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9A4.7 4.7 0 0 1 16.5 21.2h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8Z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M12 16.2A4.2 4.2 0 1 0 12 7.8a4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M17.2 6.9h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
-
-          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Vai ai contatti">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
+          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
           </a>
         </div>
 
-        <button class="menu-button" id="menuOpen" aria-label="Apri menu">☰ Menu</button>
+        <button class="menu-button" id="menuOpen" type="button">☰ Menu</button>
       </div>
     </div>
   </header>
@@ -453,9 +610,9 @@
             <div class="menu-pill">go</div>
           </a>
           <div class="menu-sub">
-            <a href="percorsi.html#canto">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</a>
-            <a href="percorsi.html#voce">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</a>
-            <a href="percorsi.html#artisti">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</a>
+            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
             <a href="percorsi.html#ves">VES</a>
           </div>
         </div>
@@ -470,31 +627,31 @@
           <div class="menu-pill">studio</div>
         </a>
 
+        <a class="menu-item" href="curriculum.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
+          </div>
+          <div class="menu-pill">cv</div>
+        </a>
+
         <div>
           <a class="menu-item" href="artisti.html">
             <div class="menu-left">
               <div class="menu-ico" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
               </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e case study</div></div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">case study e progetti</div></div>
             </div>
-            <div class="menu-pill">pro</div>
+            <div class="menu-pill">go</div>
           </a>
           <div class="menu-sub">
             <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="case-study-narciso.html">Narciso</a>
+            <a href="artisti.html#narciso">Narciso</a>
           </div>
         </div>
-
-        <a class="menu-item" href="curriculum.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Curriculum</div><div class="d">questa pagina</div></div>
-          </div>
-          <div class="menu-pill">cv</div>
-        </a>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -510,183 +667,252 @@
   </div>
 
   <main>
-    <!-- INTRO -->
+    <!-- HERO -->
     <section>
-      <div class="section-kicker">Curriculum</div>
-      <div class="section-title">Formazione, didattica & performance ✨</div>
+      <div class="hero-row">
+        <div class="card">
+          <div class="section-kicker">Curriculum</div>
+          <div class="section-title">Formazione, didattica e performance 📚✨</div>
 
-      <div class="card">
-        <p style="text-align:left;">
-          Qui trovi una panoramica della mia <span class="hl">formazione</span>, delle esperienze nella <span class="hl">didattica</span> e dei principali passaggi legati a <span class="hl">performance</span> e <span class="hl">songwriting</span>.
-        </p>
+          <p>
+            Qui trovi una panoramica completa del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
+            Se vuoi orientarti su quale percorso sia più adatto a te, puoi scrivermi dal form della home.
+          </p>
 
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">Scrivimi</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="percorsi.html">Vai ai percorsi</a>
+          <div class="actions">
+            <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill-title">In breve</div>
+          <p style="text-align:left;">
+            🎓 <span class="hl">Formazione</span> tra Conservatorio G.B. Martini (Bologna) e Conservatorio di Santa Cecilia (Roma).<br/>
+            🎤 <span class="hl">Didattica</span> continuativa in scuole e accademie, e direzione di un centro di formazione vocale.<br/>
+            🔬 <span class="hl">Ricerca</span> e workshop in contesti internazionali (Pan European Voice Conference).<br/>
+            🎶 <span class="hl">Performance & songwriting</span>: pubblicazioni, premi e live.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- DIDATTICA -->
-    <section>
-      <div class="section-kicker">Didattica</div>
-      <div class="section-title">Esperienza & ricerca 🎓</div>
+    <section id="didattica">
+      <div class="section-kicker">Curriculum</div>
+      <div class="section-title">Didattica & Formazione 🎓</div>
 
-      <div class="card cv-block">
-        <div class="cv-title">🎤 DIDATTICA</div>
-        <ul class="cv-list">
-          <li class="cv-item">
-            <div class="cv-when">Ottobre 2025</div>
-            <div class="cv-what">Direttrice e Docente di <span class="hl">ExpresSING Studio</span>: Centro di formazione vocale.</div>
-          </li>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale</div>
+              <div class="t-when">📅 Ottobre 2025 – oggi</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">Maggio 2025</div>
-            <div class="cv-what"><span class="hl">Certified VES® Trainer</span> – Voice Evolution Institute.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role"><span class="hl">Certified VES® Trainer</span> — Voice Evolution Institute</div>
+              <div class="t-when">📅 Maggio 2025</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">Settembre 2024</div>
-            <div class="cv-what">Relatrice del workshop “Vocal tract stimulation exercises for resonance developement” alla <span class="hl">Pan European Voice Conference 2024</span> (Santander, ES).</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Relatrice workshop “Vocal tract stimulation exercises for resonance developement” — Pan European Voice Conference</div>
+              <div class="t-when">📅 Settembre 2024 • Santander (ES)</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2022–2025</div>
-            <div class="cv-what">Insegnante di canto e laboratori corali e vocali in collaborazione con la <span class="hl">ASL</span> presso il Centro Ottava, Roma.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Insegnante di canto e laboratori corali e vocali (collaborazione con ASL) — Centro Ottava, Roma</div>
+              <div class="t-when">📅 2022 – 2025</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2019–2024</div>
-            <div class="cv-what">Selezionatrice e Vocal Coach per tecnica vocale, interpretazione, presenza scenica e laboratori corali del <span class="hl">Tour Music Fest®</span>.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Selezionatrice e Vocal Coach (tecnica vocale, interpretazione, presenza scenica, laboratori corali) — Tour Music Fest®</div>
+              <div class="t-when">📅 2019 – 2024</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2017</div>
-            <div class="cv-what">Docente formato <span class="hl">Voice to Teach®</span>.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Docente formato <span class="hl">Voice to Teach®</span></div>
+              <div class="t-when">📅 2017</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2013–2025</div>
-            <div class="cv-what">Insegnante di canto presso la scuola di musica Armonie Musicali, Roma.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Insegnante di canto — Scuola di musica Armonie Musicali, Roma</div>
+              <div class="t-when">📅 2013 – 2025</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2012–2025</div>
-            <div class="cv-what">Insegnante di canto presso l’Accademia Musicale “Risonanze”, Roma.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Insegnante di canto — Accademia Musicale “Risonanze”, Roma</div>
+              <div class="t-when">📅 2012 – 2025</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2022</div>
-            <div class="cv-what">Diploma di II livello in <span class="hl">Didattica della Musica</span> presso il Conservatorio di Santa Cecilia, Roma, 110/110 e Lode.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Diploma di II livello in Didattica della Musica — Conservatorio di Santa Cecilia, Roma (110/110 e Lode)</div>
+              <div class="t-when">📅 2022</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2016</div>
-            <div class="cv-what">Seminario “La Vocalità Estrema (Growl, Fischio)” a cura di F. Fussi, E. Biaviati, E. Bruni, Ravenna.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Seminario “La Vocalità Estrema (Growl, Fischio)” — F. Fussi, E. Biaviati, E. Bruni (Ravenna)</div>
+              <div class="t-when">📅 2016</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2013</div>
-            <div class="cv-what">Masterclass a cura di Francesca Taverni: “Rent, la voce nell’opera rock”.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Masterclass: “Rent, la voce nell’opera rock” — Francesca Taverni</div>
+              <div class="t-when">📅 2013</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2012</div>
-            <div class="cv-what">Masterclass a cura di Dean Bowman sulla musica afroamericana.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Masterclass — Dean Bowman (musica afroamericana)</div>
+              <div class="t-when">📅 2012</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2012</div>
-            <div class="cv-what">Corso di Song Writing a cura di Peter Cunnah presso The Institute di Londra.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Corso di Song Writing — Peter Cunnah (The Institute, Londra)</div>
+              <div class="t-when">📅 2012</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2012</div>
-            <div class="cv-what">Certificazione internazionale <span class="hl">Rockschool UK</span>, Grade 8, Vocals.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Certificazione internazionale Rockschool UK — Grade 8, Vocals</div>
+              <div class="t-when">📅 2012</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2012</div>
-            <div class="cv-what">Masterclass a cura di Catherine Sadolin (Complete Vocal Technique).</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Masterclass — Catherine Sadolin (Complete Vocal Technique)</div>
+              <div class="t-when">📅 2012</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2011</div>
-            <div class="cv-what">Corso Internazionale “La Voce Artistica” diretto da Franco Fussi, Ravenna.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Corso Internazionale “La Voce Artistica” — Franco Fussi (Ravenna)</div>
+              <div class="t-when">📅 2011</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2010</div>
-            <div class="cv-what">Corsi Voicecraft Base, Avanzato e Specialistico a cura di Elisa Turlà.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Master in Didattica del Canto Moderno — Sonus Factory, Roma</div>
+              <div class="t-when">📅 2011</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2011</div>
-            <div class="cv-what">Master in Didattica del Canto Moderno presso Sonus Factory, Roma.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Corsi Voicecraft (Base, Avanzato, Specialistico) — Elisa Turlà</div>
+              <div class="t-when">📅 2010</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2010</div>
-            <div class="cv-what">Laurea di I livello in Jazz – Canto, Conservatorio “G.B. Martini”, Bologna.</div>
-          </li>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Laurea di I livello in Jazz – Canto — Conservatorio “G.B. Martini”, Bologna</div>
+              <div class="t-when">📅 2010</div>
+            </div>
+          </div>
 
-          <li class="cv-item">
-            <div class="cv-when">2010</div>
-            <div class="cv-what">Laurea di I livello in DAMS – Didattica della Musica, Alma Mater Studiorum, Bologna.</div>
-          </li>
-        </ul>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Laurea di I livello in DAMS – Didattica della Musica — Alma Mater Studiorum, Bologna</div>
+              <div class="t-when">📅 2010</div>
+            </div>
+          </div>
+        </div>
 
         <div class="actions">
-          <a class="btn primary" href="percorsi.html#ves">Vai a VES</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html#contatti">Contattami</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
 
     <!-- PERFORMANCE -->
-    <section>
-      <div class="section-kicker">Performance</div>
-      <div class="section-title">Songwriting & live 🎶</div>
+    <section id="performance">
+      <div class="section-kicker">Curriculum</div>
+      <div class="section-title">Performance & Songwriting 🎤🎶</div>
 
-      <div class="card cv-block">
-        <div class="cv-title">🎧 PERFORMANCE – SONGWRITING</div>
-        <ul class="cv-list">
-          <li class="cv-item">
-            <div class="cv-when">2018–2019</div>
-            <div class="cv-what">Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino.</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2019</div>
-            <div class="cv-what">Pubblicazione del singolo <span class="hl">Onda dopo onda</span> (Noise Symphony Music).</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2018</div>
-            <div class="cv-what">Pubblicazione del singolo <span class="hl">Cosa Rimane</span> (Noise Symphony Music).</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2018</div>
-            <div class="cv-what">Menzione speciale per il testo del brano “Sulle dune più alte del mondo” al Concorso per autori di Mogol.</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2017</div>
-            <div class="cv-what">Vincitrice del Trofeo Rea, assegnato dalla giuria tecnica del Circuito Nazionale delle 100 Radio con il brano “Impermeabile”.</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2015</div>
-            <div class="cv-what">Ambasciatrice della musica italiana nella Giornata Internazionale delle Lingue presso l’Istituto Italiano di Cultura a Lisbona.</div>
-          </li>
-          <li class="cv-item">
-            <div class="cv-when">2015</div>
-            <div class="cv-what">EP autoprodotto con brani originali, <span class="hl">La Prospettiva delle cose</span>.</div>
-          </li>
-        </ul>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino</div>
+              <div class="t-when">📅 2018 – 2019</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Pubblicazione singolo “Onda dopo onda” (Noise Symphony Music)</div>
+              <div class="t-when">📅 2019</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Pubblicazione singolo “Cosa Rimane” (Noise Symphony Music)</div>
+              <div class="t-when">📅 2018</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Menzione speciale per il testo “Sulle dune più alte del mondo” — Concorso per autori di Mogol</div>
+              <div class="t-when">📅 2018</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Vincitrice del Trofeo Rea (Circuito Nazionale delle 100 Radio) con “Impermeabile”</div>
+              <div class="t-when">📅 2017</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">Ambasciatrice della musica italiana — Giornata Internazionale delle Lingue (IIC Lisbona)</div>
+              <div class="t-when">📅 2015</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">EP autoprodotto “La Prospettiva delle cose”</div>
+              <div class="t-when">📅 2015</div>
+            </div>
+          </div>
+        </div>
 
         <div class="actions">
-          <a class="btn primary" href="artisti.html">Vai ad Artisti</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="index.html#contatti">Scrivimi</a>
+          <a class="btn primary" href="artisti.html">🎧 Vai alla pagina Artisti</a>
+          <a class="btn" href="index.html#contatti">✉️ Scrivimi dalla home</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
@@ -694,84 +920,38 @@
     <!-- MEDIA -->
     <section id="media">
       <div class="section-kicker">Media</div>
-      <div class="section-title">Video & post 📺📸</div>
+      <div class="section-title">Video & contenuti 📺✨</div>
 
       <div class="card">
-        <p style="text-align:left;">
-          Alcuni contenuti (video e post) legati al mio percorso artistico. Se un embed non si carica, il pulsante <span class="hl">Apri</span> funziona sempre.
+        <p class="muted" style="text-align:left;">
+          Una piccola selezione di contenuti (link diretti): se vuoi, posso inserirli anche nella pagina Artisti dove sono più “di casa”.
         </p>
 
         <div class="media-grid">
-          <!-- YouTube 1 -->
           <div class="media-card">
-            <div class="media-head">
-              <div class="t">▶️ YouTube</div>
-              <div class="tag">video</div>
-            </div>
-            <iframe class="embed" src="https://www.youtube.com/embed/iyHL7ZxjI5c" title="YouTube video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div class="media-foot">
-              <a class="btn primary" href="https://www.youtube.com/watch?v=iyHL7ZxjI5c&list=RDiyHL7ZxjI5c&start_radio=1" target="_blank" rel="noopener noreferrer">Apri →</a>
-              <button class="btn link open-menu" type="button">Menu</button>
+            <h4>▶️ YouTube</h4>
+            <p>Link diretti ai video:</p>
+            <div class="media-links">
+              <a class="mini-btn" href="https://www.youtube.com/watch?v=iyHL7ZxjI5c&list=RDiyHL7ZxjI5c&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 1</a>
+              <a class="mini-btn" href="https://www.youtube.com/watch?v=ZN0ANU_nNpw&list=RDZN0ANU_nNpw&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 2</a>
+              <a class="mini-btn" href="https://www.youtube.com/watch?v=v0TAsdd_VtM&list=RDv0TAsdd_VtM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 3</a>
             </div>
           </div>
 
-          <!-- YouTube 2 -->
           <div class="media-card">
-            <div class="media-head">
-              <div class="t">▶️ YouTube</div>
-              <div class="tag">video</div>
-            </div>
-            <iframe class="embed" src="https://www.youtube.com/embed/ZN0ANU_nNpw" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div class="media-foot">
-              <a class="btn primary" href="https://www.youtube.com/watch?v=ZN0ANU_nNpw&list=RDZN0ANU_nNpw&start_radio=1" target="_blank" rel="noopener noreferrer">Apri →</a>
-              <button class="btn link open-menu" type="button">Menu</button>
-            </div>
-          </div>
-
-          <!-- YouTube 3 -->
-          <div class="media-card">
-            <div class="media-head">
-              <div class="t">▶️ YouTube</div>
-              <div class="tag">video</div>
-            </div>
-            <iframe class="embed" src="https://www.youtube.com/embed/v0TAsdd_VtM" title="YouTube video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div class="media-foot">
-              <a class="btn primary" href="https://www.youtube.com/watch?v=v0TAsdd_VtM&list=RDv0TAsdd_VtM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri →</a>
-              <button class="btn link open-menu" type="button">Menu</button>
-            </div>
-          </div>
-
-          <!-- IG 1 -->
-          <div class="media-card">
-            <div class="media-head">
-              <div class="t">📸 Instagram</div>
-              <div class="tag">post</div>
-            </div>
-            <iframe class="embed-ig" src="https://www.instagram.com/p/C_01nfXtjyh/embed" loading="lazy" title="Instagram post 1"></iframe>
-            <div class="media-foot">
-              <a class="btn primary" href="https://www.instagram.com/p/C_01nfXtjyh/" target="_blank" rel="noopener noreferrer">Apri →</a>
-              <button class="btn link open-menu" type="button">Menu</button>
-            </div>
-          </div>
-
-          <!-- IG 2 -->
-          <div class="media-card">
-            <div class="media-head">
-              <div class="t">📸 Instagram</div>
-              <div class="tag">post</div>
-            </div>
-            <iframe class="embed-ig" src="https://www.instagram.com/p/DJPzM39t9Oo/embed" loading="lazy" title="Instagram post 2"></iframe>
-            <div class="media-foot">
-              <a class="btn primary" href="https://www.instagram.com/p/DJPzM39t9Oo/?img_index=1" target="_blank" rel="noopener noreferrer">Apri →</a>
-              <button class="btn link open-menu" type="button">Menu</button>
+            <h4>📷 Instagram</h4>
+            <p>Post selezionati:</p>
+            <div class="media-links">
+              <a class="mini-btn" href="https://www.instagram.com/p/C_01nfXtjyh/" target="_blank" rel="noopener noreferrer">Apri post 1</a>
+              <a class="mini-btn" href="https://www.instagram.com/p/DJPzM39t9Oo/?img_index=1" target="_blank" rel="noopener noreferrer">Apri post 2</a>
             </div>
           </div>
         </div>
 
-        <div class="actions" style="margin-top:1.15rem;">
-          <a class="btn primary" href="index.html#contatti">Contattami</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="artisti.html">Vai ad Artisti</a>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram Studio</a>
         </div>
       </div>
     </section>
@@ -797,13 +977,34 @@
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // To top
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
+    (function(){
+      const nav = document.getElementById("navPills");
+      if(!nav) return;
+      const current = "curriculum.html";
+      const pages = [
+        { href: "index.html", label: "Home", emoji: "🏠" },
+        { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
+        { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+      ];
+      const visible = pages.filter(p => p.href !== current);
+      visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
+      nav.innerHTML = visible.map(p => `
+        <a class="btn" href="${p.href}">
+          <span class="emoji">${p.emoji}</span> ${p.label}
+        </a>
+      `).join("");
+    })();
+
+    // Back to top
     const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", ()=>{
+    window.addEventListener("scroll", () => {
       if(window.scrollY > 700) toTop.classList.add("show");
       else toTop.classList.remove("show");
     });
-    toTop.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
