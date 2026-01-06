@@ -451,11 +451,16 @@
     }
 /* MOBILE: nascondi i bottoni di navigazione sotto il nome (usa il menu) */
 @media (max-width: 600px){
-  .nav-pills{ display:none !important; }
+  .nav-pills{ display:none !important; }  /* come deciso: su mobile niente 4 bottoni */
+  .logo-img{ height:108px; }
+
+  .brand-name{ font-size:1.12rem; }
+  .brand-sub{ font-size:.94rem; }
+
+  /* evita che “mangi spazio” e resta pulito */
   .header-inner{ align-items:center; }
   .brand{ align-items:center; }
   .brand-text{ gap:.18rem; }
-  .logo-img{ height:112px; }
 }
     footer{
       max-width:1180px;
