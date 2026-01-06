@@ -74,6 +74,12 @@
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
     }
+<div class="brand-sub">
+  <span>Vocal Trainer</span>
+  <span>Cantante</span>
+  <span>Direttrice di coro</span>
+  <span>Cantautrice</span>
+</div>
 
     /* NAV PILLS */
     .nav-pills{
@@ -538,6 +544,26 @@
   .icon-btn{
     width: 38px;
     height: 38px;
+  }
+}
+@media (max-width: 600px){
+
+  .brand-sub{
+    font-size: .86rem;
+    line-height: 1.4;
+    display: block;          /* ← non flex */
+  }
+
+  .brand-sub span{
+    display: block;          /* ← UNA RIGA CIASCUNO */
+    white-space: nowrap;
+    margin-bottom: .1rem;
+  }
+
+  .brand-sub span::before{
+    content: "• ";
+    color: var(--yellow);
+    font-weight: 900;
   }
 }
 
