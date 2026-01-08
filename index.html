@@ -9,8 +9,6 @@
     :root{
       --blue:#355c7b;
       --magenta:#81277c;
-
-      /* giallo “resistenza lampadina” */
       --yellow:#f6d24a;
 
       --glass: rgba(255,255,255,0.10);
@@ -43,7 +41,6 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
-    /* evidenzia parole chiave: giallo + grassetto */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -54,13 +51,13 @@
       text-decoration-thickness: 2px;
     }
 
-    /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
       background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
+
     .header-inner{
       max-width:1180px;margin:0 auto;
       padding:0.85rem 1.15rem;
@@ -68,35 +65,30 @@
     }
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
-
-    /* LOGO senza riquadro */
-    .logo-wrap{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      backdrop-filter: none !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      line-height: 0;
-      flex:0 0 auto;
-    }
+    .logo-wrap{line-height:0;flex:0 0 auto;}
     .logo-img{
       height: 140px;
       width: auto;
-      display: block;
-      object-fit: contain;
-      padding: 0 !important;
+      display:block;
+      object-fit:contain;
     }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
-      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
-      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:1100;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:1.04rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* ✅ RUOLI: una riga per voce + pallino giallo (anche desktop, ma senza “ingombrare”) */
     .brand-sub{
-      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.25;
+      max-width:64ch;
       display:block;
     }
     .brand-sub span{
@@ -111,7 +103,6 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -159,7 +150,15 @@
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
+    }
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
@@ -190,7 +189,6 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scroll fix) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -222,6 +220,7 @@
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -232,7 +231,9 @@
       background:rgba(255,255,255,0.16);
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
       color:#fff;font-size:1.2rem;
+      flex:0 0 auto;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -282,7 +283,6 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
@@ -346,7 +346,6 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* PERCORSI */
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -355,7 +354,7 @@
       padding:1.25rem;
       backdrop-filter: blur(10px);
       display:flex;flex-direction:column;gap:.85rem;
-      min-height: 340px;
+      min-height: 290px;
       position:relative;
       overflow:hidden;
     }
@@ -378,40 +377,35 @@
       border:1px solid rgba(255,255,255,0.22);
       box-shadow: 0 14px 26px rgba(0,0,0,0.16);
       font-weight:1200;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.86rem;
+      letter-spacing:.04em;
+      font-size:.92rem;
       line-height:1.2;
+      text-transform:none;
     }
+    .tile p{ text-align:left; text-justify:auto; font-size:1.04rem; opacity:.96; }
 
-    /* sulle card NON giustificare */
-    .tile p, .tile li{ text-align:left !important; text-justify:auto !important; }
-    .tile p{font-size:1.05rem;opacity:.96}
-    .tile ul{padding-left:1.1rem;margin-top:.2rem;}
-    .tile li{margin:.2rem 0;opacity:.95}
-
-    /* ExpressING preview gallery */
     .mini-gallery{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:.85rem;
+      grid-template-columns:1fr 1fr;
+      gap:.95rem;
       margin-top:1rem;
-      align-items:start;
+      align-items:stretch;
     }
-    .mini-gallery img{
-      width:100%;
-      height:auto;
-      display:block;
+    .mini-gallery .img{
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.18);
       box-shadow:0 18px 38px rgba(0,0,0,0.18);
+      overflow:hidden;
+      background: rgba(255,255,255,0.06);
+    }
+    .mini-gallery img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
       filter: saturate(1.05) contrast(1.02);
     }
-    @media (max-width: 1020px){
-      .mini-gallery{ grid-template-columns:1fr; }
-    }
 
-    /* IG banner */
     .ig-banner{
       border-radius:1.95rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -429,7 +423,6 @@
       animation: scrollLeft 42s linear infinite;
     }
     .ig-banner:hover .ig-track{ animation-play-state: paused; }
-
     .ig-card{
       width:330px;
       border-radius:1.45rem;
@@ -451,7 +444,6 @@
     }
     .ig-hint{margin-top:.85rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;}
 
-    /* CONTATTI */
     .contact-note{
       margin-top:.6rem;
       padding:.9rem 1rem;
@@ -460,7 +452,6 @@
       background: rgba(255,255,255,0.07);
       box-shadow: 0 18px 40px rgba(0,0,0,0.14);
     }
-
     .contact-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -468,7 +459,6 @@
       margin-top:1rem;
       align-items:start;
     }
-
     .field{
       width:100%;
       border-radius:1.35rem;
@@ -482,60 +472,92 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 16px 34px rgba(0,0,0,0.16);
       transition: border-color .12s ease, background .12s ease, box-shadow .12s ease, transform .12s ease;
+      font-family: inherit;
     }
-
     .field:focus{
       border-color: rgba(246,210,74,0.55);
       background: rgba(255,255,255,0.12);
       box-shadow: 0 18px 42px rgba(0,0,0,0.20), 0 0 0 4px rgba(246,210,74,0.10);
       transform: translateY(-1px);
     }
-
-    textarea.field{
-      min-height:180px;
-      resize:vertical;
-    }
-
+    textarea.field{min-height:180px;resize:vertical;}
     .field::placeholder{color:rgba(255,255,255,0.78);}
 
+    details.details{
+      margin-top:.9rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      border-radius:1.35rem;
+      overflow:hidden;
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+    }
+    details.details summary{
+      cursor:pointer;
+      list-style:none;
+      padding:1rem 1.05rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      user-select:none;
+    }
+    details.details summary::-webkit-details-marker{display:none;}
+    .hint{font-weight:1200;opacity:.95}
+    .chev{
+      width:36px;height:36px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      transition: transform .16s ease;
+      flex:0 0 auto;
+    }
+    details.details[open] .chev{transform: rotate(180deg);}
+    .details .content{padding: .15rem 1.05rem 1.15rem;}
+    .details .content p{margin-top:.75rem;}
+
+    .to-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:40;
+      width:52px;height:52px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
+    .to-top span{font-size:1.25rem;}
+    .to-top.show{display:flex;}
+
     @media (max-width: 1020px){
-      .contact-grid{grid-template-columns:1fr;}
       .grid-2{grid-template-columns:1fr;}
       .grid-3{grid-template-columns:1fr;}
-      .hero-photo{min-height:360px;}
+      .mini-gallery{grid-template-columns:1fr;}
+      .mini-gallery img{height:260px;}
+      .contact-grid{grid-template-columns:1fr;}
+      main{padding-top:1.2rem;}
     }
 
-    /* ✅ MOBILE HEADER: più compatto, senza toccare desktop */
     @media (max-width: 600px){
-      /* nav pills nascosti su mobile (come desideri) */
       .nav-pills{ display:none !important; }
-
-      .header-inner{
-        padding:.7rem .85rem;
-        gap:.6rem;
-      }
-
+      .header-inner{ padding:.7rem .85rem; gap:.6rem; }
       .logo-img{ height:92px; }
-
       .brand-name{
-        font-size:.96rem;           /* più piccolo così non taglia “ZO” */
+        font-size:.96rem;
         letter-spacing:.11em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
-
-      .brand-sub{
-        font-size:.86rem;
-        line-height:1.35;
-        max-width:34ch;
-      }
-      .brand-sub span{
-        display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
-
+      .brand-sub{ font-size:.86rem; line-height:1.35; max-width:34ch; }
+      .brand-sub span{ margin:.12rem 0; }
       .header-actions{
         flex-direction:column;
         align-items:flex-end;
@@ -543,7 +565,6 @@
         z-index:90;
       }
       .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-
       .top-icons{
         display:flex;
         flex-direction:row;
@@ -558,6 +579,7 @@
       margin:0 auto;
       padding:0 1.15rem 2.2rem;
       opacity:.9;
+      text-align:left;
     }
   </style>
 </head>
@@ -573,7 +595,6 @@
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
 
-          <!-- ✅ ruoli con pallini gialli -->
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -581,7 +602,7 @@
             <span>Cantautrice</span>
           </div>
 
-          <!-- pulsanti top (desktop; su mobile sono nascosti via CSS) -->
+          <!-- NAV PILLS desktop (Home è corrente -> non appare; Curriculum dopo Artisti) -->
           <div class="nav-pills" id="navPills"></div>
         </div>
       </div>
@@ -652,6 +673,22 @@
           <div class="menu-pill">studio</div>
         </a>
 
+        <div>
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+            </div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="artisti.html#narciso">Narciso</a>
+          </div>
+        </div>
+
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
@@ -661,22 +698,6 @@
           </div>
           <div class="menu-pill">cv</div>
         </a>
-
-        <div>
-          <a class="menu-item" href="artisti.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">case study e progetti</div></div>
-            </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="artisti.html#narciso">Narciso</a>
-          </div>
-        </div>
 
         <a class="menu-item" href="#contatti">
           <div class="menu-left">
@@ -692,43 +713,69 @@
   </div>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO / CHI SONO -->
     <section id="chi-sono">
       <div class="grid-2">
         <div class="card">
           <div class="section-kicker">TI PARLO DI ME</div>
           <div class="section-title">Chi sono</div>
 
-          <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di <span class="hl">esplorazione</span>, <span class="hl">cura</span> e <span class="hl">creatività</span>.</p>
-          <p>Sono Vocal Trainer, Cantante, Direttrice di coro e Cantautrice.</p>
+          <p>
+            <strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la
+            <span class="hl">voce un luogo di esplorazione, cura e creatività</span>.
+          </p>
+          <p>
+            Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.
+          </p>
 
-          <details class="details" style="margin-top:1rem;">
-            <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1rem;border-radius:1.25rem;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.08);box-shadow:0 18px 40px rgba(0,0,0,0.14);">
-              <span style="font-weight:1200;opacity:.95;">Leggi la mia storia completa</span>
-              <span style="width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.20);background:rgba(255,255,255,0.10);box-shadow:0 14px 26px rgba(0,0,0,0.12);">⌄</span>
+          <details class="details">
+            <summary>
+              <span class="hint">Leggi la mia storia completa</span>
+              <span class="chev">⌄</span>
             </summary>
-            <div style="padding:1rem .1rem 0;">
-              <p>Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove. Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale (ExpresSING): un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.</p>
 
-              <p>La ricerca mi ha portata fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
-                <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer"><span class="hl">Voice Evolution Institute</span></a>,
-                di cui sono <span class="hl">Certified Trainer</span> – dedicato alla risonanza e alla stimolazione del tratto vocale. Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
+            <div class="content">
+              <p>
+                Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove.
+                <span class="hl">Dopo anni di insegnamento nelle accademie romane, ho creato il mio Centro di Formazione Vocale</span>, ExpresSING Studio:
+                un luogo vivo, in cui didattica, ricerca e creatività si incontrano ogni giorno.
               </p>
 
-              <p>Ho lavorato come Selezionatrice e Giurata in diversi contest italiani, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero. Un’esperienza preziosa che ha affinato la mia capacità di riconoscere potenzialità, fragilità e la direzione più adatta per ogni cantante.</p>
+              <p>
+                La ricerca mi ha condotta fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
+                <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Voice Evolution Institute</a>,
+                di cui sono Certified Trainer (<a href="percorsi.html#ves">link alla pagina di riferimento</a>) – dedicato alla risonanza e alla stimolazione del tratto vocale.
+                Gli esercizi vocali che ho condiviso hanno portato molti dei miei studenti a risultati sorprendenti.
+              </p>
 
-              <p>Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo <span class="hl">rispettoso</span>, <span class="hl">funzionale</span> e <span class="hl">creativo</span>. Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.</p>
+              <p>
+                Ho lavorato come <span class="hl">Selezionatrice e Giurata in diversi contest italiani</span>, tra cui il Tour Music Fest®, ascoltando e valutando migliaia di voci provenienti da tutta Italia e dall’estero.
+                Un’esperienza preziosa che ha permesso di affinare la capacità di conoscere diversi linguaggi espressivi e di riconoscere potenzialità e fragilità degli artisti.
+              </p>
 
-              <p>Intreccio ascolto, corpo e suono per aiutarti a ritrovare <span class="hl">libertà</span> ed <span class="hl">espressività</span>: nella parola, nel canto e – soprattutto – nella tua presenza.</p>
+              <p>
+                Nel mio lavoro come Vocal Trainer <span class="hl">affianco le persone nello sviluppo della propria voce in modo rispettoso, funzionale e creativo</span>.
+                Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.
+                Perché ogni voce ha una storia diversa, una necessità diversa, e merita la giusta direzione per esprimersi al meglio.
+              </p>
 
-              <p>Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.</p>
+              <p>
+                Intreccio ascolto, corpo e suono per aiutarti a ritrovare libertà ed espressività: nella parola, nel canto e – soprattutto – nella tua presenza.
+                <span class="hl">Per me la voce non è solo tecnica: è relazione</span>.
+                È il dialogo con la tua storia, con ciò che senti e con chi ti circonda.
+                Per questo il mio approccio è esperienziale, gentile e radicato nel qui e ora: partiamo da dove sei, con un ritmo che per te è davvero sostenibile.
+              </p>
+
+              <p>
+                <span class="hl">Collaboro inoltre con produttori e studi di registrazione come Vocal Coach e consulente musicale</span>, accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.
+              </p>
             </div>
           </details>
 
           <div class="actions">
             <a class="btn primary" href="#contatti">Contattami</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-            <a class="btn" href="studio.html">ExpresSING Studio</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn" href="studio.html">🏡 ExpresSING Studio</a>
           </div>
         </div>
 
@@ -742,7 +789,7 @@
       <div class="section-title">Percorsi personalizzati</div>
 
       <div class="grid-3">
-        <div class="tile" id="home-canto">
+        <div class="tile">
           <span class="pill-title">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</span>
           <p>
             Le lezioni one-to-one sono percorsi individuali pensati <span class="hl">su misura</span> per ogni allievo:
@@ -750,12 +797,12 @@
           </p>
           <div class="actions">
             <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
-            <button class="btn link open-menu" type="button">Menu</button>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
             <a class="btn" href="#contatti">Prenota una call gratuita</a>
           </div>
         </div>
 
-        <div class="tile" id="home-voce">
+        <div class="tile">
           <span class="pill-title">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</span>
           <p>
             Percorsi dedicati alla <span class="hl">voce parlata</span> per chi la usa ogni giorno nel lavoro:
@@ -763,29 +810,28 @@
           </p>
           <div class="actions">
             <a class="btn primary" href="percorsi.html#voce">Leggi tutto</a>
-            <button class="btn link open-menu" type="button">Menu</button>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
             <a class="btn" href="#contatti">Prenota una call gratuita</a>
           </div>
         </div>
 
-        <div class="tile" id="home-artisti">
+        <div class="tile">
           <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
           <p>
             Un percorso che integra <span class="hl">voce</span>, <span class="hl">progetto</span> e <span class="hl">identità artistica</span>:
-            analisi dei brani, preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.
+            lavoriamo per rendere il progetto <span class="hl">coerente</span>, <span class="hl">solido</span> e pronto a uscire.
           </p>
           <div class="actions">
             <a class="btn primary" href="percorsi.html#artisti">Leggi tutto</a>
-            <button class="btn link open-menu" type="button">Menu</button>
-            <a class="btn" href="artisti.html">Vai ad Artisti</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn" href="artisti.html">🎧 Vai ad Artisti</a>
           </div>
         </div>
       </div>
 
       <div class="actions" style="margin-top:1.15rem;">
         <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
-        <a class="btn" href="percorsi.html#ves">Vai a VES</a>
-        <button class="btn link open-menu" type="button">Menu</button>
+        <button class="btn link open-menu" type="button">☰ Menu</button>
         <a class="btn" href="#contatti">Contattami</a>
       </div>
     </section>
@@ -802,14 +848,34 @@
         </p>
 
         <div class="mini-gallery" aria-label="Anteprima studio">
-          <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
-          <img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" />
+          <div class="img"><img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" /></div>
+          <div class="img"><img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" /></div>
         </div>
 
         <div class="actions">
           <a class="btn primary" href="studio.html">Visita lo studio</a>
-          <button class="btn link open-menu" type="button">Menu</button>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
           <a class="btn" href="#contatti">Chiedi info</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VES -->
+    <section id="home-ves">
+      <div class="section-kicker">VES</div>
+      <div class="section-title">Certificazione e ricerca 🔬</div>
+
+      <div class="card">
+        <p>
+          Nel mio lavoro, la <span class="hl">ricerca</span> e la <span class="hl">formazione</span> sono parte integrante della didattica.
+          Il Voice Evolution Institute è un riferimento importante per un approccio evoluto e non standardizzato al training vocale.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="percorsi.html#ves">Vai a VES</a>
+          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">Sito VES →</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn" href="#contatti">Richiedi info</a>
         </div>
       </div>
     </section>
@@ -827,27 +893,8 @@
 
         <div class="actions">
           <a class="btn primary" href="curriculum.html">Apri curriculum</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="#contatti">Contattami</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARTISTI -->
-    <section id="home-artists">
-      <div class="section-kicker">Artisti</div>
-      <div class="section-title">Case study e progetti 🎧</div>
-
-      <div class="card">
-        <p>
-          Una sezione dedicata agli artisti che seguo: percorsi reali, crescita nel tempo e lavoro di squadra.
-          Trovi due sottosezioni: <span class="hl">Aurora Blasi</span> e <span class="hl">Narciso</span>.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="artisti.html">Apri Artisti</a>
-          <button class="btn link open-menu" type="button">Menu</button>
-          <a class="btn" href="#contatti">Scrivimi</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn" href="artisti.html">🎧 Artisti</a>
         </div>
       </div>
     </section>
@@ -873,7 +920,7 @@
         <div class="ig-hint">
           <a class="btn primary" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Vai al profilo Instagram →</a>
           <a class="btn" href="#contatti">Scrivimi</a>
-          <button class="btn link open-menu" type="button">Menu</button>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
@@ -881,7 +928,7 @@
     <!-- CONTATTI -->
     <section id="contatti">
       <div class="section-kicker">Contatti</div>
-      <div class="section-title">Scrivimi</div>
+      <div class="section-title">Scrivimi ✉️</div>
 
       <div class="card">
         <div class="contact-note">
@@ -903,13 +950,15 @@
 
           <div class="actions">
             <button class="btn primary" type="submit">Invia richiesta</button>
-            <button class="btn link open-menu" type="button">Menu</button>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
             <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </form>
       </div>
     </section>
   </main>
+
+  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
@@ -929,7 +978,7 @@
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // NAV PILLS (desktop: Home primo, escludi pagina corrente - qui siamo in home, quindi escludo index)
+    // NAV PILLS (desktop: escludi Home; Curriculum dopo Artisti)
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
@@ -938,11 +987,10 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
       ];
       const visible = pages.filter(p => p.href !== current);
-      visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
       nav.innerHTML = visible.map(p => `
         <a class="btn" href="${p.href}">
           <span class="emoji">${p.emoji}</span> ${p.label}
@@ -962,7 +1010,14 @@
       const body = encodeURIComponent(message + "\n\n—\n" + name);
       window.location.href = "mailto:" + to + "?subject=" + fullSubject + "&body=" + body;
     });
+
+    // Back to top
+    const toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 700) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    });
+    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
-
