@@ -21,7 +21,6 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
-
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -34,6 +33,7 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
+    /* evidenzia giallo + bold */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -42,6 +42,12 @@
       text-decoration-color: rgba(246,210,74,0.35);
       text-underline-offset: 3px;
       text-decoration-thickness: 2px;
+    }
+
+    /* testo blu (come negli screenshot) */
+    .blue{
+      color:#67a8ff;
+      font-weight:1100;
     }
 
     /* HEADER */
@@ -58,41 +64,25 @@
     }
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{
-      height: 140px;
-      width: auto;
-      display:block;
-      object-fit:contain;
-    }
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
-      font-weight:1100;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size:1.04rem;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
+      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    /* Ruoli: una riga ciascuno + pallino giallo */
+    /* RUOLI con pallino giallo */
     .brand-sub{
-      font-size:.96rem;
-      opacity:.96;
-      line-height:1.25;
-      max-width:64ch;
-      display:block;
+      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
+      display:flex;flex-wrap:wrap;gap:.5rem;
     }
-    .brand-sub span{
-      display:block;
-      white-space:nowrap;
-      margin:.10rem 0;
-    }
+    .brand-sub span{display:inline-flex;align-items:center;gap:.35rem;white-space:nowrap;}
     .brand-sub span::before{
-      content:"• ";
+      content:"•";
       color:var(--yellow);
-      font-weight:900;
-      text-shadow:0 10px 18px rgba(0,0,0,0.16);
+      font-weight:1200;
+      margin-right:.1rem;
     }
 
     /* NAV PILLS (desktop) */
@@ -108,7 +98,6 @@
       padding: 0.78rem 1.2rem;
       font-size: 1.05rem;
       font-weight: 1100;
-      letter-spacing: .01em;
 
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
@@ -119,8 +108,6 @@
         0 14px 28px rgba(0,0,0,0.18);
 
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
       display: inline-flex;
       align-items: center;
       gap: .6rem;
@@ -132,25 +119,12 @@
       transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.20),
-        0 18px 34px rgba(0,0,0,0.22);
     }
-    .nav-pills .emoji{
-      font-size: 1.08em;
-      line-height: 1;
-      transform: translateY(1px);
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
-    }
+    .nav-pills .emoji{font-size:1.08em;line-height:1;transform:translateY(1px);}
 
     .header-actions{
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-      flex-wrap:nowrap;
-      flex:0 0 auto;
-      position:relative;
-      z-index:80;
+      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
+      position:relative; z-index:80;
     }
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
@@ -182,7 +156,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scroll) */
+    /* MENU OVERLAY */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -192,8 +166,9 @@
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
       overflow:auto;
+      pointer-events:none;
     }
-    .menu-overlay.open{display:block;}
+    .menu-overlay.open{display:block;pointer-events:auto;}
 
     .menu-card{
       max-width:590px;
@@ -209,12 +184,10 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
-
       max-height: calc(100vh - 7rem);
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
-
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -258,32 +231,19 @@
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
     }
-    .menu-sub{
-      margin:.45rem 0 0;
-      padding-left:3.15rem;
-      display:grid;
-      gap:.45rem;
-    }
+    .menu-sub{margin:.45rem 0 0;padding-left:3.15rem;display:grid;gap:.45rem;}
     .menu-sub a{
-      padding:.55rem .85rem;
-      border-radius:1.05rem;
+      padding:.55rem .85rem;border-radius:1.05rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.10);
-      display:inline-flex;
-      width:fit-content;
-      font-weight:1100;
-      opacity:.92;
-      line-height:1.25;
+      display:inline-flex;width:fit-content;
+      font-weight:1100;opacity:.92;line-height:1.25;
     }
-    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-    .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
-    }
+    .section-kicker{font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;}
     .section-title{
       font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
       max-width:980px;font-weight:1200;
@@ -297,6 +257,24 @@
       box-shadow:0 20px 44px rgba(0,0,0,0.22);
       backdrop-filter: blur(12px);
     }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:1.1rem;
+      align-items:stretch;
+    }
+
+    .pill-title{
+      display:inline-flex;width:fit-content;padding:.55rem .95rem;border-radius:999px;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+      font-weight:1200;letter-spacing:.06em;text-transform:uppercase;
+      font-size:.86rem;line-height:1.2;
+      margin-bottom:.85rem;
+    }
+
     .btn{
       border-radius:999px;
       padding:0.82rem 1.28rem;
@@ -323,108 +301,104 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    .hero-row{
+    /* elenco “cosa curiamo insieme” */
+    .worklist{
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap:1.1rem;
-      align-items:stretch;
+      gap:.9rem;
+      margin-top:1rem;
     }
-
-    .pill-title{
-      display:inline-flex;
-      width:fit-content;
-      padding:.55rem .95rem;
-      border-radius:999px;
-      background: rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+    .witem{
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 38px rgba(0,0,0,0.14);
+      padding:1rem 1.05rem;
+    }
+    .witem h4{
+      font-size:1.08rem;
       font-weight:1200;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.86rem;
-      line-height:1.2;
-      margin-bottom:.8rem;
+      margin-bottom:.35rem;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
     }
+    .witem p{font-size:1.03rem;opacity:.93;line-height:1.62;}
 
-    /* Artist cards */
-    .grid-2{
+    /* artist cards */
+    .artist-grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:1rem;
-      align-items:stretch;
+      margin-top:1rem;
     }
-    .artist{
-      border-radius:1.85rem;
+    .artist-card{
+      border-radius:1.65rem;
       border:1px solid rgba(255,255,255,0.18);
       background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
-      box-shadow:0 20px 44px rgba(0,0,0,0.18);
-      padding:1.35rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      padding:1.25rem;
       backdrop-filter: blur(10px);
-      position:relative;
-      overflow:hidden;
     }
-    .artist::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(129,39,124,0.32), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 90% 10%, rgba(53,92,123,0.32), rgba(0,0,0,0) 55%);
-      opacity:.55;
-      pointer-events:none;
-    }
-    .artist > *{position:relative; z-index:1;}
-
-    .artist-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:.8rem;
-      flex-wrap:wrap;
-    }
-    .artist-name{
-      font-size:1.55rem;
+    .artist-card .name{
       font-weight:1200;
-      line-height:1.05;
-      text-shadow:0 8px 20px rgba(0,0,0,0.20);
+      font-size:1.25rem;
+      margin-bottom:.25rem;
     }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.45rem .75rem;
+    .artist-card .tag{
+      font-weight:1100;
+      opacity:.9;
+      margin-bottom:.75rem;
+    }
+    .artist-card p{font-size:1.03rem;opacity:.95;line-height:1.7;}
+    .artist-card .actions{margin-top:.9rem;}
+
+    /* media embeds */
+    .media-grid{
+      margin-top:1rem;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      align-items:start;
+    }
+    .embed{
+      border-radius:1.35rem;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 38px rgba(0,0,0,0.14);
+    }
+    .embed iframe{
+      width:100%;
+      height:352px;
+      border:0;
+      display:block;
+      background:transparent;
+    }
+
+    .link-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:.95rem;
+    }
+    .mini-btn{
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
+      padding:.72rem 1.05rem;
+      border:1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.10);
       box-shadow:0 14px 26px rgba(0,0,0,0.14);
       font-weight:1100;
-      opacity:.92;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      transition: transform .12s ease, background .12s ease;
       white-space:nowrap;
     }
-
-    .artist p{
-      margin-top:.7rem;
-      text-align:left;
-      opacity:.92;
-      line-height:1.6;
-      font-size:1.03rem;
-    }
-
-    /* Only the two CTAs */
-    .cta-2{
-      margin-top:.95rem;
-      display:flex;
-      gap:.7rem;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+    .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
 
     /* back to top */
     .to-top{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:40;
+      position:fixed; right:18px; bottom:18px; z-index:40;
       width:52px;height:52px;border-radius:999px;
       border:1px solid rgba(255,255,255,0.24);
       background: rgba(255,255,255,0.12);
@@ -441,18 +415,17 @@
     .to-top.show{display:flex;}
 
     @media (max-width: 1020px){
-      main{padding-top:1.2rem;}
-      .hero-row{grid-template-columns:1fr;}
       .grid-2{grid-template-columns:1fr;}
+      .artist-grid{grid-template-columns:1fr;}
+      .media-grid{grid-template-columns:1fr;}
+      .embed iframe{height:340px;}
     }
 
+    /* MOBILE HEADER */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-      .header-inner{
-        padding:.7rem .85rem;
-        gap:.6rem;
-      }
-      .logo-img{ height:92px; }
+      .header-inner{gap:.6rem;}
+      .logo-img{height:96px;}
       .brand-name{
         font-size:.96rem;
         letter-spacing:.11em;
@@ -464,34 +437,16 @@
         font-size:.86rem;
         line-height:1.35;
         max-width:34ch;
-      }
-      .brand-sub span{
         display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
       }
-      .header-actions{
-        flex-direction:column;
-        align-items:flex-end;
-        gap:.45rem;
-        z-index:90;
-      }
-      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-      .top-icons{
-        display:flex;
-        flex-direction:row;
-        gap:.45rem;
-        margin-right:0;
-      }
-      .icon-btn{ width:40px; height:40px; }
+      .brand-sub span{display:block;margin:.12rem 0;}
+      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
+      .menu-button{padding:.52rem 1.02rem;font-size:.96rem;}
+      .top-icons{flex-direction:row;gap:.45rem;margin-right:0;}
+      .icon-btn{width:40px;height:40px;}
     }
 
-    footer{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 1.15rem 2.2rem;
-      opacity:.9;
-    }
+    footer{max-width:1180px;margin:0 auto;padding:0 1.15rem 2.2rem;opacity:.9;}
   </style>
 </head>
 
@@ -504,7 +459,8 @@
         </div>
 
         <div class="brand-text">
-          <div class="brand-name">Elisa Costanzo</div>
+          <div class="brand-name">ELISA COSTANZO</div>
+
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -591,21 +547,15 @@
           <div class="menu-pill">cv</div>
         </a>
 
-        <div>
-          <a class="menu-item" href="artisti.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+        <a class="menu-item" href="artisti.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="#narciso">Narciso</a>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
           </div>
-        </div>
+          <div class="menu-pill">go</div>
+        </a>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -621,105 +571,188 @@
   </div>
 
   <main>
-    <!-- HERO -->
+    <!-- INTRO -->
     <section>
-      <div class="hero-row">
+      <div class="grid-2">
         <div class="card">
-          <div class="section-kicker">Artisti</div>
-          <div class="section-title">Voce + progetto: un lavoro di squadra 🎯🎶</div>
+          <div class="section-kicker">Progetto artistico</div>
+          <div class="section-title">Quando il lavoro procede nella stessa direzione 🎧</div>
 
-          <p>
-            Quando un artista cresce, crescono insieme <span class="hl">voce</span>, <span class="hl">identità</span> e <span class="hl">direzione</span>.
-            Il mio ruolo è integrare tecnica, ascolto e consapevolezza, collegando il training a ciò che davvero serve: brani, studio, live e comunicazione.
+          <p class="blue">
+            Un percorso condiviso, fatto di confronto e collaborazione tra diverse figure professionali.
           </p>
-          <p>
-            È un lavoro di <span class="hl">squadra</span>: vocal trainer / vocal coach, <span class="hl">produttore artistico</span>, studio di registrazione,
-            musicisti, etichetta e comunicazione. Quando tutte le figure lavorano nella stessa direzione, il passaggio da un’idea a un’uscita strutturata
-            diventa reale, sostenibile e coerente.
+
+          <p style="margin-top:.75rem;">
+            Se sei un cantante o un cantautore e senti il bisogno di dare forma a un progetto artistico,
+            qui trovi un accompagnamento che va oltre il lavoro vocale.
+            È un lavoro di <span class="hl">squadra</span>: vocal coach, producer, studio, etichetta, comunicazione…
+            Quando le competenze lavorano nella stessa direzione, un’idea può trasformarsi in un progetto concreto, solido e sostenibile.
+          </p>
+
+          <p class="muted" style="margin-top:.6rem;">
+            Qui sotto trovi alcuni percorsi artistici che ho accompagnato fin dalle prime fasi, come esempi concreti di come questo lavoro prende forma nel tempo.
           </p>
 
           <div class="actions">
             <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-            <a class="btn" href="percorsi.html#artisti">🎧 Il percorso “Progetto artistico”</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
         <div class="card">
           <div class="pill-title">Cosa curiamo insieme</div>
-          <p style="text-align:left;">
-            🎤 Preparazione a <span class="hl">studio</span> e <span class="hl">live</span><br/>
-            🧩 Lavoro sul brano: <span class="hl">interpretazione</span>, fraseggio, dinamiche<br/>
-            🧠 Gestione emotiva: <span class="hl">ansia</span>, focus e presenza<br/>
-            🧭 Coerenza tra voce, stile e <span class="hl">identità</span>
-          </p>
 
-          <div class="actions" style="margin-top:1rem;">
-            <a class="btn primary" href="#artisti-list">🎧 Scopri gli artisti</a>
+          <div class="worklist">
+            <div class="witem">
+              <h4>💡 Ascolto dei brani</h4>
+              <p>
+                Partiamo sempre dall’ascolto: dei brani, della tua voce e di <span class="hl">ciò che vuoi raccontare</span>.
+                L’ascolto è lo spazio in cui si chiariscono direzioni, intenzioni e possibilità, prima ancora di intervenire.
+              </p>
+            </div>
+
+            <div class="witem">
+              <h4>🎶 Lavoro sul brano</h4>
+              <p>
+                Il lavoro sul brano è tecnico, stilistico e interpretativo.
+                Si lavora sulla <span class="hl">resa vocale</span>, sulle <span class="hl">scelte espressive</span>,
+                sul <span class="hl">fraseggio</span> e sulle <span class="hl">dinamiche</span>, rispettando il linguaggio musicale e la tua identità,
+                senza imporre forme precostituite.
+                Se necessario, il lavoro può includere anche un <span class="hl">supporto compositivo</span>,
+                sulla melodia e sul testo, per sostenere e rafforzare l’identità del progetto.
+              </p>
+            </div>
+
+            <div class="witem">
+              <h4>🧠 Gestione emotiva</h4>
+              <p>
+                Affrontiamo insieme gli aspetti emotivi legati alla performance: ansia, tensioni, aspettative e momenti di fragilità.
+                L’obiettivo è aiutarti a <span class="hl">stare nella musica con maggiore presenza e fiducia</span>,
+                senza che l’emotività diventi un ostacolo.
+              </p>
+            </div>
+
+            <div class="witem">
+              <h4>🕺 Presenza scenica</h4>
+              <p>
+                Lavoriamo sul modo di stare sul palco: postura, intenzione, relazione con il pubblico e con il brano.
+                Ricerchiamo un modo <span class="hl">autentico di abitare lo spazio e la performance</span>.
+              </p>
+            </div>
+
+            <div class="witem">
+              <h4>🔗 Coerenza artistica</h4>
+              <p>
+                Curare la <span class="hl">coerenza</span> tra voce, brani, immagine e modo di comunicare.
+                Tutto deve parlare la stessa lingua: sound, interpretazione e presenza devono sostenere un’identità artistica riconoscibile e credibile.
+              </p>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top:1.05rem;">
+            <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LISTA ARTISTI -->
-    <section id="artisti-list">
+    <!-- ARTISTI PREVIEW (senza descrizioni “pesanti”) -->
+    <section>
       <div class="section-kicker">Artisti</div>
-      <div class="section-title">Percorsi seguiti ✨</div>
+      <div class="section-title">Percorsi seguiti nel tempo ✨</div>
 
-      <div class="grid-2">
-        <!-- AURORA -->
-        <div class="artist">
-          <div class="artist-top">
-            <div class="artist-name">Aurora Blasi</div>
-            <div class="tag">🎧 Artista</div>
-          </div>
+      <div class="artist-grid">
+        <div class="artist-card" id="aurora">
+          <div class="name">Aurora Blasi</div>
+          <div class="tag blue">Cantautrice</div>
 
           <p>
-            Un percorso seguito nel tempo, con lavoro su voce, espressività, presenza e direzione artistica.
+            Un esempio di percorso artistico accompagnato nelle varie fasi:
+            dalla costruzione della direzione alla preparazione per studio e performance.
           </p>
 
-          <div class="cta-2">
-            <a class="btn primary" href="case-study-aurora-blasi.html">🎶 Conosci l’artista</a>
+          <div class="actions">
+            <a class="btn primary" href="case-study-aurora-blasi.html">✨ Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
 
-        <!-- NARCISO -->
-        <div class="artist" id="narciso">
-          <div class="artist-top">
-            <div class="artist-name">Narciso</div>
-            <div class="tag">🎶 Artista</div>
-          </div>
+        <div class="artist-card" id="narciso">
+          <div class="name">Narciso</div>
+          <div class="tag blue">Queer songwriter</div>
 
           <p>
-            Un percorso che unisce training vocale, scelte interpretative e messa a fuoco del progetto.
+            Un percorso di crescita vocale ed espressiva, con attenzione a tecnica, identità e presenza,
+            in funzione del progetto discografico e del live.
           </p>
 
-          <div class="cta-2">
-            <a class="btn primary" href="#narciso-media">🎶 Conosci l’artista</a>
+          <div class="actions">
+            <a class="btn primary" href="#narciso-dettagli">✨ Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NARCISO MEDIA -->
-    <section id="narciso-media">
-      <div class="section-kicker">Narciso</div>
-      <div class="section-title">Ascolta & guarda 🎧▶️</div>
+    <!-- NARCISO DETTAGLI -->
+    <section id="narciso-dettagli">
+      <div class="section-kicker">Artista</div>
+      <div class="section-title">Narciso — percorso e contenuti 🎧</div>
 
       <div class="card">
-        <p class="muted" style="text-align:left;">
-          Apri i contenuti esterni (Spotify / YouTube) e la pagina di Noise Symphony.
+        <p>
+          Un esempio di percorso artistico che ho seguito è quello di Narciso, nome d’arte di Stefano Rinaldi, cantante e performer con una forte identità scenica ed espressiva.
+          La sua storia prende forma nel contesto della performance dal vivo, dove Narciso sviluppa una presenza scenica intensa e riconoscibile,
+          mentre la voce non ha ancora una base tecnica strutturata.
         </p>
 
-        <div class="actions" style="margin-top:1rem;">
-          <a class="btn primary" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎧 Spotify 1</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎧 Spotify 2</a>
-          <a class="btn" href="https://www.youtube.com/watch?v=_7V26wjZ5yE&list=RD_7V26wjZ5yE&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 1</a>
-          <a class="btn" href="https://www.youtube.com/watch?v=qPoqctyaJ5s&list=RDqPoqctyaJ5s&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube 2</a>
-          <a class="btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🏷️ Noise Symphony</a>
+        <p>
+          Si è rivolto a me perché <span class="hl">sentiva la necessità di costruire una base tecnica solida per sostenere le esibizioni live</span>
+          e i contesti professionali che iniziavano a presentarsi nel suo percorso.
+        </p>
+
+        <p>
+          Nel tempo <span class="hl">abbiamo costruito una tecnica solida e sostenibile</span>, con particolare attenzione alla gestione dello sforzo,
+          alla stabilità e alla totale <span class="hl">libertà dell’emissione</span>.
+          Man mano che la voce ha acquisito affidabilità, è stato possibile lavorare in modo più profondo sull’espressività e sull’interpretazione,
+          permettendo alla voce di diventare uno strumento pienamente al servizio del progetto artistico.
+        </p>
+
+        <p>
+          Parallelamente al lavoro vocale, il progetto cresce anche dal punto di vista autorale e discografico.
+          Narciso prende parte a contesti di confronto cantautorale come il Tour Music Fest, avviando un percorso più strutturato sulla scrittura
+          e sulla definizione della propria identità musicale.
+        </p>
+
+        <p>
+          Successivamente pubblica il singolo <span class="hl">“Make Up”</span>, a cui segue anche una versione in lingua inglese.
+          Attorno a questo primo lavoro prende forma un progetto più ampio che porta alla pubblicazione dell’album
+          <span class="hl">“BLAH BLAH BLAH”</span>.
+        </p>
+
+        <div class="link-row">
+          <a class="mini-btn" href="https://open.spotify.com/intl-it/album/5z6qhUeZ76ZABXTZc9Z9CH?si=wokRxnOFR-2CE1n11eoT7Q" target="_blank" rel="noopener noreferrer">🎧 Album “BLAH BLAH BLAH” (Spotify)</a>
+          <a class="mini-btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🌐 Noise Symphony Music</a>
+        </div>
+
+        <div class="media-grid" aria-label="Media Narciso">
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/_7V26wjZ5yE" title="YouTube - Narciso 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/qPoqctyaJ5s" title="YouTube - Narciso 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="embed">
+            <iframe src="https://open.spotify.com/embed/track/76ZknibDCHAhrvU780uaum" title="Spotify - Narciso track 1" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+          <div class="embed">
+            <iframe src="https://open.spotify.com/embed/track/2rQDSXh5V1mutc5w24juTX" title="Spotify - Narciso track 2" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -755,8 +788,8 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
       ];
       const visible = pages.filter(p => p.href !== current);
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
