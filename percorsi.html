@@ -13,6 +13,7 @@
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
+      --topicBlue: #78b7ff; /* blu “Su cosa lavoriamo” */
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -21,7 +22,6 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
-
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -34,6 +34,7 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
+    /* evidenzia parole chiave: giallo + grassetto */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -65,13 +66,26 @@
       font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
+
+    /* Ruoli con pallini gialli (desktop + mobile) */
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
+      display:flex;flex-wrap:wrap;gap:.1rem .7rem;
+    }
+    .brand-sub span{display:inline-block;white-space:nowrap;}
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
     }
 
-    /* Nav pills */
+    /* NAV PILLS (desktop) */
     .nav-pills{
-      display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
     }
     .nav-pills .btn{
       border-radius: 999px;
@@ -109,8 +123,8 @@
     }
 
     .header-actions{
-      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
-      position:relative; z-index:80;
+      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;
+      flex:0 0 auto;margin-top:.15rem;position:relative;z-index:80;
     }
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
@@ -136,31 +150,23 @@
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap; flex:0 0 auto;
+      white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* =========================================================
-       MENU OVERLAY (FIX CLICK-BLOCK)
-       - sempre presente ma non intercetta click finché non è open
-       ========================================================= */
+    /* MENU OVERLAY (scroll ok) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
+      display:none;
       padding:1.2rem;
       background:
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
-
-      opacity:0;
-      pointer-events:none;     /* <-- fondamentale */
-      transition: opacity .14s ease;
       overflow:auto;
     }
-    .menu-overlay.open{
-      opacity:1;
-      pointer-events:auto;     /* <-- click attivi SOLO da aperto */
-    }
+    .menu-overlay.open{display:block;}
 
     .menu-card{
       max-width:590px;
@@ -273,19 +279,8 @@
       align-items:stretch;
     }
 
-    .pill-title{
-      display:inline-flex;
-      width:fit-content;
-      padding:.55rem .95rem;
-      border-radius:999px;
-      background: rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
-      font-weight:1200;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.86rem;
-      line-height:1.2;
+    .quick-nav{
+      display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem;
     }
 
     .btn{
@@ -314,13 +309,7 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Quick nav chips */
-    .quick-nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.7rem;
-      margin-top:1rem;
-    }
+    /* Chips */
     .chip{
       border:1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.10);
@@ -382,6 +371,19 @@
     details.block[open] .chev{transform: rotate(180deg);}
     .block-content{padding: .25rem 1.05rem 1.15rem;}
 
+    /* “Su cosa lavoriamo” (come screenshot) */
+    .workline{
+      margin-top:.35rem;
+      font-size:1.05rem;
+      line-height:1.35;
+    }
+    .workline strong{font-weight:1200;}
+    .workline .topics{
+      color: var(--topicBlue);
+      font-weight: 1000;
+      margin-left:.4rem;
+    }
+
     /* Aree schematiche */
     .areas{
       margin-top:1rem;
@@ -433,12 +435,10 @@
       .areas{grid-template-columns:1fr;}
     }
 
-    /* MOBILE HEADER */
+    /* MOBILE: come già impostato nelle altre pagine */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
 
-      .header-inner{align-items:center;gap:.6rem;}
-      .brand{gap:.6rem;min-width:0;}
       .logo-img{ height:96px; }
 
       .brand-name{
@@ -453,11 +453,13 @@
         font-size:.86rem;
         line-height:1.35;
         max-width:34ch;
-        white-space:normal;
         display:block;
       }
-      .brand-sub span{display:block;white-space:nowrap;margin:.12rem 0;}
-      .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:900;}
+      .brand-sub span{
+        display:block;
+        white-space:nowrap;
+        margin:.12rem 0;
+      }
 
       .header-actions{
         flex-direction:column;
@@ -466,7 +468,7 @@
         z-index:90;
       }
       .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
+      .top-icons{ gap:.45rem; margin-right:0; }
       .icon-btn{ width:40px; height:40px; }
     }
 
@@ -489,6 +491,7 @@
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
+
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -580,7 +583,7 @@
             <div class="menu-ico" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
           </div>
           <div class="menu-pill">go</div>
         </a>
@@ -599,6 +602,7 @@
   </div>
 
   <main>
+    <!-- INTRO -->
     <section>
       <div class="hero-row">
         <div class="card">
@@ -624,11 +628,11 @@
         </div>
 
         <div class="card">
-          <div class="pill-title">Modalità di lavoro</div>
+          <div class="section-kicker">Modalità di lavoro</div>
           <p>
             Ogni percorso è costruito con un approccio <span class="hl">esperienziale</span>, gentile e concreto:
-            osservazione, ascolto e strategie <span class="hl">su misura</span>.
-            Niente modelli imposti: lavoriamo su ciò che ti serve davvero, con un ritmo <span class="hl">sostenibile</span> per te.
+            osservazione, ascolto e strategie <span class="hl">su misura</span>. Niente modelli imposti: lavoriamo su ciò che ti serve davvero,
+            con un ritmo <span class="hl">sostenibile</span> per te.
           </p>
           <p class="muted" style="margin-top:.6rem;">
             👉 Se vuoi orientarti insieme, scrivimi dalla home: rispondo volentieri.
@@ -637,46 +641,56 @@
       </div>
     </section>
 
+    <!-- CANTO -->
     <section id="canto">
-      <div class="section-kicker">Percorso 1</div>
+      <div class="section-kicker">Percorsi personalizzati</div>
       <div class="section-title">Lezioni one to one - per cantanti e cantautori 🎤</div>
 
       <div class="card">
-        <p>
+        <div class="workline">
+          <strong>Su cosa lavoriamo</strong>
+          <span class="topics">Consapevolezza corporea, tecnica vocale, interpretazione e presenza scenica</span>
+        </div>
+
+        <p style="margin-top:1rem;">
           Le lezioni one-to-one sono percorsi individuali pensati su misura per ogni allievo: che stia muovendo i primi passi o lavorando su obiettivi più avanzati e professionali.
-          Il percorso parte sempre dalla persona: dalla sua voce e dalla sua storia.
         </p>
 
-        <details class="block" open>
+        <p style="margin-top:.85rem;">
+          <span class="hl">Il percorso parte sempre dalla persona</span>: dalla sua voce e dalla sua storia. Come saprai, la voce è unica, così come lo è il modo in cui viene usata e vissuta.
+          Per questo il lavoro tiene conto di diversi aspetti: dal tipo di corda vocale alla struttura corporea, fino alle esperienze personali e artistiche che influenzano il modo di usare la voce.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          Il lavoro <span class="hl">procede in modo graduale e consapevole</span>, partendo dalla consapevolezza corporea, per sviluppare nel tempo una maggiore propriocezione e connessione con se stessi.
+          Segue un lavoro sulla postura, finalizzato a favorire una respirazione funzionale alle necessità espressive, e un lavoro di allenamento tecnico, costruito in modo mirato e progressivo, senza forzature.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          <span class="hl">Ogni elemento viene affrontato in relazione agli altri, perché la voce non è mai un gesto isolato, ma il risultato di un sistema che coinvolge corpo, respiro, intenzione ed espressione.</span>
+        </p>
+
+        <details class="block">
           <summary>
             <div class="sum-left">
-              <div class="t">Su cosa lavoriamo</div>
-              <div class="d">Corpo, tecnica vocale, interpretazione e presenza scenica</div>
+              <div class="t">Approccio e struttura</div>
+              <div class="d">Didattica evoluta e non standardizzata</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
-
           <div class="block-content">
             <p>
-              Il lavoro procede in modo <span class="hl">graduale</span> e consapevole, partendo dalla <span class="hl">consapevolezza corporea</span>,
-              per sviluppare nel tempo una maggiore propriocezione e connessione con se stessi.
-              Segue un lavoro sulla <span class="hl">postura</span>, finalizzato a favorire una <span class="hl">respirazione</span> funzionale alle necessità espressive,
-              e un allenamento tecnico costruito in modo mirato e progressivo, senza forzature.
-            </p>
-
-            <p>
-              Ogni elemento viene affrontato in relazione agli altri, perché la voce non è mai un gesto isolato,
-              ma il risultato di un sistema che coinvolge corpo, respiro, intenzione ed espressione.
-              L’approccio si ispira a una visione della didattica vocale evoluta e non standardizzata,
-              in linea con i principi del <span class="hl">Voice Evolution Institute</span>.
-            </p>
-
-            <p>
-              Le lezioni possono svolgersi in presenza oppure online, mantenendo la stessa cura e qualità del lavoro.
-              L’obiettivo è accompagnarti in un percorso di crescita vocale consapevole, concreto e duraturo.
+              Questo approccio si ispira a una visione della didattica vocale evoluta e non standardizzata, in linea con i principi del Voice Evolution Institute,
+              di cui sono <em>Certified Vocal Trainer</em>, che pone al centro l’osservazione, l’ascolto e l’adattamento del lavoro alle reali esigenze dell’allievo.
+              Non esistono protocolli uguali per tutti, ma strumenti e strategie che vengono scelti e modellati di volta in volta.
             </p>
           </div>
         </details>
+
+        <p style="margin-top:1rem;">
+          <span class="hl">Le lezioni</span> one-to-one <span class="hl">possono svolgersi in presenza</span>, nella Sala Performance, <span class="hl">oppure online</span>, attraverso la Sala Regia, mantenendo la stessa cura, attenzione e qualità del lavoro.
+          In entrambi i casi, l’obiettivo è <span class="hl">accompagnarti in un percorso di crescita vocale consapevole, concreto e duraturo</span>.
+        </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
@@ -685,44 +699,54 @@
       </div>
     </section>
 
+    <!-- VOCE PARLATA -->
     <section id="voce">
-      <div class="section-kicker">Percorso 2</div>
+      <div class="section-kicker">Percorsi personalizzati</div>
       <div class="section-title">Lezioni one to one - voce parlata e comunicazione professionale 🗣️</div>
 
       <div class="card">
-        <p>
-          Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla voce parlata,
-          pensati per te se utilizzi la voce quotidianamente come strumento di lavoro: insegnante, speaker, formatore, professionista della comunicazione
-          o se senti il bisogno di parlare con maggiore <span class="hl">efficacia</span>, <span class="hl">chiarezza</span> e <span class="hl">sostenibilità</span>.
+        <div class="workline">
+          <strong>Su cosa lavoriamo</strong>
+          <span class="topics">Igiene vocale, funzionalità, identità comunicativa</span>
+        </div>
+
+        <p style="margin-top:1rem;">
+          Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla voce parlata, pensati per te
+          <span class="hl">se utilizzi la voce quotidianamente come strumento di lavoro</span>: insegnante, speaker, formatore, professionista della comunicazione
+          o semplicemente se senti il bisogno di parlare con maggiore efficacia, chiarezza e sostenibilità.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          Il training non riguarda solo l’emissione, ma un insieme di aspetti che coinvolgono respiro, postura, articolazione, ritmo, prosodia e prossemica.
+          <span class="hl">L’obiettivo</span> è aiutarti a sviluppare una <span class="hl">voce funzionale, stabile e naturale</span>, capace di sostenere anche carichi di lavoro vocali intensi,
+          <span class="hl">senza affaticamento</span> e, soprattutto, <span class="hl">adeguata allo scopo comunicativo</span> che desideri raggiungere.
         </p>
 
         <details class="block">
           <summary>
             <div class="sum-left">
-              <div class="t">Su cosa lavoriamo</div>
-              <div class="d">Igiene vocale, funzionalità, identità comunicativa</div>
+              <div class="t">Buone abitudini e sostenibilità</div>
+              <div class="d">Proteggere la voce nel tempo</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
-
           <div class="block-content">
             <p>
-              Il training non riguarda solo l’emissione, ma un insieme di aspetti che coinvolgono respiro, postura, articolazione, ritmo, prosodia e prossemica.
-              L’obiettivo è aiutarti a sviluppare una voce funzionale, stabile e naturale, capace di sostenere carichi vocali intensi senza affaticamento.
+              Un’attenzione particolare è dedicata all’igiene vocale e alla costruzione di buone abitudini: impari a riconoscere i segnali di stress vocale, a prevenire sovraccarichi e tensioni
+              e a integrare strategie pratiche per proteggere la tua voce nel tempo. Questo significa lavorare sulla gestione dello sforzo, sull’organizzazione dell’uso vocale nella giornata
+              e su comportamenti utili a mantenere la voce sana ed efficiente.
             </p>
-
-            <p>
-              Un’attenzione particolare è dedicata all’<span class="hl">igiene vocale</span> e alla costruzione di buone abitudini:
-              impari a riconoscere i segnali di stress vocale, a prevenire sovraccarichi e tensioni e a integrare strategie pratiche per proteggere la tua voce nel tempo.
-            </p>
-
-            <p>
-              Il percorso include anche strumenti per fronteggiare lo <span class="hl">stress</span> e l’ansia da prestazione,
+            <p style="margin-top:.8rem;">
+              Il percorso include anche strumenti per fronteggiare lo stress e l’ansia da prestazione, frequenti in situazioni come lezioni, conferenze, presentazioni o interventi in pubblico,
               aiutandoti a parlare con maggiore sicurezza e presenza.
-              Le lezioni sono personalizzate e costruite sulle tue esigenze specifiche.
             </p>
           </div>
         </details>
+
+        <p style="margin-top:1rem;">
+          Le <span class="hl">lezioni</span> sono completamente <span class="hl">personalizzate e costruite sulle tue esigenze specifiche</span>, con l’obiettivo di rendere la tua voce parlata efficiente, efficace, sostenibile e, soprattutto,
+          coerente con la tua identità comunicativa.
+        </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
@@ -731,40 +755,41 @@
       </div>
     </section>
 
+    <!-- ARTISTI -->
     <section id="artisti">
-      <div class="section-kicker">Percorso 3</div>
+      <div class="section-kicker">Percorsi personalizzati</div>
       <div class="section-title">Artisti emergenti e sviluppo del progetto discografico 🎧</div>
 
       <div class="card">
-        <p>
-          Una parte importante del mio lavoro è dedicata agli artisti emergenti, che accompagno nello sviluppo dei progetti discografici.
-          Il percorso non riguarda solo il training vocale: è un lavoro specifico sull’artista e sul progetto.
+        <div class="workline">
+          <strong>Su cosa lavoriamo</strong>
+          <span class="topics">Brani, identità artistica, preparazione a studio e performance</span>
+        </div>
+
+        <p style="margin-top:1rem;">
+          Una parte importante del mio lavoro è dedicata agli artisti emergenti, che accompagno in un percorso di crescita artistica e vocale,
+          seguendoli passo dopo passo nello sviluppo dei loro progetti discografici.
+          Il percorso non riguarda solo il training vocale, ma un lavoro specifico sull’artista e sul progetto.
         </p>
 
         <details class="block">
           <summary>
             <div class="sum-left">
-              <div class="t">Su cosa lavoriamo</div>
-              <div class="d">Brani, identità e preparazione a studio e live</div>
+              <div class="t">Come lavoriamo sui brani</div>
+              <div class="d">Interpretazione, fraseggio, dinamiche</div>
             </div>
             <div class="chev">⌄</div>
           </summary>
-
           <div class="block-content">
             <p>
-              Il lavoro sui brani è un momento centrale: analizzo insieme all’artista le canzoni per valorizzarne ogni aspetto,
-              non solo tecnico ma anche interpretativo, di fraseggio e di dinamiche.
-              È fondamentale che l’artista faccia emergere la propria identità.
+              Il lavoro sui brani è un momento centrale: analizzo insieme all’artista le canzoni per costruire un lavoro accurato che ne valorizzi ogni aspetto,
+              non solo tecnico ma anche interpretativo, di fraseggio e di dinamiche. Non intervengo per dare una forma prestabilita:
+              è fondamentale che sia l’artista a esprimersi e a far emergere la propria identità.
             </p>
-
-            <p>
-              Accanto al lavoro artistico e vocale, divento una guida nella gestione degli aspetti emotivi legati alla performance
-              (ansia da prestazione, tensioni, momenti di sconforto): lavoriamo per trasformare l’energia emotiva in una risorsa.
-            </p>
-
-            <p>
-              Accompagno inoltre l’artista nelle sessioni di registrazione, curando preparazione tecnica e interpretativa.
-              L’obiettivo è costruire un progetto solido, coerente e autentico.
+            <p style="margin-top:.8rem;">
+              Accanto al lavoro artistico e vocale, divento anche un supporto nella gestione degli aspetti emotivi legati alla performance.
+              Insieme lavoriamo per riconoscere e affrontare questi stati, sviluppando maggiore consapevolezza, fiducia e presenza,
+              affinché l’energia emotiva possa diventare una risorsa e non un ostacolo.
             </p>
           </div>
         </details>
@@ -777,6 +802,7 @@
       </div>
     </section>
 
+    <!-- VES -->
     <section id="ves">
       <div class="section-kicker">Voice Evolution Institute® (VES)</div>
       <div class="section-title">Certificazioni 🔬</div>
@@ -798,14 +824,25 @@
 
           <div class="block-content">
             <p>
-              Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute,
-              un percorso che seguo e accompagno direttamente nel mio lavoro didattico.
+              Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute, un percorso che seguo e accompagno direttamente nel mio lavoro didattico.
+              Si tratta di un cammino strutturato e progressivo, pensato per chi desidera costruire competenze tecniche, musicali ed espressive solide.
+            </p>
+
+            <p style="margin-top:.8rem;">
+              Il diploma è articolato in quattro livelli, e ognuno di essi prevede un esame di verifica.
+              Durante il percorso sarò io a seguirti nel lavoro settimanale, accompagnandoti passo dopo passo.
+              Al termine di ogni livello, l’esame viene sostenuto con un trainer del sistema VES®, diverso da me, così da garantire una valutazione esterna, oggettiva e professionale.
+            </p>
+
+            <p style="margin-top:.8rem;">
+              Il lavoro si basa principalmente su lezioni individuali, che possono svolgersi in presenza, online o in modalità mista.
+              Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento, dedicati a ear training, anatomia e fisiologia della voce, songwriting, armonie vocali e preparazione alla performance.
             </p>
 
             <div class="areas" aria-label="Aree di lavoro del percorso">
               <div class="area">
                 <h4>🎛️ Tecnica vocale</h4>
-                <p>Per sviluppare <span class="hl">controllo</span>, potenza e resistenza con un allenamento su misura.</p>
+                <p>Per sviluppare <span class="hl">controllo</span>, potenza e resistenza attraverso un allenamento costruito su misura.</p>
               </div>
               <div class="area">
                 <h4>🎧 Ear training</h4>
@@ -813,21 +850,25 @@
               </div>
               <div class="area">
                 <h4>🎼 Stile</h4>
-                <p>Per affrontare i linguaggi del canto moderno valorizzando le caratteristiche di ogni genere.</p>
+                <p>Per affrontare i principali linguaggi del canto moderno, valorizzando le caratteristiche di ogni genere.</p>
               </div>
               <div class="area">
                 <h4>✨ Improvvisazione</h4>
-                <p>Per stimolare <span class="hl">creatività</span> e libertà espressiva.</p>
+                <p>Per stimolare <span class="hl">creatività</span> e libertà espressiva, rendendo la performance più personale.</p>
               </div>
               <div class="area">
                 <h4>🎭 Interpretazione</h4>
-                <p>Per comunicare con autenticità ciò che vuoi esprimere attraverso la voce.</p>
+                <p>Per comunicare in modo autentico ciò che desideri esprimere attraverso la voce.</p>
               </div>
               <div class="area">
                 <h4>🔥 Presenza scenica</h4>
-                <p>Per salire sul palco con più sicurezza e creare una connessione reale con il pubblico.</p>
+                <p>Per salire sul palco con maggiore sicurezza e creare una connessione reale con il pubblico.</p>
               </div>
             </div>
+
+            <p style="margin-top:1rem;">
+              Completando tutti i livelli si ottiene il Diploma Professionale in Canto Moderno VES®, una certificazione privata rilasciata dal Voice Evolution Institute che attesta il livello di competenza raggiunto.
+            </p>
           </div>
         </details>
 
@@ -842,12 +883,13 @@
 
           <div class="block-content">
             <p>
-              Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce
-              e alla preparazione degli insegnanti certificati.
+              Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES dedicato alla didattica della voce e alla preparazione degli insegnanti certificati.
+              Se stai valutando un percorso di formazione per diventare insegnante di canto o di voce, è importante sapere che il Voice Evolution Institute è un sistema all’avanguardia, costruito su una visione ampia e interdisciplinare della voce.
             </p>
-            <p>
-              In questo contesto faccio parte del corpo docente e mi occupo della formazione pedagogica e della relazione con l’allievo,
-              costruendo un approccio educativo coerente, etico e personalizzato.
+
+            <p style="margin-top:.8rem;">
+              In questo contesto, faccio parte del corpo docente e mi occupo in modo specifico della formazione pedagogica, accompagnandoti nello sviluppo delle competenze legate alla didattica, alla relazione con l’allievo e alla costruzione di un approccio educativo coerente, etico e personalizzato.
+              Il lavoro formativo non riguarda solo cosa insegnare, ma soprattutto <span class="hl">come</span> farlo: osservazione, ascolto, capacità di adattare il metodo e responsabilità nel lavoro sulla voce altrui.
             </p>
           </div>
         </details>
@@ -862,6 +904,7 @@
   </main>
 
   <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
+
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
@@ -885,29 +928,13 @@
 
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
+    document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
 
-    // click fuori dalla card chiude
-    menuOverlay.addEventListener("click", (e)=>{
-      if(e.target === menuOverlay) closeMenu();
-    });
-
-    // link nel menu chiudono
-    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a =>
-      a.addEventListener("click", closeMenu)
-    );
-
-    // bottoni che aprono menu
-    document.querySelectorAll(".open-menu").forEach(btn =>
-      btn.addEventListener("click", openMenu)
-    );
-
-    document.addEventListener("keydown", (e)=>{
-      if(e.key==="Escape") closeMenu();
-    });
-
-    // Protezione: se per qualche motivo l'overlay restasse "appeso", lo disattiviamo
-    window.addEventListener("pageshow", ()=>{
-      if(menuOverlay.classList.contains("open")) closeMenu();
+    // chiudi menu quando clicco una voce (senza bloccare la navigazione)
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
+      a.addEventListener("click", () => closeMenu(), { passive:true });
     });
 
     // NAV PILLS (desktop: Home primo, escludi pagina corrente)
@@ -919,10 +946,11 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
+      // home sempre primo
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
       nav.innerHTML = visible.map(p => `
         <a class="btn" href="${p.href}">
