@@ -18,6 +18,169 @@
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
     }
+/* ===== HEADER / BANNER ===== */
+header{
+  position:sticky; top:0; z-index:60;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0.85rem 1.15rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  min-width:0;
+  flex:1;
+}
+
+.logo-wrap{line-height:0;flex:0 0 auto;}
+.logo-img{
+  height:140px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  gap:.22rem;
+  min-width:0;
+  flex:1;
+}
+
+/* Nome: NON tagliare troppo e lasciare leggibile */
+.brand-name{
+  font-weight:1100;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:1.04rem;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Ruoli: SEMPRE in verticale + pallini gialli */
+.brand-sub{
+  font-size:.96rem;
+  opacity:.96;
+  line-height:1.25;
+  max-width:64ch;
+
+  display:flex;
+  flex-direction:column;
+  gap:.16rem;
+}
+
+.brand-sub span{
+  display:block;         /* <-- una riga per voce */
+  white-space:nowrap;    /* <-- evita “coppie” su due colonne */
+}
+
+.brand-sub span::before{
+  content:"• ";
+  color:var(--yellow);
+  font-weight:900;
+}
+
+/* NAV PILLS (desktop ok; su mobile li nascondiamo) */
+.nav-pills{
+  display:flex;
+  gap:.65rem;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top:.55rem;
+}
+
+/* Azioni a destra */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  flex-wrap:nowrap;
+  flex:0 0 auto;
+  position:relative;
+  z-index:80;
+}
+
+.top-icons{
+  display:flex;
+  flex-direction:row; /* <-- IG + Mail su una riga */
+  gap:.45rem;
+  align-items:center;
+  margin-right:.05rem;
+}
+
+/* ===== MOBILE HEADER ===== */
+@media (max-width: 600px){
+  .nav-pills{ display:none !important; }
+
+  .header-inner{
+    align-items:flex-start;
+    gap:.6rem;
+  }
+
+  .brand{
+    gap:.6rem;
+    min-width:0;
+  }
+
+  .logo-img{ height:96px; }
+
+  /* Nome: riduci un pelo per evitare tagli (tipo “Costan…”) */
+  .brand-name{
+    font-size:.94rem;
+    letter-spacing:.10em;
+    white-space:nowrap;
+    overflow:visible;
+    text-overflow:clip;
+  }
+
+  /* Ruoli: UNA riga ciascuno, sempre */
+  .brand-sub{
+    font-size:.86rem;
+    line-height:1.35;
+    max-width:34ch;
+  }
+  .brand-sub span{
+    display:block;
+    white-space:nowrap;
+    margin:.10rem 0;
+  }
+
+  /* A destra: Menu sopra, icone sotto (in riga) */
+  .header-actions{
+    flex-direction:column;
+    align-items:flex-end;
+    gap:.45rem;
+    z-index:90;
+  }
+
+  .menu-button{
+    padding:.52rem 1.02rem;
+    font-size:.96rem;
+  }
+
+  .top-icons{
+    margin-right:0;
+    flex-direction:row;
+    gap:.45rem;
+  }
+
+  .icon-btn{ width:40px; height:40px; }
+}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
