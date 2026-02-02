@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Narciso — Elisa Costanzo</title>
+  <title>Artisti — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -65,15 +65,12 @@
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    /* ruoli + pallini gialli */
+    /* ruoli + pallini gialli (verticale) */
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
       display:flex;flex-direction:column;gap:.16rem;
     }
-    .brand-sub span{
-      display:block;
-      white-space:nowrap;
-    }
+    .brand-sub span{display:block;white-space:nowrap;}
     .brand-sub span::before{
       content:"• ";
       color:var(--yellow);
@@ -81,9 +78,7 @@
     }
 
     /* NAV PILLS (desktop) */
-    .nav-pills{
-      display:flex; gap:.65rem; flex-wrap:wrap; align-items:center; margin-top:.55rem;
-    }
+    .nav-pills{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;}
     .nav-pills .btn{
       border-radius:999px;
       padding:0.78rem 1.2rem;
@@ -106,10 +101,7 @@
     }
     .nav-pills .emoji{font-size:1.08em;line-height:1;transform:translateY(1px);filter:drop-shadow(0 10px 18px rgba(0,0,0,0.18));}
 
-    .header-actions{
-      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
-      position:relative; z-index:80;
-    }
+    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -134,7 +126,7 @@
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap; flex:0 0 auto;
+      white-space:nowrap;flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
@@ -177,8 +169,7 @@
       border:1px solid rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.16);
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
-      color:#fff;font-size:1.2rem;
-      flex:0 0 auto;
+      color:#fff;font-size:1.2rem;flex:0 0 auto;
     }
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
@@ -232,15 +223,10 @@
     /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-
-    .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
-    }
+    .section-kicker{font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;}
     .section-title{
       font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1200;
-      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      max-width:980px;font-weight:1200;text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
 
     .card{
@@ -272,58 +258,59 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
+    .btn.link{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.10);}
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* MEDIA GRID */
-    .media-grid{
+    /* “Cosa curiamo insieme” */
+    .stack{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:1rem;
+      gap:.9rem;
       margin-top:1rem;
     }
-    .embed{
+    .item{
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
+      padding:1.05rem 1.05rem;
+    }
+    .item h4{
+      font-size:1.05rem;
+      font-weight:1200;
+      margin-bottom:.25rem;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+    }
+    .item p{font-size:1.02rem;opacity:.92;line-height:1.55;}
+
+    /* cards artisti */
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;margin-top:1rem;}
+    .artist-card{
+      border-radius:1.75rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      padding:1.25rem;
+      backdrop-filter: blur(10px);
+      position:relative;
       overflow:hidden;
     }
-    .embed iframe{
-      width:100%;
-      height: 352px;
-      border:0;
-      display:block;
+    .artist-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
+      opacity:.55;
+      pointer-events:none;
     }
-
-    /* back to top */
-    .to-top{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:40;
-      width:52px;height:52px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 38px rgba(0,0,0,0.22);
-      backdrop-filter: blur(12px);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
-    .to-top span{font-size:1.25rem;}
-    .to-top.show{display:flex;}
+    .artist-card > *{position:relative; z-index:1;}
+    .artist-name{font-size:1.35rem;font-weight:1200;margin-bottom:.2rem;}
+    .artist-meta{opacity:.9;margin-bottom:.55rem;}
+    .artist-desc{opacity:.92;line-height:1.55;font-size:1.02rem;}
 
     @media (max-width: 1020px){
-      main{padding-top:1.2rem;}
-      .media-grid{grid-template-columns:1fr;}
-      .embed iframe{height:320px;}
+      .grid-3{grid-template-columns:1fr;}
     }
 
     /* MOBILE header */
@@ -349,11 +336,24 @@
       .icon-btn{ width:40px; height:40px; }
     }
 
+    /* Back to top */
+    .to-top{
+      position:fixed;right:18px;bottom:18px;z-index:40;
+      width:52px;height:52px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+      display:none;align-items:center;justify-content:center;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
+    .to-top span{font-size:1.25rem;}
+    .to-top.show{display:flex;}
+
     footer{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 1.15rem 2.2rem;
-      opacity:.9;
+      max-width:1180px;margin:0 auto;padding:0 1.15rem 2.2rem;opacity:.9;
     }
   </style>
 </head>
@@ -436,15 +436,22 @@
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="artisti.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <div>
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="case-study-narciso.html">Narciso</a>
+            <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
@@ -471,82 +478,91 @@
 
   <main id="top">
     <section>
-      <div class="section-kicker">Artista</div>
-      <div class="section-title">Narciso ✨</div>
+      <div class="section-kicker">Progetto artistico</div>
+      <div class="section-title">Quando la voce diventa squadra 🎧</div>
 
       <div class="card">
-        <p class="muted" style="margin-top:-.25rem;">
-          Queer Songwriter
-        </p>
-
         <p>
-          Un esempio di percorso artistico che ho seguito è quello di <span class="hl">Narciso</span>, nome d’arte di Stefano Rinaldi, cantante e performer con una forte identità scenica ed espressiva.
-          La sua storia prende forma nel contesto della performance dal vivo, dove Narciso sviluppa una presenza scenica intensa e riconoscibile, mentre la voce non ha ancora una base tecnica strutturata.
-        </p>
-
-        <p>
-          Si è rivolto a me perché <span class="hl">sentiva la necessità di costruire una base tecnica solida</span> per sostenere <span class="hl">le esibizioni live</span> e i contesti professionali che iniziavano a presentarsi nel suo percorso.
-          La voce tendeva ad affaticarsi facilmente, risultava instabile e spesso costretta. Questi aspetti limitavano non solo la tenuta vocale, ma anche la possibilità di esprimere pienamente il suo potenziale artistico, soprattutto dal vivo.
-        </p>
-
-        <p>
-          Il percorso è partito da un ascolto approfondito delle sue naturali modalità di espressione e dalla pianificazione di un training vocale mirato, pensato per supportarlo senza mai alterare le sue peculiarità vocali.
-          Nel tempo <span class="hl">abbiamo costruito una tecnica affidabile e sostenibile</span>, con particolare attenzione alla <span class="hl">gestione dello sforzo</span>, alla stabilità e alla <span class="hl">totale libertà dell’emissione</span>.
-          Man mano che la voce ha acquisito stabilità, è stato possibile lavorare in modo più profondo sull’espressività e sull’interpretazione, permettendo alla voce di diventare uno strumento pienamente al servizio del progetto artistico.
-        </p>
-
-        <p>
-          Parallelamente al lavoro vocale, <span class="hl">il progetto cresce anche dal punto di vista autorale e discografico</span>.
-          Narciso prende parte a contesti di confronto cantautorale come il Tour Music Fest, avviando un percorso più strutturato sulla scrittura e sulla definizione della propria identità musicale.
-        </p>
-
-        <p>
-          Successivamente pubblica il singolo “Make Up”, scritto con Roberto Casalino e prodotto da Francesco Tosoni, a cui segue anche una versione in lingua inglese.
-          Attorno a questo primo lavoro prende forma un progetto più ampio che porta alla pubblicazione dell’album <span class="hl">“BLAH BLAH BLAH”</span>, prodotto da Francesco Tosoni e pubblicato con l’etichetta indipendente Indiefusione.
-          Il disco include brani come “Discoball”, “La stagione di un abbraccio” e “Stringimi forte”, contribuendo a definire una direzione artistica sempre più chiara e riconoscibile.
-        </p>
-
-        <p>
-          Un momento di grande esposizione arriva con il duetto dal vivo con Arisa durante un concerto, il cui video diventa virale sui social, portando il progetto a raggiungere un pubblico molto più ampio.
-          In seguito Narciso prende parte a Drag Race Italia, affrontando contesti performativi complessi che richiedono una gestione vocale stabile, affidabile e coerente con una presenza scenica fortemente espressiva.
-          In questo ambito partecipa anche a una puntata del contest DJ on Stage, vincendo la puntata.
-        </p>
-
-        <p>
-          Questo percorso rappresenta un esempio concreto di come un lavoro vocale tecnico ed espressivo, costruito sull’ascolto e sul rispetto dell’identità artistica, possa sostenere la crescita di un progetto capace di muoversi con coerenenza tra palco, studio e contesti professionali strutturati.
+          Un percorso artistico solido nasce dall’incontro tra più figure: <span class="hl">vocal coach</span>, <span class="hl">produttore</span>, arrangiatore, studio, immagine e comunicazione.
+          Il mio ruolo è costruire un lavoro vocale ed espressivo coerente con il materiale musicale e con la tua identità, mantenendo una direzione chiara e sostenibile nel tempo.
         </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-          <a class="btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🌐 Noise Symphony</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/album/5z6qhUeZ76ZABXTZc9Z9CH?si=wokRxnOFR-2CE1n11eoT7Q" target="_blank" rel="noopener noreferrer">🎧 Album “BLAH BLAH BLAH”</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
 
-        <div class="media-grid" aria-label="Media Narciso">
-          <div class="embed">
-            <iframe
-              src="https://www.youtube.com/embed/_7V26wjZ5yE"
-              title="Narciso — YouTube video 1"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div style="margin-top:1.2rem;">
+          <div class="pill-title" style="display:inline-flex;width:fit-content;padding:.55rem .95rem;border-radius:999px;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.22);box-shadow:0 14px 26px rgba(0,0,0,0.16);font-weight:1200;letter-spacing:.06em;text-transform:uppercase;font-size:.86rem;line-height:1.2;">
+            Cosa curiamo insieme
           </div>
-          <div class="embed">
-            <iframe
-              src="https://www.youtube.com/embed/qPoqctyaJ5s"
-              title="Narciso — YouTube video 2"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+
+          <div class="stack">
+            <div class="item">
+              <h4>🎧 Ascolto dei brani</h4>
+              <p>Chiarire direzione, intenzione e possibilità prima ancora di intervenire.</p>
+            </div>
+
+            <div class="item">
+              <h4>🧩 Lavoro sul brano</h4>
+              <p>Resa vocale, scelte espressive, fraseggio e dinamiche senza imporre forme precostituite.</p>
+            </div>
+
+            <div class="item">
+              <h4>🧠 Gestione emotiva</h4>
+              <p>Trasformare ansia e tensioni in presenza e affidabilità.</p>
+            </div>
+
+            <div class="item">
+              <h4>🕺 Presenza scenica</h4>
+              <p>Abitare palco e performance in modo autentico.</p>
+            </div>
+
+            <div class="item">
+              <h4>🧷 Coerenza artistica</h4>
+              <p>Voce, brani, immagine e comunicazione: una sola lingua riconoscibile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-kicker">Artisti</div>
+      <div class="section-title">Percorsi che hanno preso forma nel tempo ✨</div>
+
+      <div class="grid-3">
+        <div class="artist-card">
+          <div class="artist-name">Aurora Blasi</div>
+          <div class="artist-meta muted">Cantautrice • contenuti • percorso in evoluzione</div>
+          <p class="artist-desc">Leggi di più sul suo percorso e sui contenuti pubblicati.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="case-study-aurora-blasi.html">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
 
-        <div class="actions" style="margin-top:1.05rem;">
-          <a class="btn" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎵 Apri brano su Spotify 1</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎵 Apri brano su Spotify 2</a>
+        <div class="artist-card">
+          <div class="artist-name">Narciso</div>
+          <div class="artist-meta muted">Songwriter • performance • identità scenica</div>
+          <p class="artist-desc">Leggi di più sul suo percorso e ascolta alcuni contenuti del progetto.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="case-study-narciso.html">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          </div>
+        </div>
+
+        <div class="artist-card">
+          <div class="artist-name">Lisa Villada Ramirez</div>
+          <div class="artist-meta muted">Cantante • cantautrice • percorso accademico</div>
+          <p class="artist-desc">Leggi di più sul suo percorso e sugli obiettivi artistici e accademici.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="case-study-lisavilladaramirez.html">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          </div>
         </div>
       </div>
     </section>
@@ -576,7 +592,7 @@
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "case-study-narciso.html";
+      const current = "artisti.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
