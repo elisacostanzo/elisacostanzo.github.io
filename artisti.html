@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Aurora Blasi — Artista</title>
+  <title>Artisti — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -21,6 +21,7 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -33,7 +34,6 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
-    /* evidenzia giallo + bold */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -56,6 +56,7 @@
       padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
+
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
     .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
@@ -76,32 +77,19 @@
 
     /* NAV PILLS (desktop) */
     .nav-pills{
-      display:flex;
-      gap:.65rem;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:.55rem;
+      display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;
     }
     .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.05rem;
-      font-weight: 1100;
-
-      border: 1px solid rgba(255,255,255,0.28);
+      border-radius:999px;
+      padding:0.78rem 1.2rem;
+      font-size:1.05rem;
+      font-weight:1100;
+      border:1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        0 14px 28px rgba(0,0,0,0.18);
-
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 14px 28px rgba(0,0,0,0.18);
       backdrop-filter: blur(12px);
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
+      display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .nav-pills .btn:hover{
@@ -113,7 +101,7 @@
 
     .header-actions{
       display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
-      position:relative; z-index:80;
+      position:relative;z-index:80;
     }
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
@@ -158,7 +146,6 @@
       pointer-events:none;
     }
     .menu-overlay.open{display:block;pointer-events:auto;}
-
     .menu-card{
       max-width:590px;
       margin:4.2rem auto;
@@ -272,68 +259,74 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* media */
-    .media-grid{
-      margin-top:1rem;
+    /* boxes: schema */
+    .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:1rem;align-items:stretch;}
+    .bullets{
+      margin-top:.9rem;
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-      align-items:start;
+      gap:.65rem;
     }
-    .embed{
+    .bullet{
       border-radius:1.35rem;
-      overflow:hidden;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
+      padding:1rem 1rem;
     }
-    .embed iframe{
-      width:100%;
-      height:352px;
-      border:0;
-      display:block;
-      background:transparent;
+    .bullet h4{
+      font-size:1.05rem;font-weight:1200;margin-bottom:.25rem;
+      display:flex;align-items:center;gap:.55rem;
     }
+    .bullet p{font-size:1.02rem;opacity:.92;line-height:1.55;}
 
-    .link-row{
-      display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem;
+    /* artist tiles */
+    .artist-grid{
+      margin-top:1rem;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
     }
-    .mini-btn{
-      border-radius:999px;
-      padding:.72rem 1.05rem;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;
+    .tile{
+      border-radius:1.75rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      padding:1.25rem;
+      backdrop-filter: blur(10px);
+      display:flex;flex-direction:column;gap:.75rem;
+      position:relative;
+      overflow:hidden;
+      min-height: 280px;
+    }
+    .tile::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .tile > *{position:relative; z-index:1;}
+    .pill-title{
       display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      transition: transform .12s ease, background .12s ease;
-      white-space:nowrap;
+      width:fit-content;
+      padding:.55rem .95rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+      font-weight:1200;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.86rem;
+      line-height:1.2;
     }
-    .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
-
-    /* back to top */
-    .to-top{
-      position:fixed; right:18px; bottom:18px; z-index:40;
-      width:52px;height:52px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 38px rgba(0,0,0,0.22);
-      backdrop-filter: blur(12px);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
-    .to-top span{font-size:1.25rem;}
-    .to-top.show{display:flex;}
+    .tile p{font-size:1.03rem;opacity:.96;text-align:left;}
+    .tile .muted{font-size:.98rem;line-height:1.45;}
 
     @media (max-width: 1020px){
-      .media-grid{grid-template-columns:1fr;}
-      .embed iframe{height:340px;}
+      .grid-2{grid-template-columns:1fr;}
+      .artist-grid{grid-template-columns:1fr;}
     }
 
     /* MOBILE HEADER */
@@ -360,6 +353,24 @@
       .top-icons{flex-direction:row;gap:.45rem;margin-right:0;}
       .icon-btn{width:40px;height:40px;}
     }
+
+    /* back to top */
+    .to-top{
+      position:fixed; right:18px; bottom:18px; z-index:40;
+      width:52px;height:52px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
+    .to-top span{font-size:1.25rem;}
+    .to-top.show{display:flex;}
 
     footer{max-width:1180px;margin:0 auto;padding:0 1.15rem 2.2rem;opacity:.9;}
   </style>
@@ -462,6 +473,12 @@
           <div class="menu-pill">go</div>
         </a>
 
+        <div class="menu-sub">
+          <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+          <a href="#narciso">Narciso</a>
+          <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
+        </div>
+
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
@@ -486,99 +503,157 @@
   </div>
 
   <main>
+    <!-- INTRO -->
     <section>
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-kicker">Progetto artistico</div>
+          <div class="section-title">Quando la voce diventa squadra 🎧</div>
+
+          <p>
+            Un percorso artistico solido nasce dall’incontro tra più figure: <span class="hl">vocal coach</span>, <span class="hl">produttore</span>,
+            <span class="hl">arrangiatore</span>, <span class="hl">studio</span>, immagine e comunicazione.
+            Il mio ruolo è costruire un lavoro vocale ed espressivo che sia coerente con il materiale musicale e con la tua identità,
+            mantenendo una direzione chiara e sostenibile nel tempo.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-kicker">Cosa curiamo insieme</div>
+          <div class="bullets">
+            <div class="bullet">
+              <h4>🎧 Ascolto dei brani</h4>
+              <p>Chiarire <span class="hl">direzione</span>, intenzione e possibilità prima ancora di intervenire.</p>
+            </div>
+            <div class="bullet">
+              <h4>🧩 Lavoro sul brano</h4>
+              <p>Resa vocale, <span class="hl">scelte espressive</span>, <span class="hl">fraseggio</span> e dinamiche senza imporre forme precostituite.</p>
+            </div>
+            <div class="bullet">
+              <h4>🧠 Gestione emotiva</h4>
+              <p>Trasformare ansia e tensioni in <span class="hl">presenza</span> e affidabilità.</p>
+            </div>
+            <div class="bullet">
+              <h4>🕺 Presenza scenica</h4>
+              <p>Abitare palco e performance in modo <span class="hl">autentico</span>.</p>
+            </div>
+            <div class="bullet">
+              <h4>🔗 Coerenza artistica</h4>
+              <p>Voce, brani, immagine e comunicazione: una sola lingua riconoscibile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISTI LISTA -->
+    <section>
+      <div class="section-kicker">Artisti</div>
+      <div class="section-title">Percorsi che hanno preso forma nel tempo ✨</div>
+
+      <div class="artist-grid">
+        <!-- AURORA -->
+        <div class="tile">
+          <div class="pill-title">Aurora Blasi</div>
+          <p class="muted">Cantautrice • contenuti • percorso in evoluzione</p>
+          <p>
+            Un esempio concreto di come un lavoro vocale e artistico possa trasformarsi in una direzione chiara e professionale.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="case-study-aurora-blasi.html">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          </div>
+        </div>
+
+        <!-- NARCISO -->
+        <div class="tile">
+          <div class="pill-title">Narciso</div>
+          <p class="muted">Songwriter • performance • identità scenica</p>
+          <p>
+            Un percorso che integra voce, presenza e scrittura, con obiettivi concreti tra palco e produzione.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#narciso">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          </div>
+        </div>
+
+        <!-- LISA -->
+        <div class="tile">
+          <div class="pill-title">Lisa Villada Ramirez</div>
+          <p class="muted">Cantante • cantautrice • percorso accademico</p>
+          <p>
+            Dalla costruzione tecnica agli obiettivi accademici internazionali, con un lavoro musicale strutturato.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="case-study-lisavilladaramirez.html">✨ Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NARCISO (sezione completa con media) -->
+    <section id="narciso">
       <div class="section-kicker">Artista</div>
-      <div class="section-title">Aurora Blasi ✨</div>
+      <div class="section-title">Narciso 🌈</div>
 
       <div class="card">
         <p>
-          Aurora Blasi, <span class="hl">giovane cantautrice e content creator romana</span>.
+          Qui trovi alcuni contenuti del progetto. Se vuoi, possiamo parlarne e capire come costruire un percorso adatto al tuo obiettivo artistico.
         </p>
-
-        <p>
-          Quando si è rivolta a me non aveva ancora un’idea chiara del percorso che avrebbe voluto intraprendere.
-          <span class="hl">Inizialmente la sua priorità era migliorare la vocalità</span>: sentiva che qualcosa non funzionava,
-          faceva molta fatica e si ritrovava spesso senza voce.
-        </p>
-
-        <p>
-          Il nostro lavoro è iniziato dalle basi, attraverso un percorso di rieducazione vocale e un cambiamento dell’habitus vocale quotidiano,
-          necessario per restituire alla voce funzionalità e stabilità.
-        </p>
-
-        <p>
-          Con il tempo ci siamo conosciute meglio e ho compreso che il suo <span class="hl">desiderio era quello di fare della musica una scelta di vita</span>.
-          Da lì ho cercato di indirizzarla verso un percorso di professionalizzazione, sia in ambito vocale — attraverso la preparazione al Diploma in Canto Moderno VES —
-          sia in ambito artistico più ampio.
-        </p>
-
-        <p>
-          Le ho fatto conoscere quello che poi è diventato il suo produttore, Francesco Tosoni, e le ho suggerito di approfondire anche il lavoro sulla scrittura,
-          partecipando ai corsi tenuti dal celebre autore Roberto Casalino.
-        </p>
-
-        <p>
-          Aurora ha iniziato a raccontarsi attraverso la musica partendo dalle sue esperienze di strada e dalla condivisione sui social,
-          trasformando gradualmente questa spinta iniziale in un progetto musicale sempre più definito.
-        </p>
-
-        <p>
-          Nel giro di meno di un anno, ha iniziato a far emergere con maggiore chiarezza il suo potenziale anche come autrice.
-          Ha cominciato a portarmi le sue canzoni, sulle quali lavoravamo insieme, confrontandoci sulla struttura, sullo sviluppo e sulla direzione espressiva.
-          Questo percorso l’ha condotta a un primo importante traguardo professionale:
-          <span class="hl">la firma con l’etichetta Ballandi Music e la pubblicazione del singolo di debutto “Zucchero”</span>,
-          distribuito da Sony Music Italy e prodotto artisticamente da Francesco Tosoni.
-        </p>
-
-        <p>
-          La <span class="hl">partecipazione al programma “Allegro ma non troppo” su RAI 3</span>, ospite di Luca Barbareschi,
-          è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza
-          e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
-          <span class="muted">(<a href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer"><span class="hl">Guarda il reel</span></a>)</span>
-        </p>
-
-        <p>
-          Da poco è uscito anche il suo secondo singolo dal titolo French Roulette, un brano dance pop con qualche venatura tribale che non può lasciare indifferenti.
-        </p>
-
-        <p>
-          Questo risultato è il frutto di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista.
-          La collaborazione tra le figure professionali coinvolte (trainer vocale, produttore artistico, etichetta discografica) ha reso possibile il passaggio
-          da un’idea iniziale a un’uscita discografica strutturata, sostenuta da una produzione di qualità e da un contesto professionale solido.
-        </p>
-
-        <p>
-          Il lavoro prosegue anche oggi e guarda avanti: alla realizzazione di un mini album.
-        </p>
-
-        <div class="link-row">
-          <a class="mini-btn" href="https://open.spotify.com/artist/0tKxDSQVS3uJufF48rFvFx" target="_blank" rel="noopener noreferrer">👉 Spotify — Aurora Blasi</a>
-          <a class="mini-btn" href="https://open.spotify.com/track/6G3v6KVfAQee3dIUyHrEmX" target="_blank" rel="noopener noreferrer">👉 Spotify — “Zucchero”</a>
-          <a class="mini-btn" href="https://open.spotify.com/intl-it/track/5xFNEms1X8BaroHbluaFj8?si=58222be9bbcb4932" target="_blank" rel="noopener noreferrer">👉 Spotify — “French Roulette”</a>
-          <a class="mini-btn" href="https://www.ballandimusic.it" target="_blank" rel="noopener noreferrer">👉 Ballandi Music</a>
-          <a class="mini-btn" href="https://www.francescotosoni.com" target="_blank" rel="noopener noreferrer">👉 Francesco Tosoni — Producer</a>
-          <a class="mini-btn" href="https://www.youtube.com/watch?v=NCVpKDqU8wk&list=RDNCVpKDqU8wk&start_radio=1" target="_blank" rel="noopener noreferrer">▶️ YouTube — “French Roulette”</a>
-        </div>
-
-        <div class="media-grid" aria-label="Media Aurora">
-          <div class="embed">
-            <iframe src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dIUyHrEmX" title="Spotify - Zucchero" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          </div>
-          <div class="embed">
-            <iframe src="https://open.spotify.com/embed/track/5xFNEms1X8BaroHbluaFj8" title="Spotify - French Roulette" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          </div>
-          <div class="embed">
-            <iframe src="https://www.youtube.com/embed/NCVpKDqU8wk" title="YouTube - French Roulette" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="embed">
-            <iframe src="https://www.instagram.com/reel/DSk6pazjc2V/embed" title="Instagram Reel - Allegro ma non troppo (RAI3) - Aurora" loading="lazy"></iframe>
-          </div>
-        </div>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-          <a class="btn" href="artisti.html">🎧 Torna alla pagina Artisti</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+
+        <div class="actions" style="margin-top:1.05rem;">
+          <a class="btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🌐 Noise Symphony</a>
+          <a class="btn" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎵 Spotify — “Make Up”</a>
+          <a class="btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎵 Spotify — “Discoball”</a>
+          <a class="btn" href="https://open.spotify.com/intl-it/album/5z6qhUeZ76ZABXTZc9Z9CH?si=wokRxnOFR-2CE1n11eoT7Q" target="_blank" rel="noopener noreferrer">💿 Album — “BLAH BLAH BLAH”</a>
+        </div>
+
+        <div style="margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14);">
+            <iframe style="width:100%; height:352px; border:0; display:block;"
+              src="https://open.spotify.com/embed/track/76ZknibDCHAhrvU780uaum"
+              title="Spotify - Narciso - Make Up"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+
+          <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14);">
+            <iframe style="width:100%; height:352px; border:0; display:block;"
+              src="https://open.spotify.com/embed/track/2rQDSXh5V1mutc5w24juTX"
+              title="Spotify - Narciso - Discoball"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </div>
+
+          <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14); grid-column:1/-1;">
+            <iframe style="width:100%; height:380px; border:0; display:block;"
+              src="https://www.youtube.com/embed/_7V26wjZ5yE"
+              title="YouTube - Narciso"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+
+          <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14); grid-column:1/-1;">
+            <iframe style="width:100%; height:380px; border:0; display:block;"
+              src="https://www.youtube.com/embed/qPoqctyaJ5s"
+              title="YouTube - Narciso 2"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -608,7 +683,7 @@
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "case-study-aurora-blasi.html";
+      const current = "artisti.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
@@ -635,4 +710,5 @@
   </script>
 </body>
 </html>
+
 
