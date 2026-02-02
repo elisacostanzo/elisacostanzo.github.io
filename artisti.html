@@ -67,13 +67,21 @@
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    /* RUOLI con pallino giallo */
+    /* RUOLI: SEMPRE IN VERTICALE (desktop + mobile) */
     .brand-sub{
       font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
-      display:flex;flex-wrap:wrap;gap:.5rem;
+      display:block;
     }
-    .brand-sub span{display:inline-flex;align-items:center;gap:.35rem;white-space:nowrap;}
-    .brand-sub span::before{content:"•";color:var(--yellow);font-weight:1200;margin-right:.1rem;}
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.12rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:1200;
+    }
 
     /* NAV PILLS (desktop) */
     .nav-pills{
@@ -259,13 +267,8 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* boxes: schema */
     .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:1rem;align-items:stretch;}
-    .bullets{
-      margin-top:.9rem;
-      display:grid;
-      gap:.65rem;
-    }
+    .bullets{margin-top:.9rem;display:grid;gap:.65rem;}
     .bullet{
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
@@ -279,7 +282,6 @@
     }
     .bullet p{font-size:1.02rem;opacity:.92;line-height:1.55;}
 
-    /* artist tiles */
     .artist-grid{
       margin-top:1rem;
       display:grid;
@@ -347,7 +349,6 @@
         max-width:34ch;
         display:block;
       }
-      .brand-sub span{display:block;margin:.12rem 0;}
       .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
       .menu-button{padding:.52rem 1.02rem;font-size:.96rem;}
       .top-icons{flex-direction:row;gap:.45rem;margin-right:0;}
@@ -463,20 +464,21 @@
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="artisti.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <div>
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="#narciso">Narciso</a>
+            <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
-
-        <div class="menu-sub">
-          <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-          <a href="#narciso">Narciso</a>
-          <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
         </div>
 
         <a class="menu-item" href="curriculum.html">
@@ -551,7 +553,7 @@
       </div>
     </section>
 
-    <!-- ARTISTI LISTA -->
+    <!-- ARTISTI LISTA (CARDS LEGGERE) -->
     <section>
       <div class="section-kicker">Artisti</div>
       <div class="section-title">Percorsi che hanno preso forma nel tempo ✨</div>
@@ -561,22 +563,18 @@
         <div class="tile">
           <div class="pill-title">Aurora Blasi</div>
           <p class="muted">Cantautrice • contenuti • percorso in evoluzione</p>
-          <p>
-            Un esempio concreto di come un lavoro vocale e artistico possa trasformarsi in una direzione chiara e professionale.
-          </p>
+          <p>Leggi di più sul suo percorso e sui contenuti pubblicati.</p>
           <div class="actions">
             <a class="btn primary" href="case-study-aurora-blasi.html">✨ Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
           </div>
         </div>
 
-        <!-- NARCISO -->
+        <!-- NARCISO (NO TESTI QUI) -->
         <div class="tile">
           <div class="pill-title">Narciso</div>
           <p class="muted">Songwriter • performance • identità scenica</p>
-          <p>
-            Un percorso che integra voce, presenza e scrittura, con obiettivi concreti tra palco e produzione.
-          </p>
+          <p>Leggi di più sul suo percorso e ascolta alcuni contenuti del progetto.</p>
           <div class="actions">
             <a class="btn primary" href="#narciso">✨ Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
@@ -587,9 +585,7 @@
         <div class="tile">
           <div class="pill-title">Lisa Villada Ramirez</div>
           <p class="muted">Cantante • cantautrice • percorso accademico</p>
-          <p>
-            Dalla costruzione tecnica agli obiettivi accademici internazionali, con un lavoro musicale strutturato.
-          </p>
+          <p>Leggi di più sul suo percorso e sugli obiettivi artistici e accademici.</p>
           <div class="actions">
             <a class="btn primary" href="case-study-lisavilladaramirez.html">✨ Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
@@ -598,33 +594,79 @@
       </div>
     </section>
 
-    <!-- NARCISO (sezione completa con media) -->
+    <!-- NARCISO (TESTO COMPLETO) -->
     <section id="narciso">
       <div class="section-kicker">Artista</div>
       <div class="section-title">Narciso 🌈</div>
 
       <div class="card">
+        <p class="muted" style="margin-bottom:.25rem;"><em>Queer Songwriter</em></p>
+
         <p>
-          Qui trovi alcuni contenuti del progetto. Se vuoi, possiamo parlarne e capire come costruire un percorso adatto al tuo obiettivo artistico.
+          Un esempio di percorso artistico che ho seguito è quello di Narciso, nome d’arte di Stefano Rinaldi, cantante e performer con una forte identità scenica ed espressiva.
+        </p>
+
+        <p>
+          La sua storia prende forma nel contesto della performance dal vivo, dove Narciso sviluppa una presenza scenica intensa e riconoscibile,
+          mentre la voce non ha ancora una base tecnica strutturata.
+        </p>
+
+        <p>
+          Si è rivolto a me perché <span class="hl">sentiva la necessità di costruire una base tecnica solida per sostenere le esibizioni live</span>
+          e i contesti professionali che iniziavano a presentarsi nel suo percorso.
+          La voce tendeva ad affaticarsi facilmente, risultava instabile e spesso costretta. Questi aspetti limitavano non solo la tenuta vocale,
+          ma anche la possibilità di esprimere pienamente il suo potenziale artistico, soprattutto in relazione alla performance dal vivo,
+          dove voce e presenza scenica devono sostenersi a vicenda.
+        </p>
+
+        <p>
+          Il percorso è partito da un ascolto approfondito delle sue naturali modalità di espressione e dalla pianificazione di un training vocale mirato,
+          pensato per supportarlo senza mai alterare le sue peculiarità vocali.
+          Nel tempo <span class="hl">abbiamo costruito una tecnica affidabile e sostenibile</span>, con particolare attenzione alla gestione dello sforzo,
+          alla stabilità e alla totale libertà dell’emissione.
+          Man mano che la voce <span class="hl">ha acquisito stabilità</span>, è stato possibile lavorare in modo più profondo sull’espressività e sull’interpretazione,
+          permettendo alla voce di diventare uno strumento pienamente al servizio del progetto artistico.
+        </p>
+
+        <p>
+          Parallelamente al lavoro vocale, <span class="hl">il progetto cresce anche dal punto di vista autorale e discografico</span>.
+          Narciso prende parte a contesti di confronto cantautorale come il Tour Music Fest, avviando un percorso più strutturato sulla scrittura
+          e sulla definizione della propria identità musicale.
+        </p>
+
+        <p>
+          Successivamente pubblica il singolo <span class="hl">“Make Up”</span>, scritto con Roberto Casalino e prodotto da Francesco Tosoni,
+          a cui segue anche una versione in lingua inglese. Attorno a questo primo lavoro prende forma un progetto più ampio che porta alla pubblicazione dell’album
+          <span class="hl">“BLAH BLAH BLAH”</span>, prodotto da Francesco Tosoni e pubblicato con l’etichetta indipendente Indiefusione.
+          Il disco include brani come <span class="hl">“Discoball”</span>, <span class="hl">“La stagione di un abbraccio”</span> e <span class="hl">“Stringimi forte”</span>,
+          contribuendo a definire una direzione artistica sempre più chiara e riconoscibile.
+        </p>
+
+        <p>
+          Un momento di grande esposizione arriva con il <span class="hl">duetto dal vivo con Arisa</span> durante un concerto,
+          il cui video diventa virale sui social, portando il progetto a raggiungere un pubblico molto più ampio.
+          In seguito Narciso prende parte a Drag Race Italia, affrontando contesti performativi complessi che richiedono una gestione vocale stabile,
+          affidabile e coerente con una presenza scenica fortemente espressiva.
+          In questo ambito partecipa anche a una puntata del contest <span class="hl">DJ on Stage</span>, vincendo la puntata.
+        </p>
+
+        <p>
+          Questo percorso rappresenta un esempio concreto di come un lavoro vocale tecnico ed espressivo, costruito sull’ascolto e sul rispetto dell’identità artistica,
+          possa sostenere la crescita di un progetto capace di muoversi con coerenza tra palco, studio e contesti professionali strutturati.
         </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-        </div>
-
-        <div class="actions" style="margin-top:1.05rem;">
           <a class="btn" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">🌐 Noise Symphony</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/track/76ZknibDCHAhrvU780uaum?si=5c097bd60a8f422a" target="_blank" rel="noopener noreferrer">🎵 Spotify — “Make Up”</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/track/2rQDSXh5V1mutc5w24juTX?si=8d3cd945b7f94952" target="_blank" rel="noopener noreferrer">🎵 Spotify — “Discoball”</a>
-          <a class="btn" href="https://open.spotify.com/intl-it/album/5z6qhUeZ76ZABXTZc9Z9CH?si=wokRxnOFR-2CE1n11eoT7Q" target="_blank" rel="noopener noreferrer">💿 Album — “BLAH BLAH BLAH”</a>
+          <a class="btn" href="https://open.spotify.com/intl-it/album/5z6qhUeZ76ZABXTZc9Z9CH?si=wokRxnOFR-2CE1n11eoT7Q" target="_blank" rel="noopener noreferrer">💿 Album “BLAH BLAH BLAH”</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
 
         <div style="margin-top:1rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
           <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14);">
             <iframe style="width:100%; height:352px; border:0; display:block;"
               src="https://open.spotify.com/embed/track/76ZknibDCHAhrvU780uaum"
-              title="Spotify - Narciso - Make Up"
+              title="Spotify — Narciso — Make Up"
               loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
           </div>
@@ -632,7 +674,7 @@
           <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14);">
             <iframe style="width:100%; height:352px; border:0; display:block;"
               src="https://open.spotify.com/embed/track/2rQDSXh5V1mutc5w24juTX"
-              title="Spotify - Narciso - Discoball"
+              title="Spotify — Narciso — Discoball"
               loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
           </div>
@@ -640,7 +682,7 @@
           <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14); grid-column:1/-1;">
             <iframe style="width:100%; height:380px; border:0; display:block;"
               src="https://www.youtube.com/embed/_7V26wjZ5yE"
-              title="YouTube - Narciso"
+              title="YouTube — Narciso"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
@@ -649,7 +691,7 @@
           <div style="border-radius:1.35rem; overflow:hidden; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.08); box-shadow:0 18px 38px rgba(0,0,0,0.14); grid-column:1/-1;">
             <iframe style="width:100%; height:380px; border:0; display:block;"
               src="https://www.youtube.com/embed/qPoqctyaJ5s"
-              title="YouTube - Narciso 2"
+              title="YouTube — Narciso 2"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
@@ -710,5 +752,6 @@
   </script>
 </body>
 </html>
+
 
 
