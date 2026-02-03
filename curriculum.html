@@ -381,13 +381,14 @@
     }
     .t-item > *{position:relative; z-index:1;}
 
+    /* ✅ QUI: periodo sempre in 2ª riga */
     .t-top{
-      display:flex;
-      gap:.75rem;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:.38rem;
+      align-items:start;
     }
+
     .t-role{
       font-weight:1200;
       font-size:1.08rem;
@@ -406,6 +407,7 @@
       opacity:.92;
       font-size:.92rem;
       white-space:nowrap;
+      width:fit-content;
     }
     .t-desc{
       margin-top:.45rem;
@@ -415,7 +417,7 @@
       text-align:left;
     }
 
-    /* Media grid */
+    /* Media grid (link cards) */
     .media-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -462,6 +464,120 @@
     }
     .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
 
+    /* ✅ Mini anteprime YouTube + Spotify */
+   <div class="preview-grid" aria-label="Anteprime contenuti">
+
+  <!-- YOUTUBE ANTEPRIMA 1 -->
+  <div class="preview">
+    <div class="preview-head">
+      <div class="preview-title">YouTube — Video 1</div>
+      <div class="preview-sub">Anteprima video</div>
+    </div>
+    <div class="preview-frame">
+      <iframe
+        src="https://www.youtube.com/embed/iyHL7ZxjI5c"
+        title="YouTube — Video 1"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- YOUTUBE ANTEPRIMA 2 -->
+  <div class="preview">
+    <div class="preview-head">
+      <div class="preview-title">YouTube — Video 2</div>
+      <div class="preview-sub">Anteprima video</div>
+    </div>
+    <div class="preview-frame">
+      <iframe
+        src="https://www.youtube.com/embed/ZN0ANU_nNpw"
+        title="YouTube — Video 2"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- YOUTUBE ANTEPRIMA 3 -->
+  <div class="preview">
+    <div class="preview-head">
+      <div class="preview-title">YouTube — Video 3</div>
+      <div class="preview-sub">Anteprima video</div>
+    </div>
+    <div class="preview-frame">
+      <iframe
+        src="https://www.youtube.com/embed/v0TAsdd_VtM"
+        title="YouTube — Video 3"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- YOUTUBE ANTEPRIMA 4 -->
+  <div class="preview">
+    <div class="preview-head">
+      <div class="preview-title">YouTube — Video 4</div>
+      <div class="preview-sub">Anteprima video</div>
+    </div>
+    <div class="preview-frame">
+      <iframe
+        src="https://www.youtube.com/embed/l7r9jDhwHVI"
+        title="YouTube — Video 4"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+    }
+    .preview{
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 38px rgba(0,0,0,0.14);
+      overflow:hidden;
+    }
+    .preview-head{
+      padding:.85rem 1rem;
+      border-bottom:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+    .preview-title{
+      font-weight:1200;
+      letter-spacing:.02em;
+      line-height:1.2;
+    }
+    .preview-sub{
+      font-size:.92rem;
+      opacity:.88;
+      margin-top:.18rem;
+      line-height:1.25;
+    }
+    .preview-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background: rgba(0,0,0,0.22);
+    }
+    .preview-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+    .preview-frame.spotify{
+      aspect-ratio:auto;
+    }
+    .preview-frame.spotify iframe{
+      position:static;
+      width:100%;
+      height:152px;
+      display:block;
+    }
+
     /* Back to top */
     .to-top{
       position:fixed;
@@ -487,6 +603,7 @@
       main{padding-top:1.2rem;}
       .hero-row{grid-template-columns:1fr;}
       .media-grid{grid-template-columns:1fr;}
+      .preview-grid{grid-template-columns:1fr;}
     }
 
     /* MOBILE HEADER */
@@ -678,11 +795,7 @@
             Qui trovi una panoramica completa del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
             Se vuoi orientarti su quale percorso sia più adatto a te, puoi scrivermi dal form della home.
           </p>
-
-          <div class="actions">
-            <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
+          <!-- ✅ rimossi i bottoni in fondo alla sezione -->
         </div>
 
         <div class="card">
@@ -844,11 +957,7 @@
             </div>
           </div>
         </div>
-
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-        </div>
+        <!-- ✅ rimossi i bottoni in fondo alla sezione -->
       </div>
     </section>
 
@@ -909,10 +1018,9 @@
           </div>
         </div>
 
+        <!-- ✅ tenuto SOLO questo (non è "scrivimi/menu") -->
         <div class="actions">
           <a class="btn primary" href="artisti.html">🎧 Vai alla pagina Artisti</a>
-          <a class="btn" href="index.html#contatti">✉️ Scrivimi dalla home</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
@@ -924,9 +1032,57 @@
 
       <div class="card">
         <p class="muted" style="text-align:left;">
-          Una piccola selezione di contenuti (link diretti): se vuoi, posso inserirli anche nella pagina Artisti dove sono più “di casa”.
+          Una piccola selezione di contenuti (link diretti).
         </p>
 
+        <!-- ✅ anteprime piccole -->
+        <div class="preview-grid" aria-label="Anteprime contenuti">
+          <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Anteprima 1</div>
+              <div class="preview-sub">Video incorporato</div>
+            </div>
+            <div class="preview-frame">
+              <iframe
+                src="https://www.youtube.com/embed/iyHL7ZxjI5c"
+                title="YouTube — Anteprima 1"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Anteprima 2</div>
+              <div class="preview-sub">Video incorporato</div>
+            </div>
+            <div class="preview-frame">
+              <iframe
+                src="https://www.youtube.com/embed/ZN0ANU_nNpw"
+                title="YouTube — Anteprima 2"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="preview" style="grid-column:1/-1;">
+            <div class="preview-head">
+              <div class="preview-title">Spotify — Anteprima</div>
+              <div class="preview-sub">Sostituisci TRACK_ID_QUI con l’ID del brano/album</div>
+            </div>
+            <div class="preview-frame spotify">
+              <iframe
+                src="https://open.spotify.com/embed/track/TRACK_ID_QUI?utm_source=generator"
+                title="Spotify — Anteprima"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- cards link come prima (invariato, ma restano sotto) -->
         <div class="media-grid">
           <div class="media-card">
             <h4>▶️ YouTube</h4>
@@ -944,15 +1100,12 @@
             <div class="media-links">
               <a class="mini-btn" href="https://www.instagram.com/p/C_01nfXtjyh/" target="_blank" rel="noopener noreferrer">Apri post 1</a>
               <a class="mini-btn" href="https://www.instagram.com/p/DJPzM39t9Oo/?img_index=1" target="_blank" rel="noopener noreferrer">Apri post 2</a>
+              <a class="mini-btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram Studio</a>
             </div>
           </div>
         </div>
 
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi dalla home</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram Studio</a>
-        </div>
+        <!-- ✅ rimossi i bottoni in fondo alla sezione -->
       </div>
     </section>
   </main>
