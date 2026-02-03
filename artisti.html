@@ -365,6 +365,75 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.9rem;}
 
+    /* ======== PROGETTO ARTISTICO (come foto) ======== */
+.work-list{
+  display:grid;
+  gap:1rem;
+  margin-top:.8rem;
+}
+.work-item{
+  padding:.95rem 1rem;
+  border-radius:1.35rem;
+  border:1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.07);
+  box-shadow:0 18px 40px rgba(0,0,0,0.14);
+}
+.work-head{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:.35rem;
+}
+.work-emoji{
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+  transform: translateY(1px);
+  font-size:1.08rem;
+  width:1.35rem;
+  text-align:center;
+  flex:0 0 auto;
+}
+.work-title{
+  font-weight:1200;
+  letter-spacing:.02em;
+  font-size:1.07rem;
+  line-height:1.25;
+}
+.work-text{opacity:.95}
+
+/* ======== Avatar piccolo per le card ======== */
+.artist-head{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin-bottom:.1rem;
+}
+.artist-avatar{
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 16px 34px rgba(0,0,0,0.22);
+  flex:0 0 auto;
+}
+.artist-meta{min-width:0}
+.artist-name{
+  font-weight:1200;
+  font-size:1.12rem;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.artist-role{
+  font-size:.95rem;
+  opacity:.88;
+  line-height:1.25;
+  margin-top:.12rem;
+}
+
     @media (max-width: 1020px){
       .grid-3{grid-template-columns:1fr;}
     }
@@ -406,6 +475,7 @@
       margin:0 auto;
       padding:0 1.15rem 2.2rem;
       opacity:.9;
+      .artist-avatar{width:52px;height:52px;}
     }
   </style>
 </head>
@@ -445,6 +515,7 @@
       </div>
     </div>
   </header>
+
 
   <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
@@ -537,68 +608,172 @@
   </div>
 
   <main>
-    <section>
-      <div class="section-kicker">Artisti</div>
-      <div class="section-title">Progetto artistico: un lavoro di squadra 🎧</div>
+  <!-- PROGETTO ARTISTICO (come foto) -->
+  <section id="progetto-artistico">
+    <div class="section-kicker">PROGETTO ARTISTICO</div>
 
-      <div class="card">
+    <div class="card">
+      <p>
+        Se sei un cantante o un cantautore e senti il bisogno di dare forma a un progetto artistico,
+        qui trovi un accompagnamento che va oltre il lavoro vocale. È un percorso condiviso, fatto di
+        confronto e collaborazione tra diverse figure professionali. Quando il lavoro procede nella stessa direzione,
+        un’idea può trasformarsi in un progetto concreto, solido e sostenibile.
+        Qui sotto trovi alcuni percorsi artistici che ho accompagnato, come esempi concreti di questo lavoro.
+      </p>
+
+      <div style="height:14px"></div>
+
+      <h3 style="font-size:1.22rem;font-weight:1200;letter-spacing:.02em;margin-bottom:.7rem;">
+        COSA CURIAMO INSIEME:
+      </h3>
+
+      <div class="work-list">
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-emoji">💿</div>
+            <div class="work-title">Ascolto dei brani</div>
+          </div>
+          <p class="work-text">
+            Partiamo sempre dall’ascolto: dei brani, della tua voce e di <span class="hl">ciò che vuoi raccontare</span>.
+            L’ascolto è lo spazio in cui si chiariscono direzioni, intenzioni e possibilità, prima ancora di intervenire.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-emoji">🎶</div>
+            <div class="work-title">(mi piace il pezzo del puzzle) Lavoro sul brano</div>
+          </div>
+          <p class="work-text">
+            Il lavoro sul brano è tecnico, stilistico e interpretativo. Si lavora sulla <span class="hl">resa vocale</span>,
+            sulle <span class="hl">scelte espressive</span>, sul <span class="hl">fraseggio</span> e sulle
+            <span class="hl">dinamiche</span>, rispettando il linguaggio musicale e la tua identità, senza imporre forme precostituite.
+            Se necessario, il lavoro può includere anche un <span class="hl">supporto compositivo</span>, sulla
+            <span class="hl">melodia</span> e sul <span class="hl">testo</span>, mettendo a disposizione le mie competenze
+            in ambito cantautorale per sostenere e rafforzare l’identità del progetto.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-emoji">🧠</div>
+            <div class="work-title">Gestione emotiva</div>
+          </div>
+          <p class="work-text">
+            Affrontiamo insieme gli aspetti emotivi legati alla performance: ansia, tensione, aspettative e momenti di fragilità.
+            L’obiettivo è aiutarti a <span class="hl">stare nella musica con maggiore presenza e fiducia</span>,
+            <span class="hl">senza che l’emotività diventi un ostacolo</span>.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-emoji">🕺</div>
+            <div class="work-title">Presenza scenica</div>
+          </div>
+          <p class="work-text">
+            Lavoriamo sul modo di stare sul palco: postura, intenzione, relazione con il pubblico e con il brano.
+            Ricerchiamo un <span class="hl">modo autentico di abitare lo spazio e la performance</span>.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-head">
+            <div class="work-emoji">🧷</div>
+            <div class="work-title">Coerenza artistica</div>
+          </div>
+          <p class="work-text">
+            Curare la <span class="hl">coerenza tra voce, brani, immagine e modo di comunicare</span>.
+            Tutto deve parlare la stessa lingua: il <span class="hl">sound</span>, l’interpretazione e la presenza devono sostenere
+            un’identità artistica riconoscibile e credibile.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top:1rem;">
+        Qui sotto trovi alcuni percorsi artistici che ho accompagnato fin dalle prime fasi,
+        esempi concreti di come questo lavoro prende forma nel tempo.
+      </p>
+    </div>
+  </section>
+
+  <!-- CARD ARTISTI (solo 3, con foto piccole) -->
+  <section id="artisti">
+    <div class="section-kicker">ARTISTI</div>
+    <div class="section-title">Tre esempi concreti ✨</div>
+
+    <div class="grid-3">
+      <!-- Aurora -->
+      <div class="tile">
+        <div class="artist-head">
+          <img class="artist-avatar" src="Aurora.jpg" alt="Aurora Blasi" loading="lazy">
+          <div class="artist-meta">
+            <div class="artist-name">Aurora Blasi</div>
+            <div class="artist-role">Cantautrice</div>
+          </div>
+        </div>
+
+        <span class="pill-title">Aurora Blasi</span>
         <p>
-          Quando un progetto cresce davvero, non è mai “solo voce”.
-          È un lavoro condiviso tra più figure professionali: <span class="hl">vocal coach</span>, produttore, studio, team creativo.
-          Io mi occupo della parte vocale e interpretativa, e aiuto l’artista a costruire una direzione <span class="hl">coerente</span> e sostenibile nel tempo.
+          Un percorso di crescita vocale e artistica costruito passo dopo passo:
+          <span class="hl">identità</span>, interpretazione, presenza e lavoro in sinergia con produzione e team.
         </p>
-        <p class="muted" style="margin-top:.6rem;">
-          Qui sotto trovi alcuni esempi di percorsi: clicca per conoscere l’artista e, se vuoi, raccontami il tuo progetto dalla home.
-        </p>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-kicker">Percorsi artistici</div>
-      <div class="section-title">Tre esempi concreti ✨</div>
-
-      <div class="grid-3">
-        <div class="tile">
-          <span class="pill-title">Aurora Blasi</span>
-          <p>
-            Un percorso di crescita vocale e artistica costruito passo dopo passo:
-            identità, interpretazione, presenza e lavoro in sinergia con produzione e team.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="case-study-aurora-blasi.html">Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
-        </div>
-
-        <div class="tile">
-          <span class="pill-title">Narciso</span>
-          <p>
-            Un esempio di lavoro su tecnica, tenuta vocale e libertà espressiva,
-            con un focus sulla performance dal vivo e sulla coerenza del progetto.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="case-study-narciso.html">Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
-        </div>
-
-        <div class="tile">
-          <span class="pill-title">Lisa Ramirez</span>
-          <p>
-            Un percorso tra tecnica, crescita musicale e obiettivi accademici,
-            con un lavoro strutturato sul repertorio e sulla direzione artistica.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="case-study-lisaramirez.html">Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
+        <div class="actions">
+          <a class="btn primary" href="case-study-aurora-blasi.html">Conosci l’artista</a>
+          <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
-    </section>
-  </main>
+
+      <!-- Narciso -->
+      <div class="tile">
+        <div class="artist-head">
+          <img class="artist-avatar" src="Narciso.jpg" alt="Narciso" loading="lazy">
+          <div class="artist-meta">
+            <div class="artist-name">Narciso</div>
+            <div class="artist-role">Queer songwriter</div>
+          </div>
+        </div>
+
+        <span class="pill-title">Narciso</span>
+        <p>
+          Un esempio di lavoro su <span class="hl">tecnica</span>, tenuta vocale e libertà espressiva,
+          con un focus sulla performance dal vivo e sulla <span class="hl">coerenza</span> del progetto.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="case-study-narciso.html">Conosci l’artista</a>
+          <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+      </div>
+
+      <!-- Lisa -->
+      <div class="tile">
+        <div class="artist-head">
+          <img class="artist-avatar" src="Lisa.jpg" alt="Lisa Ramirez" loading="lazy">
+          <div class="artist-meta">
+            <div class="artist-name">Lisa Ramirez</div>
+            <div class="artist-role">Cantante, cantautrice</div>
+          </div>
+        </div>
+
+        <span class="pill-title">Lisa Ramirez</span>
+        <p>
+          Un percorso tra tecnica, crescita musicale e obiettivi accademici,
+          con un lavoro strutturato sul repertorio e sulla direzione artistica.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="case-study-lisaramirez.html">Conosci l’artista</a>
+          <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
