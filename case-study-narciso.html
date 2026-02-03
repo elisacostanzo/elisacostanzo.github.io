@@ -43,6 +43,31 @@
       text-underline-offset: 3px;
       text-decoration-thickness: 2px;
     }
+/* ===== Artist badge (avatar + nome) ===== */
+.artist-badge{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
+}
+
+.artist-avatar{
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:0 18px 38px rgba(0,0,0,0.26);
+  transform: translateY(3px);
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .artist-avatar{
+    width:48px;
+    height:48px;
+    transform: translateY(2px);
+  }
+}
 
     /* HEADER */
     header{
@@ -415,7 +440,10 @@
   <main>
     <section>
       <div class="section-kicker">Artista</div>
-      <div class="section-title">Narciso 🌈</div>
+     <div class="artist-badge">
+  <img class="artist-avatar" src="Narciso.jpg" alt="Narciso" loading="lazy">
+  <div class="section-title" style="margin:0;">Narciso ✨</div>
+</div>
 
       <div class="card">
         <p class="muted" style="margin-bottom:.25rem;"><em>Queer Songwriter</em></p>
