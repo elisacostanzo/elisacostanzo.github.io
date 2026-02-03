@@ -21,6 +21,7 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -30,7 +31,7 @@
     }
 
     a{color:inherit;text-decoration:none;}
-    p, li{line-height:1.9;font-size:1.08rem;}
+    p, li{line-height:1.85;font-size:1.08rem;}
     .muted{opacity:.88}
 
     .hl{
@@ -55,22 +56,40 @@
       padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
+
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-img{
+      height: 140px;
+      width: auto;
+      display:block;
+      object-fit:contain;
+    }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+
     .brand-name{
-      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
-      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-weight:1100;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:1.04rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* ruoli + pallini gialli (verticale) */
     .brand-sub{
-      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
-      display:flex;flex-direction:column;gap:.16rem;
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.3;
+      max-width:64ch;
     }
-    .brand-sub span{display:block;white-space:nowrap;}
+    /* elenco con puntini gialli (desktop + mobile coerenti) */
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
     .brand-sub span::before{
       content:"• ";
       color:var(--yellow);
@@ -78,30 +97,64 @@
     }
 
     /* NAV PILLS (desktop) */
-    .nav-pills{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;}
+    .nav-pills{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
+    }
     .nav-pills .btn{
-      border-radius:999px;
-      padding:0.78rem 1.2rem;
-      font-size:1.05rem;
-      font-weight:1100;
-      letter-spacing:.01em;
-      border:1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 1100;
+      letter-spacing: .01em;
+
+      border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 14px 28px rgba(0,0,0,0.18);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
+
       backdrop-filter: blur(12px);
-      display:inline-flex; align-items:center; gap:.6rem; white-space:nowrap;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      -webkit-backdrop-filter: blur(12px);
+
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      white-space: nowrap;
+
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.20), 0 18px 34px rgba(0,0,0,0.22);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 18px 34px rgba(0,0,0,0.22);
     }
-    .nav-pills .emoji{font-size:1.08em;line-height:1;transform:translateY(1px);filter:drop-shadow(0 10px 18px rgba(0,0,0,0.18));}
+    .nav-pills .emoji{
+      font-size: 1.08em;
+      line-height: 1;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+    }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      margin-top:.15rem;
+      position:relative;
+      z-index:80;
+    }
+
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -126,11 +179,12 @@
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;flex:0 0 auto;
+      white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scroll OK) */
+    /* MENU OVERLAY (scroll fix) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -142,6 +196,7 @@
       overflow:auto;
     }
     .menu-overlay.open{display:block;}
+
     .menu-card{
       max-width:590px;
       margin:4.2rem auto;
@@ -156,10 +211,12 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
+
       max-height: calc(100vh - 7rem);
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -169,8 +226,10 @@
       border:1px solid rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.16);
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
-      color:#fff;font-size:1.2rem;flex:0 0 auto;
+      color:#fff;font-size:1.2rem;
+      flex:0 0 auto;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -223,10 +282,14 @@
     /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-    .section-kicker{font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;}
+    .section-kicker{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
+    }
     .section-title{
       font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1200;text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
 
     .card{
@@ -238,9 +301,47 @@
       backdrop-filter: blur(12px);
     }
 
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+    .tile{
+      border-radius:1.75rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      padding:1.25rem;
+      backdrop-filter: blur(10px);
+      display:flex;flex-direction:column;gap:.85rem;
+      min-height: 360px;
+      position:relative;
+      overflow:hidden;
+    }
+    .tile::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .tile > *{position:relative; z-index:1;}
+
+    .pill-title{
+      display:inline-flex;
+      width:fit-content;
+      padding:.55rem .95rem;
+      border-radius:999px;
+      background: rgba(255,255,255,0.16);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+      font-weight:1200;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.86rem;
+      line-height:1.2;
+    }
+
     .btn{
       border-radius:999px;
-      padding:0.82rem 1.28rem;
+      padding:0.82rem 1.15rem;
       font-size:1rem;
       font-weight:1200;
       border:1px solid rgba(255,255,255,0.55);
@@ -258,64 +359,26 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.10);}
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
-
-    /* “Cosa curiamo insieme” */
-    .stack{
-      display:grid;
-      gap:.9rem;
-      margin-top:1rem;
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
     }
-    .item{
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 18px 38px rgba(0,0,0,0.14);
-      padding:1.05rem 1.05rem;
-    }
-    .item h4{
-      font-size:1.05rem;
-      font-weight:1200;
-      margin-bottom:.25rem;
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-    }
-    .item p{font-size:1.02rem;opacity:.92;line-height:1.55;}
-
-    /* cards artisti */
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;margin-top:1rem;}
-    .artist-card{
-      border-radius:1.75rem;
-      border:1px solid rgba(255,255,255,0.18);
-      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
-      box-shadow:0 18px 40px rgba(0,0,0,0.18);
-      padding:1.25rem;
-      backdrop-filter: blur(10px);
-      position:relative;
-      overflow:hidden;
-    }
-    .artist-card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
-                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
-      opacity:.55;
-      pointer-events:none;
-    }
-    .artist-card > *{position:relative; z-index:1;}
-    .artist-name{font-size:1.35rem;font-weight:1200;margin-bottom:.2rem;}
-    .artist-meta{opacity:.9;margin-bottom:.55rem;}
-    .artist-desc{opacity:.92;line-height:1.55;font-size:1.02rem;}
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.9rem;}
 
     @media (max-width: 1020px){
       .grid-3{grid-template-columns:1fr;}
     }
 
-    /* MOBILE header */
+    /* MOBILE */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
       .logo-img{ height:96px; }
       .brand-name{
         font-size:.96rem;
@@ -324,36 +387,25 @@
         overflow:visible;
         text-overflow:clip;
       }
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .header-actions{
-        flex-direction:column;
-        align-items:flex-end;
-        gap:.45rem;
-        z-index:90;
+      .brand-sub{
+        font-size:.86rem;
+        max-width:34ch;
       }
       .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-      .top-icons{margin-right:0;}
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
       .icon-btn{ width:40px; height:40px; }
     }
 
-    /* Back to top */
-    .to-top{
-      position:fixed;right:18px;bottom:18px;z-index:40;
-      width:52px;height:52px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 38px rgba(0,0,0,0.22);
-      backdrop-filter: blur(12px);
-      display:none;align-items:center;justify-content:center;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
-    .to-top span{font-size:1.25rem;}
-    .to-top.show{display:flex;}
-
     footer{
-      max-width:1180px;margin:0 auto;padding:0 1.15rem 2.2rem;opacity:.9;
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 1.15rem 2.2rem;
+      opacity:.9;
     }
   </style>
 </head>
@@ -368,7 +420,7 @@
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-          <div class="brand-sub">
+          <div class="brand-sub" aria-label="Ruoli">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
             <span>Direttrice di coro</span>
@@ -416,15 +468,23 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#ves">VES</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -436,23 +496,6 @@
           <div class="menu-pill">studio</div>
         </a>
 
-        <div>
-          <a class="menu-item" href="artisti.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
-            </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="case-study-narciso.html">Narciso</a>
-            <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
-          </div>
-        </div>
-
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
@@ -462,6 +505,23 @@
           </div>
           <div class="menu-pill">cv</div>
         </a>
+
+        <div>
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+            </div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="case-study-narciso.html">Narciso</a>
+            <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
+          </div>
+        </div>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -476,99 +536,69 @@
     </div>
   </div>
 
-  <main id="top">
+  <main>
     <section>
-      <div class="section-kicker">Progetto artistico</div>
-      <div class="section-title">Quando la voce diventa squadra 🎧</div>
+      <div class="section-kicker">Artisti</div>
+      <div class="section-title">Progetto artistico: un lavoro di squadra 🎧</div>
 
       <div class="card">
         <p>
-          Un percorso artistico solido nasce dall’incontro tra più figure: <span class="hl">vocal coach</span>, <span class="hl">produttore</span>, arrangiatore, studio, immagine e comunicazione.
-          Il mio ruolo è costruire un lavoro vocale ed espressivo coerente con il materiale musicale e con la tua identità, mantenendo una direzione chiara e sostenibile nel tempo.
+          Quando un progetto cresce davvero, non è mai “solo voce”.
+          È un lavoro condiviso tra più figure professionali: <span class="hl">vocal coach</span>, produttore, studio, team creativo.
+          Io mi occupo della parte vocale e interpretativa, e aiuto l’artista a costruire una direzione <span class="hl">coerente</span> e sostenibile nel tempo.
         </p>
-
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-        </div>
-
-        <div style="margin-top:1.2rem;">
-          <div class="pill-title" style="display:inline-flex;width:fit-content;padding:.55rem .95rem;border-radius:999px;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.22);box-shadow:0 14px 26px rgba(0,0,0,0.16);font-weight:1200;letter-spacing:.06em;text-transform:uppercase;font-size:.86rem;line-height:1.2;">
-            Cosa curiamo insieme
-          </div>
-
-          <div class="stack">
-            <div class="item">
-              <h4>🎧 Ascolto dei brani</h4>
-              <p>Chiarire direzione, intenzione e possibilità prima ancora di intervenire.</p>
-            </div>
-
-            <div class="item">
-              <h4>🧩 Lavoro sul brano</h4>
-              <p>Resa vocale, scelte espressive, fraseggio e dinamiche senza imporre forme precostituite.</p>
-            </div>
-
-            <div class="item">
-              <h4>🧠 Gestione emotiva</h4>
-              <p>Trasformare ansia e tensioni in presenza e affidabilità.</p>
-            </div>
-
-            <div class="item">
-              <h4>🕺 Presenza scenica</h4>
-              <p>Abitare palco e performance in modo autentico.</p>
-            </div>
-
-            <div class="item">
-              <h4>🧷 Coerenza artistica</h4>
-              <p>Voce, brani, immagine e comunicazione: una sola lingua riconoscibile.</p>
-            </div>
-          </div>
-        </div>
+        <p class="muted" style="margin-top:.6rem;">
+          Qui sotto trovi alcuni esempi di percorsi: clicca per conoscere l’artista e, se vuoi, raccontami il tuo progetto dalla home.
+        </p>
       </div>
     </section>
 
     <section>
-      <div class="section-kicker">Artisti</div>
-      <div class="section-title">Percorsi che hanno preso forma nel tempo ✨</div>
+      <div class="section-kicker">Percorsi artistici</div>
+      <div class="section-title">Tre esempi concreti ✨</div>
 
       <div class="grid-3">
-        <div class="artist-card">
-          <div class="artist-name">Aurora Blasi</div>
-          <div class="artist-meta muted">Cantautrice • contenuti • percorso in evoluzione</div>
-          <p class="artist-desc">Leggi di più sul suo percorso e sui contenuti pubblicati.</p>
-
+        <div class="tile">
+          <span class="pill-title">Aurora Blasi</span>
+          <p>
+            Un percorso di crescita vocale e artistica costruito passo dopo passo:
+            identità, interpretazione, presenza e lavoro in sinergia con produzione e team.
+          </p>
           <div class="actions">
-            <a class="btn primary" href="case-study-aurora-blasi.html">✨ Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+            <a class="btn primary" href="case-study-aurora-blasi.html">Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
-        <div class="artist-card">
-          <div class="artist-name">Narciso</div>
-          <div class="artist-meta muted">Songwriter • performance • identità scenica</div>
-          <p class="artist-desc">Leggi di più sul suo percorso e ascolta alcuni contenuti del progetto.</p>
-
+        <div class="tile">
+          <span class="pill-title">Narciso</span>
+          <p>
+            Un esempio di lavoro su tecnica, tenuta vocale e libertà espressiva,
+            con un focus sulla performance dal vivo e sulla coerenza del progetto.
+          </p>
           <div class="actions">
-            <a class="btn primary" href="case-study-narciso.html">✨ Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+            <a class="btn primary" href="case-study-narciso.html">Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
-        <div class="artist-card">
-          <div class="artist-name">Lisa Villada Ramirez</div>
-          <div class="artist-meta muted">Cantante • cantautrice • percorso accademico</div>
-          <p class="artist-desc">Leggi di più sul suo percorso e sugli obiettivi artistici e accademici.</p>
-
+        <div class="tile">
+          <span class="pill-title">Lisa Ramirez</span>
+          <p>
+            Un percorso tra tecnica, crescita musicale e obiettivi accademici,
+            con un lavoro strutturato sul repertorio e sulla direzione artistica.
+          </p>
           <div class="actions">
-            <a class="btn primary" href="case-study-lisavilladaramirez.html">✨ Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+            <a class="btn primary" href="case-study-lisaramirez.html">Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
@@ -597,8 +627,8 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
@@ -608,17 +638,10 @@
         </a>
       `).join("");
     })();
-
-    // Back to top
-    const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 700) toTop.classList.add("show");
-      else toTop.classList.remove("show");
-    });
-    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
+
 
 
 
