@@ -381,12 +381,12 @@
     }
     .t-item > *{position:relative; z-index:1;}
 
-    /* ✅ QUI: periodo sempre in 2ª riga */
+    /* ✅ DATE SEMPRE IN SECONDA RIGA */
     .t-top{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:.38rem;
-      align-items:start;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.55rem;
     }
 
     .t-role{
@@ -407,7 +407,6 @@
       opacity:.92;
       font-size:.92rem;
       white-space:nowrap;
-      width:fit-content;
     }
     .t-desc{
       margin-top:.45rem;
@@ -417,120 +416,13 @@
       text-align:left;
     }
 
-    /* Media grid (link cards) */
-    .media-grid{
+    /* ✅ Media previews (solo YouTube) */
+    .preview-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:1rem;
       margin-top:1rem;
       align-items:stretch;
-    }
-    .media-card{
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 18px 38px rgba(0,0,0,0.14);
-      padding:1rem 1rem;
-    }
-    .media-card h4{
-      font-size:1.05rem;
-      font-weight:1200;
-      margin-bottom:.35rem;
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-    }
-    .media-card p{font-size:1.02rem;opacity:.92;line-height:1.55;text-align:left;}
-    .media-links{
-      margin-top:.65rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-    }
-    .mini-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.58rem .86rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      font-weight:1100;
-      opacity:.94;
-      transition: transform .12s ease, background .12s ease;
-      font-size:.98rem;
-      white-space:nowrap;
-    }
-    .mini-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
-
-    /* ✅ Mini anteprime YouTube + Spotify */
-   <div class="preview-grid" aria-label="Anteprime contenuti">
-
-  <!-- YOUTUBE ANTEPRIMA 1 -->
-  <div class="preview">
-    <div class="preview-head">
-      <div class="preview-title">YouTube — Video 1</div>
-      <div class="preview-sub">Anteprima video</div>
-    </div>
-    <div class="preview-frame">
-      <iframe
-        src="https://www.youtube.com/embed/iyHL7ZxjI5c"
-        title="YouTube — Video 1"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- YOUTUBE ANTEPRIMA 2 -->
-  <div class="preview">
-    <div class="preview-head">
-      <div class="preview-title">YouTube — Video 2</div>
-      <div class="preview-sub">Anteprima video</div>
-    </div>
-    <div class="preview-frame">
-      <iframe
-        src="https://www.youtube.com/embed/ZN0ANU_nNpw"
-        title="YouTube — Video 2"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- YOUTUBE ANTEPRIMA 3 -->
-  <div class="preview">
-    <div class="preview-head">
-      <div class="preview-title">YouTube — Video 3</div>
-      <div class="preview-sub">Anteprima video</div>
-    </div>
-    <div class="preview-frame">
-      <iframe
-        src="https://www.youtube.com/embed/v0TAsdd_VtM"
-        title="YouTube — Video 3"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- YOUTUBE ANTEPRIMA 4 -->
-  <div class="preview">
-    <div class="preview-head">
-      <div class="preview-title">YouTube — Video 4</div>
-      <div class="preview-sub">Anteprima video</div>
-    </div>
-    <div class="preview-frame">
-      <iframe
-        src="https://www.youtube.com/embed/l7r9jDhwHVI"
-        title="YouTube — Video 4"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-
     }
     .preview{
       border-radius:1.35rem;
@@ -538,6 +430,7 @@
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
       overflow:hidden;
+      backdrop-filter: blur(10px);
     }
     .preview-head{
       padding:.85rem 1rem;
@@ -552,13 +445,13 @@
     .preview-sub{
       font-size:.92rem;
       opacity:.88;
-      margin-top:.18rem;
+      margin-top:.15rem;
       line-height:1.25;
     }
     .preview-frame{
       position:relative;
       width:100%;
-      aspect-ratio:16/9;
+      aspect-ratio: 16 / 9;
       background: rgba(0,0,0,0.22);
     }
     .preview-frame iframe{
@@ -567,15 +460,6 @@
       width:100%;
       height:100%;
       border:0;
-    }
-    .preview-frame.spotify{
-      aspect-ratio:auto;
-    }
-    .preview-frame.spotify iframe{
-      position:static;
-      width:100%;
-      height:152px;
-      display:block;
     }
 
     /* Back to top */
@@ -602,7 +486,6 @@
     @media (max-width: 1020px){
       main{padding-top:1.2rem;}
       .hero-row{grid-template-columns:1fr;}
-      .media-grid{grid-template-columns:1fr;}
       .preview-grid{grid-template-columns:1fr;}
     }
 
@@ -792,10 +675,8 @@
           <div class="section-title">Formazione, didattica e performance 📚✨</div>
 
           <p>
-            Qui trovi una panoramica completa del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
-            Se vuoi orientarti su quale percorso sia più adatto a te, puoi scrivermi dal form della home.
+            Qui trovi una panoramica del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
           </p>
-          <!-- ✅ rimossi i bottoni in fondo alla sezione -->
         </div>
 
         <div class="card">
@@ -816,148 +697,111 @@
       <div class="section-title">Didattica & Formazione 🎓</div>
 
       <div class="card">
+        <p class="muted" style="text-align:left; margin-bottom:.75rem;">
+          Se vuoi saperne di più, puoi aprire la pagina dedicata e consultare l’elenco completo.
+        </p>
+
         <div class="timeline">
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale</div>
-              <div class="t-when">📅 Ottobre 2025 – oggi</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale</div>
+            <div class="t-when">📅 Ottobre 2025 – oggi</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role"><span class="hl">Certified VES® Trainer</span> — Voice Evolution Institute</div>
-              <div class="t-when">📅 Maggio 2025</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role"><span class="hl">Certified VES® Trainer</span> — Voice Evolution Institute</div>
+            <div class="t-when">📅 Maggio 2025</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Relatrice workshop “Vocal tract stimulation exercises for resonance developement” — Pan European Voice Conference</div>
-              <div class="t-when">📅 Settembre 2024 • Santander (ES)</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Relatrice workshop “Vocal tract stimulation exercises for resonance developement” — Pan European Voice Conference</div>
+            <div class="t-when">📅 Settembre 2024 • Santander (ES)</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Insegnante di canto e laboratori corali e vocali (collaborazione con ASL) — Centro Ottava, Roma</div>
-              <div class="t-when">📅 2022 – 2025</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Insegnante di canto e laboratori corali e vocali (collaborazione con ASL) — Centro Ottava, Roma</div>
+            <div class="t-when">📅 2022 – 2025</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Selezionatrice e Vocal Coach (tecnica vocale, interpretazione, presenza scenica, laboratori corali) — Tour Music Fest®</div>
-              <div class="t-when">📅 2019 – 2024</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Selezionatrice e Vocal Coach (tecnica vocale, interpretazione, presenza scenica, laboratori corali) — Tour Music Fest®</div>
+            <div class="t-when">📅 2019 – 2024</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Docente formato <span class="hl">Voice to Teach®</span></div>
-              <div class="t-when">📅 2017</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Docente formato <span class="hl">Voice to Teach®</span></div>
+            <div class="t-when">📅 2017</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Insegnante di canto — Scuola di musica Armonie Musicali, Roma</div>
-              <div class="t-when">📅 2013 – 2025</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Insegnante di canto — Scuola di musica Armonie Musicali, Roma</div>
+            <div class="t-when">📅 2013 – 2025</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Insegnante di canto — Accademia Musicale “Risonanze”, Roma</div>
-              <div class="t-when">📅 2012 – 2025</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Insegnante di canto — Accademia Musicale “Risonanze”, Roma</div>
+            <div class="t-when">📅 2012 – 2025</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Diploma di II livello in Didattica della Musica — Conservatorio di Santa Cecilia, Roma (110/110 e Lode)</div>
-              <div class="t-when">📅 2022</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Diploma di II livello in Didattica della Musica — Conservatorio di Santa Cecilia, Roma (110/110 e Lode)</div>
+            <div class="t-when">📅 2022</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Seminario “La Vocalità Estrema (Growl, Fischio)” — F. Fussi, E. Biaviati, E. Bruni (Ravenna)</div>
-              <div class="t-when">📅 2016</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Seminario “La Vocalità Estrema (Growl, Fischio)” — F. Fussi, E. Biaviati, E. Bruni (Ravenna)</div>
+            <div class="t-when">📅 2016</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Masterclass: “Rent, la voce nell’opera rock” — Francesca Taverni</div>
-              <div class="t-when">📅 2013</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Masterclass: “Rent, la voce nell’opera rock” — Francesca Taverni</div>
+            <div class="t-when">📅 2013</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Masterclass — Dean Bowman (musica afroamericana)</div>
-              <div class="t-when">📅 2012</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Masterclass — Dean Bowman (musica afroamericana)</div>
+            <div class="t-when">📅 2012</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Corso di Song Writing — Peter Cunnah (The Institute, Londra)</div>
-              <div class="t-when">📅 2012</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Corso di Song Writing — Peter Cunnah (The Institute, Londra)</div>
+            <div class="t-when">📅 2012</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Certificazione internazionale Rockschool UK — Grade 8, Vocals</div>
-              <div class="t-when">📅 2012</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Certificazione internazionale Rockschool UK — Grade 8, Vocals</div>
+            <div class="t-when">📅 2012</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Masterclass — Catherine Sadolin (Complete Vocal Technique)</div>
-              <div class="t-when">📅 2012</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Masterclass — Catherine Sadolin (Complete Vocal Technique)</div>
+            <div class="t-when">📅 2012</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Corso Internazionale “La Voce Artistica” — Franco Fussi (Ravenna)</div>
-              <div class="t-when">📅 2011</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Corso Internazionale “La Voce Artistica” — Franco Fussi (Ravenna)</div>
+            <div class="t-when">📅 2011</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Master in Didattica del Canto Moderno — Sonus Factory, Roma</div>
-              <div class="t-when">📅 2011</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Master in Didattica del Canto Moderno — Sonus Factory, Roma</div>
+            <div class="t-when">📅 2011</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Corsi Voicecraft (Base, Avanzato, Specialistico) — Elisa Turlà</div>
-              <div class="t-when">📅 2010</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Corsi Voicecraft (Base, Avanzato, Specialistico) — Elisa Turlà</div>
+            <div class="t-when">📅 2010</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Laurea di I livello in Jazz – Canto — Conservatorio “G.B. Martini”, Bologna</div>
-              <div class="t-when">📅 2010</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Laurea di I livello in Jazz – Canto — Conservatorio “G.B. Martini”, Bologna</div>
+            <div class="t-when">📅 2010</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Laurea di I livello in DAMS – Didattica della Musica — Alma Mater Studiorum, Bologna</div>
-              <div class="t-when">📅 2010</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Laurea di I livello in DAMS – Didattica della Musica — Alma Mater Studiorum, Bologna</div>
+            <div class="t-when">📅 2010</div>
+          </div></div>
         </div>
-        <!-- ✅ rimossi i bottoni in fondo alla sezione -->
       </div>
     </section>
 
@@ -967,60 +811,45 @@
       <div class="section-title">Performance & Songwriting 🎤🎶</div>
 
       <div class="card">
+        <p class="muted" style="text-align:left; margin-bottom:.75rem;">
+          Se vuoi saperne di più, puoi aprire la pagina dedicata e consultare l’elenco completo.
+        </p>
+
         <div class="timeline">
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino</div>
-              <div class="t-when">📅 2018 – 2019</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino</div>
+            <div class="t-when">📅 2018 – 2019</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Pubblicazione singolo “Onda dopo onda” (Noise Symphony Music)</div>
-              <div class="t-when">📅 2019</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Pubblicazione singolo “Onda dopo onda” (Noise Symphony Music)</div>
+            <div class="t-when">📅 2019</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Pubblicazione singolo “Cosa Rimane” (Noise Symphony Music)</div>
-              <div class="t-when">📅 2018</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Pubblicazione singolo “Cosa Rimane” (Noise Symphony Music)</div>
+            <div class="t-when">📅 2018</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Menzione speciale per il testo “Sulle dune più alte del mondo” — Concorso per autori di Mogol</div>
-              <div class="t-when">📅 2018</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Menzione speciale per il testo “Sulle dune più alte del mondo” — Concorso per autori di Mogol</div>
+            <div class="t-when">📅 2018</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Vincitrice del Trofeo Rea (Circuito Nazionale delle 100 Radio) con “Impermeabile”</div>
-              <div class="t-when">📅 2017</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Vincitrice del Trofeo Rea (Circuito Nazionale delle 100 Radio) con “Impermeabile”</div>
+            <div class="t-when">📅 2017</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">Ambasciatrice della musica italiana — Giornata Internazionale delle Lingue (IIC Lisbona)</div>
-              <div class="t-when">📅 2015</div>
-            </div>
-          </div>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">Ambasciatrice della musica italiana — Giornata Internazionale delle Lingue (IIC Lisbona)</div>
+            <div class="t-when">📅 2015</div>
+          </div></div>
 
-          <div class="t-item">
-            <div class="t-top">
-              <div class="t-role">EP autoprodotto “La Prospettiva delle cose”</div>
-              <div class="t-when">📅 2015</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ✅ tenuto SOLO questo (non è "scrivimi/menu") -->
-        <div class="actions">
-          <a class="btn primary" href="artisti.html">🎧 Vai alla pagina Artisti</a>
+          <div class="t-item"><div class="t-top">
+            <div class="t-role">EP autoprodotto “La Prospettiva delle cose”</div>
+            <div class="t-when">📅 2015</div>
+          </div></div>
         </div>
       </div>
     </section>
@@ -1032,20 +861,20 @@
 
       <div class="card">
         <p class="muted" style="text-align:left;">
-          Una piccola selezione di contenuti (link diretti).
+          Una piccola selezione di contenuti in anteprima.
         </p>
 
-        <!-- ✅ anteprime piccole -->
-        <div class="preview-grid" aria-label="Anteprime contenuti">
+        <!-- ✅ SOLO ANTEPRIME YOUTUBE (NO SPOTIFY, NO RIQUADRI EXTRA) -->
+        <div class="preview-grid" aria-label="Anteprime YouTube">
           <div class="preview">
             <div class="preview-head">
-              <div class="preview-title">YouTube — Anteprima 1</div>
-              <div class="preview-sub">Video incorporato</div>
+              <div class="preview-title">YouTube — Video 1</div>
+              <div class="preview-sub">Anteprima</div>
             </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/iyHL7ZxjI5c"
-                title="YouTube — Anteprima 1"
+                title="YouTube — Video 1"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -1054,58 +883,49 @@
 
           <div class="preview">
             <div class="preview-head">
-              <div class="preview-title">YouTube — Anteprima 2</div>
-              <div class="preview-sub">Video incorporato</div>
+              <div class="preview-title">YouTube — Video 2</div>
+              <div class="preview-sub">Anteprima</div>
             </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/ZN0ANU_nNpw"
-                title="YouTube — Anteprima 2"
+                title="YouTube — Video 2"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             </div>
           </div>
 
-          <div class="preview" style="grid-column:1/-1;">
+          <div class="preview">
             <div class="preview-head">
-              <div class="preview-title">Spotify — Anteprima</div>
-              <div class="preview-sub">Sostituisci TRACK_ID_QUI con l’ID del brano/album</div>
+              <div class="preview-title">YouTube — Video 3</div>
+              <div class="preview-sub">Anteprima</div>
             </div>
-            <div class="preview-frame spotify">
+            <div class="preview-frame">
               <iframe
-                src="https://open.spotify.com/embed/track/TRACK_ID_QUI?utm_source=generator"
-                title="Spotify — Anteprima"
+                src="https://www.youtube.com/embed/v0TAsdd_VtM"
+                title="YouTube — Video 3"
                 loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Video 4</div>
+              <div class="preview-sub">Anteprima</div>
+            </div>
+            <div class="preview-frame">
+              <iframe
+                src="https://www.youtube.com/embed/l7r9jDhwHVI"
+                title="YouTube — Video 4"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
             </div>
           </div>
         </div>
-
-        <!-- cards link come prima (invariato, ma restano sotto) -->
-        <div class="media-grid">
-          <div class="media-card">
-            <h4>▶️ YouTube</h4>
-            <p>Link diretti ai video:</p>
-            <div class="media-links">
-              <a class="mini-btn" href="https://www.youtube.com/watch?v=iyHL7ZxjI5c&list=RDiyHL7ZxjI5c&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 1</a>
-              <a class="mini-btn" href="https://www.youtube.com/watch?v=ZN0ANU_nNpw&list=RDZN0ANU_nNpw&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 2</a>
-              <a class="mini-btn" href="https://www.youtube.com/watch?v=v0TAsdd_VtM&list=RDv0TAsdd_VtM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri video 3</a>
-            </div>
-          </div>
-
-          <div class="media-card">
-            <h4>📷 Instagram</h4>
-            <p>Post selezionati:</p>
-            <div class="media-links">
-              <a class="mini-btn" href="https://www.instagram.com/p/C_01nfXtjyh/" target="_blank" rel="noopener noreferrer">Apri post 1</a>
-              <a class="mini-btn" href="https://www.instagram.com/p/DJPzM39t9Oo/?img_index=1" target="_blank" rel="noopener noreferrer">Apri post 2</a>
-              <a class="mini-btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram Studio</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ✅ rimossi i bottoni in fondo alla sezione -->
       </div>
     </section>
   </main>
@@ -1127,7 +947,6 @@
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
-    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
     // NAV PILLS (desktop: Home primo, escludi pagina corrente)
