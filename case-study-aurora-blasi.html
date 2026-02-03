@@ -31,10 +31,9 @@
     }
 
     a{color:inherit;text-decoration:none;}
-    p, li{line-height:1.9;font-size:1.08rem;}
+    p, li{line-height:1.85;font-size:1.08rem;}
     .muted{opacity:.88}
 
-    /* evidenzia parole chiave: giallo + grassetto */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -68,6 +67,7 @@
     }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+
     .brand-name{
       font-weight:1100;
       letter-spacing:.12em;
@@ -77,14 +77,25 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
+
     .brand-sub{
       font-size:.96rem;
       opacity:.96;
-      line-height:1.25;
+      line-height:1.3;
       max-width:64ch;
     }
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+    }
 
-    /* nav pills (desktop) */
+    /* NAV PILLS (desktop) */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -138,6 +149,7 @@
       gap:.55rem;
       flex-wrap:nowrap;
       flex:0 0 auto;
+      margin-top:.15rem;
       position:relative;
       z-index:80;
     }
@@ -171,7 +183,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scrollabile) */
+    /* MENU OVERLAY */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -183,6 +195,7 @@
       overflow:auto;
     }
     .menu-overlay.open{display:block;}
+
     .menu-card{
       max-width:590px;
       margin:4.2rem auto;
@@ -202,6 +215,7 @@
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -286,16 +300,9 @@
       backdrop-filter: blur(12px);
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:1.1rem;
-      align-items:stretch;
-    }
-
     .btn{
       border-radius:999px;
-      padding:0.82rem 1.28rem;
+      padding:0.82rem 1.15rem;
       font-size:1rem;
       font-weight:1200;
       border:1px solid rgba(255,255,255,0.55);
@@ -319,118 +326,71 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* media embed */
+    /* Media blocks */
     .media-grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:1rem;
+      align-items:start;
       margin-top:1rem;
     }
-    .media{
-      border-radius:1.55rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+    .embed{
+      border-radius:1.35rem;
       overflow:hidden;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
     }
-    .media .head{
-      padding:1rem 1rem .75rem;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-    }
-    .media .head .t{
-      font-weight:1200;
-      font-size:1.1rem;
-      line-height:1.25;
-    }
-    .media .head .d{
-      font-size:.95rem;
-      opacity:.88;
-      margin-top:.25rem;
-      line-height:1.35;
-    }
-    .media .head .open{
-      flex:0 0 auto;
-      border-radius:999px;
-      padding:.55rem .9rem;
-      font-weight:1200;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
-      transition:transform .12s ease, background .12s ease;
-      white-space:nowrap;
-    }
-    .media .head .open:hover{transform:translateY(-1px);background:rgba(255,255,255,0.16);}
-    .media iframe{
+    .embed iframe{
       width:100%;
+      height:360px;
       border:0;
       display:block;
       background:transparent;
     }
-    .yt iframe{aspect-ratio: 16 / 9;}
-    .sp iframe{height:352px;}
-
-    /* back to top */
-    .to-top{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:40;
-      width:52px;height:52px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 38px rgba(0,0,0,0.22);
-      backdrop-filter: blur(12px);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
+    .embed.spotify iframe{ height:152px; }
+    .media-links{
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.14);
+      padding:1rem;
+    }
+    .media-links h3{
+      font-size:1.05rem;
+      font-weight:1200;
+      margin-bottom:.55rem;
+      letter-spacing:.02em;
+    }
+    .link-list{display:grid;gap:.45rem;margin-top:.35rem;}
+    .link-item{
+      display:flex;
+      gap:.6rem;
+      align-items:flex-start;
+      line-height:1.35;
+      padding:.55rem .65rem;
+      border-radius:1.05rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
-    .to-top span{font-size:1.25rem;}
-    .to-top.show{display:flex;}
+    .link-item:hover{
+      transform:translateY(-1px);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.24);
+    }
+    .link-ico{flex:0 0 auto;filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));}
+    .link-txt{display:flex;flex-direction:column;gap:.08rem;min-width:0;}
+    .link-txt .t{font-weight:1200;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .link-txt .d{font-size:.94rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
     @media (max-width: 1020px){
-      main{padding-top:1.2rem;}
-      .grid-2{grid-template-columns:1fr;}
       .media-grid{grid-template-columns:1fr;}
     }
 
-    /* MOBILE HEADER: ruoli verticali con pallino giallo */
+    /* MOBILE */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-
-      .brand{gap:.6rem;}
-      .logo-img{ height:96px; }
-
-      .brand-name{
-        font-size:.96rem;
-        letter-spacing:.11em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
-      }
-
-      .brand-sub{
-        font-size:.86rem;
-        line-height:1.35;
-        max-width:34ch;
-        white-space:normal;
-        display:block;
-      }
-      .brand-sub span{
-        display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
-      .brand-sub span::before{
-        content:"• ";
-        color:var(--yellow);
-        font-weight:900;
-      }
 
       .header-actions{
         flex-direction:column;
@@ -438,9 +398,27 @@
         gap:.45rem;
         z-index:90;
       }
+      .logo-img{ height:96px; }
+      .brand-name{
+        font-size:.96rem;
+        letter-spacing:.11em;
+        white-space:nowrap;
+        overflow:visible;
+        text-overflow:clip;
+      }
+      .brand-sub{
+        font-size:.86rem;
+        max-width:34ch;
+      }
       .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-      .top-icons{flex-direction:row; gap:.45rem; margin-right:0;}
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
       .icon-btn{ width:40px; height:40px; }
+      .embed iframe{ height:300px; }
     }
 
     footer{
@@ -462,7 +440,6 @@
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
-
           <div class="brand-sub" aria-label="Ruoli">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -477,17 +454,10 @@
       <div class="header-actions">
         <div class="top-icons">
           <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
           <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
           </a>
         </div>
 
@@ -518,23 +488,15 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <div>
-          <a class="menu-item" href="percorsi.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+        <a class="menu-item" href="percorsi.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
-            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
-            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
-            <a href="percorsi.html#ves">VES</a>
+            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
           </div>
-        </div>
+          <div class="menu-pill">go</div>
+        </a>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -556,22 +518,15 @@
           <div class="menu-pill">cv</div>
         </a>
 
-        <div>
-          <a class="menu-item" href="artisti.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+        <a class="menu-item" href="artisti.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="case-study-narciso.html">Narciso</a>
-            <a href="case-study-lisavilladaramirez.html">Lisa Villada Ramirez</a>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
           </div>
-        </div>
+          <div class="menu-pill">go</div>
+        </a>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -586,178 +541,185 @@
     </div>
   </div>
 
-  <main id="top">
-    <!-- HERO -->
+  <main>
     <section>
-      <div class="grid-2">
-        <div class="card">
-          <div class="section-kicker">Artisti</div>
-          <div class="section-title">Aurora Blasi 🎤</div>
+      <div class="section-kicker">Artisti</div>
+      <div class="section-title">Aurora Blasi ✨</div>
 
-          <p class="muted">
-            Un percorso di crescita vocale e artistica costruito <span class="hl">passo dopo passo</span>, con un lavoro integrato tra
-            <span class="hl">voce</span>, <span class="hl">identità</span> e <span class="hl">presenza</span>.
-          </p>
-
-          <div class="actions">
-            <a class="btn primary" href="#testo">✨ Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="section-kicker">Link utili</div>
-          <p>
-            👉 <a class="hl" href="https://www.ballandimusic.it" target="_blank" rel="noopener noreferrer">Ballandi Music</a><br/>
-            👉 <a class="hl" href="https://www.noisesymphony.com/" target="_blank" rel="noopener noreferrer">Noise Symphony</a><br/>
-            👉 <a class="hl" href="https://www.instagram.com/ballandimusic/" target="_blank" rel="noopener noreferrer">Instagram Ballandi Music</a>
-          </p>
-          <p class="muted" style="margin-top:.8rem;">
-            (Se un embed non si carica su alcuni browser, i pulsanti “Apri” funzionano sempre.)
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTO COMPLETO -->
-    <section id="testo">
       <div class="card">
-        <div class="section-kicker">Il percorso</div>
-        <div class="section-title" style="font-size:2.05rem;">Dalla crescita personale alla scena</div>
-
         <p>
-          Un esempio di percorso artistico che ho accompagnato fin dalle prime fasi è quello di <span class="hl">Aurora Blasi</span>,
-          giovane cantautrice e content creator romana.
+          <span class="hl">Aurora Blasi</span>, giovane cantautrice e content creator romana.
+          Quando si è rivolta a me non aveva ancora un’idea chiara del percorso che avrebbe voluto intraprendere.
+          Inizialmente la sua priorità era <span class="hl">migliorare la vocalità</span>: sentiva che qualcosa non funzionava,
+          faceva molta fatica e si ritrovava spesso senza voce.
         </p>
 
         <p>
-          Il nostro lavoro è iniziato dalle basi, attraverso un percorso di crescita vocale e artistica costruito passo dopo passo.
-          Insieme abbiamo lavorato sulla <span class="hl">voce</span>, sull’<span class="hl">espressività</span> e sulla <span class="hl">consapevolezza</span>,
-          accompagnando lo sviluppo della sua identità artistica e del modo di stare nella musica e sulla scena.
+          Il nostro lavoro è iniziato dalle basi, attraverso un percorso di rieducazione vocale e un accompagnamento dell’habitus vocale quotidiano,
+          necessario per restituire alla voce <span class="hl">funzionalità</span> e <span class="hl">stabilità</span>.
+        </p>
+
+        <p>
+          Con il tempo ci siamo conosciute meglio e ho compreso che il suo desiderio era quello di fare della musica una scelta di vita.
+          Da lì ho cercato di indirizzarla verso un percorso di professionalizzazione, sia in ambito vocale – attraverso la preparazione al
+          <span class="hl">Diploma in Canto Moderno VES</span> – sia in ambito artistico più ampio.
+        </p>
+
+        <p>
+          Le ho fatto conoscere quello che sarebbe poi diventato il suo produttore, Francesco Tosoni,
+          e le ho suggerito di approfondire anche il lavoro sulla scrittura, partecipando ai corsi tenuti dal celebre autore Roberto Casalino.
         </p>
 
         <p>
           Aurora ha iniziato a raccontarsi attraverso la musica partendo dalle sue esperienze di strada e dalla condivisione sui social,
           trasformando gradualmente questa spinta iniziale in un progetto musicale sempre più definito.
-          Questo percorso ha portato Aurora a confrontarsi con contesti professionali strutturati, fino alla pubblicazione del singolo di debutto
-          <span class="hl">“Zucchero”</span> con <span class="hl">Ballandi Music</span>, distribuito da <span class="hl">Sony Music Italy</span>.
         </p>
 
         <p>
-          La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su RAI 3, ospite di Luca Barbareschi,
-          è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione
-          <span class="hl">si è trasformata in presenza</span> e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
-          <a class="hl" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">Guarda il reel →</a>
+          Nel giro di meno di un anno, ha iniziato a far emergere con maggiore chiarezza il suo potenziale anche come autrice.
+          Ha cominciato a portarmi le sue canzoni, sulle quali lavoravamo insieme, confrontandoci sulla struttura, sullo sviluppo e sulla direzione espressiva.
         </p>
 
         <p>
-          Questa esperienza è il risultato di un lavoro di squadra, in cui competenze diverse hanno lavorato nella stessa direzione e a completo servizio dell’artista.
-          La collaborazione tra le figure professionali coinvolte (trainer vocale, produttore artistico, etichetta discografica) ha reso possibile il passaggio
-          da un’idea iniziale a un’uscita discografica strutturata, sostenuta da una produzione di qualità e da un contesto professionale solido.
+          Questo percorso l’ha condotta a un primo importante traguardo professionale: la firma con l’etichetta
+          <span class="hl">Ballandi Music</span> e la pubblicazione del singolo di debutto <span class="hl">“Zucchero”</span>,
+          distribuito da Sony Music Italy e prodotto artisticamente da Francesco Tosoni.
         </p>
 
         <p>
-          Nel <span class="hl">Dicembre 2025</span> ha rilasciato la cover della celebre canzone <span class="hl">All I Want for Christmas</span>
-          registrata dal vivo all’<span class="hl">Alcatraz di Milano</span> e accompagnata dall’orchestra del <span class="hl">M° Valeriano Chiaravalle</span>.
+          La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su <span class="hl">RAI 3</span>, ospite di Luca Barbareschi,
+          è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza
+          e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
+          <a href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer"><span class="hl">Guarda il reel</span></a>.
         </p>
 
         <p>
-          Da poco è uscito anche il suo....
+          Nel Dicembre 2025 ha rilasciato la cover della celebre canzone <span class="hl">All I Want for Christmas</span>,
+          registrata dal vivo all’<span class="hl">Alcatraz di Milano</span> e accompagnata dall’orchestra del M° Valeriano Chiaravalle.
+        </p>
+
+        <p>
+          Da poco è uscito anche il suo <span class="hl">secondo singolo</span> dal titolo <span class="hl">“French Roulette”</span>,
+          un brano dance pop con qualche venatura tribale che non può lasciare indifferenti.
         </p>
 
         <p class="muted" style="margin-top:.6rem;">
-          Il lavoro prosegue anche oggi e guarda avanti, con un nuovo singolo in uscita.
+          Il lavoro prosegue anche oggi e guarda avanti: alla realizzazione di un mini album.
         </p>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          <a class="btn" href="artisti.html">🎧 Torna alla pagina Artisti</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
       </div>
     </section>
 
-    <!-- MEDIA: super visibili -->
-    <section id="media">
+    <section>
       <div class="section-kicker">Media</div>
-      <div class="section-title">Ascolta e guarda 🎧📺</div>
+      <div class="section-title">Anteprime 🎬🎧</div>
 
-      <div class="media-grid">
-        <!-- Spotify: Zucchero -->
-        <div class="media sp">
-          <div class="head">
-            <div>
-              <div class="t">Spotify — “Zucchero”</div>
-              <div class="d">Singolo di debutto</div>
-            </div>
-            <a class="open" href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=595a6924d5324e85" target="_blank" rel="noopener noreferrer">Apri</a>
+      <div class="card">
+        <div class="media-grid">
+          <!-- YouTube preview -->
+          <div class="embed" aria-label="Anteprima YouTube">
+            <iframe
+              src="https://www.youtube.com/embed/dgbq1KNOPzo"
+              title="YouTube — Aurora Blasi"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
           </div>
-          <iframe
-            src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Spotify - Zucchero">
-          </iframe>
+
+          <!-- Spotify preview -->
+          <div class="embed spotify" aria-label="Anteprima Spotify">
+            <iframe
+              src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda?utm_source=generator"
+              title="Spotify — Aurora Blasi"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+          </div>
+
+          <div class="media-links" style="grid-column: 1 / -1;">
+            <h3>Apri contenuti</h3>
+            <div class="link-list">
+              <a class="link-item" href="https://open.spotify.com/artist/0tKxDSQVS3uJufF48rFvFx" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Spotify — Aurora Blasi</span>
+                  <span class="d">Profilo artista</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://open.spotify.com/track/6G3v6KVfAQee3dlUyHrEmX" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Spotify — “Zucchero”</span>
+                  <span class="d">Ascolta su Spotify</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=7f269c04c38144d2" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Spotify — “All I Want for Christmas”</span>
+                  <span class="d">Ascolta su Spotify</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://open.spotify.com/intl-it/track/5xFNEms1X8BaroHbluaFj8?si=58222be9bbcb4932" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Spotify — “French Roulette”</span>
+                  <span class="d">Ascolta su Spotify</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">YouTube — (video) Aurora Blasi</span>
+                  <span class="d">Apri su YouTube</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://www.youtube.com/watch?v=NCVpKDqU8wk&list=RDNCVpKDqU8wk&start_radio=1" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">YouTube — “French Roulette”</span>
+                  <span class="d">Apri su YouTube</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Instagram — Reel RAI 3</span>
+                  <span class="d">Apri su Instagram</span>
+                </span>
+              </a>
+
+              <a class="link-item" href="https://www.ballandimusic.it" target="_blank" rel="noopener noreferrer">
+                <span class="link-ico">👉</span>
+                <span class="link-txt">
+                  <span class="t">Ballandi Music</span>
+                  <span class="d">Sito ufficiale</span>
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <!-- Spotify: nuovo brano -->
-        <div class="media sp">
-          <div class="head">
-            <div>
-              <div class="t">Spotify — nuovo brano</div>
-              <div class="d">Anteprima dal link che mi hai dato</div>
-            </div>
-            <a class="open" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=7f269c04c38144d2" target="_blank" rel="noopener noreferrer">Apri</a>
-          </div>
-          <iframe
-            src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Spotify - nuovo brano">
-          </iframe>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
-
-        <!-- YouTube: anteprima richiesta -->
-        <div class="media yt">
-          <div class="head">
-            <div>
-              <div class="t">YouTube — video</div>
-              <div class="d">Anteprima</div>
-            </div>
-            <a class="open" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1" target="_blank" rel="noopener noreferrer">Apri</a>
-          </div>
-          <iframe
-            src="https://www.youtube.com/embed/dgbq1KNOPzo"
-            title="YouTube - video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            loading="lazy"></iframe>
-        </div>
-
-        <!-- YouTube: secondo video (quello che avevamo già) -->
-        <div class="media yt">
-          <div class="head">
-            <div>
-              <div class="t">YouTube — performance</div>
-              <div class="d">Secondo contenuto</div>
-            </div>
-            <a class="open" href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1" target="_blank" rel="noopener noreferrer">Apri</a>
-          </div>
-          <iframe
-            src="https://www.youtube.com/embed/ayLHDQ279IM"
-            title="YouTube - performance"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <div class="actions" style="margin-top:1.15rem;">
-        <a class="btn primary" href="#top">⬆️ Conosci l’artista</a>
-        <a class="btn" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
-        <button class="btn link open-menu" type="button">☰ Menu</button>
       </div>
     </section>
   </main>
-
-  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
@@ -777,7 +739,7 @@
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // NAV PILLS desktop (Home primo, escludi pagina corrente)
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
@@ -786,8 +748,8 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
@@ -797,15 +759,8 @@
         </a>
       `).join("");
     })();
-
-    // Back to top
-    const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 700) toTop.classList.add("show");
-      else toTop.classList.remove("show");
-    });
-    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
+
 
