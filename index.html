@@ -437,9 +437,15 @@
     .tile:hover .tile-thumb img{ transform: scale(1.08); }
 
     /* Fitball: abbassa l’inquadratura */
-    .fitball-focus{
-      object-position: center 70%;
-    }
+.fitball-focus{
+  object-position: center 78%; /* era 70% -> più giù */
+}
+
+/* Reel DSqtQhXDEdo: abbassa l’inquadratura SOLO per quella cover */
+.reel-es-focus{
+  object-position: center 72%;
+}
+
 
     /* ================= STUDIO: gallery ================= */
     .mini-gallery{
@@ -914,7 +920,7 @@
 
         <!-- 1: REEL DSqtQhXDEdo (cover specifica) -->
         <a class="ig-card hover-lift" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer" aria-label="Apri Reel ExpresSING Studio">
-          <img src="Reel expressing studio.png" alt="Reel ExpresSING Studio (DSqtQhXDEdo)">
+<img class="reel-es-focus" src="Reel expressing studio.png" alt="Reel ExpresSING Studio (DSqtQhXDEdo)">
           <div class="ig-meta">
             <div style="min-width:0;">
               <div class="ig-title">Reel</div>
