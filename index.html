@@ -78,6 +78,32 @@
   text-transform: uppercase;
   text-shadow: var(--titleShadow);
 }
+/* ===============================
+   HEADER / BANNER – FONT LOGO
+   =============================== */
+
+.brand-name{
+  font-family: "Amatic SC", cursive !important;
+  font-weight: 700;
+  letter-spacing: .28em;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.25),
+    0 10px 22px rgba(0,0,0,0.35);
+}
+
+/* ruoli sotto il nome */
+.brand-sub{
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.brand-sub span{
+  font-size: 1.05rem;
+}
 
     }
 
@@ -721,6 +747,41 @@
   letter-spacing: .18em;
   text-transform: uppercase;
 }
+@media (max-width: 600px){
+  .brand-name{
+    font-size: 1.3rem;
+    letter-spacing: .22em;
+  }
+
+  .brand-sub span{
+    font-size: .95rem;
+  }
+}
+/* ===============================
+   ANIMAZIONI TITOLI
+   =============================== */
+
+@keyframes titleFadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* titoli principali */
+.section-title{
+  opacity: 0;
+  animation: titleFadeUp .8s ease-out forwards;
+}
+
+/* piccoli ritardi per ritmo visivo */
+.section-title:nth-of-type(1){ animation-delay: .05s; }
+.section-title:nth-of-type(2){ animation-delay: .15s; }
+.section-title:nth-of-type(3){ animation-delay: .25s; }
 
   </style>
 </head>
@@ -861,10 +922,14 @@
         <p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
 
         <details class="details">
+          
+
+
           <summary>
             <span class="hint">Leggi la mia storia</span>
             <span class="chev">⌄</span>
           </summary>
+          
 
           <div class="content">
             <p>
@@ -898,6 +963,8 @@
             <p>
               Collaboro inoltre con produttori e studi di registrazione come <span class="hl">Vocal Coach</span> e <span class="hl">consulente musicale</span>,
               accompagnando artisti nella realizzazione dei loro progetti e nella ricerca della loro identità vocale e artistica.
+              .sum-left .t{
+
             </p>
           </div>
         </details>
