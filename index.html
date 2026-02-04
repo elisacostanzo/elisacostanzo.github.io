@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <title>Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
+      --titleFont: "Amatic SC", Calibri, "Segoe UI", Arial, sans-serif;
+--titleShadow: 0 10px 22px rgba(0,0,0,0.30);
       --blue:#355c7b;
       --magenta:#81277c;
       --yellow:#f6d24a;
@@ -45,6 +50,35 @@
       text-decoration-color: rgba(246,210,74,0.35);
       text-underline-offset: 3px;
       text-decoration-thickness: 2px;
+      /* TITOLI: font del logo (Amatic SC) + leggibilità */
+.section-title{
+  font-family: var(--titleFont);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  /* un filo più grande perché Amatic è “alto” e rende meglio */
+  font-size: 3.05rem;
+  line-height: 1.02;
+
+  text-shadow: var(--titleShadow);
+}
+
+/* kicker un po’ più coerente */
+.section-kicker{
+  letter-spacing: .22em;
+}
+
+/* (opzionale ma consigliato) anche i titoli dentro i details */
+.sum-left .t,
+.menu-title h2{
+  font-family: var(--titleFont);
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  text-shadow: var(--titleShadow);
+}
+
     }
 
     /* ================= HEADER ================= */
@@ -602,7 +636,12 @@
       }
       .contact-grid{grid-template-columns:1fr;}
     }
-
+@media (max-width: 600px){
+  .section-title{
+    font-size: 2.55rem;
+    letter-spacing: .07em;
+  }
+}
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
       .header-inner{
