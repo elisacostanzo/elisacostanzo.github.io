@@ -45,7 +45,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* HEADER */
+    /* HEADER (banner come le altre pagine) */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -67,17 +67,10 @@
       font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
-    /* Ruoli con pallini gialli (desktop + mobile) */
-    .brand-sub{
-      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;
-      display:flex;flex-wrap:wrap;gap:.1rem .7rem;
-    }
-    .brand-sub span{display:inline-block;white-space:nowrap;}
-    .brand-sub span::before{
-      content:"• ";
-      color:var(--yellow);
-      font-weight:900;
-    }
+    /* RUOLI: SEMPRE VERTICALI (come le altre pagine) */
+    .brand-sub{font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;display:block;}
+    .brand-sub span{display:block;white-space:nowrap;margin:.12rem 0;}
+    .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:1200;}
 
     /* NAV PILLS (desktop) */
     .nav-pills{
@@ -371,18 +364,44 @@
     details.block[open] .chev{transform: rotate(180deg);}
     .block-content{padding: .25rem 1.05rem 1.15rem;}
 
-    /* “Su cosa lavoriamo” (come screenshot) */
+    /* “SU COSA LAVORIAMO:” (maiucolo + due punti) */
     .workline{
       margin-top:.35rem;
       font-size:1.05rem;
       line-height:1.35;
     }
-    .workline strong{font-weight:1200;}
+    .workline strong{
+      font-weight:1200;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .workline strong::after{content:":";}
     .workline .topics{
       color: var(--topicBlue);
-      font-weight: 1000;
-      margin-left:.4rem;
+      font-weight: 1100;
+      margin-left:.55rem;
+      text-transform:uppercase; /* <-- come richiesto */
     }
+
+    /* Mini thumb della sezione (foto “piccola”) */
+    .section-head{
+      display:flex;
+      align-items:center;
+      gap:.85rem;
+      margin-bottom:.75rem;
+      flex-wrap:wrap;
+    }
+    .section-thumb{
+      width:72px;
+      height:72px;
+      border-radius:1.1rem;
+      border:1px solid rgba(255,255,255,0.20);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+      object-fit:cover;
+      flex:0 0 auto;
+      transition: transform .14s ease, filter .14s ease;
+    }
+    .section-thumb:hover{transform: scale(1.04); filter: brightness(1.04);}
 
     /* Aree schematiche */
     .areas{
@@ -433,6 +452,7 @@
       main{padding-top:1.2rem;}
       .hero-row{grid-template-columns:1fr;}
       .areas{grid-template-columns:1fr;}
+      .section-thumb{width:64px;height:64px;}
     }
 
     /* MOBILE: come già impostato nelle altre pagine */
@@ -449,18 +469,7 @@
         text-overflow:clip;
       }
 
-      .brand-sub{
-        font-size:.86rem;
-        line-height:1.35;
-        max-width:34ch;
-        display:block;
-      }
-      .brand-sub span{
-        display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
-
+      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
       .header-actions{
         flex-direction:column;
         align-items:flex-end;
@@ -644,12 +653,16 @@
     <!-- CANTO -->
     <section id="canto">
       <div class="section-kicker">Percorsi personalizzati</div>
-      <div class="section-title">Lezioni one to one - per cantanti e cantautori 🎤</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Fitball.jpg" alt="Percorso 1:1 - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI 🎤</div>
+      </div>
 
       <div class="card">
         <div class="workline">
-          <strong>Su cosa lavoriamo</strong>
-          <span class="topics">Consapevolezza corporea, tecnica vocale, interpretazione e presenza scenica</span>
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">CONSAPEVOLEZZA CORPOREA, TECNICA VOCALE, INTERPRETAZIONE E PRESENZA SCENICA</span>
         </div>
 
         <p style="margin-top:1rem;">
@@ -702,12 +715,16 @@
     <!-- VOCE PARLATA -->
     <section id="voce">
       <div class="section-kicker">Percorsi personalizzati</div>
-      <div class="section-title">Lezioni one to one - voce parlata e comunicazione professionale 🗣️</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Mascherina.jpg" alt="Voce parlata - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE 🗣️</div>
+      </div>
 
       <div class="card">
         <div class="workline">
-          <strong>Su cosa lavoriamo</strong>
-          <span class="topics">Igiene vocale, funzionalità, identità comunicativa</span>
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">IGIENE VOCALE, FUNZIONALITÀ, IDENTITÀ COMUNICATIVA</span>
         </div>
 
         <p style="margin-top:1rem;">
@@ -737,7 +754,7 @@
               e su comportamenti utili a mantenere la voce sana ed efficiente.
             </p>
             <p style="margin-top:.8rem;">
-              Il percorso include anche strumenti per fronteggiare lo stress e l’ansia da prestazione, frequenti in situazioni come lezioni, conferenze, presentazioni o interventi in pubblico,
+              Il percorso include anche <span class="hl">strumenti per fronteggiare lo stress e l’ansia da prestazione</span>, frequenti in situazioni come lezioni, conferenze, presentazioni o interventi in pubblico,
               aiutandoti a parlare con maggiore sicurezza e presenza.
             </p>
           </div>
@@ -758,12 +775,16 @@
     <!-- ARTISTI -->
     <section id="artisti">
       <div class="section-kicker">Percorsi personalizzati</div>
-      <div class="section-title">Artisti emergenti e sviluppo del progetto discografico 🎧</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Lisa.jpg" alt="Progetto artistico - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO 🎧</div>
+      </div>
 
       <div class="card">
         <div class="workline">
-          <strong>Su cosa lavoriamo</strong>
-          <span class="topics">Brani, identità artistica, preparazione a studio e performance</span>
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">BRANI, IDENTITÀ ARTISTICA, PREPARAZIONE A STUDIO E PERFORMANCE</span>
         </div>
 
         <p style="margin-top:1rem;">
@@ -932,7 +953,7 @@
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
 
-    // chiudi menu quando clicco una voce (senza bloccare la navigazione)
+    // chiudi menu quando clicco una voce
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
       a.addEventListener("click", () => closeMenu(), { passive:true });
     });
@@ -950,7 +971,6 @@
         { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
-      // home sempre primo
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
       nav.innerHTML = visible.map(p => `
         <a class="btn" href="${p.href}">
