@@ -5,7 +5,7 @@
   <title>Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- TITOLI: Amatic SC | TESTO: Calibri (unico font) -->
+  <!-- TITOLI: Amatic SC | TESTO: Calibri -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -23,9 +23,10 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* TESTO: unico font */
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -35,7 +36,7 @@
     }
 
     a{color:inherit;text-decoration:none;}
-    p, li{line-height:1.9;font-size:1.07rem;}
+    p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
     .hl{
@@ -48,16 +49,16 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ===== TITOLI in Amatic SC ===== */
-    .amatic{
+    /* ===== TITOLI in Amatic ===== */
+    .title-font{
       font-family:"Amatic SC", cursive;
       font-weight:700;
       text-transform:uppercase;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-shadow: 0 12px 26px rgba(0,0,0,0.22);
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER / BANNER ===== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -81,7 +82,12 @@
       flex:1;
     }
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-img{
+      height:140px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
 
     .brand-text{
       display:flex;
@@ -91,7 +97,7 @@
       flex:1;
     }
 
-    /* Elisa Costanzo (titolo Amatic) */
+    /* Elisa Costanzo: titolo Amatic */
     .brand-name{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -118,10 +124,10 @@
     .brand-sub span{display:block;white-space:nowrap;}
     .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:900;}
 
-    /* NAV PILLS (banner) - RIDOTTI */
+    /* NAV PILLS (desktop) — come prima, ma più piccoli */
     .nav-pills{
       display:flex;
-      gap:.5rem;
+      gap:.55rem;
       flex-wrap:wrap;
       align-items:center;
       margin-top:.55rem;
@@ -132,43 +138,55 @@
       text-transform:uppercase;
       letter-spacing:.12em;
 
-      font-size:1.05rem;        /* ↓ più piccoli */
+      border-radius: 999px;
+      padding: 0.48rem 0.82rem;      /* ↓ più piccoli */
+      font-size: 1.05rem;            /* ↓ più piccoli */
       line-height:1;
 
-      border-radius:999px;
-      padding:0.42rem 0.72rem;  /* ↓ più piccoli */
-      border: 1px solid rgba(255,255,255,0.26);
-      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
+
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.16),
-        0 12px 22px rgba(0,0,0,0.16);
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
+
       backdrop-filter: blur(12px);
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      white-space:nowrap;
+      -webkit-backdrop-filter: blur(12px);
+
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      white-space: nowrap;
+
       transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.20),
-        0 16px 28px rgba(0,0,0,0.20);
+        0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.0em;
+      font-size: 1.02em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
 
     .header-actions{
-      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;
-      flex:0 0 auto;position:relative;z-index:80;margin-top:.15rem;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
+      margin-top:.15rem;
     }
+
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -186,28 +204,28 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* Pulsante Menu: RIDOTTO */
+    /* Pulsante menu — RIPRISTINATO + più piccolo */
     .menu-button{
+      border:none;background:#fff;color:var(--magenta);
+      padding:0.46rem 0.85rem; /* ↓ */
+      border-radius:999px;
+
       font-family:"Amatic SC", cursive;
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:.12em;
+      font-size:1.10rem; /* ↓ */
 
-      font-size:1.10rem;         /* ↓ */
-      line-height:1;
-
-      border:none;background:#fff;color:var(--magenta);
-      padding:0.42rem 0.75rem;   /* ↓ */
-      border-radius:999px;
       cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
+      flex:0 0 auto;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY */
+    /* ===== MENU OVERLAY (come prima) — FONT: Calibri (NO Amatic) ===== */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       padding:1.2rem;
@@ -215,10 +233,12 @@
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
+
       opacity:0;
       pointer-events:none;
       transition: opacity .14s ease;
       overflow:auto;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* MENU: NO Amatic */
     }
     .menu-overlay.open{opacity:1;pointer-events:auto;}
     .menu-card{
@@ -239,8 +259,10 @@
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
-    .menu-title h2{font-family:"Amatic SC", cursive;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.6rem;line-height:1;opacity:.95;text-shadow: 0 12px 26px rgba(0,0,0,0.22);}
+    .menu-title{display:flex;flex-direction:column;gap:.2rem;}
+    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
@@ -250,6 +272,7 @@
       color:#fff;font-size:1.2rem;
       flex:0 0 auto;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -271,15 +294,33 @@
     }
     .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
     .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-    .menu-text .t{font-family:"Amatic SC", cursive;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.35rem;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow: 0 12px 26px rgba(0,0,0,0.22);}
+    .menu-text .t{font-weight:1100;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .menu-pill{font-family:"Amatic SC", cursive;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.0rem;line-height:1;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.18);opacity:.95;flex:0 0 auto;white-space:nowrap;}
-    .menu-sub{margin:.45rem 0 0;padding-left:3.15rem;display:grid;gap:.45rem;}
-    .menu-sub a{
-      font-family:"Amatic SC", cursive;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.18rem;line-height:1;
-      padding:.55rem .85rem;border-radius:1.05rem;border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.10);display:inline-flex;width:fit-content;opacity:.92;
+    .menu-pill{
+      font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+      padding:.35rem .6rem;border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      opacity:.95;flex:0 0 auto;
     }
+    .menu-sub{
+      margin:.45rem 0 0;
+      padding-left:3.15rem;
+      display:grid;
+      gap:.45rem;
+    }
+    .menu-sub a{
+      padding:.55rem .85rem;
+      border-radius:1.05rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1100;
+      opacity:.92;
+      line-height:1.25;
+    }
+    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* ===== MAIN ===== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
@@ -289,14 +330,12 @@
       font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
       opacity:.92;margin-bottom:.7rem;
     }
-
-    /* Titoli sezioni in Amatic (dimensioni diverse per gerarchia) */
     .section-title{
       font-family:"Amatic SC", cursive;
       font-weight:700;
       text-transform:uppercase;
-      letter-spacing:.08em;
-      font-size:3.05rem; /* gerarchia */
+      letter-spacing:.10em;
+      font-size:3.05rem;
       line-height:1.02;
       margin-bottom:1rem;
       max-width:980px;
@@ -327,17 +366,17 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* Bottoni: titoli (Amatic) ma NON enormi */
+    /* Bottoni (fuori menu): come prima, ma con font Amatic (ok) */
     .btn{
+      border-radius:999px;
+      padding:0.70rem 1.02rem;
+      font-size:1.12rem;
       font-family:"Amatic SC", cursive;
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:.12em;
-      font-size:1.18rem;     /* controllato */
       line-height:1;
 
-      border-radius:999px;
-      padding:0.62rem 0.95rem;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
       color:#fff;
@@ -353,10 +392,13 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.10);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Percorsi tile */
+    /* Tile Percorsi (come prima) */
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -365,7 +407,7 @@
       padding:1.25rem;
       backdrop-filter: blur(10px);
       display:flex;flex-direction:column;gap:.85rem;
-      min-height:360px;
+      min-height: 360px;
       position:relative;
       overflow:hidden;
     }
@@ -378,7 +420,6 @@
       pointer-events:none;
     }
     .tile > *{position:relative; z-index:1;}
-
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -390,10 +431,12 @@
       font-weight:1200;
       letter-spacing:.06em;
       text-transform:uppercase;
-      font-size:.84rem;
+      font-size:.86rem;
       line-height:1.2;
     }
+    .tile p, .tile li{ text-align:left !important; }
 
+    /* copertine + hover interattivo */
     .tile-cover{
       width:100%;
       height:170px;
@@ -407,15 +450,16 @@
       transition: transform .18s ease, filter .18s ease;
     }
     .tile:hover .tile-cover{transform: scale(1.03);filter:brightness(1.06);}
-    .tile-cover.fitball{object-position:center 66%;} /* più giù: non taglia il viso */
+    /* Fitball: “tirata giù” un po’ */
+    .tile-cover.fitball{object-position:center 66%;}
 
-    /* Bubble: presenza/online */
+    /* Bubble: IN PRESENZA / ONLINE */
     .mode-bubbles{
       display:flex;
       gap:.55rem;
       flex-wrap:wrap;
       align-items:center;
-      margin-top:.25rem;
+      margin-top:-0.15rem;
     }
     .bubble{
       display:inline-flex;
@@ -427,16 +471,20 @@
       background: rgba(255,255,255,0.10);
       box-shadow:0 14px 26px rgba(0,0,0,0.14);
       font-weight:1100;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      font-size:.86rem;
+      font-size:.82rem;
       line-height:1;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .bubble:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.30);}
-    .bubble .dot{width:10px;height:10px;border-radius:999px;background: rgba(246,210,74,0.95);box-shadow:0 10px 18px rgba(0,0,0,0.18);}
+    .bubble .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: rgba(246,210,74,0.95);
+      box-shadow:0 10px 18px rgba(0,0,0,0.18);
+    }
 
-    /* Studio mini gallery */
+    /* Studio mini gallery (come prima) */
     .mini-gallery{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -454,9 +502,18 @@
       filter: saturate(1.05) contrast(1.02);
       object-fit:cover;
       object-position:center;
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .mini-gallery img:hover{transform: scale(1.02);filter:brightness(1.06);}
+
+    @media (max-width: 1020px){
+      .grid-2{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr;}
+      .mini-gallery{grid-template-columns:1fr;}
+      .mini-gallery img{height:300px;}
     }
 
-    /* IG band */
+    /* ===== BANNER IG che SCORRE (ripristinato) ===== */
     .ig-band{
       border-radius:1.85rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -472,16 +529,22 @@
       gap:1rem;
     }
     .ig-head p{font-size:1.02rem;opacity:.92;line-height:1.55;margin-top:.25rem;}
+
+    /* strip: overflow-x + snap = scorre sempre */
     .ig-strip{
       display:flex;
       gap:.85rem;
       padding:0 1.1rem 1.1rem;
-      overflow:auto;
+      overflow-x:auto;
+      overflow-y:hidden;
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x;
     }
     .ig-strip::-webkit-scrollbar{height:10px;}
     .ig-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:999px;}
+
     .ig-card{
       flex:0 0 auto;
       width:280px;
@@ -495,11 +558,11 @@
     }
     .ig-card:hover{transform: translateY(-2px) scale(1.02);filter:brightness(1.06);}
     .ig-card img{width:100%;height:170px;object-fit:cover;display:block;}
-    .ig-card .ig-meta{padding:.85rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.7rem;}
-    .ig-card .ig-title{font-weight:1100;font-size:1.02rem;line-height:1.2;}
+    .ig-meta{padding:.85rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.7rem;}
+    .ig-title{font-weight:1100;font-size:1.02rem;line-height:1.2;}
     .ig-tag{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.18);opacity:.95;white-space:nowrap;}
 
-    /* CONTATTI */
+    /* CONTATTI: busta + font uguale campi */
     .contact-note{
       margin-top:.6rem;
       padding:.9rem 1rem;
@@ -525,7 +588,7 @@
       outline:none;
       font-size:1.02rem;
       line-height:1.3;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* coerente */
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
       backdrop-filter: blur(10px);
       box-shadow: 0 16px 34px rgba(0,0,0,0.16);
       transition: border-color .12s ease, background .12s ease, box-shadow .12s ease, transform .12s ease;
@@ -539,13 +602,6 @@
     textarea.field{min-height:180px;resize:vertical;}
     .field::placeholder{color:rgba(255,255,255,0.78);}
     @media (max-width: 1020px){ .contact-grid{grid-template-columns:1fr;} }
-
-    @media (max-width: 1020px){
-      .grid-2{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
-      .mini-gallery{grid-template-columns:1fr;}
-      .mini-gallery img{height:300px;}
-    }
 
     /* MOBILE HEADER */
     @media (max-width: 600px){
@@ -561,13 +617,14 @@
         text-overflow:clip;
       }
       .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
+      .brand-sub span{margin:.10rem 0;}
       .header-actions{
         flex-direction:column;
         align-items:flex-end;
         gap:.45rem;
         z-index:90;
       }
-      .menu-button{ padding:.38rem .70rem; font-size:1.05rem; }
+      .menu-button{ padding:.40rem .78rem; font-size:1.05rem; }
       .top-icons{margin-right:0;flex-direction:row;gap:.45rem;}
       .icon-btn{ width:40px; height:40px; }
     }
@@ -627,7 +684,7 @@
     </div>
   </header>
 
-  <!-- MENU OVERLAY -->
+  <!-- MENU OVERLAY (ripristinato come struttura) -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -649,15 +706,23 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#ves">VES</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -779,20 +844,66 @@
           </div>
         </div>
       </div>
+
+      <div class="actions" style="margin-top:1.15rem;">
+        <a class="btn primary" href="percorsi.html">Vedi tutti i percorsi</a>
+        <a class="btn" href="studio.html">🏡 Visita lo studio</a>
+        <a class="btn" href="artisti.html">🎧 Artisti</a>
+        <a class="btn" href="curriculum.html">📚 Curriculum</a>
+      </div>
     </section>
 
-    <!-- SOCIAL -->
+    <!-- STUDIO (ripristinato) -->
+    <section id="expressing" class="reveal">
+      <div class="section-kicker">ExpresSING Studio</div>
+      <div class="section-title">Lo spazio in cui puoi sperimentare</div>
+
+      <div class="card">
+        <p>
+          ExpresSING Studio è il luogo in cui <span class="hl">didattica</span>, <span class="hl">ricerca</span> e <span class="hl">creatività</span> si incontrano ogni giorno.
+          Qui puoi lavorare sulla tua voce in presenza oppure online, con un approccio concreto e personalizzato.
+        </p>
+
+        <div class="mini-gallery" aria-label="Anteprima studio">
+          <img src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
+          <img src="Sala performance 1.jpg" alt="ExpresSING Studio - Sala Performance" />
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="studio.html">Visita lo studio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM (ripristinato) -->
+    <section id="home-cv" class="reveal">
+      <div class="section-kicker">Curriculum</div>
+      <div class="section-title">Formazione, didattica e performance</div>
+
+      <div class="card">
+        <p>
+          Una panoramica completa di <span class="hl">formazione</span>, <span class="hl">didattica</span>, <span class="hl">ricerca</span>, performance e songwriting.
+          Se vuoi, puoi aprire la pagina dedicata e consultare l’elenco completo.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="curriculum.html">Apri curriculum</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER SOCIAL (prima dei contatti) — scorre -->
     <section id="social" class="reveal">
       <div class="section-kicker">Social</div>
-      <div class="section-title">Uno sguardo a ExpresSING Studio</div>
+      <div class="section-title">Post & reel di ExpresSING Studio</div>
 
       <div class="ig-band">
         <div class="ig-head">
-          <p class="muted">Scorri e apri i post/reel (link diretti).</p>
+          <p class="muted">Scorri e apri i contenuti (link diretti).</p>
           <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Vai al profilo ExpresSING Studio</a>
         </div>
 
-        <div class="ig-strip">
+        <div class="ig-strip" aria-label="Banner scorrevole Instagram">
           <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
             <img src="Reel expressing studio.png" alt="Reel ExpresSING Studio" />
             <div class="ig-meta"><div class="ig-title">Reel • ExpresSING Studio</div><div class="ig-tag">reel</div></div>
@@ -816,7 +927,7 @@
       </div>
     </section>
 
-    <!-- CONTATTI -->
+    <!-- CONTATTI (ripristinato con busta) -->
     <section id="contatti" class="reveal">
       <div class="section-kicker">Contatti</div>
       <div class="section-title">Scrivimi</div>
@@ -828,9 +939,15 @@
 
         <form id="contactForm">
           <div class="contact-grid">
-            <div><input class="field" type="text" id="name" name="name" placeholder="Nome e cognome" required /></div>
-            <div><input class="field" type="text" id="subject" name="subject" placeholder="Oggetto" required /></div>
-            <div style="grid-column:1/-1;"><textarea class="field" id="message" name="message" placeholder="Il tuo messaggio" required></textarea></div>
+            <div>
+              <input class="field" type="text" id="name" name="name" placeholder="Nome e cognome" required />
+            </div>
+            <div>
+              <input class="field" type="text" id="subject" name="subject" placeholder="Oggetto" required />
+            </div>
+            <div style="grid-column:1/-1;">
+              <textarea class="field" id="message" name="message" placeholder="Il tuo messaggio" required></textarea>
+            </div>
           </div>
 
           <div class="actions">
@@ -867,9 +984,11 @@
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
-    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", () => closeMenu(), { passive:true }));
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
+      a.addEventListener("click", () => closeMenu(), { passive:true });
+    });
 
-    // NAV PILLS
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente) — come prima
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
