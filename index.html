@@ -903,7 +903,7 @@
           <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Vai al profilo ExpresSING Studio</a>
         </div>
 
-        <div class="ig-strip" aria-label="Banner scorrevole Instagram">
+<div class="ig-strip" aria-label="Banner scorrevole Instagram">
           <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
             <img src="Reel expressing studio.png" alt="Reel ExpresSING Studio" />
             <div class="ig-meta"><div class="ig-title">Reel • ExpresSING Studio</div><div class="ig-tag">reel</div></div>
@@ -1033,6 +1033,84 @@
       });
     }, { threshold: 0.12 });
     els.forEach(el => io.observe(el));
+
+    // AUTOSCROLL IG STRIP (mantiene lo scroll manuale)
+// - scorre lentamente
+// - pausa su hover / focus
+// - pausa durante drag/touch, poi riparte
+(function(){
+  const strip = document.getElementById("igStrip");
+  if(!strip) return;
+
+  let rafId = null;
+  let running = true;
+  let userInteracting = false;
+
+  // velocità: px per frame (0.35 = lento e “smooth”)
+  const speed = 0.35;
+
+  function step(){
+    if(running && !userInteracting){
+      // se arriviamo in fondo, ricominciamo
+      if(strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 1){
+        strip.scrollLeft = 0;
+      } else {
+        strip.scrollLeft += speed;
+      }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  function start(){
+    if(rafId) return;
+    rafId = requestAnimationFrame(step);
+  }
+
+  function stop(){
+    if(!rafId) return;
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
+  // Pausa su hover (desktop)
+  strip.addEventListener("mouseenter", () => { running = false; });
+  strip.addEventListener("mouseleave", () => { running = true; });
+
+  // Pausa su focus (accessibilità)
+  strip.addEventListener("focusin",  () => { running = false; });
+  strip.addEventListener("focusout", () => { running = true;  });
+
+  // Gestione interazione utente (mouse/touch/trackpad)
+  let resumeTimer = null;
+  const pauseForUser = () => {
+    userInteracting = true;
+    if(resumeTimer) clearTimeout(resumeTimer);
+  };
+  const resumeAfterUser = () => {
+    if(resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => { userInteracting = false; }, 1200);
+  };
+
+  strip.addEventListener("pointerdown", pauseForUser, {passive:true});
+  strip.addEventListener("pointerup", resumeAfterUser, {passive:true});
+  strip.addEventListener("pointercancel", resumeAfterUser, {passive:true});
+
+  // se l’utente scrolla manualmente con rotella/trackpad, pausa un attimo e poi riparte
+  strip.addEventListener("scroll", () => {
+    pauseForUser();
+    resumeAfterUser();
+  }, {passive:true});
+
+  // Avvio
+  start();
+
+  // Se la tab va in background, stop per non consumare risorse
+  document.addEventListener("visibilitychange", () => {
+    if(document.hidden) stop();
+    else start();
+  });
+})();
+
   </script>
 </body>
 </html>
