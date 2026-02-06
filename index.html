@@ -5,7 +5,7 @@
   <title>Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- TITOLI: Amatic SC | TESTO: Calibri -->
+  <!-- TITOLI -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -16,14 +16,21 @@
       --magenta:#81277c;
       --yellow:#f6d24a;
 
+      --glass: rgba(255,255,255,0.10);
+      --stroke: rgba(255,255,255,0.18);
+      --shadow: rgba(0,0,0,0.22);
+
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
+
+      --titleFont: "Amatic SC", system-ui, sans-serif;
+      --bodyFont: Calibri, "Segoe UI", Arial, sans-serif;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      font-family: var(--bodyFont);
       color: var(--ink);
       min-height:100vh;
 
@@ -39,6 +46,7 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
+    /* evidenzia parole chiave */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -49,13 +57,43 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ===== TITOLI in Amatic ===== */
-    .title-font{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      text-shadow: 0 12px 26px rgba(0,0,0,0.22);
+    /* ===== TITOLI (Amatic) ===== */
+    .brand-name,
+    .section-kicker,
+    .section-title,
+    .pill-title,
+    details.details summary .hint{
+      font-family: var(--titleFont);
+      letter-spacing: .02em;
+    }
+
+    .brand-name{
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 2.15rem;
+      line-height: 1;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .section-kicker{
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 1.15rem;
+      opacity:.92;
+      margin-bottom:.6rem;
+    }
+
+    .section-title{
+      font-weight: 700;
+      font-size: 3.05rem;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+      max-width: 980px;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.20);
     }
 
     /* ===== HEADER / BANNER ===== */
@@ -74,6 +112,7 @@
       justify-content:space-between;
       gap:1rem;
     }
+
     .brand{
       display:flex;
       align-items:center;
@@ -81,101 +120,70 @@
       min-width:0;
       flex:1;
     }
+
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{
-      height:140px;
-      width:auto;
-      display:block;
-      object-fit:contain;
-    }
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
 
     .brand-text{
       display:flex;
       flex-direction:column;
-      gap:.22rem;
+      gap:.18rem;
       min-width:0;
       flex:1;
     }
 
-    /* Elisa Costanzo: titolo Amatic */
-    .brand-name{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:2.05rem;
-      line-height:1;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      text-shadow: 0 12px 26px rgba(0,0,0,0.22);
-    }
-
-    /* Ruoli verticali */
     .brand-sub{
       font-size:.96rem;
       opacity:.96;
       line-height:1.25;
       max-width:64ch;
+
       display:flex;
       flex-direction:column;
       gap:.16rem;
     }
-    .brand-sub span{display:block;white-space:nowrap;}
-    .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:900;}
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+    }
 
-    /* NAV PILLS (desktop) — come prima, ma più piccoli */
+    /* NAV PILLS */
     .nav-pills{
       display:flex;
       gap:.55rem;
       flex-wrap:wrap;
       align-items:center;
-      margin-top:.55rem;
+      margin-top:.45rem;
     }
     .nav-pills .btn{
-      font-family:"Amatic SC", cursive;
+      border-radius:999px;
+      padding:0.54rem 0.85rem;     /* più piccolo */
+      font-size:1.05rem;
       font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
+      font-family: var(--titleFont); /* bottoni in Amatic */
+      letter-spacing:.06em;
 
-      border-radius: 999px;
-      padding: 0.48rem 0.82rem;      /* ↓ più piccoli */
-      font-size: 1.05rem;            /* ↓ più piccoli */
-      line-height:1;
-
-      border: 1px solid rgba(255,255,255,0.28);
+      border:1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        0 14px 28px rgba(0,0,0,0.18);
-
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 14px 28px rgba(0,0,0,0.18);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
 
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      white-space: nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      white-space:nowrap;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .nav-pills .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.34);}
+    .nav-pills .emoji{font-size:1.12em;line-height:1;transform:translateY(1px);}
 
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-    .nav-pills .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.18);
-      border-color: rgba(255,255,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.20),
-        0 18px 34px rgba(0,0,0,0.22);
-    }
-    .nav-pills .emoji{
-      font-size: 1.02em;
-      line-height: 1;
-      transform: translateY(1px);
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
-    }
-
+    /* actions right */
     .header-actions{
       display:flex;
       align-items:center;
@@ -184,9 +192,7 @@
       flex:0 0 auto;
       position:relative;
       z-index:80;
-      margin-top:.15rem;
     }
-
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -204,28 +210,29 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* Pulsante menu — RIPRISTINATO + più piccolo */
     .menu-button{
-      border:none;background:#fff;color:var(--magenta);
-      padding:0.46rem 0.85rem; /* ↓ */
+      border:none;
+      background:#fff;
+      color:var(--magenta);
+      padding:0.52rem 0.95rem;   /* più piccolo */
       border-radius:999px;
-
-      font-family:"Amatic SC", cursive;
       font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:1.10rem; /* ↓ */
-
+      font-family: var(--titleFont); /* bottone in Amatic */
+      letter-spacing:.08em;
       cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
+      font-size:1.22rem;
+      line-height:1;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* ===== MENU OVERLAY (come prima) — FONT: Calibri (NO Amatic) ===== */
+    /* ===== MENU OVERLAY (font NON Amatic) ===== */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       padding:1.2rem;
@@ -238,7 +245,7 @@
       pointer-events:none;
       transition: opacity .14s ease;
       overflow:auto;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* MENU: NO Amatic */
+      font-family: var(--bodyFont);
     }
     .menu-overlay.open{opacity:1;pointer-events:auto;}
     .menu-card{
@@ -259,7 +266,6 @@
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
-
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
@@ -272,7 +278,6 @@
       color:#fff;font-size:1.2rem;
       flex:0 0 auto;
     }
-
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -303,44 +308,10 @@
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
     }
-    .menu-sub{
-      margin:.45rem 0 0;
-      padding-left:3.15rem;
-      display:grid;
-      gap:.45rem;
-    }
-    .menu-sub a{
-      padding:.55rem .85rem;
-      border-radius:1.05rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.10);
-      display:inline-flex;
-      width:fit-content;
-      font-weight:1100;
-      opacity:.92;
-      line-height:1.25;
-    }
-    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* ===== MAIN ===== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-
-    .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
-    }
-    .section-title{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      font-size:3.05rem;
-      line-height:1.02;
-      margin-bottom:1rem;
-      max-width:980px;
-      text-shadow: 0 12px 26px rgba(0,0,0,0.22);
-    }
 
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
@@ -366,16 +337,15 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* Bottoni (fuori menu): come prima, ma con font Amatic (ok) */
+    /* ===== BUTTONS (Amatic) ===== */
     .btn{
       border-radius:999px;
-      padding:0.70rem 1.02rem;
-      font-size:1.12rem;
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.12em;
+      padding:0.62rem 1.05rem; /* più compatto */
+      font-size:1.35rem;
       line-height:1;
+      font-weight:700;
+      font-family: var(--titleFont);
+      letter-spacing:.08em;
 
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
@@ -398,28 +368,79 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Tile Percorsi (come prima) */
+    /* ===== DETAILS ===== */
+    details.details{
+      margin-top: .85rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      border-radius: 1.35rem;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+    details.details summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 1.0rem 1.05rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      user-select:none;
+    }
+    details.details summary::-webkit-details-marker{display:none;}
+    .hint{font-weight:700;opacity:.95;font-size:1.75rem;}
+    .chev{
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      display:flex; align-items:center; justify-content:center;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      transition: transform .16s ease;
+      flex: 0 0 auto;
+    }
+    details.details[open] .chev{transform: rotate(180deg);}
+    .content{padding: .25rem 1.05rem 1.15rem;}
+
+    /* ===== PERCORSI CARDS ===== */
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
       background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
       box-shadow:0 18px 40px rgba(0,0,0,0.18);
-      padding:1.25rem;
-      backdrop-filter: blur(10px);
-      display:flex;flex-direction:column;gap:.85rem;
-      min-height: 360px;
-      position:relative;
       overflow:hidden;
+      backdrop-filter: blur(10px);
+      position:relative;
+      transition: transform .16s ease, filter .16s ease;
     }
-    .tile::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
-                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
-      opacity:.55;
-      pointer-events:none;
+    .tile:hover{transform: translateY(-3px);}
+
+    .tile-media{
+      position:relative;
+      height:200px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
     }
-    .tile > *{position:relative; z-index:1;}
+    .tile-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .22s ease;
+    }
+    .tile:hover .tile-media img{transform: scale(1.08);}
+
+    /* Fitball: abbassa un po' per non tagliare la faccia */
+    .fitball-img{object-position: center 62%;}
+
+    .tile-body{
+      padding:1.15rem 1.2rem 1.25rem;
+      display:flex;
+      flex-direction:column;
+      gap:.7rem;
+    }
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -428,63 +449,46 @@
       background: rgba(255,255,255,0.16);
       border:1px solid rgba(255,255,255,0.22);
       box-shadow: 0 14px 26px rgba(0,0,0,0.16);
-      font-weight:1200;
-      letter-spacing:.06em;
+      font-weight:700;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      font-size:.86rem;
-      line-height:1.2;
+      font-size:1.55rem;
+      line-height:1;
     }
-    .tile p, .tile li{ text-align:left !important; }
 
-    /* copertine + hover interattivo */
-    .tile-cover{
-      width:100%;
-      height:170px;
-      border-radius:1.25rem;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 18px 38px rgba(0,0,0,0.18);
-      object-fit:cover;
-      object-position:center;
-      display:block;
-      filter: saturate(1.05) contrast(1.02);
-      transition: transform .18s ease, filter .18s ease;
-    }
-    .tile:hover .tile-cover{transform: scale(1.03);filter:brightness(1.06);}
-    /* Fitball: “tirata giù” un po’ */
-    .tile-cover.fitball{object-position:center 66%;}
+    .tile p{ text-align:left; }
 
-    /* Bubble: IN PRESENZA / ONLINE */
+    /* bubble ONLINE / IN PRESENZA */
     .mode-bubbles{
+      position:absolute;
+      left:14px;
+      top:14px;
       display:flex;
-      gap:.55rem;
+      gap:.45rem;
       flex-wrap:wrap;
-      align-items:center;
-      margin-top:-0.15rem;
+      z-index:2;
     }
     .bubble{
       display:inline-flex;
       align-items:center;
-      gap:.45rem;
-      padding:.48rem .78rem;
+      gap:.35rem;
+      padding:.38rem .58rem;
       border-radius:999px;
       border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      background: rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.18);
       font-weight:1100;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      font-size:.82rem;
-      line-height:1;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      font-size:.86rem;
+      letter-spacing:.04em;
+      white-space:nowrap;
     }
-    .bubble:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.30);}
     .bubble .dot{
-      width:10px;height:10px;border-radius:999px;
-      background: rgba(246,210,74,0.95);
+      width:8px;height:8px;border-radius:999px;background:rgba(246,210,74,0.95);
       box-shadow:0 10px 18px rgba(0,0,0,0.18);
     }
 
-    /* Studio mini gallery (come prima) */
+    /* ===== STUDIO mini gallery ===== */
     .mini-gallery{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -502,67 +506,76 @@
       filter: saturate(1.05) contrast(1.02);
       object-fit:cover;
       object-position:center;
-      transition: transform .18s ease, filter .18s ease;
+      transition: transform .18s ease;
     }
-    .mini-gallery img:hover{transform: scale(1.02);filter:brightness(1.06);}
+    .mini-gallery img:hover{transform: translateY(-2px) scale(1.02);}
 
-    @media (max-width: 1020px){
-      .grid-2{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
-      .mini-gallery{grid-template-columns:1fr;}
-      .mini-gallery img{height:300px;}
+    /* ===== IG STRIP (autoscroll) ===== */
+    .ig-banner{
+      margin-top: .2rem;
     }
-
-    /* ===== BANNER IG che SCORRE (ripristinato) ===== */
-    .ig-band{
-      border-radius:1.85rem;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 20px 44px rgba(0,0,0,0.22);
-      overflow:hidden;
-    }
-    .ig-head{
-      padding:1rem 1.1rem .85rem;
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:1rem;
-    }
-    .ig-head p{font-size:1.02rem;opacity:.92;line-height:1.55;margin-top:.25rem;}
-
-    /* strip: overflow-x + snap = scorre sempre */
     .ig-strip{
-      display:flex;
-      gap:.85rem;
-      padding:0 1.1rem 1.1rem;
+      margin-top: 1rem;
+      border-radius: 1.6rem;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+      padding: .85rem;
       overflow-x:auto;
       overflow-y:hidden;
-      scroll-snap-type:x mandatory;
+      display:flex;
+      gap:.85rem;
+      scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
-      touch-action: pan-x;
+      scrollbar-width: thin;
     }
     .ig-strip::-webkit-scrollbar{height:10px;}
-    .ig-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:999px;}
+    .ig-strip::-webkit-scrollbar-thumb{background: rgba(255,255,255,0.22); border-radius:999px;}
 
     .ig-card{
       flex:0 0 auto;
-      width:280px;
-      scroll-snap-align:start;
-      border-radius:1.35rem;
+      width: 290px;
+      scroll-snap-align: start;
+      border-radius: 1.35rem;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.08);
-      box-shadow:0 18px 38px rgba(0,0,0,0.14);
-      overflow:hidden;
-      transition: transform .14s ease, filter .14s ease;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.14);
+      transition: transform .16s ease;
     }
-    .ig-card:hover{transform: translateY(-2px) scale(1.02);filter:brightness(1.06);}
-    .ig-card img{width:100%;height:170px;object-fit:cover;display:block;}
-    .ig-meta{padding:.85rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.7rem;}
-    .ig-title{font-weight:1100;font-size:1.02rem;line-height:1.2;}
-    .ig-tag{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.18);opacity:.95;white-space:nowrap;}
+    .ig-card:hover{transform: translateY(-2px) scale(1.02);}
+    .ig-cover{
+      width:100%;
+      height: 185px;
+      object-fit: cover;
+      display:block;
+    }
+    .ig-meta{
+      padding: .75rem .85rem .85rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.6rem;
+    }
+    .ig-meta .t{
+      font-weight:1100;
+      opacity:.95;
+      line-height:1.2;
+    }
+    .ig-open{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.45rem .65rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      font-weight:1100;
+      white-space:nowrap;
+    }
 
-    /* CONTATTI: busta + font uguale campi */
+    /* ===== CONTATTI ===== */
     .contact-note{
       margin-top:.6rem;
       padding:.9rem 1rem;
@@ -586,9 +599,12 @@
       padding:1.05rem 1.10rem;
       color:#fff;
       outline:none;
+
+      /* stesso font in tutti i campi */
+      font-family: var(--bodyFont);
       font-size:1.02rem;
       line-height:1.3;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+
       backdrop-filter: blur(10px);
       box-shadow: 0 16px 34px rgba(0,0,0,0.16);
       transition: border-color .12s ease, background .12s ease, box-shadow .12s ease, transform .12s ease;
@@ -603,30 +619,61 @@
     .field::placeholder{color:rgba(255,255,255,0.78);}
     @media (max-width: 1020px){ .contact-grid{grid-template-columns:1fr;} }
 
-    /* MOBILE HEADER */
+    /* ===== ON-SCROLL ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .55s ease, transform .55s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1020px){
+      .grid-2{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr;}
+      .mini-gallery{grid-template-columns:1fr;}
+      .mini-gallery img{height:300px;}
+      .section-title{font-size:2.7rem;}
+    }
+
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-      .header-inner{align-items:flex-start;gap:.6rem;}
-      .brand{gap:.6rem;min-width:0;}
-      .logo-img{ height:96px; }
+
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+        align-items:flex-start;
+      }
+      .logo-img{ height:92px; }
+
       .brand-name{
         font-size:1.85rem;
-        letter-spacing:.10em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .brand-sub span{margin:.10rem 0;}
+
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+
       .header-actions{
         flex-direction:column;
         align-items:flex-end;
         gap:.45rem;
         z-index:90;
       }
-      .menu-button{ padding:.40rem .78rem; font-size:1.05rem; }
-      .top-icons{margin-right:0;flex-direction:row;gap:.45rem;}
+      .menu-button{ padding:.48rem .85rem; font-size:1.18rem; }
+      .top-icons{flex-direction:row;gap:.45rem;margin-right:0;}
       .icon-btn{ width:40px; height:40px; }
+
+      .section-title{font-size:2.55rem;}
     }
 
     footer{
@@ -635,15 +682,6 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
-
-    /* ON SCROLL */
-    .reveal{
-      opacity:0;
-      transform: translateY(14px);
-      transition: opacity .55s ease, transform .55s ease;
-      will-change: opacity, transform;
-    }
-    .reveal.show{opacity:1;transform: translateY(0);}
   </style>
 </head>
 
@@ -684,7 +722,7 @@
     </div>
   </header>
 
-  <!-- MENU OVERLAY (ripristinato come struttura) -->
+  <!-- MENU OVERLAY -->
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <div class="menu-card">
       <div class="menu-head">
@@ -706,23 +744,15 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <div>
-          <a class="menu-item" href="percorsi.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+        <a class="menu-item" href="percorsi.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
-            <div class="menu-pill">go</div>
-          </a>
-          <div class="menu-sub">
-            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
-            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
-            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
-            <a href="percorsi.html#ves">VES</a>
+            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
           </div>
-        </div>
+          <div class="menu-pill">go</div>
+        </a>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -778,8 +808,42 @@
           <p><strong>Sono Elisa</strong> (ma puoi chiamarmi anche <strong>ELI</strong>) e da sempre considero la voce un luogo di <span class="hl">esplorazione</span>, <span class="hl">cura</span> e <span class="hl">creatività</span>.</p>
           <p>Sono Vocal Trainer, cantante, direttrice di coro e cantautrice.</p>
 
+          <details class="details">
+            <summary>
+              <span class="hint">Leggi la mia storia</span>
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="content">
+              <p>
+                Mi sono formata tra il Conservatorio G.B. Martini di Bologna e Santa Cecilia a Roma, e ho approfondito percorsi internazionali che mi hanno permesso di osservare la voce da prospettive sempre nuove.
+                Dopo anni di insegnamento nelle accademie romane, ho creato il mio <span class="hl">Centro di Formazione Vocale</span>, <span class="hl">ExpresSING Studio</span>: un luogo vivo, in cui <span class="hl">didattica</span>, <span class="hl">ricerca</span> e <span class="hl">creatività</span> si incontrano ogni giorno.
+              </p>
+
+              <p>
+                La ricerca mi ha condotta fino alla Pan European Voice Conference 2024 di Santander, dove ho presentato un workshop – insieme al
+                <a href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer"><span class="hl">Voice Evolution Institute</span></a>,
+                di cui sono <span class="hl">Certified Trainer</span> – dedicato alla risonanza e alla stimolazione del tratto vocale.
+              </p>
+
+              <p>
+                Nel mio lavoro come Vocal Trainer affianco le persone nello sviluppo della propria voce in modo <span class="hl">rispettoso</span>, <span class="hl">funzionale</span> e <span class="hl">creativo</span>.
+                Un Vocal Trainer non impone un modello: guida, osserva e costruisce un percorso su misura.
+              </p>
+
+              <p>
+                Intreccio ascolto, corpo e suono per aiutarti a ritrovare <span class="hl">libertà</span> ed <span class="hl">espressività</span>.
+                Per me la voce non è solo tecnica: è <span class="hl">relazione</span>.
+              </p>
+
+              <p>
+                Collaboro inoltre con produttori e studi di registrazione come <span class="hl">Vocal Coach</span> e consulente musicale, accompagnando artisti nella realizzazione dei loro progetti.
+              </p>
+            </div>
+          </details>
+
           <div class="actions">
-            <a class="btn primary" href="#contatti">Contattami</a>
+            <a class="btn primary" href="#contatti">✉️ Contattami</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </div>
 
@@ -793,54 +857,69 @@
       <div class="section-title">Percorsi personalizzati</div>
 
       <div class="grid-3">
+        <!-- 1) CANTO -->
         <div class="tile">
-          <img class="tile-cover fitball" src="Fitball.jpg" alt="Lezioni 1:1 - cantanti e cantautori" />
-          <div class="mode-bubbles">
-            <span class="bubble"><span class="dot"></span>In presenza</span>
-            <span class="bubble"><span class="dot"></span>Online</span>
+          <div class="tile-media">
+            <div class="mode-bubbles" aria-label="Modalità disponibili">
+              <span class="bubble"><span class="dot"></span> IN PRESENZA</span>
+              <span class="bubble"><span class="dot"></span> ONLINE</span>
+            </div>
+            <img class="fitball-img" src="Fitball.jpg" alt="Lezioni 1:1 canto e cantautori" />
           </div>
-
-          <span class="pill-title">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI</span>
-          <p>
-            Le lezioni one-to-one sono percorsi individuali pensati <span class="hl">su misura</span> per ogni allievo:
-            il percorso parte sempre dalla persona, dalla sua <span class="hl">voce</span> e dalla sua <span class="hl">storia</span>.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
+          <div class="tile-body">
+            <span class="pill-title">LEZIONI 1:1 — CANTANTI & CANTAUTORI</span>
+            <p>
+              Percorsi individuali <span class="hl">su misura</span> per lavorare su tecnica, espressività e presenza scenica,
+              in modo concreto e sostenibile.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
+              <button class="btn link open-menu" type="button">☰ Menu</button>
+            </div>
           </div>
         </div>
 
+        <!-- 2) VOCE PARLATA -->
         <div class="tile">
-          <img class="tile-cover" src="Mascherina.jpg" alt="Lezioni 1:1 - voce parlata" />
-          <div class="mode-bubbles">
-            <span class="bubble"><span class="dot"></span>In presenza</span>
-            <span class="bubble"><span class="dot"></span>Online</span>
+          <div class="tile-media">
+            <div class="mode-bubbles" aria-label="Modalità disponibili">
+              <span class="bubble"><span class="dot"></span> IN PRESENZA</span>
+              <span class="bubble"><span class="dot"></span> ONLINE</span>
+            </div>
+            <img src="Mascherina.jpg" alt="Voce parlata e comunicazione professionale" />
           </div>
-
-          <span class="pill-title">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE</span>
-          <p>
-            Percorsi dedicati alla <span class="hl">voce parlata</span> per chi la usa ogni giorno nel lavoro:
-            <span class="hl">chiarezza</span>, <span class="hl">efficacia</span> e <span class="hl">sostenibilità</span>.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="percorsi.html#voce">Leggi tutto</a>
+          <div class="tile-body">
+            <span class="pill-title">LEZIONI 1:1 — VOCE PARLATA</span>
+            <p>
+              Per chi usa la voce ogni giorno nel lavoro: chiarezza, efficacia, sostenibilità e
+              strumenti per fronteggiare <span class="hl">stress e ansia da prestazione</span>.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="percorsi.html#voce">Leggi tutto</a>
+              <button class="btn link open-menu" type="button">☰ Menu</button>
+            </div>
           </div>
         </div>
 
+        <!-- 3) ARTISTI -->
         <div class="tile">
-          <img class="tile-cover" src="Lisa.jpg" alt="Artisti emergenti - progetto discografico" />
-          <div class="mode-bubbles">
-            <span class="bubble"><span class="dot"></span>In presenza</span>
-            <span class="bubble"><span class="dot"></span>Online</span>
+          <div class="tile-media">
+            <div class="mode-bubbles" aria-label="Modalità disponibili">
+              <span class="bubble"><span class="dot"></span> IN PRESENZA</span>
+              <span class="bubble"><span class="dot"></span> ONLINE</span>
+            </div>
+            <img src="Lisa.jpg" alt="Artisti emergenti e progetto discografico" />
           </div>
-
-          <span class="pill-title">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO</span>
-          <p>
-            Un percorso che integra <span class="hl">voce</span>, <span class="hl">progetto</span> e <span class="hl">identità artistica</span>:
-            analisi dei brani, preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="percorsi.html#artisti">Leggi tutto</a>
+          <div class="tile-body">
+            <span class="pill-title">ARTISTI EMERGENTI</span>
+            <p>
+              Un percorso che integra <span class="hl">voce</span>, <span class="hl">identità artistica</span> e preparazione a
+              <span class="hl">studio</span> e <span class="hl">performance</span>.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="percorsi.html#artisti">Leggi tutto</a>
+              <button class="btn link open-menu" type="button">☰ Menu</button>
+            </div>
           </div>
         </div>
       </div>
@@ -850,10 +929,11 @@
         <a class="btn" href="studio.html">🏡 Visita lo studio</a>
         <a class="btn" href="artisti.html">🎧 Artisti</a>
         <a class="btn" href="curriculum.html">📚 Curriculum</a>
+        <button class="btn link open-menu" type="button">☰ Menu</button>
       </div>
     </section>
 
-    <!-- STUDIO (ripristinato) -->
+    <!-- STUDIO -->
     <section id="expressing" class="reveal">
       <div class="section-kicker">ExpresSING Studio</div>
       <div class="section-title">Lo spazio in cui puoi sperimentare</div>
@@ -861,7 +941,7 @@
       <div class="card">
         <p>
           ExpresSING Studio è il luogo in cui <span class="hl">didattica</span>, <span class="hl">ricerca</span> e <span class="hl">creatività</span> si incontrano ogni giorno.
-          Qui puoi lavorare sulla tua voce in presenza oppure online, con un approccio concreto e personalizzato.
+          Qui puoi lavorare sulla tua voce <span class="hl">in presenza</span> oppure <span class="hl">online</span>, con un approccio concreto e personalizzato.
         </p>
 
         <div class="mini-gallery" aria-label="Anteprima studio">
@@ -871,11 +951,17 @@
 
         <div class="actions">
           <a class="btn primary" href="studio.html">Visita lo studio</a>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
+            <span style="display:inline-flex;align-items:center;gap:.4rem;">
+              <span aria-hidden="true">📷</span> Vai al profilo ExpresSING Studio
+            </span>
+          </a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
 
-    <!-- CURRICULUM (ripristinato) -->
+    <!-- CURRICULUM -->
     <section id="home-cv" class="reveal">
       <div class="section-kicker">Curriculum</div>
       <div class="section-title">Formazione, didattica e performance</div>
@@ -888,46 +974,70 @@
 
         <div class="actions">
           <a class="btn primary" href="curriculum.html">Apri curriculum</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
 
-    <!-- BANNER SOCIAL (prima dei contatti) — scorre -->
-    <section id="social" class="reveal">
+    <!-- IG BANNER (prima dei contatti) -->
+    <section class="ig-banner reveal" id="social">
       <div class="section-kicker">Social</div>
-      <div class="section-title">Post & reel di ExpresSING Studio</div>
+      <div class="section-title">Ultimi contenuti</div>
 
-      <div class="ig-band">
-        <div class="ig-head">
-          <p class="muted">Scorri e apri i contenuti (link diretti).</p>
-          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Vai al profilo ExpresSING Studio</a>
+      <div class="card">
+        <p class="muted" style="text-align:left;">
+          Una selezione di post e reel: scorrono automaticamente, ma puoi anche scorrerli a mano.
+        </p>
+
+        <!-- IMPORTANTE: id="igStrip" serve per l'autoscroll -->
+        <div class="ig-strip" id="igStrip" aria-label="Banner scorrevole Instagram">
+          <!-- Reel Expressing Studio (copertina dedicata) -->
+          <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
+            <img class="ig-cover" src="Reel expressing studio.png" alt="Reel ExpresSING Studio" loading="lazy">
+            <div class="ig-meta">
+              <div class="t">Reel — ExpresSING Studio</div>
+              <span class="ig-open">Apri ↗</span>
+            </div>
+          </a>
+
+          <!-- Post Expressing Studio -->
+          <a class="ig-card" href="https://www.instagram.com/expressing_studio/p/DRW9WUsjOs5/" target="_blank" rel="noopener noreferrer">
+            <img class="ig-cover" src="Post.png" alt="Post ExpresSING Studio" loading="lazy">
+            <div class="ig-meta">
+              <div class="t">Post — ExpresSING Studio</div>
+              <span class="ig-open">Apri ↗</span>
+            </div>
+          </a>
+
+          <!-- Reel VED Acustica -->
+          <a class="ig-card" href="https://www.instagram.com/vedacustica/reel/DRPD54QDBvD/" target="_blank" rel="noopener noreferrer">
+            <img class="ig-cover" src="Reel VED.png" alt="Reel VED Acustica" loading="lazy">
+            <div class="ig-meta">
+              <div class="t">Reel — VED Acustica</div>
+              <span class="ig-open">Apri ↗</span>
+            </div>
+          </a>
+
+          <!-- Altro reel Expressing Studio: qui usa la FOTO “che c’era” (sostituisci nome se diverso) -->
+          <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DQrm6JxDLnW/" target="_blank" rel="noopener noreferrer">
+            <img class="ig-cover" src="StudioReel.jpg" alt="Reel ExpresSING Studio" loading="lazy">
+            <div class="ig-meta">
+              <div class="t">Reel — ExpresSING Studio</div>
+              <span class="ig-open">Apri ↗</span>
+            </div>
+          </a>
         </div>
 
-<div class="ig-strip" aria-label="Banner scorrevole Instagram">
-          <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
-            <img src="Reel expressing studio.png" alt="Reel ExpresSING Studio" />
-            <div class="ig-meta"><div class="ig-title">Reel • ExpresSING Studio</div><div class="ig-tag">reel</div></div>
+        <div class="actions" style="margin-top:1rem;">
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">
+            📷 Vai al profilo ExpresSING Studio
           </a>
-
-          <a class="ig-card" href="https://www.instagram.com/expressing_studio/p/DRW9WUsjOs5/" target="_blank" rel="noopener noreferrer">
-            <img src="Post.png" alt="Post ExpresSING Studio" />
-            <div class="ig-meta"><div class="ig-title">Post • ExpresSING Studio</div><div class="ig-tag">post</div></div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/vedacustica/reel/DRPD54QDBvD/" target="_blank" rel="noopener noreferrer">
-            <img src="Reel VED.png" alt="Reel VED Acustica" />
-            <div class="ig-meta"><div class="ig-title">Reel • VED Acustica</div><div class="ig-tag">reel</div></div>
-          </a>
-
-          <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DQrm6JxDLnW/" target="_blank" rel="noopener noreferrer">
-            <img src="Sala performance 1.jpg" alt="Reel ExpresSING Studio (anteprima)" />
-            <div class="ig-meta"><div class="ig-title">Reel • ExpresSING Studio</div><div class="ig-tag">reel</div></div>
-          </a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
 
-    <!-- CONTATTI (ripristinato con busta) -->
+    <!-- CONTATTI -->
     <section id="contatti" class="reveal">
       <div class="section-kicker">Contatti</div>
       <div class="section-title">Scrivimi</div>
@@ -952,7 +1062,7 @@
 
           <div class="actions">
             <button class="btn primary" type="submit">✉️ Invia richiesta</button>
-            <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Vai al profilo ExpresSING Studio</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
         </form>
       </div>
@@ -984,11 +1094,14 @@
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
-    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
+    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
+
+    // chiudi menu quando clicco una voce
+    document.querySelectorAll(".menu-grid a").forEach(a => {
       a.addEventListener("click", () => closeMenu(), { passive:true });
     });
 
-    // NAV PILLS (desktop: Home primo, escludi pagina corrente) — come prima
+    // NAV PILLS (desktop: escludi pagina corrente)
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
@@ -1022,95 +1135,87 @@
       window.location.href = "mailto:" + to + "?subject=" + fullSubject + "&body=" + body;
     });
 
-    // ON SCROLL reveal
-    const els = Array.from(document.querySelectorAll(".reveal"));
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(el => io.observe(el));
+    // ON-SCROLL REVEAL
+    (function(){
+      const els = Array.from(document.querySelectorAll(".reveal"));
+      if(!("IntersectionObserver" in window)){
+        els.forEach(el => el.classList.add("in"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
 
     // AUTOSCROLL IG STRIP (mantiene lo scroll manuale)
-// - scorre lentamente
-// - pausa su hover / focus
-// - pausa durante drag/touch, poi riparte
-(function(){
-  const strip = document.getElementById("igStrip");
-  if(!strip) return;
+    (function(){
+      const strip = document.getElementById("igStrip");
+      if(!strip) return;
 
-  let rafId = null;
-  let running = true;
-  let userInteracting = false;
+      let rafId = null;
+      let running = true;
+      let userInteracting = false;
 
-  // velocità: px per frame (0.35 = lento e “smooth”)
-  const speed = 0.35;
+      // velocità in px per frame
+      const speed = 0.45;
 
-  function step(){
-    if(running && !userInteracting){
-      // se arriviamo in fondo, ricominciamo
-      if(strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 1){
-        strip.scrollLeft = 0;
-      } else {
-        strip.scrollLeft += speed;
+      function step(){
+        if(running && !userInteracting){
+          const atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+          if(atEnd) strip.scrollLeft = 0;
+          else strip.scrollLeft += speed;
+        }
+        rafId = requestAnimationFrame(step);
       }
-    }
-    rafId = requestAnimationFrame(step);
-  }
 
-  function start(){
-    if(rafId) return;
-    rafId = requestAnimationFrame(step);
-  }
+      function start(){
+        if(rafId) return;
+        rafId = requestAnimationFrame(step);
+      }
+      function stop(){
+        if(!rafId) return;
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
 
-  function stop(){
-    if(!rafId) return;
-    cancelAnimationFrame(rafId);
-    rafId = null;
-  }
+      strip.addEventListener("mouseenter", () => { running = false; });
+      strip.addEventListener("mouseleave", () => { running = true; });
 
-  // Pausa su hover (desktop)
-  strip.addEventListener("mouseenter", () => { running = false; });
-  strip.addEventListener("mouseleave", () => { running = true; });
+      strip.addEventListener("focusin",  () => { running = false; });
+      strip.addEventListener("focusout", () => { running = true;  });
 
-  // Pausa su focus (accessibilità)
-  strip.addEventListener("focusin",  () => { running = false; });
-  strip.addEventListener("focusout", () => { running = true;  });
+      let resumeTimer = null;
+      const pauseForUser = () => {
+        userInteracting = true;
+        if(resumeTimer) clearTimeout(resumeTimer);
+      };
+      const resumeAfterUser = () => {
+        if(resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { userInteracting = false; }, 1200);
+      };
 
-  // Gestione interazione utente (mouse/touch/trackpad)
-  let resumeTimer = null;
-  const pauseForUser = () => {
-    userInteracting = true;
-    if(resumeTimer) clearTimeout(resumeTimer);
-  };
-  const resumeAfterUser = () => {
-    if(resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => { userInteracting = false; }, 1200);
-  };
+      strip.addEventListener("pointerdown", pauseForUser, {passive:true});
+      strip.addEventListener("pointerup", resumeAfterUser, {passive:true});
+      strip.addEventListener("pointercancel", resumeAfterUser, {passive:true});
 
-  strip.addEventListener("pointerdown", pauseForUser, {passive:true});
-  strip.addEventListener("pointerup", resumeAfterUser, {passive:true});
-  strip.addEventListener("pointercancel", resumeAfterUser, {passive:true});
+      strip.addEventListener("scroll", () => {
+        pauseForUser();
+        resumeAfterUser();
+      }, {passive:true});
 
-  // se l’utente scrolla manualmente con rotella/trackpad, pausa un attimo e poi riparte
-  strip.addEventListener("scroll", () => {
-    pauseForUser();
-    resumeAfterUser();
-  }, {passive:true});
+      document.addEventListener("visibilitychange", () => {
+        if(document.hidden) stop();
+        else start();
+      });
 
-  // Avvio
-  start();
-
-  // Se la tab va in background, stop per non consumare risorse
-  document.addEventListener("visibilitychange", () => {
-    if(document.hidden) stop();
-    else start();
-  });
-})();
-
+      start();
+    })();
   </script>
 </body>
 </html>
