@@ -297,8 +297,6 @@
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
     }
-
-    /* SOTTOPARAGRAFI (come prima) */
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
@@ -332,7 +330,7 @@
     }
 
     .grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:1.25rem;align-items:stretch;}
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+    .grid-4{display:grid;grid-template-columns:repeat(4, 1fr);gap:1rem;}
 
     .hero-photo{
       width:100%;
@@ -420,7 +418,7 @@
       overflow:hidden;
       backdrop-filter: blur(10px);
       position:relative;
-      transition: transform .16s ease, filter .16s ease;
+      transition: transform .16s ease;
     }
     .tile:hover{transform: translateY(-3px);}
 
@@ -430,6 +428,9 @@
       overflow:hidden;
       border-bottom:1px solid rgba(255,255,255,0.14);
       background: rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .tile-media img{
       width:100%;
@@ -441,8 +442,17 @@
     }
     .tile:hover .tile-media img{transform: scale(1.08);}
 
-    /* Fitball: faccia meno tagliata */
     .fitball-img{object-position: center 62%;}
+
+    /* VES logo: non “zoomare” troppo, meglio contenere */
+    .ves-img{
+      object-fit:contain !important;
+      width:100%;
+      height:100%;
+      padding:1.05rem;
+      transform: none !important;
+    }
+    .tile:hover .ves-img{transform:none !important;}
 
     .tile-body{
       padding:1.05rem 1.2rem 1.25rem;
@@ -451,7 +461,7 @@
       gap:.6rem;
     }
 
-    /* QUESTO DEVE RESTARE NEL FONT NORMALE (NO AMATIC) */
+    /* Titolo interno tile: FONT NORMALE (NO AMATIC) */
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -467,15 +477,14 @@
       font-size:.92rem;
       line-height:1.2;
     }
-
     .tile p{ text-align:left; }
 
-    /* BADGE SOTTO LA FOTO (come prima), emoji + senza puntini */
+    /* ONLINE / PRESENZA: dentro lo stesso riquadro, in fondo */
     .mode-row{
       display:flex;
       gap:.55rem;
       flex-wrap:wrap;
-      margin-top:.2rem;
+      margin-top:.25rem;
     }
     .mode-pill{
       display:inline-flex;
@@ -516,7 +525,6 @@
 
     /* ===== IG BANNER (INFINITO) ===== */
     .ig-banner{ margin-top:.2rem; }
-
     .ig-marquee{
       margin-top: 1rem;
       border-radius: 1.6rem;
@@ -527,7 +535,6 @@
       overflow: hidden;
       position: relative;
     }
-
     .ig-track{
       display:flex;
       gap:.85rem;
@@ -634,7 +641,7 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1020px){
       .grid-2{grid-template-columns:1fr;}
-      .grid-3{grid-template-columns:1fr;}
+      .grid-4{grid-template-columns:1fr;}
       .mini-gallery{grid-template-columns:1fr;}
       .mini-gallery img{height:300px;}
       .section-title{font-size:2.7rem;}
@@ -839,18 +846,22 @@
       <div class="section-kicker">Percorsi</div>
       <div class="section-title">Percorsi personalizzati</div>
 
-      <div class="grid-3">
+      <div class="grid-4">
+        <!-- 1 -->
         <div class="tile">
           <div class="tile-media">
             <img class="fitball-img" src="Fitball.jpg" alt="Lezioni 1:1 canto e cantautori" />
           </div>
           <div class="tile-body">
+            <span class="pill-title">LEZIONI 1:1 — CANTANTI &amp; CANTAUTORI</span>
+            <p>Percorsi individuali <span class="hl">su misura</span> per lavorare su tecnica, espressività e presenza scenica.</p>
+
+            <!-- ONLINE + PRESENZA nello stesso riquadro, in fondo -->
             <div class="mode-row">
               <span class="mode-pill">🏡 IN PRESENZA</span>
               <span class="mode-pill">💻 ONLINE</span>
             </div>
-            <span class="pill-title">LEZIONI 1:1 — CANTANTI &amp; CANTAUTORI</span>
-            <p>Percorsi individuali <span class="hl">su misura</span> per lavorare su tecnica, espressività e presenza scenica.</p>
+
             <div class="actions">
               <a class="btn primary" href="percorsi.html#canto">Leggi tutto</a>
               <button class="btn link open-menu" type="button">☰ Menu</button>
@@ -858,20 +869,23 @@
           </div>
         </div>
 
+        <!-- 2 -->
         <div class="tile">
           <div class="tile-media">
             <img src="Mascherina.jpg" alt="Voce parlata e comunicazione professionale" />
           </div>
           <div class="tile-body">
-            <div class="mode-row">
-              <span class="mode-pill">🏡 IN PRESENZA</span>
-              <span class="mode-pill">💻 ONLINE</span>
-            </div>
             <span class="pill-title">LEZIONI 1:1 — VOCE PARLATA</span>
             <p>
               Per chi usa la voce nel lavoro: chiarezza, efficacia, sostenibilità e
               strumenti per fronteggiare <span class="hl">stress e ansia da prestazione</span>.
             </p>
+
+            <div class="mode-row">
+              <span class="mode-pill">🏡 IN PRESENZA</span>
+              <span class="mode-pill">💻 ONLINE</span>
+            </div>
+
             <div class="actions">
               <a class="btn primary" href="percorsi.html#voce">Leggi tutto</a>
               <button class="btn link open-menu" type="button">☰ Menu</button>
@@ -879,19 +893,47 @@
           </div>
         </div>
 
+        <!-- 3 -->
         <div class="tile">
           <div class="tile-media">
             <img src="Lisa.jpg" alt="Artisti emergenti e progetto discografico" />
           </div>
           <div class="tile-body">
+            <span class="pill-title">ARTISTI EMERGENTI</span>
+            <p>Integriamo <span class="hl">voce</span>, <span class="hl">identità</span> e preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.</p>
+
             <div class="mode-row">
               <span class="mode-pill">🏡 IN PRESENZA</span>
               <span class="mode-pill">💻 ONLINE</span>
             </div>
-            <span class="pill-title">ARTISTI EMERGENTI</span>
-            <p>Integriamo <span class="hl">voce</span>, <span class="hl">identità</span> e preparazione a <span class="hl">studio</span> e <span class="hl">performance</span>.</p>
+
             <div class="actions">
               <a class="btn primary" href="percorsi.html#artisti">Leggi tutto</a>
+              <button class="btn link open-menu" type="button">☰ Menu</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: VES -->
+        <div class="tile">
+          <div class="tile-media" aria-label="Logo VES">
+            <!-- CAMBIA il nome file se diverso -->
+            <img class="ves-img" src="Logo VES.jpg" alt="Voice Evolution Institute - VES" />
+          </div>
+          <div class="tile-body">
+            <span class="pill-title">CERTIFICAZIONI (VES)</span>
+            <p>
+              Certificazioni per <span class="hl">cantanti</span> e per <span class="hl">insegnanti di canto</span> rilasciate dal
+              <span class="hl">Voice Evolution Institute</span>.
+            </p>
+
+            <div class="mode-row">
+              <span class="mode-pill">🏡 IN PRESENZA</span>
+              <span class="mode-pill">💻 ONLINE</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="percorsi.html#ves">Leggi tutto</a>
               <button class="btn link open-menu" type="button">☰ Menu</button>
             </div>
           </div>
@@ -963,7 +1005,6 @@
 
         <div class="ig-marquee" id="igMarquee" aria-label="Banner infinito Instagram">
           <div class="ig-track" id="igTrack">
-            <!-- SET ORIGINALE (verrà duplicato via JS) -->
             <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DSqtQhXDEdo/" target="_blank" rel="noopener noreferrer">
               <img class="ig-cover" src="Reel expressing studio.png" alt="Reel ExpresSING Studio" loading="lazy">
               <div class="ig-meta"><div class="t">Reel — ExpresSING Studio</div><span class="ig-open">Apri ↗</span></div>
@@ -979,7 +1020,6 @@
               <div class="ig-meta"><div class="t">Reel — VED Acustica</div><span class="ig-open">Apri ↗</span></div>
             </a>
 
-            <!-- Questo reel: foto dello studio A SINISTRA (Ingresso) -->
             <a class="ig-card" href="https://www.instagram.com/expressing_studio/reel/DQrm6JxDLnW/" target="_blank" rel="noopener noreferrer">
               <img class="ig-cover" src="Foto ingresso.jpg" alt="Reel ExpresSING Studio" loading="lazy">
               <div class="ig-meta"><div class="t">Reel — ExpresSING Studio</div><span class="ig-open">Apri ↗</span></div>
@@ -1049,7 +1089,6 @@
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
 
-    // chiudi menu quando clicco una voce (anche submenu)
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
       a.addEventListener("click", () => closeMenu(), { passive:true });
     });
@@ -1105,11 +1144,10 @@
       els.forEach(el => io.observe(el));
     })();
 
-    // IG MARQUEE INFINITO: duplica i contenuti e calcola durata
+    // IG MARQUEE INFINITO
     (function(){
       const track = document.getElementById("igTrack");
       if(!track) return;
-
       if(track.dataset.duplicated === "1") return;
 
       const originalItems = Array.from(track.children);
