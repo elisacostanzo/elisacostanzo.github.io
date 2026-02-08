@@ -473,11 +473,16 @@
 
 /* immagine dentro il cerchio */
 .ves-logo-wrap img{
-  width: 86%;
-  height: 86%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
   display:block;
-  transform:none !important;
+
+  /* qui sta il fix: riempi il cerchio tagliando il margine */
+  object-fit: cover;
+  object-position: center;
+
+  /* zoom per eliminare il bordo quadrato dell’immagine */
+  transform: scale(1.18);
 }
 
 /* niente zoom hover sul logo */
