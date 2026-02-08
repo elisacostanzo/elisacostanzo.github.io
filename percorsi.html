@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <title>Percorsi — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* ===== FONT (come INDEX) ===== */
@@ -609,6 +612,46 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
+    :root{
+  /* ...le tue variabili... */
+  --titleFont: "Amatic SC", system-ui, sans-serif;
+
+  /* >>> dimensioni “index-style” (kicker piccolo / titolo grande) */
+  --kickerSize: 1.12rem;     /* "Percorsi" piccolo */
+  --titleSize: 3.05rem;      /* "Scegli la direzione..." grande */
+}
+
+/* Kicker piccolo in Amatic */
+.section-kicker{
+  font-family: var(--titleFont);
+  font-size: var(--kickerSize);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .92;
+  margin-bottom: .65rem;
+}
+
+/* Titolo grande in Amatic */
+.section-title{
+  font-family: var(--titleFont);
+  font-size: var(--titleSize);
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.02;
+  margin-bottom: 1rem;
+  max-width: 980px;
+  text-shadow: 0 10px 22px rgba(0,0,0,0.26);
+}
+
+/* Responsive (come in index: titolo scende un po’ su mobile) */
+@media (max-width: 600px){
+  :root{
+    --kickerSize: 1.02rem;
+    --titleSize: 2.35rem;
+  }
+}
+
   </style>
 </head>
 
