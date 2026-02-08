@@ -5,6 +5,11 @@
   <title>ExpresSING Studio — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ✅ Amatic SC (come in index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --blue:#355c7b;
@@ -13,6 +18,13 @@
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
+
+      /* ✅ logica index: TITOLI in Amatic, tutto il resto in Calibri */
+      --titleFont: "Amatic SC", system-ui, sans-serif;
+
+      /* ✅ stesse proporzioni “kicker piccolo / titolo grande” di index */
+      --kickerSize: 1.12rem;
+      --titleSize: 3.05rem;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -68,14 +80,19 @@
     }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+
+    /* ✅ Titolo header in Amatic (come index) senza “allargare” layout */
     .brand-name{
-      font-weight:1100;
-      letter-spacing:.12em;
+      font-family: var(--titleFont);
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      font-size:1.04rem;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
+      line-height:1.0;
     }
 
     /* Ruoli: una riga ciascuno + pallino giallo */
@@ -284,14 +301,28 @@
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
+    /* ✅ logica index: kicker piccolo in Amatic */
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+      font-family: var(--titleFont);
+      font-size: var(--kickerSize);
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:.7rem;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.22);
     }
+
+    /* ✅ logica index: titolo grande in Amatic */
     .section-title{
-      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1200;
-      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      font-family: var(--titleFont);
+      font-size: var(--titleSize);
+      font-weight: 700;
+      letter-spacing: .03em;
+      line-height:1.02;
+      margin-bottom:1rem;
+      max-width:980px;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.26);
     }
 
     .card{
@@ -349,7 +380,7 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    /* Accessibilità / info rapide (emoji) */
+    /* Info pratiche */
     .poi{
       margin-top:1rem;
       display:grid;
@@ -373,12 +404,8 @@
     }
     .poi-item p{font-size:1.02rem;opacity:.92;line-height:1.55;text-align:left;}
 
-    /* Sale in colonna */
-    .rooms{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1rem;
-    }
+    /* Sale */
+    .rooms{display:grid;grid-template-columns:1fr;gap:1rem;}
     .room-head{
       display:flex;
       flex-wrap:wrap;
@@ -402,12 +429,6 @@
       line-height:1.2;
     }
 
-    .room-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:1rem;
-    }
-
     .room-gallery{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -425,7 +446,7 @@
       display:block;
     }
 
-    /* Mappa: più piccola */
+    /* Mappa */
     .map-wrap{
       border-radius:1.85rem;
       overflow:hidden;
@@ -436,12 +457,12 @@
     }
     .map-embed{
       width:100%;
-      height:360px; /* ✅ ridotta */
+      height:360px;
       border:0;
       display:block;
     }
 
-    /* MOBILE */
+    /* Responsive */
     @media (max-width: 1020px){
       .hero-grid{grid-template-columns:1fr;}
       .hero-photo{min-height:340px;}
@@ -451,8 +472,13 @@
       .map-embed{height:320px;}
     }
 
-    /* MOBILE HEADER */
+    /* ✅ stesse riduzioni index su mobile */
     @media (max-width: 600px){
+      :root{
+        --kickerSize: 1.02rem;
+        --titleSize: 2.35rem;
+      }
+
       .nav-pills{ display:none !important; }
 
       .header-inner{
@@ -463,8 +489,8 @@
       .logo-img{ height:92px; }
 
       .brand-name{
-        font-size:.96rem;
-        letter-spacing:.11em;
+        font-size: 1.25rem;
+        letter-spacing:.09em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
@@ -638,7 +664,9 @@
       <div class="hero-grid">
         <div class="card">
           <div class="section-kicker">ExpresSING Studio</div>
-          <div class="section-title">Uno spazio comodo, curato e pensato per lavorare bene 🏡</div>
+
+          <!-- ✅ testo sostituito come richiesto -->
+          <div class="section-title">Uno spazio in cui la voce incontra la libertà di essere 🏡</div>
 
           <p>
             Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a Roma, in una zona comoda e ben collegata.
@@ -676,13 +704,12 @@
       </div>
     </section>
 
-    <!-- SALE (in colonna) -->
+    <!-- SALE -->
     <section id="sale">
       <div class="section-kicker">Le sale</div>
       <div class="section-title">Due ambienti, due funzioni: stesso obiettivo 🎯</div>
 
       <div class="rooms">
-        <!-- PERFORMANCE -->
         <div class="card">
           <div class="room-head">
             <div class="pill-title">Sala Performance 🎤</div>
@@ -710,7 +737,6 @@
           </div>
         </div>
 
-        <!-- REGIA -->
         <div class="card">
           <div class="room-head">
             <div class="pill-title">Sala Regia 🎧</div>
@@ -784,8 +810,16 @@
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
-    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+
+    function openMenu(){
+      menuOverlay.classList.add("open");
+      menuOverlay.setAttribute("aria-hidden","false");
+    }
+    function closeMenu(){
+      menuOverlay.classList.remove("open");
+      menuOverlay.setAttribute("aria-hidden","true");
+    }
+
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
