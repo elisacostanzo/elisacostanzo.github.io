@@ -5,7 +5,7 @@
   <title>ExpresSING Studio — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic SC (come in index) -->
+  <!-- ✅ Amatic SC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
@@ -19,10 +19,10 @@
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
 
-      /* ✅ logica index: TITOLI in Amatic, tutto il resto in Calibri */
+      /* ✅ come index: titoli in Amatic, testo in Calibri */
       --titleFont: "Amatic SC", system-ui, sans-serif;
 
-      /* ✅ stesse proporzioni “kicker piccolo / titolo grande” di index */
+      /* ✅ stesse logiche dimensioni (kicker piccolo / titolo grande) */
       --kickerSize: 1.12rem;
       --titleSize: 3.05rem;
     }
@@ -33,7 +33,6 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
-
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -56,7 +55,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* HEADER */
+    /* ========= HEADER (not change layout) ========= */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -68,46 +67,31 @@
       padding:0.85rem 1.15rem;
       display:flex;align-items:center;justify-content:space-between;gap:1rem;
     }
-
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
-
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{
-      height: 140px;
-      width: auto;
-      display:block;
-      object-fit:contain;
-    }
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Titolo header in Amatic (come index) senza “allargare” layout */
+    /* ✅ come index: Elisa Costanzo in Amatic */
     .brand-name{
       font-family: var(--titleFont);
-      font-weight: 700;
-      font-size: 1.45rem;
+      font-weight:700;
+      font-size:1.45rem;
       letter-spacing:.10em;
       text-transform:uppercase;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
       line-height:1.0;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
     }
 
-    /* Ruoli: una riga ciascuno + pallino giallo */
+    /* Ruoli verticali con pallino */
     .brand-sub{
-      font-size:.96rem;
-      opacity:.96;
-      line-height:1.25;
-      max-width:64ch;
-      display:block;
+      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;display:block;
     }
-    .brand-sub span{
-      display:block;
-      white-space:nowrap;
-      margin:.10rem 0;
-    }
+    .brand-sub span{display:block;white-space:nowrap;margin:.10rem 0;}
     .brand-sub span::before{
       content:"• ";
       color:var(--yellow);
@@ -115,38 +99,28 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) */
+    /* NAV PILLS (desktop) — ✅ bottoni in Amatic */
     .nav-pills{
-      display:flex;
-      gap:.65rem;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:.55rem;
+      display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;
     }
     .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.05rem;
-      font-weight: 1100;
-      letter-spacing: .01em;
+      font-family: var(--titleFont);
+      font-size:1.55rem;
+      letter-spacing:.03em;
+      border-radius:999px;
+      padding:0.58rem 1.05rem;
 
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.96);
-
+      border:1px solid rgba(255,255,255,0.28);
+      background:rgba(255,255,255,0.14);
+      color:rgba(255,255,255,0.96);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.18),
         0 14px 28px rgba(0,0,0,0.18);
-
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
       transform: translateY(-1px);
@@ -157,22 +131,11 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.08em;
-      line-height: 1;
-      transform: translateY(1px);
+      font-size:1.05em;line-height:1;transform:translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-      flex-wrap:nowrap;
-      flex:0 0 auto;
-      position:relative;
-      z-index:80;
-    }
-
+    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -190,10 +153,15 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
+    /* ✅ pulsante Menu in Amatic */
     .menu-button{
+      font-family: var(--titleFont);
+      font-size:1.65rem;
+      letter-spacing:.05em;
+
       border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:1100;cursor:pointer;
+      padding:0.55rem 1.05rem;border-radius:999px;
+      font-weight:700;cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
@@ -202,7 +170,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scroll) */
+    /* MENU OVERLAY (⚠️ NON Amatic: resta Calibri) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -229,7 +197,6 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
-
       max-height: calc(100vh - 7rem);
       overflow:auto;
     }
@@ -301,28 +268,28 @@
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* ✅ logica index: kicker piccolo in Amatic */
+    /* ✅ Kicker (piccolo) in Amatic */
     .section-kicker{
       font-family: var(--titleFont);
       font-size: var(--kickerSize);
-      font-weight: 700;
-      letter-spacing: .14em;
+      font-weight:700;
+      letter-spacing:.14em;
       text-transform:uppercase;
       opacity:.92;
       margin-bottom:.7rem;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.22);
+      text-shadow:0 10px 22px rgba(0,0,0,0.22);
     }
 
-    /* ✅ logica index: titolo grande in Amatic */
+    /* ✅ Titolo (grande) in Amatic */
     .section-title{
       font-family: var(--titleFont);
       font-size: var(--titleSize);
-      font-weight: 700;
-      letter-spacing: .03em;
+      font-weight:700;
+      letter-spacing:.03em;
       line-height:1.02;
       margin-bottom:1rem;
       max-width:980px;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.26);
+      text-shadow:0 10px 22px rgba(0,0,0,0.26);
     }
 
     .card{
@@ -334,11 +301,15 @@
       backdrop-filter: blur(12px);
     }
 
+    /* ✅ BOTTONI in Amatic (come index/percorsi) */
     .btn{
+      font-family: var(--titleFont);
+      font-size: 1.65rem;
+      letter-spacing: .03em;
+      font-weight: 700;
+
       border-radius:999px;
-      padding:0.82rem 1.28rem;
-      font-size:1rem;
-      font-weight:1200;
+      padding:0.58rem 1.10rem;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
       color:#fff;
@@ -346,6 +317,7 @@
       display:inline-flex;align-items:center;gap:.45rem;
       transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
       white-space:nowrap;
+      line-height:1;
     }
     .btn.primary{
       border-color:transparent;
@@ -353,14 +325,14 @@
       color:var(--magenta);
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
-    .btn:hover{transform:translateY(-1px);}
     .btn.link{
       border-color:rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.10);
     }
+    .btn:hover{transform:translateY(-1px);}
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* HERO LAYOUT */
+    /* HERO */
     .hero-grid{
       display:grid;
       grid-template-columns: 1.08fr .92fr;
@@ -368,6 +340,7 @@
       align-items:stretch;
     }
 
+    /* ✅ effetti foto come index/percorsi */
     .hero-photo{
       width:100%;
       height:100%;
@@ -378,6 +351,13 @@
       object-fit:cover;
       display:block;
       filter: saturate(1.05) contrast(1.02);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      will-change: transform;
+    }
+    .hero-photo:hover{
+      transform: translateY(-3px) scale(1.02);
+      filter: saturate(1.08) contrast(1.03) brightness(1.03);
+      box-shadow:0 28px 62px rgba(0,0,0,0.38);
     }
 
     /* Info pratiche */
@@ -393,6 +373,12 @@
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
       padding:1rem 1rem;
+      transition: transform .14s ease, background .14s ease, border-color .14s ease;
+    }
+    .poi-item:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.22);
     }
     .poi-item h4{
       font-size:1.05rem;
@@ -444,6 +430,13 @@
       box-shadow:0 18px 38px rgba(0,0,0,0.18);
       filter: saturate(1.05) contrast(1.02);
       display:block;
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      will-change: transform;
+    }
+    .room-gallery img:hover{
+      transform: translateY(-3px) scale(1.03);
+      filter: saturate(1.08) contrast(1.03) brightness(1.03);
+      box-shadow:0 24px 54px rgba(0,0,0,0.28);
     }
 
     /* Mappa */
@@ -455,14 +448,9 @@
       background: rgba(255,255,255,0.06);
       margin-top:1rem;
     }
-    .map-embed{
-      width:100%;
-      height:360px;
-      border:0;
-      display:block;
-    }
+    .map-embed{width:100%;height:360px;border:0;display:block;}
 
-    /* Responsive */
+    /* RESPONSIVE */
     @media (max-width: 1020px){
       .hero-grid{grid-template-columns:1fr;}
       .hero-photo{min-height:340px;}
@@ -472,56 +460,31 @@
       .map-embed{height:320px;}
     }
 
-    /* ✅ stesse riduzioni index su mobile */
     @media (max-width: 600px){
-      :root{
-        --kickerSize: 1.02rem;
-        --titleSize: 2.35rem;
-      }
+      :root{ --kickerSize: 1.02rem; --titleSize: 2.35rem; }
 
-      .nav-pills{ display:none !important; }
-
-      .header-inner{
-        padding:.7rem .85rem;
-        gap:.6rem;
-      }
-
-      .logo-img{ height:92px; }
+      .nav-pills{display:none !important;}
+      .header-inner{padding:.7rem .85rem;gap:.6rem;}
+      .logo-img{height:92px;}
 
       .brand-name{
-        font-size: 1.25rem;
+        font-size:1.25rem;
         letter-spacing:.09em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
 
-      .brand-sub{
-        font-size:.86rem;
-        line-height:1.35;
-        max-width:34ch;
-      }
-      .brand-sub span{
-        display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
+      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
+      .brand-sub span{margin:.12rem 0;}
 
-      .header-actions{
-        flex-direction:column;
-        align-items:flex-end;
-        gap:.45rem;
-        z-index:90;
-      }
-      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
 
-      .top-icons{
-        display:flex;
-        flex-direction:row;
-        gap:.45rem;
-        margin-right:0;
-      }
-      .icon-btn{ width:40px; height:40px; }
+      .menu-button{padding:.50rem 1.00rem;font-size:1.55rem;}
+      .btn{font-size:1.55rem;padding:.55rem 1.05rem;}
+
+      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
+      .icon-btn{width:40px;height:40px;}
     }
 
     footer{
@@ -664,8 +627,6 @@
       <div class="hero-grid">
         <div class="card">
           <div class="section-kicker">ExpresSING Studio</div>
-
-          <!-- ✅ testo sostituito come richiesto -->
           <div class="section-title">Uno spazio in cui la voce incontra la libertà di essere 🏡</div>
 
           <p>
@@ -710,6 +671,7 @@
       <div class="section-title">Due ambienti, due funzioni: stesso obiettivo 🎯</div>
 
       <div class="rooms">
+        <!-- PERFORMANCE -->
         <div class="card">
           <div class="room-head">
             <div class="pill-title">Sala Performance 🎤</div>
@@ -737,6 +699,7 @@
           </div>
         </div>
 
+        <!-- REGIA -->
         <div class="card">
           <div class="room-head">
             <div class="pill-title">Sala Regia 🎧</div>
