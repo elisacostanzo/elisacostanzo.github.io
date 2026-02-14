@@ -101,6 +101,37 @@
       font-weight:900;
     }
 
+    /* ===== BOTTONI UNIFORMI IN AMATIC ===== */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.55rem;
+      line-height:1;
+
+      border-radius:999px;
+      padding:0.68rem 1.22rem;
+
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+    .btn:hover{transform:translateY(-1px);}
+
     /* NAV PILLS (desktop) */
     .nav-pills{
       display:flex;
@@ -110,12 +141,7 @@
       margin-top:.55rem;
     }
     .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.05rem;
-      font-weight: 1100;
-      letter-spacing: .01em;
-
+      /* mantengo look pills, ma font e dimensioni = Amatic (già) */
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
@@ -127,15 +153,10 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      padding:0.64rem 1.1rem; /* coerente con home */
+      font-size:1.55rem;      /* coerente */
     }
     .nav-pills .btn:hover{
-      transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
@@ -143,7 +164,7 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.08em;
+      font-size: 1.05em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
@@ -177,11 +198,18 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
+    /* ✅ Bottone Menu in Amatic e coerente */
     .menu-button{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.65rem;
+      line-height:1;
+
       border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:1100;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
+      padding:0.62rem 1.15rem;border-radius:999px;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
@@ -288,24 +316,24 @@
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* ✅ Kicker piccolo in Amatic (stile ExpresSING) */
+    /* ✅ Kicker piccolo in Amatic */
     .section-kicker{
       font-family:"Amatic SC", cursive;
       font-weight:700;
       letter-spacing:.14em;
       text-transform:uppercase;
       opacity:.92;
-      margin-bottom:.45rem;
+      margin-bottom:.35rem;
       font-size: clamp(1.35rem, 1.6vw, 1.7rem);
       line-height:1;
     }
 
-    /* ✅ Titolo grande in Amatic (stile ExpresSING) */
+    /* ✅ Titolo grande in Amatic — “via di mezzo” e uguale per entrambe */
     .section-title{
       font-family:"Amatic SC", cursive;
       font-weight:700;
       letter-spacing:.02em;
-      font-size: clamp(3.1rem, 4.6vw, 4.25rem);
+      font-size: clamp(2.85rem, 4.1vw, 3.55rem);
       line-height:.98;
       margin-bottom:1rem;
       max-width:980px;
@@ -359,30 +387,6 @@
       line-height:1.2;
     }
 
-    .btn{
-      border-radius:999px;
-      padding:0.82rem 1.15rem;
-      font-size:1rem;
-      font-weight:1200;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.9rem;}
 
     /* ======== PROGETTO ARTISTICO (come foto) ======== */
@@ -474,12 +478,14 @@
         font-size: clamp(1.45rem, 6.2vw, 1.9rem);
         letter-spacing:.06em;
       }
-
       .brand-sub{
         font-size:.86rem;
         max-width:34ch;
       }
-      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+      .menu-button{
+        padding:.52rem 1.02rem;
+        font-size:1.55rem;
+      }
       .top-icons{
         display:flex;
         flex-direction:row;
@@ -489,6 +495,8 @@
       .icon-btn{ width:40px; height:40px; }
 
       .artist-avatar{width:52px;height:52px;}
+      .btn{font-size:1.45rem; padding:.62rem 1.05rem;}
+      .nav-pills .btn{font-size:1.45rem;}
     }
 
     footer{
@@ -627,9 +635,10 @@
   </div>
 
   <main>
-    <!-- PROGETTO ARTISTICO (come foto) -->
+    <!-- PROGETTO ARTISTICO -->
     <section id="progetto-artistico">
       <div class="section-kicker">PROGETTO ARTISTICO</div>
+      <div class="section-title">Progetto artistico 💿✨</div>
 
       <div class="card">
         <p>
@@ -716,7 +725,7 @@
       </div>
     </section>
 
-    <!-- CARD ARTISTI -->
+    <!-- ARTISTI -->
     <section id="artisti">
       <div class="section-kicker">ARTISTI</div>
       <div class="section-title">Tre esempi concreti ✨</div>
