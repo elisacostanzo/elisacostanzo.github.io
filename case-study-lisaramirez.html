@@ -5,6 +5,9 @@
   <title>Lisa Ramirez — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ✅ Amatic (come Artisti) -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --blue:#355c7b;
@@ -64,7 +67,9 @@
       .artist-avatar{ width:48px; height:48px; }
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER (come Artisti)
+       ========================= */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -88,11 +93,14 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
+    /* ✅ Nome in Amatic (come Artisti) */
     .brand-name{
-      font-weight:1100;
-      letter-spacing:.12em;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
       text-transform:uppercase;
-      font-size:1.04rem;
+      font-size: clamp(1.6rem, 2.0vw, 2.05rem);
+      line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -104,7 +112,6 @@
       line-height:1.3;
       max-width:64ch;
     }
-    /* elenco con puntini gialli: SEMPRE VERTICALE */
     .brand-sub span{
       display:block;
       white-space:nowrap;
@@ -116,7 +123,38 @@
       font-weight:900;
     }
 
-    /* NAV PILLS (desktop) */
+    /* ===== BOTTONI UNIFORMI IN AMATIC (come Artisti) ===== */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.55rem;
+      line-height:1;
+
+      border-radius:999px;
+      padding:0.68rem 1.22rem;
+
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+    .btn:hover{transform:translateY(-1px);}
+
+    /* NAV PILLS (desktop) - come Artisti */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -125,12 +163,6 @@
       margin-top:.55rem;
     }
     .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.05rem;
-      font-weight: 1100;
-      letter-spacing: .01em;
-
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
@@ -142,15 +174,10 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      padding:0.64rem 1.1rem; /* coerente */
+      font-size:1.55rem;      /* coerente */
     }
     .nav-pills .btn:hover{
-      transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
@@ -158,7 +185,7 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.08em;
+      font-size: 1.05em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
@@ -192,11 +219,18 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
+    /* ✅ Bottone Menu in Amatic e coerente (come Artisti) */
     .menu-button{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.65rem;
+      line-height:1;
+
       border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:1100;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
+      padding:0.62rem 1.15rem;border-radius:999px;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
@@ -321,33 +355,9 @@
       backdrop-filter: blur(12px);
     }
 
-    .btn{
-      border-radius:999px;
-      padding:0.82rem 1.15rem;
-      font-size:1rem;
-      font-weight:1200;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* MOBILE */
+    /* MOBILE (come Artisti) */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
 
@@ -358,9 +368,10 @@
         z-index:90;
       }
       .logo-img{ height:96px; }
+
       .brand-name{
-        font-size:.96rem;
-        letter-spacing:.11em;
+        font-size: clamp(1.45rem, 6.2vw, 1.9rem);
+        letter-spacing:.06em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
@@ -369,7 +380,10 @@
         font-size:.86rem;
         max-width:34ch;
       }
-      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+      .menu-button{
+        padding:.52rem 1.02rem;
+        font-size:1.55rem;
+      }
       .top-icons{
         display:flex;
         flex-direction:row;
@@ -377,6 +391,9 @@
         margin-right:0;
       }
       .icon-btn{ width:40px; height:40px; }
+
+      .btn{font-size:1.45rem; padding:.62rem 1.05rem;}
+      .nav-pills .btn{font-size:1.45rem;}
     }
 
     footer{
@@ -512,41 +529,40 @@
 
       <div class="card">
         <p>
-  <span class="hl">Lisa Ramirez</span> si è rivolta a me dopo aver partecipato ad alcune mie lezioni di tecnica
-  vocale e presenza scenica organizzate nell’ambito del Tour Music Fest.
-</p>
+          <span class="hl">Lisa Ramirez</span> si è rivolta a me dopo aver partecipato ad alcune mie lezioni di tecnica
+          vocale e presenza scenica organizzate nell’ambito del Tour Music Fest.
+        </p>
 
-<p>
-  In quell’occasione ha sentito l’esigenza di costruire basi tecniche solide e di intraprendere un percorso di
-  formazione vocale e artistica strutturato, sia online che in presenza, che includesse non solo il
-  perfezionamento tecnico, ma anche un lavoro approfondito sugli aspetti musicali e stilistici.
-</p>
+        <p>
+          In quell’occasione ha sentito l’esigenza di costruire basi tecniche solide e di intraprendere un percorso di
+          formazione vocale e artistica strutturato, sia online che in presenza, che includesse non solo il
+          perfezionamento tecnico, ma anche un lavoro approfondito sugli aspetti musicali e stilistici.
+        </p>
 
-<p>
-  Il nostro lavoro è iniziato proprio da lì: dalla costruzione di una tecnica vocale affidabile e sostenibile,
-  affiancata da un percorso di crescita musicale consapevole. L’ho accompagnata nella preparazione degli
-  <span class="hl">esami di canto Rockschool</span>, fino al conseguimento della certificazione
-  <span class="hl">Grade 8</span>, lavorando in modo mirato su tecnica, repertorio, musicalità e interpretazione.
-</p>
+        <p>
+          Il nostro lavoro è iniziato proprio da lì: dalla costruzione di una tecnica vocale affidabile e sostenibile,
+          affiancata da un percorso di crescita musicale consapevole. L’ho accompagnata nella preparazione degli
+          <span class="hl">esami di canto Rockschool</span>, fino al conseguimento della certificazione
+          <span class="hl">Grade 8</span>, lavorando in modo mirato su tecnica, repertorio, musicalità e interpretazione.
+        </p>
 
-<p>
-  Successivamente, il percorso si è orientato verso un obiettivo ancora più ambizioso: la preparazione per
-  l’accesso alla
-  <a href="https://www.hemu.ch/accueil" target="_blank" rel="noopener noreferrer" class="hl">
-    HEMU – Haute École de Musique de Lausanne
-  </a>,
-  una delle università di musica più prestigiose e selettive in Europa. Oggi Lisa frequenta il corso di
-  Performance presso l’HEMU, proseguendo il suo percorso artistico e accademico in un contesto internazionale
-  di alto livello.
-</p>
+        <p>
+          Successivamente, il percorso si è orientato verso un obiettivo ancora più ambizioso: la preparazione per
+          l’accesso alla
+          <a href="https://www.hemu.ch/accueil" target="_blank" rel="noopener noreferrer" class="hl">
+            HEMU – Haute École de Musique de Lausanne
+          </a>,
+          una delle università di musica più prestigiose e selettive in Europa. Oggi Lisa frequenta il corso di
+          Performance presso l’HEMU, proseguendo il suo percorso artistico e accademico in un contesto internazionale
+          di alto livello.
+        </p>
 
-<p>
-  Parallelamente alla formazione accademica, Lisa è attiva dal vivo, esibendosi con diverse band, e ha avviato
-  anche un lavoro personale di scrittura dei propri inediti, che verranno pubblicati prossimamente su tutte le
-  piattaforme digitali. Il percorso discografico sarà anticipato dall’uscita di cover in italiano, inglese e
-  francese, pensate come primo racconto della sua identità artistica.
-</p>
-
+        <p>
+          Parallelamente alla formazione accademica, Lisa è attiva dal vivo, esibendosi con diverse band, e ha avviato
+          anche un lavoro personale di scrittura dei propri inediti, che verranno pubblicati prossimamente su tutte le
+          piattaforme digitali. Il percorso discografico sarà anticipato dall’uscita di cover in italiano, inglese e
+          francese, pensate come primo racconto della sua identità artistica.
+        </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
@@ -598,4 +614,3 @@
   </script>
 </body>
 </html>
-
