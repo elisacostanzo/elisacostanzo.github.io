@@ -1,319 +1,849 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Aurora Blasi — Elisa Costanzo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Aurora Blasi — Elisa Costanzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <!-- ✅ Amatic per titoli + bottoni -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
-<style>
-:root{
---blue:#355c7b;
---magenta:#81277c;
---yellow:#f6d24a;
---ink:rgba(255,255,255,.96);
-}
+  <style>
+    :root{
+      --blue:#355c7b;
+      --magenta:#81277c;
+      --yellow:#f6d24a;
 
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-font-family:Calibri,"Segoe UI",Arial,sans-serif;
-color:var(--ink);
-background:
-radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,.72), transparent 70%),
-radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,.72), transparent 70%),
-linear-gradient(180deg,#25314b,#2a2350,#1d2441);
-min-height:100vh;
-}
+      --ink: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.86);
+    }
 
-/* ---------- HEADER ---------- */
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      min-height:100vh;
 
-header{
-position:sticky;top:0;z-index:60;
-backdrop-filter:blur(16px);
-background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.06));
-border-bottom:1px solid rgba(255,255,255,.18);
-}
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
+        radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
+        radial-gradient(860px 560px at 50% 92%, rgba(129,39,124,0.22) 0, rgba(53,92,123,0.22) 55%, rgba(0,0,0,0) 78%),
+        linear-gradient(180deg, #25314b 0%, #2a2350 52%, #1d2441 100%);
+      background-attachment: fixed;
+    }
 
-.header-inner{
-max-width:1180px;margin:auto;
-padding:.85rem 1.15rem;
-display:flex;justify-content:space-between;align-items:center;
-}
+    a{color:inherit;text-decoration:none;}
+    p, li{line-height:1.85;font-size:1.08rem;}
+    .muted{opacity:.88}
 
-.brand{display:flex;gap:1rem;align-items:center;}
+    .hl{
+      color: var(--yellow);
+      font-weight: 1200;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      text-decoration: underline;
+      text-decoration-color: rgba(246,210,74,0.35);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+    }
 
-.logo-img{height:130px}
+    /* HEADER */
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .header-inner{
+      max-width:1180px;margin:0 auto;
+      padding:0.85rem 1.15rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
 
-.brand-name{
-font-family:'Amatic SC',cursive;
-font-size:1.9rem;
-letter-spacing:.08em;
-}
+    .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+    .logo-wrap{line-height:0;flex:0 0 auto;}
+    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
 
-.brand-sub span{
-display:block;
-font-size:.95rem;
-}
-.brand-sub span::before{
-content:"• ";
-color:var(--yellow);
-font-weight:bold;
-}
+    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-.menu-button{
-font-family:'Amatic SC',cursive;
-font-size:1.35rem;
-padding:.55rem 1.3rem;
-border-radius:999px;
-border:none;
-background:#fff;
-color:var(--magenta);
-cursor:pointer;
-box-shadow:0 10px 24px rgba(0,0,0,.25);
-}
+    .brand-name{
+      font-weight:1100;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:1.04rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
-/* ---------- TITOLI ---------- */
+    .brand-sub{
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.3;
+      max-width:64ch;
+    }
+    .brand-sub span{display:block;white-space:nowrap;margin:.10rem 0;}
+    .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:900;}
 
-.section-kicker{
-font-family:'Amatic SC',cursive;
-font-size:1.3rem;
-letter-spacing:.18em;
-margin-bottom:.3rem;
-}
+    /* NAV PILLS (desktop) */
+    .nav-pills{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
+    }
+    .nav-pills .btn{
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 1100;
+      letter-spacing: .01em;
 
-.section-title{
-font-family:'Amatic SC',cursive;
-font-size:3rem;
-margin-bottom:1rem;
-display:flex;
-align-items:center;
-gap:.7rem;
-}
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.96);
 
-/* ---------- CARD ---------- */
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
 
-main{max-width:1180px;margin:auto;padding:2rem 1.2rem;}
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
 
-.card{
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.18);
-border-radius:1.7rem;
-padding:1.6rem;
-box-shadow:0 18px 40px rgba(0,0,0,.25);
-}
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      white-space: nowrap;
 
-p{line-height:1.8;margin-bottom:1rem;}
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .nav-pills .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 18px 34px rgba(0,0,0,0.22);
+    }
+    .nav-pills .emoji{
+      font-size: 1.08em;
+      line-height: 1;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+    }
 
-.hl{
-color:var(--yellow);
-font-weight:bold;
-}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      margin-top:.15rem;
+      position:relative;
+      z-index:80;
+    }
 
-/* ---------- BOTTONI ---------- */
+    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
+    .icon-btn{
+      width:44px;height:44px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 14px 26px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.14);
+      transition:transform .12s ease, filter .12s ease;
+      flex:0 0 auto;
+    }
+    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
+    .icon-btn svg{width:22px;height:22px;}
+    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.70), rgba(255,255,255,0.08));}
+    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.72), rgba(53,92,123,0.25));}
+    .icon-mail svg{color:#d7f1ff;}
+    .icon-ig svg{color:#ffe0ff;}
 
-.btn{
-font-family:'Amatic SC',cursive;
-font-size:1.35rem;
-border-radius:999px;
-padding:.6rem 1.2rem;
-border:1px solid rgba(255,255,255,.55);
-background:transparent;
-color:#fff;
-cursor:pointer;
-transition:.15s;
-display:inline-flex;
-gap:.4rem;
-}
-.btn.primary{
-background:#fff;
-color:var(--magenta);
-border:none;
-}
-.btn:hover{transform:translateY(-2px)}
+    .menu-button{
+      border:none;background:#fff;color:var(--magenta);
+      padding:0.62rem 1.2rem;border-radius:999px;
+      font-weight:1100;cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+      transition:transform .12s ease, box-shadow .12s ease;
+      white-space:nowrap;
+      flex:0 0 auto;
+    }
+    .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
+    /* MENU OVERLAY */
+    .menu-overlay{
+      position:fixed; inset:0; z-index:90;
+      display:none;
+      padding:1.2rem;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
+        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
+        rgba(8,10,16,0.55);
+      overflow:auto;
+    }
+    .menu-overlay.open{display:block;}
 
-/* ---------- AVATAR ---------- */
+    .menu-card{
+      max-width:590px;
+      margin:4.2rem auto;
+      padding:1.35rem 1.35rem 1.15rem;
+      border-radius:1.85rem;
+      background:
+        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.20), rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%),
+        rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 26px 60px rgba(0,0,0,0.42);
+      backdrop-filter: blur(14px);
+      transform: translateY(10px);
+      animation: pop .18s ease-out forwards;
 
-.artist-avatar{
-width:58px;height:58px;border-radius:50%;
-object-fit:cover;
-box-shadow:0 14px 30px rgba(0,0,0,.35);
-}
+      max-height: calc(100vh - 7rem);
+      overflow:auto;
+    }
+    @keyframes pop{to{transform:translateY(0);}}
 
-/* ---------- MEDIA GRID ---------- */
+    .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
+    .menu-title{display:flex;flex-direction:column;gap:.2rem;}
+    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
+    .menu-close{
+      width:46px;height:46px;border-radius:999px;cursor:pointer;
+      border:1px solid rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.16);
+      box-shadow:0 12px 22px rgba(0,0,0,0.20);
+      color:#fff;font-size:1.2rem;
+      flex:0 0 auto;
+    }
 
-.media-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:1rem;
-margin-top:1rem;
-}
+    .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
+    .menu-item{
+      display:flex;align-items:center;justify-content:space-between;gap:.9rem;
+      padding:.9rem 1rem;border-radius:1.25rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+      transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
+    .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
+    .menu-ico{
+      width:40px;height:40px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 14px 24px rgba(0,0,0,0.16);
+      flex:0 0 auto;
+    }
+    .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
+    .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
+    .menu-text .t{font-weight:1100;font-size:1.02rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-pill{
+      font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+      padding:.35rem .6rem;border-radius:999px;
+      background:rgba(255,255,255,0.14);
+      border:1px solid rgba(255,255,255,0.18);
+      opacity:.95;flex:0 0 auto;
+    }
 
-.embed-card{
-border-radius:1.3rem;
-overflow:hidden;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.16);
-}
+    /* MAIN */
+    main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
+    section{margin-bottom:3.25rem;}
+    .section-kicker{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
+      /* ✅ Amatic */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+    }
+    .section-title{
+      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      flex-wrap:wrap;
+      /* ✅ Amatic */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+    }
 
-.embed-head{
-padding:.6rem .9rem;
-font-weight:bold;
-background:rgba(255,255,255,.05);
-}
+    .artist-avatar{
+      width:56px;
+      height:56px;
+      border-radius:999px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,0.28);
+      box-shadow:0 18px 38px rgba(0,0,0,0.26);
+      transform: translateY(3px);
+    }
 
-.embed-frame{
-aspect-ratio:16/9;
-}
-.embed-frame iframe{
-width:100%;
-height:100%;
-border:0;
-}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:1.85rem;
+      padding:1.6rem;
+      box-shadow:0 20px 44px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+    }
 
-.spotify{
-height:152px;
-}
-.spotify iframe{height:152px}
+    .btn{
+      border-radius:999px;
+      padding:0.82rem 1.15rem;
+      font-size:1rem;
+      font-weight:1200;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+      /* ✅ Amatic per bottoni */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.35rem;
+      letter-spacing:.03em;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-@media(max-width:900px){
-.media-grid{grid-template-columns:1fr;}
-}
+    /* ===== MEDIA (compatti) ===== */
+    .media-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+      margin-top:1rem;
+      align-items:start;
+    }
 
-/* ---------- FOOTER ---------- */
+    .embed-card{
+      border-radius:1.35rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow:0 16px 34px rgba(0,0,0,0.16);
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+    }
 
-footer{
-text-align:center;
-padding:2rem 1rem;
-opacity:.8;
-font-size:.9rem;
-}
-</style>
+    /* ✅ qui lasciamo struttura ma togliamo VISUALMENTE le scritte sopra ai video */
+    .embed-head{
+      display:none !important;
+    }
+
+    .embed-title{
+      font-weight:1200;
+      letter-spacing:.02em;
+      line-height:1.2;
+      font-size:1.02rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:46ch;
+    }
+
+    .embed-sub{
+      font-size:.88rem;
+      opacity:.88;
+      margin-top:.1rem;
+      line-height:1.2;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:46ch;
+    }
+
+    .embed-actions{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end;}
+    .embed-actions .btn{padding:.55rem .85rem;font-size:.92rem;}
+
+    .embed-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background: rgba(0,0,0,0.22);
+    }
+    .embed-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Spotify compatto */
+    .embed-frame.spotify{
+      aspect-ratio:auto;
+      height:152px;
+      background: rgba(0,0,0,0.18);
+    }
+    .embed-frame.spotify iframe{
+      position:relative;
+      width:100%;
+      height:152px;
+    }
+
+    .ig-preview{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background: rgba(0,0,0,0.22);
+      overflow:hidden;
+      display:block;
+    }
+    .ig-preview img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.03);
+    }
+    .ig-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.38));
+    }
+    .play-badge{
+      width:58px;height:58px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
+      box-shadow:0 18px 40px rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+      font-size:1.25rem;
+    }
+
+    @media (max-width: 1020px){
+      .media-grid{grid-template-columns:1fr;}
+      .embed-title,.embed-sub{max-width:60ch;}
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px){
+      .nav-pills{ display:none !important; }
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .logo-img{ height:96px; }
+      .brand-name{
+        font-size:.96rem;
+        letter-spacing:.11em;
+        white-space:nowrap;
+        overflow:visible;
+        text-overflow:clip;
+      }
+      .brand-sub{font-size:.86rem;max-width:34ch;}
+      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
+      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
+      .icon-btn{ width:40px; height:40px; }
+
+      .artist-avatar{width:40px;height:40px;}
+      .embed-actions .btn{padding:.5rem .8rem;}
+    }
+
+    footer{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 1.15rem 2.2rem;
+      opacity:.9;
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-wrap">
+          <img class="logo-img" src="Elisa Costanzo Logo.png" alt="Elisa Costanzo - Logo" />
+        </div>
 
-<header>
-<div class="header-inner">
-<div class="brand">
-<img src="Elisa Costanzo Logo.png" class="logo-img">
-<div>
-<div class="brand-name">Elisa Costanzo</div>
-<div class="brand-sub">
-<span>Vocal Trainer</span>
-<span>Cantante</span>
-<span>Direttrice di coro</span>
-<span>Cantautrice</span>
-</div>
-</div>
-</div>
+        <div class="brand-text">
+          <div class="brand-name">Elisa Costanzo</div>
+          <div class="brand-sub" aria-label="Ruoli">
+            <span>Vocal Trainer</span>
+            <span>Cantante</span>
+            <span>Direttrice di coro</span>
+            <span>Cantautrice</span>
+          </div>
 
-<button class="menu-button">☰ Menu</button>
-</div>
-</header>
+          <div class="nav-pills" id="navPills"></div>
+        </div>
+      </div>
 
-<main>
+      <div class="header-actions">
+        <div class="top-icons">
+          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
 
-<section>
-<div class="section-kicker">Artisti</div>
-<div class="section-title">
-<img src="Aurora.jpg" class="artist-avatar">
-Aurora Blasi ✨
-</div>
+        <button class="menu-button" id="menuOpen" type="button">☰ Menu</button>
+      </div>
+    </div>
+  </header>
 
-<div class="card">
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-card">
+      <div class="menu-head">
+        <div class="menu-title">
+          <h2>Menu</h2>
+          <div class="sub">Navigazione rapida</div>
+        </div>
+        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
+      </div>
 
-<p><span class="hl">Aurora Blasi</span>, giovane cantautrice e content creator romana. Quando si è rivolta a me non aveva ancora un’idea chiara del percorso che avrebbe voluto intraprendere.</p>
+      <div class="menu-grid">
+        <a class="menu-item" href="index.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
+          </div>
+          <div class="menu-pill">home</div>
+        </a>
 
-<p>Inizialmente la sua priorità era <span class="hl">migliorare la vocalità</span>: sentiva che qualcosa non funzionava e si ritrovava spesso senza voce.</p>
+        <a class="menu-item" href="percorsi.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+          </div>
+          <div class="menu-pill">go</div>
+        </a>
 
-<p>Il lavoro è iniziato dalle basi con un percorso di rieducazione vocale e accompagnamento dell’habitus vocale quotidiano, per restituire <span class="hl">funzionalità</span> e <span class="hl">stabilità</span>.</p>
+        <a class="menu-item" href="studio.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8"/><path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">pagina dedicata</div></div>
+          </div>
+          <div class="menu-pill">studio</div>
+        </a>
 
-<p>Nel tempo è emerso il desiderio di fare della musica una scelta di vita. L’ho quindi indirizzata verso un percorso di professionalizzazione, sia vocale — preparazione al <span class="hl">Diploma VES</span> — sia artistico.</p>
+        <a class="menu-item" href="curriculum.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
+          </div>
+          <div class="menu-pill">cv</div>
+        </a>
 
-<p>Ha iniziato a raccontarsi attraverso la musica partendo dalle esperienze di strada e dai social, trasformando questa spinta in un progetto sempre più definito.</p>
+        <a class="menu-item" href="artisti.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+          </div>
+          <div class="menu-pill">go</div>
+        </a>
 
-<p>Questo percorso l’ha condotta alla firma con <span class="hl">Ballandi Music</span> e alla pubblicazione del singolo <span class="hl">Zucchero</span>.</p>
+        <a class="menu-item" href="index.html#contatti">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Contatti</div><div class="d">scrivimi dal form</div></div>
+          </div>
+          <div class="menu-pill">mail</div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-<p>La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su <span class="hl">RAI 3</span> è stata un passaggio intenso: l’emozione si è trasformata in presenza e la voce ha potuto raccontarsi con verità davanti a un pubblico nuovo.</p>
+  <main>
+    <section>
+      <div class="section-kicker">Artisti</div>
+      <div class="section-title">
+        <img class="artist-avatar" src="Aurora.jpg" alt="Aurora Blasi" loading="lazy">
+        Aurora Blasi ✨
+      </div>
 
-<p>Nel Dicembre 2025 ha rilasciato la cover di <span class="hl">All I Want for Christmas</span> registrata dal vivo all’Alcatraz di Milano con l’orchestra del M° Valeriano Chiaravalle.</p>
+      <div class="card">
+        <p>
+          <span class="hl">Aurora Blasi</span>, giovane cantautrice e content creator romana.
+          Quando si è rivolta a me non aveva ancora un’idea chiara del percorso che avrebbe voluto intraprendere.
+          Inizialmente la sua priorità era <span class="hl">migliorare la vocalità</span>: sentiva che qualcosa non funzionava,
+          faceva molta fatica e si ritrovava spesso senza voce.
+        </p>
 
-<p>Da poco è uscito anche il secondo singolo <span class="hl">French Roulette</span>, brano dance-pop con venature tribali.</p>
+        <p>
+          Il nostro lavoro è iniziato dalle basi, attraverso un percorso di rieducazione vocale e un accompagnamento dell’habitus vocale quotidiano,
+          necessario per restituire alla voce <span class="hl">funzionalità</span> e <span class="hl">stabilità</span>.
+        </p>
 
-<div class="actions">
-<a class="btn primary" href="index.html#contatti">Parlami del tuo progetto</a>
-<a class="btn" href="artisti.html">Torna agli artisti</a>
-</div>
+        <p>
+          Con il tempo ci siamo conosciute meglio e ho compreso che il suo desiderio era quello di fare della musica una scelta di vita.
+          Da lì ho cercato di indirizzarla verso un percorso di professionalizzazione, sia in ambito vocale – attraverso la preparazione al
+          <span class="hl">Diploma in Canto Moderno VES</span> – sia in ambito artistico più ampio.
+        </p>
 
-</div>
-</section>
+        <p>
+          Aurora ha iniziato a raccontarsi attraverso la musica partendo dalle sue esperienze di strada e dalla condivisione sui social,
+          trasformando gradualmente questa spinta iniziale in un progetto musicale sempre più definito.
+        </p>
 
+        <p>
+          Nel giro di meno di un anno, ha iniziato a far emergere con maggiore chiarezza il suo potenziale anche come autrice.
+          Ha cominciato a portarmi le sue canzoni, sulle quali lavoravamo insieme, confrontandoci sulla struttura, sullo sviluppo e sulla direzione espressiva.
+        </p>
 
-<section>
-<div class="section-kicker">Media</div>
-<div class="section-title">Ascolta e guarda 🎧</div>
+        <p>
+          Questo percorso l’ha condotta a un primo importante traguardo professionale: la firma con l’etichetta
+          <span class="hl">Ballandi Music</span> e la pubblicazione del singolo di debutto <span class="hl">“Zucchero”</span>.
+        </p>
 
-<div class="media-grid">
+        <p>
+          La partecipazione al programma <span class="hl">Allegro ma non troppo</span> su <span class="hl">RAI 3</span>,
+          è stata un passaggio intenso e significativo: un momento in cui l’emozione dell’esposizione si è trasformata in presenza
+          e la voce ha potuto raccontarsi con verità, davanti a un pubblico nuovo.
+          <a href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer"><span class="hl">Guarda il reel</span></a>.
+        </p>
 
-<div class="embed-card">
-<div class="embed-head">YouTube — All I Want for Christmas</div>
-<div class="embed-frame">
-<iframe src="https://www.youtube.com/embed/dgbq1KNOPzo" allowfullscreen></iframe>
-</div>
-</div>
+        <p>
+          Nel Dicembre 2025 ha rilasciato la cover della celebre canzone <span class="hl">All I Want for Christmas</span>,
+          registrata dal vivo all’<span class="hl">Alcatraz di Milano</span> e accompagnata dall’orchestra del M° Valeriano Chiaravalle.
+        </p>
 
-<div class="embed-card">
-<div class="embed-head">Spotify — Zucchero</div>
-<div class="embed-frame spotify">
-<iframe src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX"></iframe>
-</div>
-</div>
+        <p>
+          Da poco è uscito anche il suo <span class="hl">secondo singolo</span> dal titolo <span class="hl">“French Roulette”</span>,
+          un brano dance pop con qualche venatura tribale che non può lasciare indifferenti.
+        </p>
 
-<div class="embed-card">
-<div class="embed-head">YouTube — Video</div>
-<div class="embed-frame">
-<iframe src="https://www.youtube.com/embed/NCVpKDqU8wk" allowfullscreen></iframe>
-</div>
-</div>
+        <p class="muted" style="margin-top:.6rem;">
+          Il lavoro prosegue anche oggi e guarda avanti: alla realizzazione di un mini album.
+        </p>
 
-<div class="embed-card">
-<div class="embed-head">Spotify — Brano</div>
-<div class="embed-frame spotify">
-<iframe src="https://open.spotify.com/embed/track/5xFNEms1X8BaroHbIuaFj8"></iframe>
-</div>
-</div>
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          <a class="btn" href="artisti.html">🎧 Torna alla pagina Artisti</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+      </div>
+    </section>
 
-<div class="embed-card">
-<div class="embed-head">YouTube — Video</div>
-<div class="embed-frame">
-<iframe src="https://www.youtube.com/embed/ayLHDQ279IM" allowfullscreen></iframe>
-</div>
-</div>
+    <section>
+      <div class="section-kicker">Media</div>
+      <div class="section-title">Ascolta e guarda 🎧</div>
 
-<div class="embed-card">
-<div class="embed-head">Spotify — All I Want for Christmas</div>
-<div class="embed-frame spotify">
-<iframe src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda"></iframe>
-</div>
-</div>
+      <div class="media-grid">
 
-</div>
-</section>
+        <!-- YOUTUBE 1 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">YouTube — All I Want for Christmas</div>
+              <div class="embed-sub">Anteprima video</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1&pp=ygUlYXVyb3JhIGJsYXNpIGFsbCBpIHdhbnQgZm9yIGNocmlzdG1hc6AHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame">
+            <iframe
+              src="https://www.youtube.com/embed/dgbq1KNOPzo"
+              title="YouTube — All I Want for Christmas"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-</main>
+        <!-- SPOTIFY 1 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">Spotify — “Zucchero”</div>
+              <div class="embed-sub">Anteprima brano</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=a2ac7865ffa44d87" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame spotify">
+            <iframe
+              src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX?utm_source=generator"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
 
-<footer>
-© <span id="year"></span> Elisa Costanzo
-</footer>
+        <!-- YOUTUBE 2 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">YouTube — (video)</div>
+              <div class="embed-sub">Anteprima video</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://www.youtube.com/watch?v=NCVpKDqU8wk&list=RDNCVpKDqU8wk&start_radio=1&pp=ygUNYXVyb3JhIGJsYXNpIKAHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame">
+            <iframe
+              src="https://www.youtube.com/embed/NCVpKDqU8wk"
+              title="YouTube — video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
 
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
+        <!-- SPOTIFY 2 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">Spotify — (brano)</div>
+              <div class="embed-sub">Anteprima brano</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://open.spotify.com/intl-it/track/5xFNEms1X8BaroHbIuaFj8?si=23bec88c040741bb" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame spotify">
+            <iframe
+              src="https://open.spotify.com/embed/track/5xFNEms1X8BaroHbIuaFj8?utm_source=generator"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
 
+        <!-- YOUTUBE 3 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">YouTube — (video)</div>
+              <div class="embed-sub">Anteprima video</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1&pp=ygUNYXVyb3JhIGJsYXNpIKAHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame">
+            <iframe
+              src="https://www.youtube.com/embed/ayLHDQ279IM"
+              title="YouTube — video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- SPOTIFY 3 -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">Spotify — “All I Want for Christmas”</div>
+              <div class="embed-sub">Anteprima brano</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=268ad01c995545ed" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+          <div class="embed-frame spotify">
+            <iframe
+              src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda?utm_source=generator"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- INSTAGRAM REEL (preview + link) -->
+        <div class="embed-card">
+          <div class="embed-head">
+            <div>
+              <div class="embed-title">Instagram — Reel (RAI 3)</div>
+              <div class="embed-sub">Anteprima (clicca per aprire su Instagram)</div>
+            </div>
+            <div class="embed-actions">
+              <a class="btn" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">Apri</a>
+            </div>
+          </div>
+
+          <a class="ig-preview" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer" aria-label="Apri Instagram Reel">
+            <img src="aurora-rai3-reel.jpg" alt="Aurora Blasi – RAI 3" loading="lazy">
+            <div class="ig-overlay">
+              <div class="play-badge">▶</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // MENU
+    const menuOpen = document.getElementById("menuOpen");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const menuClose = document.getElementById("menuClose");
+    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
+    document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
+    document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
+    (function(){
+      const nav = document.getElementById("navPills");
+      if(!nav) return;
+      const current = "case-study-aurora-blasi.html";
+      const pages = [
+        { href: "index.html", label: "Home", emoji: "🏠" },
+        { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
+        { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+      ];
+      const visible = pages.filter(p => p.href !== current);
+      visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
+      nav.innerHTML = visible.map(p => `
+        <a class="btn" href="${p.href}">
+          <span class="emoji">${p.emoji}</span> ${p.label}
+        </a>
+      `).join("");
+    })();
+  </script>
 </body>
 </html>
-
-
