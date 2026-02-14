@@ -5,7 +5,7 @@
   <title>Narciso — Progetto artistico | Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic per titoli + bottoni -->
+  <!-- ✅ Amatic per titoli + bottoni + brand -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -46,33 +46,10 @@
       text-underline-offset: 3px;
       text-decoration-thickness: 2px;
     }
-/* ===== Artist badge (avatar + nome) ===== */
-.artist-badge{
-  display:flex;
-  align-items:center;
-  gap:.9rem;
-}
 
-.artist-avatar{
-  width:56px;
-  height:56px;
-  border-radius:999px;
-  object-fit:cover;
-  border:1px solid rgba(255,255,255,0.28);
-  box-shadow:0 18px 38px rgba(0,0,0,0.26);
-  transform:none; /* <-- evita che scenda e tocchi sotto */
-}
-.artist-badge{ margin-bottom:.65rem; }
-/* Mobile */
-@media (max-width: 600px){
-  .artist-avatar{
-    width:48px;
-    height:48px;
-    transform:none;
-  }
-}
-
-    /* HEADER */
+    /* =========================
+       HEADER (come Home)
+    ========================== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -87,41 +64,121 @@
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-img{
+      height: 140px;
+      width: auto;
+      display:block;
+      object-fit:contain;
+    }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+
+    /* ✅ Nome in Amatic (coerente ovunque) */
     .brand-name{
-      font-weight:1100;letter-spacing:.12em;text-transform:uppercase;
-      font-size:1.04rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      font-family: "Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:2.1rem;
+      line-height:1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
-    /* RUOLI: SEMPRE VERTICALI */
-    .brand-sub{font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;display:block;}
-    .brand-sub span{display:block;white-space:nowrap;margin:.12rem 0;}
-    .brand-sub span::before{content:"• ";color:var(--yellow);font-weight:1200;}
+    /* Ruoli verticali con pallino giallo */
+    .brand-sub{
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.25;
+      max-width:64ch;
+      display:block;
+    }
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
+    .brand-sub span::before{
+      content:"• ";
+      color:var(--yellow);
+      font-weight:900;
+      text-shadow:0 10px 18px rgba(0,0,0,0.16);
+    }
 
     /* NAV PILLS (desktop) */
-    .nav-pills{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;}
-    .nav-pills .btn{
+    .nav-pills{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
+    }
+
+    /* ✅ Bottoni coerenti (Amatic + stesse dimensioni) */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.03em;
       border-radius:999px;
       padding:0.78rem 1.2rem;
-      font-size:1.05rem;
-      font-weight:1100;
-      border:1px solid rgba(255,255,255,0.28);
+      font-size:1.35rem;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.6rem;
+      white-space:nowrap;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px);}
+
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+
+    .nav-pills .btn{
+      border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 14px 28px rgba(0,0,0,0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
       backdrop-filter: blur(12px);
-      display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      -webkit-backdrop-filter: blur(12px);
     }
-    .nav-pills .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,0.18);border-color: rgba(255,255,255,0.34);}
-    .nav-pills .emoji{font-size:1.08em;line-height:1;transform:translateY(1px);}
+    .nav-pills .btn:hover{
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 18px 34px rgba(0,0,0,0.22);
+    }
+    .nav-pills .emoji{
+      font-size: 1.08em;
+      line-height: 1;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+    }
 
     .header-actions{
-      display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
-      position:relative;z-index:80;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
     }
+
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
@@ -139,19 +196,30 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
+    /* ✅ Menu button come Home (stessa “famiglia” dei bottoni) */
     .menu-button{
-      border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:1100;cursor:pointer;
+      border:none;
+      background:#fff;
+      color:var(--magenta);
+      padding:0.62rem 1.2rem;
+      border-radius:999px;
+      cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
+
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.55rem;
+      letter-spacing:.03em;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY */
+    /* =========================
+       MENU OVERLAY (con sottocartelle Percorsi)
+    ========================== */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -161,9 +229,9 @@
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
       overflow:auto;
-      pointer-events:none;
     }
-    .menu-overlay.open{display:block;pointer-events:auto;}
+    .menu-overlay.open{display:block;}
+
     .menu-card{
       max-width:590px;
       margin:4.2rem auto;
@@ -178,13 +246,23 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
+
       max-height: calc(100vh - 7rem);
       overflow:auto;
     }
     @keyframes pop{to{transform:translateY(0);}}
+
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    .menu-title h2{
+      font-family:"Amatic SC", cursive;
+      font-size:2rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+      opacity:.95;
+      line-height:1;
+    }
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
@@ -194,6 +272,7 @@
       color:#fff;font-size:1.2rem;
       flex:0 0 auto;
     }
+
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
     .menu-item{
       display:flex;align-items:center;justify-content:space-between;gap:.9rem;
@@ -225,23 +304,52 @@
       opacity:.95;flex:0 0 auto;
     }
 
-    /* MAIN */
+    /* ✅ Sottocartelle visibili */
+    .menu-sub{
+      margin:.45rem 0 0;
+      padding-left:3.15rem;
+      display:grid;
+      gap:.45rem;
+    }
+    .menu-sub a{
+      padding:.55rem .85rem;
+      border-radius:1.05rem;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.10);
+      display:inline-flex;
+      width:fit-content;
+      font-weight:1100;
+      opacity:.92;
+      line-height:1.25;
+    }
+    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
+
+    /* =========================
+       MAIN
+    ========================== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
+
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;
-      /* ✅ Amatic */
       font-family:"Amatic SC", cursive;
       font-weight:700;
+      font-size:1.6rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:.7rem;
+      line-height:1;
     }
     .section-title{
-      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1200;
-      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
-      /* ✅ Amatic */
       font-family:"Amatic SC", cursive;
       font-weight:700;
+      font-size:3.2rem;
+      line-height:1;
+      margin-bottom:1rem;
+      max-width:980px;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
+
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
       border:1px solid rgba(255,255,255,0.18);
@@ -251,35 +359,6 @@
       backdrop-filter: blur(12px);
     }
 
-    .btn{
-      border-radius:999px;
-      padding:0.82rem 1.28rem;
-      font-size:1rem;
-      font-weight:1200;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-      /* ✅ Amatic per bottoni */
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      font-size:1.35rem;
-      letter-spacing:.03em;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
     .media-grid{
@@ -301,26 +380,62 @@
       .media-grid{grid-template-columns:1fr;}
     }
 
-    /* ✅ rimuove VISUALMENTE le scritte sopra ai video (se presenti in futuro) */
-    .preview-head,.embed-head{display:none !important;}
+    /* ===== Artist badge (avatar + nome) ===== */
+    .artist-badge{
+      display:flex;
+      align-items:center;
+      gap:.9rem;
+      margin-bottom:.65rem;
+    }
+    .artist-avatar{
+      width:56px;
+      height:56px;
+      border-radius:999px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,0.28);
+      box-shadow:0 18px 38px rgba(0,0,0,0.26);
+      transform:none;
+    }
+    @media (max-width: 600px){
+      .artist-avatar{width:48px;height:48px;}
+    }
 
     /* MOBILE HEADER */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-      .header-inner{gap:.6rem;}
-      .logo-img{height:96px;}
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+      }
+      .logo-img{ height:92px; }
+
       .brand-name{
-        font-size:.96rem;
-        letter-spacing:.11em;
+        font-size:1.8rem;
+        letter-spacing:.08em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
-      .menu-button{padding:.52rem 1.02rem;font-size:.96rem;}
-      .top-icons{flex-direction:row;gap:.45rem;margin-right:0;}
-      .icon-btn{width:40px;height:40px;}
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .menu-button{ padding:.52rem 1.02rem; font-size:1.4rem; }
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
+      .icon-btn{ width:40px; height:40px; }
     }
 
     /* back to top */
@@ -354,7 +469,7 @@
         </div>
 
         <div class="brand-text">
-          <div class="brand-name">ELISA COSTANZO</div>
+          <div class="brand-name">Elisa Costanzo</div>
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -403,15 +518,24 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <!-- ✅ Percorsi con sottocartelle visibili -->
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#ves">VES</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -423,16 +547,6 @@
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="artisti.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
-          </div>
-          <div class="menu-pill">go</div>
-        </a>
-
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
             <div class="menu-ico" aria-hidden="true">
@@ -441,6 +555,16 @@
             <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
           </div>
           <div class="menu-pill">cv</div>
+        </a>
+
+        <a class="menu-item" href="artisti.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
+          </div>
+          <div class="menu-pill">go</div>
         </a>
 
         <a class="menu-item" href="index.html#contatti">
@@ -459,6 +583,7 @@
   <main>
     <section>
       <div class="section-kicker">Artista</div>
+
       <div class="artist-badge">
         <img class="artist-avatar" src="Narciso.jpg" alt="Narciso" loading="lazy">
         <div class="section-title" style="margin:0;">Narciso ✨</div>
@@ -587,7 +712,7 @@
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-    document.querySelectorAll(".menu-grid a").forEach(a => a.addEventListener("click", closeMenu));
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
@@ -600,8 +725,8 @@
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
       ];
       const visible = pages.filter(p => p.href !== current);
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
@@ -622,4 +747,5 @@
   </script>
 </body>
 </html>
+
 
