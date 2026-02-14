@@ -873,7 +873,7 @@
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "artisti.html";
+const current = "curriculum.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
@@ -897,6 +897,56 @@
       else toTop.classList.remove("show");
     });
     toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+    <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // MENU
+  const menuOpen = document.getElementById("menuOpen");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuClose = document.getElementById("menuClose");
+  function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+  function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
+  menuOpen.addEventListener("click", openMenu);
+  menuClose.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
+  document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+
+  // NAV PILLS
+  (function(){
+    const nav = document.getElementById("navPills");
+    if(!nav) return;
+
+    const current = "curriculum.html"; // ← FIX
+
+    const pages = [
+      { href: "index.html", label: "Home", emoji: "🏠" },
+      { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
+      { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
+      { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
+      { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+    ];
+
+    const visible = pages.filter(p => p.href !== current);
+
+    visible.sort((a,b)=>
+      (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0)
+    );
+
+    nav.innerHTML = visible.map(p => `
+      <a class="btn" href="${p.href}">
+        <span class="emoji">${p.emoji}</span> ${p.label}
+      </a>
+    `).join("");
+  })();
+
+  // Back to top
+  const toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 700) toTop.classList.add("show");
+    else toTop.classList.remove("show");
+  });
+  toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
