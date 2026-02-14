@@ -5,7 +5,7 @@
   <title>Artisti — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic per header/menu/bottoni -->
+  <!-- ✅ Amatic -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -47,9 +47,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* =========================
-       HEADER (uniformato Home/Aurora)
-    ========================== */
+    /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -73,18 +71,17 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Nome in Amatic coerente */
+    /* ✅ Nome in Amatic */
     .brand-name{
       font-family:"Amatic SC", cursive;
       font-weight:700;
-      letter-spacing:.08em;
+      letter-spacing:.06em;
       text-transform:uppercase;
-      font-size:2.1rem;
+      font-size: clamp(1.6rem, 2.0vw, 2.05rem);
       line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
     .brand-sub{
@@ -102,7 +99,6 @@
       content:"• ";
       color:var(--yellow);
       font-weight:900;
-      text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
     /* NAV PILLS (desktop) */
@@ -113,40 +109,13 @@
       align-items:center;
       margin-top:.55rem;
     }
-
-    /* ✅ Bottoni uniformati (come Home/Aurora) */
-    .btn{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      letter-spacing:.03em;
-      border-radius:999px;
-      padding:0.78rem 1.2rem;
-      font-size:1.35rem;
-
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-
-      display:inline-flex;align-items:center;gap:.6rem;
-      white-space:nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-    .btn:hover{transform:translateY(-1px);}
-
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
-
     .nav-pills .btn{
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 1100;
+      letter-spacing: .01em;
+
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
@@ -162,8 +131,11 @@
       align-items: center;
       gap: .6rem;
       white-space: nowrap;
+
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
+      transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
@@ -208,24 +180,16 @@
     .menu-button{
       border:none;background:#fff;color:var(--magenta);
       padding:0.62rem 1.2rem;border-radius:999px;
-      cursor:pointer;
+      font-weight:1100;cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
-
-      /* ✅ Amatic come Home */
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      font-size:1.55rem;
-      letter-spacing:.03em;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* =========================
-       MENU OVERLAY (con sottocartelle Percorsi visibili)
-    ========================== */
+    /* MENU OVERLAY (scroll fix) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -260,15 +224,7 @@
 
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      font-size:2rem;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      opacity:.95;
-      line-height:1;
-    }
+    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
@@ -309,7 +265,6 @@
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
     }
-
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
@@ -329,20 +284,34 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* =========================
-       MAIN (resto invariato)
-    ========================== */
+    /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
+
+    /* ✅ Kicker piccolo in Amatic (stile ExpresSING) */
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:.45rem;
+      font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+      line-height:1;
     }
+
+    /* ✅ Titolo grande in Amatic (stile ExpresSING) */
     .section-title{
-  font-family:"Amatic SC", cursive;
-  font-weight:700;
-  letter-spacing:.02em;
-}
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.02em;
+      font-size: clamp(3.1rem, 4.6vw, 4.25rem);
+      line-height:.98;
+      margin-bottom:1rem;
+      max-width:980px;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+    }
+
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
       border:1px solid rgba(255,255,255,0.18);
@@ -390,6 +359,30 @@
       line-height:1.2;
     }
 
+    .btn{
+      border-radius:999px;
+      padding:0.82rem 1.15rem;
+      font-size:1rem;
+      font-weight:1200;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.45rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.9rem;}
 
     /* ======== PROGETTO ARTISTICO (come foto) ======== */
@@ -478,13 +471,15 @@
       .logo-img{ height:96px; }
 
       .brand-name{
-        font-size:1.8rem;
+        font-size: clamp(1.45rem, 6.2vw, 1.9rem);
+        letter-spacing:.06em;
       }
+
       .brand-sub{
         font-size:.86rem;
         max-width:34ch;
       }
-      .menu-button{ padding:.52rem 1.02rem; font-size:1.4rem; }
+      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
       .top-icons{
         display:flex;
         flex-direction:row;
@@ -502,7 +497,6 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   </style>
 </head>
 
@@ -722,7 +716,7 @@
       </div>
     </section>
 
-    <!-- CARD ARTISTI (solo 3, con foto piccole) -->
+    <!-- CARD ARTISTI -->
     <section id="artisti">
       <div class="section-kicker">ARTISTI</div>
       <div class="section-title">Tre esempi concreti ✨</div>
@@ -841,4 +835,3 @@
   </script>
 </body>
 </html>
-
