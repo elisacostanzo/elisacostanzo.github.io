@@ -5,9 +5,7 @@
   <title>Curriculum — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic SC -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ✅ Amatic per header/menu/nav -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -18,12 +16,6 @@
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
-
-      --titleFont: "Amatic SC", system-ui, sans-serif;
-
-      /* ✅ allineate a index/studio */
-      --kickerSize: 1.12rem;
-      --titleSize: 3.05rem;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -32,6 +24,7 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -54,7 +47,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ========== HEADER (coerente) ========== */
+    /* HEADER */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -68,30 +61,44 @@
     }
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-img{
+      height: 140px;
+      width: auto;
+      display:block;
+      object-fit:contain;
+    }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Elisa Costanzo in Amatic */
+    /* ✅ Nome in Amatic (uniformato Home) */
     .brand-name{
-      font-family: var(--titleFont);
+      font-family:"Amatic SC", cursive;
       font-weight:700;
-      font-size:1.45rem;
-      letter-spacing:.10em;
+      letter-spacing:.08em;
       text-transform:uppercase;
+      font-size:2.1rem;
+      line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      line-height:1.0;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
+    /* Ruoli: una riga ciascuno + pallino giallo */
     .brand-sub{
-      font-size:.96rem; opacity:.96; line-height:1.25;
-      max-width:64ch; display:block;
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.25;
+      max-width:64ch;
+      display:block;
     }
-    .brand-sub span{display:block;white-space:nowrap;margin:.10rem 0;}
+    .brand-sub span{
+      display:block;
+      white-space:nowrap;
+      margin:.10rem 0;
+    }
     .brand-sub span::before{
       content:"• ";
       color:var(--yellow);
@@ -99,14 +106,23 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS — ✅ Amatic */
-    .nav-pills{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;}
+    /* NAV PILLS (desktop) */
+    .nav-pills{
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
+    }
     .nav-pills .btn{
-      font-family: var(--titleFont);
-      font-size:1.55rem;
+      /* ✅ Amatic + dimensioni coerenti Home */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
       letter-spacing:.03em;
-      border-radius:999px;
-      padding:0.58rem 1.05rem;
+      font-size:1.35rem;
+
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
 
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
@@ -125,7 +141,6 @@
       white-space: nowrap;
 
       transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-      line-height:1;
     }
     .nav-pills .btn:hover{
       transform: translateY(-1px);
@@ -136,16 +151,20 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.05em;
+      font-size: 1.08em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
 
     .header-actions{
-      display:flex; align-items:center; gap:.55rem;
-      flex-wrap:nowrap; flex:0 0 auto;
-      position:relative; z-index:80;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
     }
 
     .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
@@ -165,25 +184,25 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* ✅ Menu button in Amatic */
+    /* ✅ Menu button in Amatic coerente */
     .menu-button{
-      font-family: var(--titleFont);
-      font-size:1.65rem;
-      letter-spacing:.05em;
-      line-height:1;
-
       border:none;background:#fff;color:var(--magenta);
-      padding:0.55rem 1.05rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
+      padding:0.62rem 1.2rem;border-radius:999px;
+      cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
+
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.55rem;
+      letter-spacing:.03em;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (⚠️ NON Amatic) */
+    /* MENU OVERLAY (scroll) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -210,6 +229,7 @@
       backdrop-filter: blur(14px);
       transform: translateY(10px);
       animation: pop .18s ease-out forwards;
+
       max-height: calc(100vh - 7rem);
       overflow:auto;
     }
@@ -217,7 +237,16 @@
 
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    /* ✅ Titolo menu in Amatic coerente */
+    .menu-title h2{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:2rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.95;
+      line-height:1;
+    }
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
@@ -277,30 +306,18 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* ========== MAIN ========== */
+    /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* ✅ titoli in Amatic */
     .section-kicker{
-      font-family: var(--titleFont);
-      font-size: var(--kickerSize);
-      font-weight:700;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      opacity:.92;
-      margin-bottom:.7rem;
-      text-shadow:0 10px 22px rgba(0,0,0,0.22);
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
     }
     .section-title{
-      font-family: var(--titleFont);
-      font-size: var(--titleSize);
-      font-weight:700;
-      letter-spacing:.03em;
-      line-height:1.02;
-      margin-bottom:1rem;
-      max-width:980px;
-      text-shadow:0 10px 22px rgba(0,0,0,0.26);
+      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
 
     .card{
@@ -310,24 +327,13 @@
       padding:1.6rem;
       box-shadow:0 20px 44px rgba(0,0,0,0.22);
       backdrop-filter: blur(12px);
-      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow:0 26px 58px rgba(0,0,0,0.28);
-      border-color: rgba(255,255,255,0.24);
     }
 
-    /* ✅ bottoni in Amatic */
     .btn{
-      font-family: var(--titleFont);
-      font-size: 1.65rem;
-      letter-spacing: .03em;
-      font-weight: 700;
-      line-height:1;
-
       border-radius:999px;
-      padding:0.58rem 1.10rem;
+      padding:0.82rem 1.28rem;
+      font-size:1rem;
+      font-weight:1200;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
       color:#fff;
@@ -343,10 +349,13 @@
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
     .btn:hover{transform:translateY(-1px);}
-    .btn.link{border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.10);}
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Layout intro */
+    /* Layout: intro + chips */
     .hero-row{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -354,6 +363,7 @@
       align-items:stretch;
     }
 
+    /* badge card */
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -371,7 +381,11 @@
     }
 
     /* Timeline */
-    .timeline{margin-top:.9rem;display:grid;gap:.75rem;}
+    .timeline{
+      margin-top:.9rem;
+      display:grid;
+      gap:.75rem;
+    }
     .t-item{
       position:relative;
       border-radius:1.35rem;
@@ -380,12 +394,6 @@
       box-shadow:0 18px 40px rgba(0,0,0,0.14);
       padding:1rem 1.05rem;
       overflow:hidden;
-      transition: transform .14s ease, background .14s ease, border-color .14s ease;
-    }
-    .t-item:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.22);
     }
     .t-item::before{
       content:"";
@@ -399,12 +407,14 @@
     }
     .t-item > *{position:relative; z-index:1;}
 
+    /* ✅ DATE SEMPRE IN SECONDA RIGA */
     .t-top{
       display:flex;
       flex-direction:column;
       align-items:flex-start;
       gap:.55rem;
     }
+
     .t-role{
       font-weight:1200;
       font-size:1.08rem;
@@ -424,8 +434,15 @@
       font-size:.92rem;
       white-space:nowrap;
     }
+    .t-desc{
+      margin-top:.45rem;
+      opacity:.92;
+      line-height:1.6;
+      font-size:1.03rem;
+      text-align:left;
+    }
 
-    /* ✅ MEDIA: solo video, nessun testo sopra */
+    /* ✅ Media previews (solo YouTube) */
     .preview-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -440,12 +457,22 @@
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
       overflow:hidden;
       backdrop-filter: blur(10px);
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
-    .preview:hover{
-      transform: translateY(-3px);
-      box-shadow:0 26px 56px rgba(0,0,0,0.26);
-      border-color: rgba(255,255,255,0.24);
+    .preview-head{
+      padding:.85rem 1rem;
+      border-bottom:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+    .preview-title{
+      font-weight:1200;
+      letter-spacing:.02em;
+      line-height:1.2;
+    }
+    .preview-sub{
+      font-size:.92rem;
+      opacity:.88;
+      margin-top:.15rem;
+      line-height:1.25;
     }
     .preview-frame{
       position:relative;
@@ -488,30 +515,45 @@
       .preview-grid{grid-template-columns:1fr;}
     }
 
+    /* MOBILE HEADER */
     @media (max-width: 600px){
-      :root{ --kickerSize: 1.02rem; --titleSize: 2.35rem; }
-
       .nav-pills{ display:none !important; }
-      .header-inner{padding:.7rem .85rem;gap:.6rem;}
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+      }
       .logo-img{ height:92px; }
 
       .brand-name{
-        font-size:1.25rem;
-        letter-spacing:.09em;
+        font-size:1.8rem;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+      .brand-sub span{
+        display:block;
+        white-space:nowrap;
+        margin:.12rem 0;
+      }
 
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .brand-sub span{margin:.12rem 0;}
-
-      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
-      .menu-button{ padding:.50rem 1.00rem; font-size:1.55rem; }
-
-      .btn{font-size:1.55rem;padding:.55rem 1.05rem;}
-
-      .top-icons{gap:.45rem;margin-right:0;}
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .menu-button{ padding:.52rem 1.02rem; font-size:1.4rem; }
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
       .icon-btn{ width:40px; height:40px; }
     }
 
@@ -548,17 +590,10 @@
       <div class="header-actions">
         <div class="top-icons">
           <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
           <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
           </a>
         </div>
 
@@ -663,6 +698,7 @@
         <div class="card">
           <div class="section-kicker">Curriculum</div>
           <div class="section-title">Formazione, didattica e performance 📚✨</div>
+
           <p>
             Qui trovi una panoramica del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
           </p>
@@ -853,13 +889,17 @@
           Una piccola selezione di contenuti in anteprima.
         </p>
 
-        <!-- ✅ SOLO VIDEO: niente titoli, niente "anteprima", niente "link youtube" -->
-        <div class="preview-grid" aria-label="Video YouTube">
+        <!-- ✅ SOLO ANTEPRIME YOUTUBE (NO SPOTIFY, NO RIQUADRI EXTRA) -->
+        <div class="preview-grid" aria-label="Anteprime YouTube">
           <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Video 1</div>
+              <div class="preview-sub">Anteprima</div>
+            </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/iyHL7ZxjI5c"
-                title="YouTube video 1"
+                title="YouTube — Video 1"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -867,10 +907,14 @@
           </div>
 
           <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Video 2</div>
+              <div class="preview-sub">Anteprima</div>
+            </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/ZN0ANU_nNpw"
-                title="YouTube video 2"
+                title="YouTube — Video 2"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -878,10 +922,14 @@
           </div>
 
           <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Video 3</div>
+              <div class="preview-sub">Anteprima</div>
+            </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/v0TAsdd_VtM"
-                title="YouTube video 3"
+                title="YouTube — Video 3"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -889,20 +937,19 @@
           </div>
 
           <div class="preview">
+            <div class="preview-head">
+              <div class="preview-title">YouTube — Video 4</div>
+              <div class="preview-sub">Anteprima</div>
+            </div>
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/l7r9jDhwHVI"
-                title="YouTube video 4"
+                title="YouTube — Video 4"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             </div>
           </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
@@ -919,21 +966,12 @@
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
-
-    function openMenu(){
-      menuOverlay.classList.add("open");
-      menuOverlay.setAttribute("aria-hidden","false");
-    }
-    function closeMenu(){
-      menuOverlay.classList.remove("open");
-      menuOverlay.setAttribute("aria-hidden","true");
-    }
-
+    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
+    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
-    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
     // NAV PILLS (desktop: Home primo, escludi pagina corrente)
