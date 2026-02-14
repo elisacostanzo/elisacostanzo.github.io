@@ -5,9 +5,7 @@
   <title>Artisti — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic SC -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ✅ Amatic per header/menu/bottoni -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -18,12 +16,6 @@
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
-
-      --titleFont: "Amatic SC", system-ui, sans-serif;
-
-      /* ✅ come curriculum/index */
-      --kickerSize: 1.12rem;
-      --titleSize: 3.05rem;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -32,6 +24,7 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
+
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -54,7 +47,9 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ========== HEADER ========== */
+    /* =========================
+       HEADER (uniformato Home/Aurora)
+    ========================== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -78,18 +73,18 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Amatic su Elisa Costanzo */
+    /* ✅ Nome in Amatic coerente */
     .brand-name{
-      font-family: var(--titleFont);
+      font-family:"Amatic SC", cursive;
       font-weight:700;
-      font-size:1.45rem;
-      letter-spacing:.10em;
+      letter-spacing:.08em;
       text-transform:uppercase;
+      font-size:2.1rem;
+      line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      line-height:1.0;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
+      text-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
     .brand-sub{
@@ -110,7 +105,7 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) — ✅ Amatic */
+    /* NAV PILLS (desktop) */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -118,15 +113,40 @@
       align-items:center;
       margin-top:.55rem;
     }
-    .nav-pills .btn{
-      font-family: var(--titleFont);
-      font-size:1.55rem;
+
+    /* ✅ Bottoni uniformati (come Home/Aurora) */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
       letter-spacing:.03em;
-      line-height:1;
+      border-radius:999px;
+      padding:0.78rem 1.2rem;
+      font-size:1.35rem;
 
-      border-radius: 999px;
-      padding: 0.58rem 1.05rem;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
 
+      display:inline-flex;align-items:center;gap:.6rem;
+      white-space:nowrap;
+
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px);}
+
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+
+    .nav-pills .btn{
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
@@ -142,11 +162,8 @@
       align-items: center;
       gap: .6rem;
       white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
-      transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
@@ -154,7 +171,7 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.05em;
+      font-size: 1.08em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
@@ -188,25 +205,27 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* ✅ Menu button in Amatic */
     .menu-button{
-      font-family: var(--titleFont);
-      font-size:1.65rem;
-      letter-spacing:.05em;
-      line-height:1;
-
       border:none;background:#fff;color:var(--magenta);
-      padding:0.55rem 1.05rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
+      padding:0.62rem 1.2rem;border-radius:999px;
+      cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
+
+      /* ✅ Amatic come Home */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.55rem;
+      letter-spacing:.03em;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (NON Amatic) */
+    /* =========================
+       MENU OVERLAY (con sottocartelle Percorsi visibili)
+    ========================== */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -241,7 +260,15 @@
 
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{font-size:1rem;text-transform:uppercase;letter-spacing:.18em;font-weight:1100;opacity:.95;}
+    .menu-title h2{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:2rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.95;
+      line-height:1;
+    }
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
       width:46px;height:46px;border-radius:999px;cursor:pointer;
@@ -282,6 +309,7 @@
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
     }
+
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
@@ -301,30 +329,19 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* ========== MAIN ========== */
+    /* =========================
+       MAIN (resto invariato)
+    ========================== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-
-    /* ✅ titoli in Amatic */
     .section-kicker{
-      font-family: var(--titleFont);
-      font-size: var(--kickerSize);
-      font-weight:700;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      opacity:.92;
-      margin-bottom:.7rem;
-      text-shadow:0 10px 22px rgba(0,0,0,0.22);
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
+      opacity:.92;margin-bottom:.7rem;
     }
     .section-title{
-      font-family: var(--titleFont);
-      font-size: var(--titleSize);
-      font-weight:700;
-      letter-spacing:.03em;
-      line-height:1.02;
-      margin-bottom:1rem;
-      max-width:980px;
-      text-shadow:0 10px 22px rgba(0,0,0,0.26);
+      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
+      max-width:980px;font-weight:1200;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
 
     .card{
@@ -334,16 +351,9 @@
       padding:1.6rem;
       box-shadow:0 20px 44px rgba(0,0,0,0.22);
       backdrop-filter: blur(12px);
-      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow:0 26px 58px rgba(0,0,0,0.28);
-      border-color: rgba(255,255,255,0.24);
     }
 
     .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
-
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -355,20 +365,12 @@
       min-height: 360px;
       position:relative;
       overflow:hidden;
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
-    }
-    .tile:hover{
-      transform: translateY(-3px);
-      box-shadow:0 26px 56px rgba(0,0,0,0.26);
-      border-color: rgba(255,255,255,0.24);
-      background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.09));
     }
     .tile::before{
       content:"";
       position:absolute; inset:-2px;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
+      background: radial-gradient(circle at 20% 0%, rgba(129,39,124,0.35), rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 90% 10%, rgba(53,92,123,0.35), rgba(0,0,0,0) 55%);
       opacity:.55;
       pointer-events:none;
     }
@@ -389,53 +391,27 @@
       line-height:1.2;
     }
 
-    /* ✅ bottoni in Amatic */
-    .btn{
-      font-family: var(--titleFont);
-      font-size: 1.65rem;
-      letter-spacing:.03em;
-      font-weight:700;
-      line-height:1;
-
-      border-radius:999px;
-      padding:0.58rem 1.10rem;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:.9rem;}
 
-    /* ======== PROGETTO ARTISTICO ======== */
-    .work-list{display:grid;gap:1rem;margin-top:.8rem;}
+    /* ======== PROGETTO ARTISTICO (come foto) ======== */
+    .work-list{
+      display:grid;
+      gap:1rem;
+      margin-top:.8rem;
+    }
     .work-item{
       padding:.95rem 1rem;
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.07);
       box-shadow:0 18px 40px rgba(0,0,0,0.14);
-      transition: transform .14s ease, background .14s ease, border-color .14s ease;
     }
-    .work-item:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.22);
+    .work-head{
+      display:flex;
+      align-items:center;
+      gap:.65rem;
+      margin-bottom:.35rem;
     }
-    .work-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.35rem;}
     .work-emoji{
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
       transform: translateY(1px);
@@ -452,7 +428,7 @@
     }
     .work-text{opacity:.95}
 
-    /* ======== Avatar ======== */
+    /* ======== Avatar piccolo per le card ======== */
     .artist-head{
       display:flex;
       align-items:center;
@@ -490,27 +466,32 @@
       .grid-3{grid-template-columns:1fr;}
     }
 
+    /* MOBILE */
     @media (max-width: 600px){
-      :root{ --kickerSize: 1.02rem; --titleSize: 2.35rem; }
-
       .nav-pills{ display:none !important; }
-      .header-inner{padding:.7rem .85rem;gap:.6rem;}
+
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
       .logo-img{ height:96px; }
 
       .brand-name{
-        font-size:1.25rem;
-        letter-spacing:.09em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
+        font-size:1.8rem;
       }
-
-      .brand-sub{font-size:.86rem;max-width:34ch;}
-      .menu-button{ padding:.50rem 1.00rem; font-size:1.55rem; }
-      .btn{font-size:1.55rem;padding:.55rem 1.05rem;}
-
-      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
-      .top-icons{gap:.45rem;margin-right:0;}
+      .brand-sub{
+        font-size:.86rem;
+        max-width:34ch;
+      }
+      .menu-button{ padding:.52rem 1.02rem; font-size:1.4rem; }
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.45rem;
+        margin-right:0;
+      }
       .icon-btn{ width:40px; height:40px; }
 
       .artist-avatar{width:52px;height:52px;}
@@ -652,10 +633,9 @@
   </div>
 
   <main>
-    <!-- PROGETTO ARTISTICO -->
+    <!-- PROGETTO ARTISTICO (come foto) -->
     <section id="progetto-artistico">
-      <div class="section-kicker">Progetto artistico</div>
-      <div class="section-title">Dare forma a un’identità ✨</div>
+      <div class="section-kicker">PROGETTO ARTISTICO</div>
 
       <div class="card">
         <p>
@@ -663,6 +643,7 @@
           qui trovi un accompagnamento che va oltre il lavoro vocale. È un percorso condiviso, fatto di
           confronto e collaborazione tra diverse figure professionali. Quando il lavoro procede nella stessa direzione,
           un’idea può trasformarsi in un progetto concreto, solido e sostenibile.
+          Qui sotto trovi alcuni percorsi artistici che ho accompagnato, come esempi concreti di questo lavoro.
         </p>
 
         <div style="height:14px"></div>
@@ -691,8 +672,10 @@
             <p class="work-text">
               Il lavoro sul brano è tecnico, stilistico e interpretativo. Si lavora sulla <span class="hl">resa vocale</span>,
               sulle <span class="hl">scelte espressive</span>, sul <span class="hl">fraseggio</span> e sulle
-              <span class="hl">dinamiche</span>, rispettando il linguaggio musicale e la tua identità.
-              Se necessario, include anche <span class="hl">supporto compositivo</span> su <span class="hl">melodia</span> e <span class="hl">testo</span>.
+              <span class="hl">dinamiche</span>, rispettando il linguaggio musicale e la tua identità, senza imporre forme precostituite.
+              Se necessario, il lavoro può includere anche un <span class="hl">supporto compositivo</span>, sulla
+              <span class="hl">melodia</span> e sul <span class="hl">testo</span>, mettendo a disposizione le mie competenze
+              in ambito cantautorale per sostenere e rafforzare l’identità del progetto.
             </p>
           </div>
 
@@ -702,7 +685,8 @@
               <div class="work-title">Gestione emotiva</div>
             </div>
             <p class="work-text">
-              Ansia, tensione, aspettative: lavoriamo per <span class="hl">stare nella musica con presenza e fiducia</span>,
+              Affrontiamo insieme gli aspetti emotivi legati alla performance: ansia, tensione, aspettative e momenti di fragilità.
+              L’obiettivo è aiutarti a <span class="hl">stare nella musica con maggiore presenza e fiducia</span>,
               <span class="hl">senza che l’emotività diventi un ostacolo</span>.
             </p>
           </div>
@@ -713,8 +697,8 @@
               <div class="work-title">Presenza scenica</div>
             </div>
             <p class="work-text">
-              Postura, intenzione, relazione con il pubblico e con il brano: ricerchiamo un
-              <span class="hl">modo autentico di abitare lo spazio e la performance</span>.
+              Lavoriamo sul modo di stare sul palco: postura, intenzione, relazione con il pubblico e con il brano.
+              Ricerchiamo un <span class="hl">modo autentico di abitare lo spazio e la performance</span>.
             </p>
           </div>
 
@@ -724,8 +708,9 @@
               <div class="work-title">Coerenza artistica</div>
             </div>
             <p class="work-text">
-              <span class="hl">Voce, brani, immagine e comunicazione</span> devono parlare la stessa lingua:
-              sound, interpretazione e presenza sostengono un’identità riconoscibile e credibile.
+              Curare la <span class="hl">coerenza tra voce, brani, immagine e modo di comunicare</span>.
+              Tutto deve parlare la stessa lingua: il <span class="hl">sound</span>, l’interpretazione e la presenza devono sostenere
+              un’identità artistica riconoscibile e credibile.
             </p>
           </div>
         </div>
@@ -737,9 +722,9 @@
       </div>
     </section>
 
-    <!-- ARTISTI -->
+    <!-- CARD ARTISTI (solo 3, con foto piccole) -->
     <section id="artisti">
-      <div class="section-kicker">Artisti</div>
+      <div class="section-kicker">ARTISTI</div>
       <div class="section-title">Tre esempi concreti ✨</div>
 
       <div class="grid-3">
@@ -779,7 +764,7 @@
           <span class="pill-title">Narciso</span>
           <p>
             Un esempio di lavoro su <span class="hl">tecnica</span>, tenuta vocale e libertà espressiva,
-            con focus sulla performance dal vivo e sulla <span class="hl">coerenza</span> del progetto.
+            con un focus sulla performance dal vivo e sulla <span class="hl">coerenza</span> del progetto.
           </p>
 
           <div class="actions">
@@ -856,3 +841,4 @@
   </script>
 </body>
 </html>
+
