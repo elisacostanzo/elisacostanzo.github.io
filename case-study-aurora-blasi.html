@@ -5,7 +5,7 @@
   <title>Aurora Blasi — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic per titoli + bottoni + brand -->
+  <!-- ✅ Amatic per titoli -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -107,7 +107,7 @@
       margin-top:.55rem;
     }
 
-    /* ✅ Bottoni coerenti (Amatic + stesse dimensioni) */
+    /* Bottoni coerenti */
     .btn{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -184,7 +184,6 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* ✅ Menu button come Home */
     .menu-button{
       border:none;
       background:#fff;
@@ -292,7 +291,6 @@
       opacity:.95;flex:0 0 auto;
     }
 
-    /* ✅ Sottocartelle Percorsi */
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
@@ -313,17 +311,31 @@
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
     /* =========================
-       MAIN (resto invariato)
+       MAIN
     ========================== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
+
+    /* ✅ TITOLI in Amatic */
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.55rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      opacity:.92;
+      margin-bottom:.7rem;
+      line-height:1;
     }
+
     .section-title{
-      font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
-      max-width:980px;font-weight:1200;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.04em;
+      font-size:3.2rem;
+      line-height:1.02;
+      margin-bottom:1rem;
+      max-width:980px;
       text-shadow: 0 8px 20px rgba(0,0,0,0.22);
       display:flex;
       align-items:center;
@@ -352,7 +364,7 @@
 
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* ===== MEDIA (compatti) ===== */
+    /* ===== MEDIA (senza head/testi/pulsanti) ===== */
     .media-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -369,41 +381,6 @@
       overflow:hidden;
       backdrop-filter: blur(10px);
     }
-
-    .embed-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:.75rem;
-      padding:.65rem .85rem;
-      border-bottom:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .embed-title{
-      font-weight:1200;
-      letter-spacing:.02em;
-      line-height:1.2;
-      font-size:1.02rem;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width:46ch;
-    }
-
-    .embed-sub{
-      font-size:.88rem;
-      opacity:.88;
-      margin-top:.1rem;
-      line-height:1.2;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width:46ch;
-    }
-
-    .embed-actions{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end;}
-    .embed-actions .btn{padding:.55rem .85rem;font-size:1.15rem;} /* resta btn ma Amatic coerente */
 
     .embed-frame{
       position:relative;
@@ -466,7 +443,6 @@
 
     @media (max-width: 1020px){
       .media-grid{grid-template-columns:1fr;}
-      .embed-title,.embed-sub{max-width:60ch;}
     }
 
     /* MOBILE */
@@ -476,13 +452,7 @@
       .header-inner{padding:.7rem .85rem;gap:.6rem;}
       .logo-img{ height:92px; }
 
-      .brand-name{
-        font-size:1.8rem;
-        letter-spacing:.08em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
-      }
+      .brand-name{font-size:1.8rem;}
       .brand-sub{font-size:.86rem;max-width:34ch;line-height:1.35;}
 
       .header-actions{
@@ -496,7 +466,8 @@
       .icon-btn{ width:40px; height:40px; }
 
       .artist-avatar{width:40px;height:40px;}
-      .embed-actions .btn{padding:.5rem .8rem;}
+      .section-title{font-size:2.6rem;}
+      .section-kicker{font-size:1.35rem;}
     }
 
     footer{
@@ -566,7 +537,6 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <!-- ✅ Percorsi con sottocartelle visibili -->
         <div>
           <a class="menu-item" href="percorsi.html">
             <div class="menu-left">
@@ -705,141 +675,83 @@
 
       <div class="media-grid">
 
-        <!-- YOUTUBE 1 -->
+        <!-- YOUTUBE 1 (solo video) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">YouTube — All I Want for Christmas</div>
-              <div class="embed-sub">Anteprima video</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://www.youtube.com/watch?v=dgbq1KNOPzo&list=RDdgbq1KNOPzo&start_radio=1&pp=ygUlYXVyb3JhIGJsYXNpIGFsbCBpIHdhbnQgZm9yIGNocmlzdG1hc6AHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame">
             <iframe
               src="https://www.youtube.com/embed/dgbq1KNOPzo"
               title="YouTube — All I Want for Christmas"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
           </div>
         </div>
 
-        <!-- SPOTIFY 1 -->
+        <!-- SPOTIFY 1 (solo embed) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">Spotify — “Zucchero”</div>
-              <div class="embed-sub">Anteprima brano</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://open.spotify.com/intl-it/track/6G3v6KVfAQee3dlUyHrEmX?si=a2ac7865ffa44d87" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame spotify">
             <iframe
               src="https://open.spotify.com/embed/track/6G3v6KVfAQee3dlUyHrEmX?utm_source=generator"
+              title="Spotify — Zucchero"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy">
             </iframe>
           </div>
         </div>
 
-        <!-- YOUTUBE 2 -->
+        <!-- YOUTUBE 2 (solo video) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">YouTube — (video)</div>
-              <div class="embed-sub">Anteprima video</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://www.youtube.com/watch?v=NCVpKDqU8wk&list=RDNCVpKDqU8wk&start_radio=1&pp=ygUNYXVyb3JhIGJsYXNpIKAHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame">
             <iframe
               src="https://www.youtube.com/embed/NCVpKDqU8wk"
               title="YouTube — video"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
           </div>
         </div>
 
-        <!-- SPOTIFY 2 -->
+        <!-- SPOTIFY 2 (solo embed) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">Spotify — (brano)</div>
-              <div class="embed-sub">Anteprima brano</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://open.spotify.com/intl-it/track/5xFNEms1X8BaroHbIuaFj8?si=23bec88c040741bb" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame spotify">
             <iframe
               src="https://open.spotify.com/embed/track/5xFNEms1X8BaroHbIuaFj8?utm_source=generator"
+              title="Spotify — brano"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy">
             </iframe>
           </div>
         </div>
 
-        <!-- YOUTUBE 3 -->
+        <!-- YOUTUBE 3 (solo video) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">YouTube — (video)</div>
-              <div class="embed-sub">Anteprima video</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://www.youtube.com/watch?v=ayLHDQ279IM&list=RDayLHDQ279IM&start_radio=1&pp=ygUNYXVyb3JhIGJsYXNpIKAHAQ%3D%3D" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame">
             <iframe
               src="https://www.youtube.com/embed/ayLHDQ279IM"
               title="YouTube — video"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
           </div>
         </div>
 
-        <!-- SPOTIFY 3 -->
+        <!-- SPOTIFY 3 (solo embed) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">Spotify — “All I Want for Christmas”</div>
-              <div class="embed-sub">Anteprima brano</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://open.spotify.com/intl-it/track/0A8gkT3xVZOLL7uVFJpxda?si=268ad01c995545ed" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
           <div class="embed-frame spotify">
             <iframe
               src="https://open.spotify.com/embed/track/0A8gkT3xVZOLL7uVFJpxda?utm_source=generator"
+              title="Spotify — All I Want for Christmas"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy">
             </iframe>
           </div>
         </div>
 
-        <!-- INSTAGRAM REEL (preview + link) -->
+        <!-- INSTAGRAM REEL (solo preview cliccabile) -->
         <div class="embed-card">
-          <div class="embed-head">
-            <div>
-              <div class="embed-title">Instagram — Reel (RAI 3)</div>
-              <div class="embed-sub">Anteprima (clicca per aprire su Instagram)</div>
-            </div>
-            <div class="embed-actions">
-              <a class="btn" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer">Apri</a>
-            </div>
-          </div>
-
           <a class="ig-preview" href="https://www.instagram.com/reel/DSk6pazjc2V/" target="_blank" rel="noopener noreferrer" aria-label="Apri Instagram Reel">
             <img src="aurora-rai3-reel.jpg" alt="Aurora Blasi – RAI 3" loading="lazy">
             <div class="ig-overlay">
