@@ -5,6 +5,9 @@
   <title>Narciso — Progetto artistico | Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ✅ Amatic per titoli + bottoni -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --blue:#355c7b;
@@ -225,11 +228,19 @@
     /* MAIN */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
-    .section-kicker{font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;}
+    .section-kicker{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;opacity:.92;margin-bottom:.7rem;
+      /* ✅ Amatic */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+    }
     .section-title{
       font-size:2.55rem;line-height:1.05;margin-bottom:1rem;
       max-width:980px;font-weight:1200;
       text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+      /* ✅ Amatic */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
     }
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
@@ -252,6 +263,11 @@
       display:inline-flex;align-items:center;gap:.45rem;
       transition:transform .12s ease, background .12s ease, border-color .12s ease;
       white-space:nowrap;
+      /* ✅ Amatic per bottoni */
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      font-size:1.35rem;
+      letter-spacing:.03em;
     }
     .btn.primary{
       border-color:transparent;
@@ -284,6 +300,9 @@
     @media (max-width: 1020px){
       .media-grid{grid-template-columns:1fr;}
     }
+
+    /* ✅ rimuove VISUALMENTE le scritte sopra ai video (se presenti in futuro) */
+    .preview-head,.embed-head{display:none !important;}
 
     /* MOBILE HEADER */
     @media (max-width: 600px){
@@ -440,10 +459,10 @@
   <main>
     <section>
       <div class="section-kicker">Artista</div>
-     <div class="artist-badge">
-  <img class="artist-avatar" src="Narciso.jpg" alt="Narciso" loading="lazy">
-  <div class="section-title" style="margin:0;">Narciso ✨</div>
-</div>
+      <div class="artist-badge">
+        <img class="artist-avatar" src="Narciso.jpg" alt="Narciso" loading="lazy">
+        <div class="section-title" style="margin:0;">Narciso ✨</div>
+      </div>
 
       <div class="card">
         <p class="muted" style="margin-bottom:.25rem;"><em>Queer Songwriter</em></p>
@@ -603,5 +622,4 @@
   </script>
 </body>
 </html>
-
 
