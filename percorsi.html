@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>Percorsi — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
     /* ===== FONT (come INDEX) ===== */
@@ -58,7 +58,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ===== HEADER / BANNER (IDENTICO A INDEX) ===== */
+    /* ===== HEADER / BANNER (INVARIATO, ma dimensioni/font come CURRICULUM) ===== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -98,13 +98,13 @@
       flex:1;
     }
 
-    /* Titolo in AMATIC (come index) */
+    /* ✅ COME CURRICULUM */
     .brand-name{
       font-family: var(--titleFont);
       font-weight: 700;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      font-size:2.05rem;
+      font-size:2.1rem;
       line-height:1;
       white-space:nowrap;
       overflow:hidden;
@@ -129,7 +129,7 @@
       font-weight:900;
     }
 
-    /* NAV PILLS (come index) - bottoni in AMATIC */
+    /* ✅ NAV PILLS: come CURRICULUM */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -140,11 +140,11 @@
     .nav-pills .btn{
       font-family: var(--titleFont);
       font-weight:700;
-      letter-spacing:.06em;
+      letter-spacing:.03em;
 
       border-radius: 999px;
-      padding: 0.58rem 1.0rem; /* più piccolo (come ti piace su index) */
-      font-size: 1.35rem;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.55rem;
 
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
@@ -210,16 +210,16 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* pulsante menu in AMATIC */
+    /* ✅ MENU BUTTON: come CURRICULUM */
     .menu-button{
       font-family: var(--titleFont);
-      font-weight: 700;
-      letter-spacing:.06em;
+      font-weight:700;
+      letter-spacing:.04em;
 
       border:none;background:#fff;color:var(--magenta);
-      padding:0.52rem 1.05rem; /* più compatto */
+      padding:0.62rem 1.2rem;
       border-radius:999px;
-      font-size:1.45rem;
+      font-size:1.75rem;
       cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
@@ -229,7 +229,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (come index) - FONT BODY (NON amatic, come richiesto) */
+    /* MENU OVERLAY (INVARIATO) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       padding:1.2rem;
@@ -326,27 +326,33 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* ===== MAIN (INVARIATO nelle logiche; solo FONT TITOLI in AMATIC) ===== */
+    /* ===== MAIN (INVARIATO) ===== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* kicker resta body font */
-    .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+    :root{
+      /* >>> dimensioni “index-style” (kicker piccolo / titolo grande) */
+      --kickerSize: 1.12rem;
+      --titleSize: 3.05rem;
     }
-
-    /* titoli in AMATIC */
+    .section-kicker{
+      font-family: var(--titleFont);
+      font-size: var(--kickerSize);
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .92;
+      margin-bottom: .65rem;
+    }
     .section-title{
       font-family: var(--titleFont);
+      font-size: var(--titleSize);
       font-weight: 700;
-      letter-spacing: .06em;
-      font-size:3.05rem;
-      line-height:1.02;
-      margin-bottom:1rem;
-      max-width:980px;
-      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
-      text-transform: uppercase;
+      letter-spacing: .03em;
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      max-width: 980px;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.26);
     }
 
     .card{
@@ -367,7 +373,7 @@
 
     .quick-nav{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem;}
 
-    /* bottoni in AMATIC (come index) */
+    /* bottoni in AMATIC (INVARIATO nel main, come tuo file) */
     .btn{
       font-family: var(--titleFont);
       font-weight:700;
@@ -398,7 +404,7 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* Chips (lascio body font come nel tuo file; coerente con index) */
+    /* Chips (invariato) */
     .chip{
       border:1px solid rgba(255,255,255,0.22);
       background: rgba(255,255,255,0.10);
@@ -479,7 +485,7 @@
       text-transform:uppercase;
     }
 
-    /* Mini thumb: effetto foto IDENTICO a index (hover “lift”) */
+    /* Mini thumb: effetto foto */
     .section-head{
       display:flex;
       align-items:center;
@@ -503,19 +509,18 @@
       filter: brightness(1.06);
       box-shadow:0 24px 48px rgba(0,0,0,0.28);
     }
-/* Thumb speciale VES®: niente zoom (mantiene sempre visibile il cerchio blu) */
-.section-thumb.ves-thumb{
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  padding: 6px;                 /* “cornice” come in index */
-  object-fit: contain;          /* IMPORTANTISSIMO per non tagliare il cerchio blu */
-  object-position: center;
-}
-.section-thumb.ves-thumb:hover{
-  transform: none;
-  filter: none;
-  box-shadow: 0 18px 38px rgba(0,0,0,0.22); /* rimane “fermo” */
-}
+    .section-thumb.ves-thumb{
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      padding: 6px;
+      object-fit: contain;
+      object-position: center;
+    }
+    .section-thumb.ves-thumb:hover{
+      transform: none;
+      filter: none;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.22);
+    }
 
     /* Aree schematiche (invariato) */
     .areas{
@@ -570,16 +575,20 @@
       .section-title{font-size:2.75rem;}
     }
 
-    /* MOBILE HEADER (come index) */
+    /* ✅ MOBILE HEADER: come CURRICULUM */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-      .header-inner{align-items:flex-start;gap:.6rem;}
-      .brand{gap:.6rem;min-width:0;}
-      .logo-img{ height:96px; }
+
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+        align-items:flex-start;
+      }
+      .logo-img{ height:92px; }
 
       .brand-name{
-        font-size:1.85rem;
-        letter-spacing:.07em;
+        font-size:1.8rem;
+        letter-spacing:.10em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
@@ -599,11 +608,16 @@
         z-index:90;
       }
       .menu-button{
-        padding:.48rem .95rem;
-        font-size:1.35rem;
+        padding:.52rem 1.02rem;
+        font-size:1.65rem;
       }
       .top-icons{ gap:.45rem; margin-right:0; }
       .icon-btn{ width:40px; height:40px; }
+
+      :root{
+        --kickerSize: 1.02rem;
+        --titleSize: 2.35rem;
+      }
     }
 
     footer{
@@ -612,46 +626,6 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
-    :root{
-  /* ...le tue variabili... */
-  --titleFont: "Amatic SC", system-ui, sans-serif;
-
-  /* >>> dimensioni “index-style” (kicker piccolo / titolo grande) */
-  --kickerSize: 1.12rem;     /* "Percorsi" piccolo */
-  --titleSize: 3.05rem;      /* "Scegli la direzione..." grande */
-}
-
-/* Kicker piccolo in Amatic */
-.section-kicker{
-  font-family: var(--titleFont);
-  font-size: var(--kickerSize);
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  opacity: .92;
-  margin-bottom: .65rem;
-}
-
-/* Titolo grande in Amatic */
-.section-title{
-  font-family: var(--titleFont);
-  font-size: var(--titleSize);
-  font-weight: 700;
-  letter-spacing: .03em;
-  line-height: 1.02;
-  margin-bottom: 1rem;
-  max-width: 980px;
-  text-shadow: 0 10px 22px rgba(0,0,0,0.26);
-}
-
-/* Responsive (come in index: titolo scende un po’ su mobile) */
-@media (max-width: 600px){
-  :root{
-    --kickerSize: 1.02rem;
-    --titleSize: 2.35rem;
-  }
-}
-
   </style>
 </head>
 
@@ -703,7 +677,7 @@
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
       </div>
 
-      <!-- QUI è IDENTICO al tuo menu attuale (lo lascio invariato) -->
+      <!-- MENU INVARIATO -->
       <div class="menu-grid">
         <a class="menu-item" href="index.html">
           <div class="menu-left">
@@ -776,7 +750,7 @@
     </div>
   </div>
 
-  <!-- ===== TUTTO IL RESTO INVARIATO (tuo contenuto) ===== -->
+  <!-- ===== CONTENUTO INVARIATO ===== -->
   <main>
     <!-- INTRO -->
     <section>
@@ -991,14 +965,13 @@
     </section>
 
     <!-- VES -->
-   <section id="ves">
-  <div class="section-kicker">Voice Evolution Institute (VES®)</div>
+    <section id="ves">
+      <div class="section-kicker">Voice Evolution Institute (VES®)</div>
 
-  <div class="section-head">
-    <!-- Usa lo STESSO file che stai usando su index per il logo VES® -->
-    <img class="section-thumb ves-thumb" src="Logo VES.jpg" alt="Logo VES®" loading="lazy">
-    <div class="section-title" style="margin:0;">CERTIFICAZIONI 🔬</div>
-  </div>
+      <div class="section-head">
+        <img class="section-thumb ves-thumb" src="Logo VES.jpg" alt="Logo VES®" loading="lazy">
+        <div class="section-title" style="margin:0;">CERTIFICAZIONI 🔬</div>
+      </div>
 
       <div class="card">
         <p>
