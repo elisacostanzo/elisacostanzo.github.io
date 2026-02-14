@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -61,7 +62,6 @@
     }
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
-
     .logo-wrap{line-height:0;flex:0 0 auto;}
     .logo-img{
       height: 140px;
@@ -72,7 +72,6 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Nome in Amatic */
     .brand-name{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -85,7 +84,6 @@
       text-overflow:ellipsis;
     }
 
-    /* Ruoli: una riga ciascuno + pallino giallo */
     .brand-sub{
       font-size:.96rem;
       opacity:.96;
@@ -105,7 +103,38 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) */
+    /* ===== BOTTONI UNIFORMI IN AMATIC ===== */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.55rem;
+      line-height:1;
+
+      border-radius:999px;
+      padding:0.68rem 1.22rem;
+
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
+    .btn:hover{transform:translateY(-1px);}
+
+    /* NAV PILLS */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -114,12 +143,6 @@
       margin-top:.55rem;
     }
     .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.05rem;
-      font-weight: 1100;
-      letter-spacing: .01em;
-
       border: 1px solid rgba(255,255,255,0.28);
       background: rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.96);
@@ -131,15 +154,10 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      padding:0.64rem 1.1rem;
+      font-size:1.55rem;
     }
     .nav-pills .btn:hover{
-      transform: translateY(-1px);
       background: rgba(255,255,255,0.18);
       border-color: rgba(255,255,255,0.34);
       box-shadow:
@@ -147,7 +165,7 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size: 1.08em;
+      font-size: 1.05em;
       line-height: 1;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
@@ -181,10 +199,16 @@
     .icon-ig svg{color:#ffe0ff;}
 
     .menu-button{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:1.65rem;
+      line-height:1;
+
       border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:1100;cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
+      padding:0.62rem 1.15rem;border-radius:999px;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.55rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
@@ -192,7 +216,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (scroll) */
+    /* MENU OVERLAY */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -291,7 +315,6 @@
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* ✅ Kicker piccolo in Amatic (stile ExpresSING) */
     .section-kicker{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -302,8 +325,6 @@
       font-size: clamp(1.35rem, 1.6vw, 1.7rem);
       line-height:1;
     }
-
-    /* ✅ Titolo grande in Amatic (stile ExpresSING) */
     .section-title{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -324,33 +345,6 @@
       backdrop-filter: blur(12px);
     }
 
-    .btn{
-      border-radius:999px;
-      padding:0.82rem 1.28rem;
-      font-size:1rem;
-      font-weight:1200;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
-
-    /* Layout: intro + chips */
     .hero-row{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -358,7 +352,6 @@
       align-items:stretch;
     }
 
-    /* badge card */
     .pill-title{
       display:inline-flex;
       width:fit-content;
@@ -375,7 +368,6 @@
       margin-bottom:.8rem;
     }
 
-    /* Timeline */
     .timeline{
       margin-top:.9rem;
       display:grid;
@@ -408,7 +400,6 @@
       align-items:flex-start;
       gap:.55rem;
     }
-
     .t-role{
       font-weight:1200;
       font-size:1.08rem;
@@ -429,7 +420,6 @@
       white-space:nowrap;
     }
 
-    /* ✅ Media previews (solo YouTube) */
     .preview-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -459,12 +449,8 @@
       border:0;
     }
 
-    /* Back to top */
     .to-top{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:40;
+      position:fixed; right:18px; bottom:18px; z-index:40;
       width:52px;height:52px;border-radius:999px;
       border:1px solid rgba(255,255,255,0.24);
       background: rgba(255,255,255,0.12);
@@ -486,29 +472,14 @@
       .preview-grid{grid-template-columns:1fr;}
     }
 
-    /* MOBILE HEADER */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
-      .header-inner{
-        padding:.7rem .85rem;
-        gap:.6rem;
-      }
+      .header-inner{padding:.7rem .85rem;gap:.6rem;}
       .logo-img{ height:92px; }
 
-      .brand-name{
-        font-size: clamp(1.45rem, 6.2vw, 1.9rem);
-        letter-spacing:.06em;
-      }
-      .brand-sub{
-        font-size:.86rem;
-        line-height:1.35;
-        max-width:34ch;
-      }
-      .brand-sub span{
-        display:block;
-        white-space:nowrap;
-        margin:.12rem 0;
-      }
+      .brand-name{font-size: clamp(1.45rem, 6.2vw, 1.9rem);}
+
+      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
 
       .header-actions{
         flex-direction:column;
@@ -516,14 +487,14 @@
         gap:.45rem;
         z-index:90;
       }
-      .menu-button{ padding:.52rem 1.02rem; font-size:.96rem; }
-      .top-icons{
-        display:flex;
-        flex-direction:row;
-        gap:.45rem;
-        margin-right:0;
-      }
+
+      .menu-button{ padding:.52rem 1.02rem; font-size:1.55rem; }
+
+      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
       .icon-btn{ width:40px; height:40px; }
+
+      .btn{font-size:1.45rem; padding:.62rem 1.05rem;}
+      .nav-pills .btn{font-size:1.45rem;}
     }
 
     footer{
@@ -643,7 +614,7 @@
           </a>
           <div class="menu-sub">
             <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="artisti.html#narciso">Narciso</a>
+            <a href="case-study-narciso.html">Narciso</a>
           </div>
         </div>
 
@@ -661,7 +632,6 @@
   </div>
 
   <main>
-    <!-- HERO -->
     <section>
       <div class="hero-row">
         <div class="card">
@@ -685,7 +655,6 @@
       </div>
     </section>
 
-    <!-- DIDATTICA -->
     <section id="didattica">
       <div class="section-kicker">Curriculum</div>
       <div class="section-title">Didattica & Formazione 🎓</div>
@@ -799,7 +768,6 @@
       </div>
     </section>
 
-    <!-- PERFORMANCE -->
     <section id="performance">
       <div class="section-kicker">Curriculum</div>
       <div class="section-title">Performance & Songwriting 🎤🎶</div>
@@ -848,7 +816,6 @@
       </div>
     </section>
 
-    <!-- MEDIA -->
     <section id="media">
       <div class="section-kicker">Media</div>
       <div class="section-title">Video & contenuti 📺✨</div>
@@ -858,51 +825,26 @@
           Una piccola selezione di contenuti in anteprima.
         </p>
 
-        <!-- ✅ SOLO VIDEO: niente scritte sopra -->
         <div class="preview-grid" aria-label="Anteprime YouTube">
-          <div class="preview">
-            <div class="preview-frame">
-              <iframe
-                src="https://www.youtube.com/embed/iyHL7ZxjI5c"
-                title="YouTube — Video 1"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
+          <div class="preview"><div class="preview-frame">
+            <iframe src="https://www.youtube.com/embed/iyHL7ZxjI5c" title="YouTube — Video 1" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
 
-          <div class="preview">
-            <div class="preview-frame">
-              <iframe
-                src="https://www.youtube.com/embed/ZN0ANU_nNpw"
-                title="YouTube — Video 2"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
+          <div class="preview"><div class="preview-frame">
+            <iframe src="https://www.youtube.com/embed/ZN0ANU_nNpw" title="YouTube — Video 2" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
 
-          <div class="preview">
-            <div class="preview-frame">
-              <iframe
-                src="https://www.youtube.com/embed/v0TAsdd_VtM"
-                title="YouTube — Video 3"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
+          <div class="preview"><div class="preview-frame">
+            <iframe src="https://www.youtube.com/embed/v0TAsdd_VtM" title="YouTube — Video 3" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
 
-          <div class="preview">
-            <div class="preview-frame">
-              <iframe
-                src="https://www.youtube.com/embed/l7r9jDhwHVI"
-                title="YouTube — Video 4"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
-          </div>
+          <div class="preview"><div class="preview-frame">
+            <iframe src="https://www.youtube.com/embed/l7r9jDhwHVI" title="YouTube — Video 4" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div></div>
         </div>
       </div>
     </section>
@@ -927,11 +869,11 @@
     document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
 
-    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
+    // NAV PILLS
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "curriculum.html";
+      const current = "artisti.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
