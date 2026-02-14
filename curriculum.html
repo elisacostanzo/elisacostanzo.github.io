@@ -71,11 +71,15 @@
     }
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+
+    /* ✅ Nome in Amatic */
     .brand-name{
-      font-weight:1100;
-      letter-spacing:.12em;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.06em;
       text-transform:uppercase;
-      font-size:1.04rem;
+      font-size: clamp(1.6rem, 2.0vw, 2.05rem);
+      line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -287,19 +291,25 @@
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
+    /* ✅ Kicker piccolo in Amatic (stile ExpresSING) */
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:.45rem;
+      font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+      line-height:1;
     }
 
-    /* ✅ TITOLI IN AMATIC (questa era la cosa che mancava) */
+    /* ✅ Titolo grande in Amatic (stile ExpresSING) */
     .section-title{
-      font-family: "Amatic SC", cursive;
+      font-family:"Amatic SC", cursive;
       font-weight:700;
       letter-spacing:.02em;
-
-      font-size:2.55rem;
-      line-height:1.05;
+      font-size: clamp(3.1rem, 4.6vw, 4.25rem);
+      line-height:.98;
       margin-bottom:1rem;
       max-width:980px;
       text-shadow: 0 8px 20px rgba(0,0,0,0.22);
@@ -392,7 +402,6 @@
     }
     .t-item > *{position:relative; z-index:1;}
 
-    /* ✅ DATE SEMPRE IN SECONDA RIGA */
     .t-top{
       display:flex;
       flex-direction:column;
@@ -418,13 +427,6 @@
       opacity:.92;
       font-size:.92rem;
       white-space:nowrap;
-    }
-    .t-desc{
-      margin-top:.45rem;
-      opacity:.92;
-      line-height:1.6;
-      font-size:1.03rem;
-      text-align:left;
     }
 
     /* ✅ Media previews (solo YouTube) */
@@ -494,11 +496,8 @@
       .logo-img{ height:92px; }
 
       .brand-name{
-        font-size:.96rem;
-        letter-spacing:.11em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
+        font-size: clamp(1.45rem, 6.2vw, 1.9rem);
+        letter-spacing:.06em;
       }
       .brand-sub{
         font-size:.86rem;
@@ -859,7 +858,7 @@
           Una piccola selezione di contenuti in anteprima.
         </p>
 
-        <!-- ✅ SOLO VIDEO: tolte le scritte sopra -->
+        <!-- ✅ SOLO VIDEO: niente scritte sopra -->
         <div class="preview-grid" aria-label="Anteprime YouTube">
           <div class="preview">
             <div class="preview-frame">
