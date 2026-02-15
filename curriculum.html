@@ -51,10 +51,28 @@
 
     /* ===== AMATIC (titoli + bottoni) ===== */
     .amatic{font-family:"Amatic SC", system-ui, sans-serif;}
-    .btn, .nav-pills .btn, .menu-button, .menu-text .t, .menu-sub a, .menu-title h2{
-      font-family:"Amatic SC", system-ui, sans-serif;
-      letter-spacing:.04em;
-    }
+    .btn, .nav-pills .btn, .menu-button{
+  font-family:"Amatic SC", system-ui, sans-serif;
+  letter-spacing:.04em;
+}
+/* ✅ MENU: font normale (NO Amatic) */
+.menu-card,
+.menu-title h2,
+.menu-text .t,
+.menu-sub a{
+  font-family: Calibri, "Segoe UI", Arial, sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+/* ✅ Sottosezioni sempre visibili */
+.menu-sub{
+  display: grid !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.menu-sub a{
+  display: inline-flex !important;
+}
 
     /* HEADER */
     header{
@@ -211,6 +229,27 @@
       overflow:auto;
     }
     .menu-overlay.open{display:block;}
+<div>
+  <a class="menu-item" href="artisti.html">
+    <div class="menu-left">
+      <div class="menu-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+      </div>
+      <div class="menu-text">
+        <div class="t">Artisti</div>
+        <div class="d">percorsi e progetti</div>
+      </div>
+    </div>
+    <div class="menu-pill">go</div>
+  </a>
+
+  <!-- ✅ sottosezioni visibili -->
+  <div class="menu-sub">
+    <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+    <a href="case-study-narciso.html">Narciso</a>
+    <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
+  </div>
+</div>
 
     .menu-card{
       max-width:590px;
