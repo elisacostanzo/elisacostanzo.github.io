@@ -5,7 +5,7 @@
   <title>Lisa Ramirez — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Amatic (come Artisti) -->
+  <!-- ✅ Amatic -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,7 +24,6 @@
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       min-height:100vh;
-
       background:
         radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
         radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
@@ -52,7 +51,7 @@
       display:flex;
       align-items:center;
       gap:.9rem;
-      margin: .15rem 0 1.05rem; /* spazio corretto prima della card */
+      margin: .15rem 0 1.05rem;
     }
     .artist-avatar{
       width:56px;
@@ -63,13 +62,8 @@
       box-shadow:0 18px 38px rgba(0,0,0,0.26);
       flex:0 0 auto;
     }
-    @media (max-width: 600px){
-      .artist-avatar{ width:48px; height:48px; }
-    }
 
-    /* =========================
-       HEADER (come Artisti)
-       ========================= */
+    /* ===== HEADER (IDENTICO A "ARTISTI" ALLEGATO) ===== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -93,7 +87,7 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
 
-    /* ✅ Nome in Amatic (come Artisti) */
+    /* ✅ Nome in Amatic */
     .brand-name{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -123,7 +117,7 @@
       font-weight:900;
     }
 
-    /* ===== BOTTONI UNIFORMI IN AMATIC (come Artisti) ===== */
+    /* ===== BOTTONI UNIFORMI IN AMATIC (COME ARTISTI) ===== */
     .btn{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -154,7 +148,7 @@
     }
     .btn:hover{transform:translateY(-1px);}
 
-    /* NAV PILLS (desktop) - come Artisti */
+    /* NAV PILLS (desktop) — ✅ leggermente più compatti per evitare a-capo "Artisti" */
     .nav-pills{
       display:flex;
       gap:.65rem;
@@ -174,8 +168,9 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      padding:0.64rem 1.1rem; /* coerente */
-      font-size:1.55rem;      /* coerente */
+      padding: 0.58rem 1.0rem;
+      font-size: 1.45rem;
+      gap: .5rem;
     }
     .nav-pills .btn:hover{
       background: rgba(255,255,255,0.18);
@@ -219,7 +214,7 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* ✅ Bottone Menu in Amatic e coerente (come Artisti) */
+    /* ✅ Bottone Menu in Amatic e coerente */
     .menu-button{
       font-family:"Amatic SC", cursive;
       font-weight:700;
@@ -238,7 +233,7 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY */
+    /* MENU OVERLAY (come artisti) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
       display:none;
@@ -268,6 +263,7 @@
 
       max-height: calc(100vh - 7rem);
       overflow:auto;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* menu NON Amatic */
     }
     @keyframes pop{to{transform:translateY(0);}}
 
@@ -333,16 +329,29 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* MAIN */
+    /* ===== MAIN ===== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
+
+    /* ✅ TITOLI IN AMATIC (qui era il problema) */
     .section-kicker{
-      font-size:1.02rem;text-transform:uppercase;letter-spacing:.20em;
-      opacity:.92;margin-bottom:.7rem;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:.35rem;
+      font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+      line-height:1;
     }
     .section-title{
-      font-size:2.55rem;line-height:1.05;
-      max-width:980px;font-weight:1200;
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.02em;
+      font-size: clamp(2.85rem, 4.1vw, 3.55rem);
+      line-height:.98;
+      margin-bottom:1rem;
+      max-width:980px;
       text-shadow: 0 8px 20px rgba(0,0,0,0.22);
     }
 
@@ -357,7 +366,28 @@
 
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* MOBILE (come Artisti) */
+    /* ===== VIDEO (solo anteprima, senza scritte/bottoni) ===== */
+    .video-wrap{
+      margin-top:1.15rem;
+      border-radius:1.85rem;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.18);
+      box-shadow:0 20px 44px rgba(0,0,0,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+    .video-16x9{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+    }
+    .video-16x9 iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+      display:block;
+    }
+
+    /* MOBILE */
     @media (max-width: 600px){
       .nav-pills{ display:none !important; }
 
@@ -372,9 +402,6 @@
       .brand-name{
         font-size: clamp(1.45rem, 6.2vw, 1.9rem);
         letter-spacing:.06em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
       }
       .brand-sub{
         font-size:.86rem;
@@ -392,8 +419,7 @@
       }
       .icon-btn{ width:40px; height:40px; }
 
-      .btn{font-size:1.45rem; padding:.62rem 1.05rem;}
-      .nav-pills .btn{font-size:1.45rem;}
+      .artist-avatar{ width:48px; height:48px; }
     }
 
     footer{
@@ -464,15 +490,23 @@
           <div class="menu-pill">home</div>
         </a>
 
-        <a class="menu-item" href="percorsi.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <a class="menu-item" href="percorsi.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
-            <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="percorsi.html#ves">VES</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
@@ -484,15 +518,22 @@
           <div class="menu-pill">studio</div>
         </a>
 
-        <a class="menu-item" href="artisti.html">
-          <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <div>
+          <a class="menu-item" href="artisti.html">
+            <div class="menu-left">
+              <div class="menu-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
             </div>
-            <div class="menu-text"><div class="t">Artisti</div><div class="d">percorsi e progetti</div></div>
+            <div class="menu-pill">go</div>
+          </a>
+          <div class="menu-sub">
+            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
+            <a href="case-study-narciso.html">Narciso</a>
+            <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
           </div>
-          <div class="menu-pill">go</div>
-        </a>
+        </div>
 
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
@@ -521,7 +562,6 @@
     <section>
       <div class="section-kicker">Artista</div>
 
-      <!-- Avatar nel punto giusto: QUI, nel main -->
       <div class="artist-badge">
         <img class="artist-avatar" src="Lisa.jpg" alt="Lisa Ramirez" loading="lazy">
         <div class="section-title" style="margin:0;">Lisa Ramirez ✨</div>
@@ -569,6 +609,21 @@
           <a class="btn link" href="artisti.html">← Torna ad Artisti</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
+
+        <!-- ✅ VIDEO: solo anteprima, nessuna scritta o bottone "Apri" -->
+        <div class="video-wrap" aria-label="Video YouTube - Lisa Ramirez">
+          <div class="video-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/S1IpPRKVzEs"
+              title="YouTube video player"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
