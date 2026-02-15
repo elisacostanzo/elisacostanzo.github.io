@@ -549,13 +549,21 @@
     }
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* ✅ NON MANDARE A CAPO i bottoni nel primo riquadro a sinistra */
+    /* ✅ NON MANDARE A CAPO i bottoni nel primo riquadro a sinistra + riduzione per farli stare in una riga */
     .actions.no-wrap{
       flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      gap: .55rem;
+      overflow: hidden;
     }
-    .actions.no-wrap::-webkit-scrollbar{display:none;}
+    .actions.no-wrap .btn{
+      font-size: 1.22rem;
+      padding: 0.56rem 0.85rem;
+    }
+
+    /* ✅ Bottoni VES centrati e più visibili */
+    .actions.center{
+      justify-content:center;
+    }
 
     .to-top{
       position:fixed;
@@ -582,6 +590,13 @@
       .hero-row{grid-template-columns:1fr;}
       .areas{grid-template-columns:1fr;}
       .section-thumb{width:64px;height:64px;}
+
+      /* mantiene in riga anche su schermi medi */
+      .actions.no-wrap{
+        overflow-x:auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .actions.no-wrap::-webkit-scrollbar{display:none;}
     }
 
     footer{
@@ -756,9 +771,10 @@
             <a class="chip" href="#ves"><span class="emoji">🔬</span> VES®</a>
           </div>
 
-          <!-- ✅ qui NON va a capo -->
+          <!-- ✅ qui NON va a capo (ridimensionati) + TikTok sempre con Instagram -->
           <div class="actions no-wrap">
             <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
+            <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
             <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
@@ -835,6 +851,8 @@
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -895,6 +913,8 @@
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -973,6 +993,8 @@
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
           <a class="btn" href="artisti.html">🎧 Vai alla pagina Artisti</a>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
@@ -1033,11 +1055,11 @@
             <div class="areas" aria-label="Aree di lavoro del percorso">
               <div class="area">
                 <h4>🎛️ Tecnica vocale</h4>
-                <p>Per sviluppare <span class="hl">controllo</span>, potenza e resistenza attraverso un allenamento costruito su misura.</p>
+                <p>Per sviluppare controllo, potenza e resistenza attraverso un allenamento costruito su misura.</p>
               </div>
               <div class="area">
                 <h4>🎧 Ear training</h4>
-                <p>Per migliorare <span class="hl">intonazione</span>, ascolto e consapevolezza musicale.</p>
+                <p>Per migliorare intonazione, ascolto e consapevolezza musicale.</p>
               </div>
               <div class="area">
                 <h4>🎼 Stile</h4>
@@ -1045,7 +1067,7 @@
               </div>
               <div class="area">
                 <h4>✨ Improvvisazione</h4>
-                <p>Per stimolare <span class="hl">creatività</span> e libertà espressiva, rendendo la performance più personale.</p>
+                <p>Per stimolare creatività e libertà espressiva, rendendo la performance più personale.</p>
               </div>
               <div class="area">
                 <h4>🎭 Interpretazione</h4>
@@ -1101,10 +1123,15 @@
               Come istituto abbiamo <span class="hl">2 percorsi di certificazione</span>:
             </p>
 
-            <!-- ✅ link come bottoni/parole cliccabili -->
-            <div class="actions" style="margin-top:.7rem;">
-              <a class="btn" href="https://www.voiceevolutioninstitute.it/category/course/certificazione-practitioner-in-didattica-della-voce-ves---quinta-edizione" target="_blank" rel="noopener noreferrer">Practitioner</a>
-              <a class="btn" href="https://www.voiceevolutioninstitute.it/category/course/diploma-in-didattica-della-voce-ves-aa-2025" target="_blank" rel="noopener noreferrer">Diploma in didattica della voce</a>
+            <!-- ✅ bottoni centrati e con sfondo bianco -->
+            <div class="actions center" style="margin-top:.7rem;">
+              <a class="btn primary"
+                 href="https://www.voiceevolutioninstitute.it/category/course/certificazione-practitioner-in-didattica-della-voce-ves---quinta-edizione"
+                 target="_blank" rel="noopener noreferrer">Practitioner</a>
+
+              <a class="btn primary"
+                 href="https://www.voiceevolutioninstitute.it/category/course/diploma-in-didattica-della-voce-ves-aa-2025"
+                 target="_blank" rel="noopener noreferrer">Diploma in didattica della voce</a>
             </div>
 
             <p style="margin-top:.8rem;" class="muted">
@@ -1117,6 +1144,7 @@
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Richiedi info</a>
           <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">🌐 Sito VES®</a>
+          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
           <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
