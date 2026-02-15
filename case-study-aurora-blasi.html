@@ -56,47 +56,12 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
-    /* MOBILE */
-@media (max-width: 600px){
-  .nav-pills{ display:none !important; }
 
-  .header-inner{padding:.7rem .85rem;gap:.6rem;}
-  .logo-img{ height:92px; }
-
-  .brand-name{font-size:1.8rem;}
-  .brand-sub{font-size:.86rem;max-width:34ch;line-height:1.35;}
-
-  /* ✅ header: tutto su UNA riga (icone + menu) */
-  .header-actions{
-    flex-direction:row !important;
-    align-items:center !important;
-    gap:.4rem !important;
-    z-index:90;
-    flex-wrap:nowrap !important;
-  }
-
-  .top-icons{
-    display:flex;
-    flex-direction:row;
-    gap:.35rem;
-    margin-right:0;
-    flex-wrap:nowrap;
-  }
-
-  /* ✅ ridimensiono per farli entrare */
-  .icon-btn{ width:36px; height:36px; }
-  .icon-btn svg{ width:18px; height:18px; }
-
-  .menu-button{
-    padding:.46rem .78rem;
-    font-size:1.25rem;
-    line-height:1;
-  }
-
-  .artist-avatar{width:40px;height:40px;}
-  .section-title{font-size:2.6rem;}
-  .section-kicker{font-size:1.35rem;}
-}
+    .header-inner{
+      max-width:1180px;margin:0 auto;
+      padding:0.85rem 1.15rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
@@ -134,42 +99,79 @@
       text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) */
-    /* NAV PILLS (desktop) — più compatti e su UNA riga */
-.nav-pills{
-  display:flex;
-  align-items:center;
-  gap:.42rem;              /* meno spazio tra bottoni */
-  margin-top:.45rem;
-  flex-wrap:nowrap;        /* ✅ niente a capo */
-}
+    /* ✅ Bottoni coerenti */
+    .btn{
+      font-family:"Amatic SC", cursive;
+      font-weight:700;
+      letter-spacing:.03em;
+      border-radius:999px;
+      padding:0.78rem 1.2rem;
+      font-size:1.35rem;
+      border:1px solid rgba(255,255,255,0.55);
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:.6rem;
+      white-space:nowrap;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px);}
 
-.nav-pills .btn{
-  /* mantengo lo stile pills, ma più piccolo */
-  border: 1px solid rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.96);
+    .btn.primary{
+      border-color:transparent;
+      background:#fff;
+      color:var(--magenta);
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+    }
+    .btn.link{
+      border-color:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.10);
+    }
 
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    0 14px 28px rgba(0,0,0,0.18);
+    /* =========================
+       NAV PILLS (desktop) — più compatti e su UNA riga
+       (non tocca la parte destra dell'header)
+    ========================== */
+    .nav-pills{
+      display:flex;
+      gap:.42rem;
+      flex-wrap:nowrap;      /* ✅ evita a-capo */
+      align-items:center;
+      margin-top:.45rem;
+      max-width:100%;
+      overflow:hidden;
+    }
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    .nav-pills .btn{
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.96);
 
-  padding: .56rem .92rem;   /* ✅ più stretto */
-  font-size: 1.28rem;       /* ✅ più piccolo */
-  gap: .45rem;              /* emoji+testo più vicino */
-  letter-spacing: .02em;
-}
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 14px 28px rgba(0,0,0,0.18);
 
-.nav-pills .emoji{
-  font-size: 1.02em;        /* leggermente più piccolo */
-  line-height: 1;
-  transform: translateY(1px);
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
-}
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
 
+      padding:.56rem .92rem;
+      font-size:1.28rem;
+      gap:.45rem;
+      letter-spacing:.02em;
+    }
+    .nav-pills .btn:hover{
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.20),
+        0 18px 34px rgba(0,0,0,0.22);
+    }
+    .nav-pills .emoji{
+      font-size:1.02em;
+      line-height:1;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+    }
 
     .header-actions{
       display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
@@ -458,47 +460,47 @@
       .media-grid{grid-template-columns:1fr;}
     }
 
-   /* MOBILE */
-@media (max-width: 600px){
-  .nav-pills{ display:none !important; }
+    /* MOBILE */
+    @media (max-width: 600px){
+      .nav-pills{ display:none !important; }
 
-  .header-inner{padding:.7rem .85rem;gap:.6rem;}
-  .logo-img{ height:92px; }
+      .header-inner{padding:.7rem .85rem;gap:.6rem;}
+      .logo-img{ height:92px; }
 
-  .brand-name{font-size:1.8rem;}
-  .brand-sub{font-size:.86rem;max-width:34ch;line-height:1.35;}
+      .brand-name{font-size:1.8rem;}
+      .brand-sub{font-size:.86rem;max-width:34ch;line-height:1.35;}
 
-  /* ✅ header: tutto su UNA riga (icone + menu) */
-  .header-actions{
-    flex-direction:row !important;
-    align-items:center !important;
-    gap:.4rem !important;
-    z-index:90;
-    flex-wrap:nowrap !important;
-  }
+      /* ✅ header: tutto su UNA riga (icone + menu) */
+      .header-actions{
+        flex-direction:row;
+        align-items:center;
+        gap:.4rem;
+        z-index:90;
+        flex-wrap:nowrap;
+      }
 
-  .top-icons{
-    display:flex;
-    flex-direction:row;
-    gap:.35rem;
-    margin-right:0;
-    flex-wrap:nowrap;
-  }
+      .top-icons{
+        display:flex;
+        flex-direction:row;
+        gap:.35rem;
+        margin-right:0;
+        flex-wrap:nowrap;
+      }
 
-  /* ✅ ridimensiono per farli entrare */
-  .icon-btn{ width:36px; height:36px; }
-  .icon-btn svg{ width:18px; height:18px; }
+      /* ✅ ridimensiono per farli entrare */
+      .icon-btn{ width:36px; height:36px; }
+      .icon-btn svg{ width:18px; height:18px; }
 
-  .menu-button{
-    padding:.46rem .78rem;
-    font-size:1.25rem;
-    line-height:1;
-  }
+      .menu-button{
+        padding:.46rem .78rem;
+        font-size:1.25rem;
+        line-height:1;
+      }
 
-  .artist-avatar{width:40px;height:40px;}
-  .section-title{font-size:2.6rem;}
-  .section-kicker{font-size:1.35rem;}
-}
+      .artist-avatar{width:40px;height:40px;}
+      .section-title{font-size:2.6rem;}
+      .section-kicker{font-size:1.35rem;}
+    }
 
     footer{
       max-width:1180px;
@@ -535,6 +537,7 @@
           <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
             <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
           </a>
+
           <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
           </a>
@@ -673,7 +676,8 @@
 
         <p>
           Nel giro di meno di un anno, ha iniziato a far emergere con maggiore chiarezza il suo potenziale anche come autrice.
-          Ha cominciato a portarmi le sue canzoni, sulle quali lavoravamo insieme al suo produttore Francesco Tosoni, confrontandoci su struttura, sviluppo e direzione espressiva.
+          Ha cominciato a portarmi le sue canzoni, sulle quali lavoravamo insieme al suo produttore Francesco Tosoni,
+          confrontandoci su struttura, sviluppo e direzione espressiva.
         </p>
 
         <p>
