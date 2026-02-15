@@ -135,68 +135,41 @@
     }
 
     /* NAV PILLS (desktop) */
-    .nav-pills{
-      display:flex;
-      gap:.65rem;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:.55rem;
-    }
+    /* NAV PILLS (desktop) — più compatti e su UNA riga */
+.nav-pills{
+  display:flex;
+  align-items:center;
+  gap:.42rem;              /* meno spazio tra bottoni */
+  margin-top:.45rem;
+  flex-wrap:nowrap;        /* ✅ niente a capo */
+}
 
-    /* Bottoni coerenti */
-    .btn{
-      font-family:"Amatic SC", cursive;
-      font-weight:700;
-      letter-spacing:.03em;
-      border-radius:999px;
-      padding:0.78rem 1.2rem;
-      font-size:1.35rem;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.6rem;
-      white-space:nowrap;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-    .btn:hover{transform:translateY(-1px);}
+.nav-pills .btn{
+  /* mantengo lo stile pills, ma più piccolo */
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.96);
 
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 14px 28px rgba(0,0,0,0.18);
 
-    .nav-pills .btn{
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        0 14px 28px rgba(0,0,0,0.18);
+  padding: .56rem .92rem;   /* ✅ più stretto */
+  font-size: 1.28rem;       /* ✅ più piccolo */
+  gap: .45rem;              /* emoji+testo più vicino */
+  letter-spacing: .02em;
+}
 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .nav-pills .btn:hover{
-      background: rgba(255,255,255,0.18);
-      border-color: rgba(255,255,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.20),
-        0 18px 34px rgba(0,0,0,0.22);
-    }
-    .nav-pills .emoji{
-      font-size: 1.08em;
-      line-height: 1;
-      transform: translateY(1px);
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
-    }
+.nav-pills .emoji{
+  font-size: 1.02em;        /* leggermente più piccolo */
+  line-height: 1;
+  transform: translateY(1px);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+}
+
 
     .header-actions{
       display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;
