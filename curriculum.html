@@ -51,28 +51,12 @@
 
     /* ===== AMATIC (titoli + bottoni) ===== */
     .amatic{font-family:"Amatic SC", system-ui, sans-serif;}
-    .btn, .nav-pills .btn, .menu-button{
-  font-family:"Amatic SC", system-ui, sans-serif;
-  letter-spacing:.04em;
-}
-/* ✅ MENU: font normale (NO Amatic) */
-.menu-card,
-.menu-title h2,
-.menu-text .t,
-.menu-sub a{
-  font-family: Calibri, "Segoe UI", Arial, sans-serif !important;
-  letter-spacing: normal !important;
-}
 
-/* ✅ Sottosezioni sempre visibili */
-.menu-sub{
-  display: grid !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-.menu-sub a{
-  display: inline-flex !important;
-}
+    /* ✅ Amatic SOLO dove serve (NO menu) */
+    .btn, .nav-pills .btn, .menu-button, .brand-name, .section-kicker, .section-title{
+      font-family:"Amatic SC", system-ui, sans-serif;
+      letter-spacing:.04em;
+    }
 
     /* HEADER */
     header{
@@ -99,7 +83,6 @@
 
     .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
     .brand-name{
-      font-family:"Amatic SC", system-ui, sans-serif;
       font-weight:700;
       letter-spacing:.10em;
       text-transform:uppercase;
@@ -116,6 +99,8 @@
       line-height:1.25;
       max-width:64ch;
       display:block;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      letter-spacing:normal;
     }
     .brand-sub span{
       display:block;
@@ -140,7 +125,7 @@
     .nav-pills .btn{
       border-radius: 999px;
       padding: 0.78rem 1.2rem;
-      font-size: 1.55rem;            /* ✅ Amatic visibile */
+      font-size: 1.55rem;
       font-weight: 700;
       letter-spacing: .03em;
 
@@ -208,12 +193,13 @@
       border:none;background:#fff;color:var(--magenta);
       padding:0.62rem 1.2rem;border-radius:999px;
       font-weight:700;cursor:pointer;
-      font-size:1.75rem;            /* ✅ Amatic visibile */
+      font-size:1.75rem;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
       white-space:nowrap;
       flex:0 0 auto;
+      line-height:1;
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
@@ -227,29 +213,9 @@
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
       overflow:auto;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ menu font normale */
     }
     .menu-overlay.open{display:block;}
-<div>
-  <a class="menu-item" href="artisti.html">
-    <div class="menu-left">
-      <div class="menu-ico" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-      </div>
-      <div class="menu-text">
-        <div class="t">Artisti</div>
-        <div class="d">percorsi e progetti</div>
-      </div>
-    </div>
-    <div class="menu-pill">go</div>
-  </a>
-
-  <!-- ✅ sottosezioni visibili -->
-  <div class="menu-sub">
-    <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-    <a href="case-study-narciso.html">Narciso</a>
-    <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
-  </div>
-</div>
 
     .menu-card{
       max-width:590px;
@@ -274,8 +240,12 @@
     .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
     .menu-title{display:flex;flex-direction:column;gap:.2rem;}
     .menu-title h2{
-      font-size:1.55rem;            /* ✅ Amatic visibile */
-      text-transform:uppercase;letter-spacing:.18em;font-weight:700;opacity:.95;
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-weight:1100;
+      opacity:.95;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ no Amatic */
     }
     .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
     .menu-close{
@@ -285,6 +255,7 @@
       box-shadow:0 12px 22px rgba(0,0,0,0.20);
       color:#fff;font-size:1.2rem;
       flex:0 0 auto;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
     }
 
     .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
@@ -308,7 +279,15 @@
     }
     .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
     .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-    .menu-text .t{font-weight:700;font-size:1.55rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .menu-text .t{
+      font-weight:1100;
+      font-size:1.02rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ no Amatic */
+      letter-spacing:normal;
+    }
     .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .menu-pill{
       font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
@@ -316,26 +295,31 @@
       background:rgba(255,255,255,0.14);
       border:1px solid rgba(255,255,255,0.18);
       opacity:.95;flex:0 0 auto;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
     }
 
-    /* ✅ SOTTOCARTELLE PERCORSI VISIBILI */
+    /* ✅ SOTTOCARTELLE SEMPRE VISIBILI */
     .menu-sub{
       margin:.45rem 0 0;
       padding-left:3.15rem;
-      display:grid;
+      display:grid !important;
       gap:.45rem;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
     .menu-sub a{
       padding:.55rem .85rem;
       border-radius:1.05rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.10);
-      display:inline-flex;
+      display:inline-flex !important;
       width:fit-content;
-      font-weight:700;
+      font-weight:1100;
       opacity:.92;
       line-height:1.25;
-      font-size:1.35rem;            /* ✅ Amatic visibile */
+      font-size:.98rem;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif !important; /* ✅ no Amatic */
+      letter-spacing: normal !important;
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
@@ -344,8 +328,7 @@
     section{margin-bottom:3.25rem;}
 
     .section-kicker{
-      font-family:"Amatic SC", system-ui, sans-serif;
-      font-size:2.1rem;             /* ✅ titolo piccolo in Amatic */
+      font-size:2.1rem;
       line-height:1;
       letter-spacing:.12em;
       text-transform:uppercase;
@@ -353,8 +336,7 @@
       margin-bottom:.5rem;
     }
     .section-title{
-      font-family:"Amatic SC", system-ui, sans-serif;
-      font-size:3.35rem;            /* ✅ titolo grande in Amatic */
+      font-size:3.35rem;
       line-height:1;
       margin-bottom:1rem;
       max-width:980px;
@@ -375,7 +357,7 @@
     .btn{
       border-radius:999px;
       padding:0.82rem 1.28rem;
-      font-size:1.65rem;            /* ✅ Amatic visibile */
+      font-size:1.65rem;
       font-weight:700;
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
@@ -421,6 +403,7 @@
       font-size:.86rem;
       line-height:1.2;
       margin-bottom:.8rem;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
     }
 
     /* Timeline */
@@ -662,7 +645,8 @@
           </a>
           <div class="menu-sub">
             <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="artisti.html#narciso">Narciso</a>
+            <a href="case-study-narciso.html">Narciso</a>
+            <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
           </div>
         </div>
 
@@ -691,7 +675,6 @@
             Qui trovi una panoramica del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
           </p>
 
-          <!-- ✅ BOTTONI (erano spariti: li rimettiamo) -->
           <div class="actions">
             <a class="btn primary" href="#didattica">🎓 Didattica</a>
             <a class="btn" href="#performance">🎤 Performance</a>
@@ -897,7 +880,6 @@
           Una piccola selezione di contenuti in anteprima.
         </p>
 
-        <!-- ✅ SOLO VIDEO: niente "YouTube — Video X" e niente "Anteprima" -->
         <div class="preview-grid" aria-label="Video YouTube">
           <div class="preview">
             <div class="preview-frame">
@@ -977,7 +959,7 @@
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "curriculum.html"; // ✅ FIX (era diventato artisti)
+      const current = "curriculum.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
