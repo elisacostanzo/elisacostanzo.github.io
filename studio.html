@@ -2,15 +2,16 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>ExpresSING Studio — Elisa Costanzo</title>
+  <title>Percorsi — Elisa Costanzo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ✅ Amatic SC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== FONT (come INDEX) ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
     :root{
       --blue:#355c7b;
       --magenta:#81277c;
@@ -18,19 +19,20 @@
 
       --ink: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.86);
+      --topicBlue: #78b7ff;
 
-      /* ✅ come index: titoli in Amatic, testo in Calibri */
+      --glass: rgba(255,255,255,0.10);
+      --stroke: rgba(255,255,255,0.18);
+      --shadow: rgba(0,0,0,0.22);
+
       --titleFont: "Amatic SC", system-ui, sans-serif;
-
-      /* ✅ stesse logiche dimensioni (kicker piccolo / titolo grande) */
-      --kickerSize: 1.12rem;
-      --titleSize: 3.05rem;
+      --bodyFont: Calibri, "Segoe UI", Arial, sans-serif;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      font-family: var(--bodyFont);
       color: var(--ink);
       min-height:100vh;
       background:
@@ -45,6 +47,7 @@
     p, li{line-height:1.9;font-size:1.08rem;}
     .muted{opacity:.88}
 
+    /* evidenzia parole chiave: giallo + grassetto */
     .hl{
       color: var(--yellow);
       font-weight: 1200;
@@ -55,7 +58,7 @@
       text-decoration-thickness: 2px;
     }
 
-    /* ========= HEADER (not change layout) ========= */
+    /* ===== HEADER / BANNER (INVARIATO, ma dimensioni/font come CURRICULUM) ===== */
     header{
       position:sticky; top:0; z-index:60;
       backdrop-filter: blur(16px);
@@ -63,64 +66,103 @@
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .header-inner{
-      max-width:1180px;margin:0 auto;
+      max-width:1180px;
+      margin:0 auto;
       padding:0.85rem 1.15rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
     }
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      min-width:0;
+      flex:1;
+    }
     .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{height:140px;width:auto;display:block;object-fit:contain;}
+    .logo-img{
+      height:140px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:.22rem;
+      min-width:0;
+      flex:1;
+    }
 
-    /* ✅ come index: Elisa Costanzo in Amatic */
+    /* ✅ COME CURRICULUM */
     .brand-name{
       font-family: var(--titleFont);
-      font-weight:700;
-      font-size:1.45rem;
+      font-weight: 700;
       letter-spacing:.10em;
       text-transform:uppercase;
+      font-size:2.1rem;
+      line-height:1;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      line-height:1.0;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.24);
+      text-shadow: 0 10px 22px rgba(0,0,0,0.22);
     }
 
-    /* Ruoli verticali con pallino */
+    /* Ruoli: verticali con pallini gialli */
     .brand-sub{
-      font-size:.96rem;opacity:.96;line-height:1.25;max-width:64ch;display:block;
+      font-size:.96rem;
+      opacity:.96;
+      line-height:1.25;
+      max-width:64ch;
+      display:flex;
+      flex-direction:column;
+      gap:.16rem;
     }
-    .brand-sub span{display:block;white-space:nowrap;margin:.10rem 0;}
+    .brand-sub span{display:block;white-space:nowrap;}
     .brand-sub span::before{
       content:"• ";
       color:var(--yellow);
       font-weight:900;
-      text-shadow:0 10px 18px rgba(0,0,0,0.16);
     }
 
-    /* NAV PILLS (desktop) — ✅ bottoni in Amatic */
+    /* ✅ NAV PILLS: come CURRICULUM */
     .nav-pills{
-      display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-top:.55rem;
+      display:flex;
+      gap:.65rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:.55rem;
     }
     .nav-pills .btn{
       font-family: var(--titleFont);
-      font-size:1.55rem;
+      font-weight:700;
       letter-spacing:.03em;
-      border-radius:999px;
-      padding:0.58rem 1.05rem;
 
-      border:1px solid rgba(255,255,255,0.28);
-      background:rgba(255,255,255,0.14);
-      color:rgba(255,255,255,0.96);
+      border-radius: 999px;
+      padding: 0.78rem 1.2rem;
+      font-size: 1.55rem;
+
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.96);
+
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.18),
         0 14px 28px rgba(0,0,0,0.18);
+
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
-      display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      white-space: nowrap;
+
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .nav-pills .btn:hover{
       transform: translateY(-1px);
@@ -131,12 +173,27 @@
         0 18px 34px rgba(0,0,0,0.22);
     }
     .nav-pills .emoji{
-      font-size:1.05em;line-height:1;transform:translateY(1px);
+      font-size: 1.08em;
+      line-height: 1;
+      transform: translateY(1px);
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
     }
 
-    .header-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:nowrap;flex:0 0 auto;position:relative;z-index:80;}
-    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      flex-wrap:nowrap;
+      flex:0 0 auto;
+      position:relative;
+      z-index:80;
+    }
+    .top-icons{
+      display:flex;
+      gap:.45rem;
+      align-items:center;
+      margin-right:.05rem;
+    }
     .icon-btn{
       width:44px;height:44px;border-radius:999px;
       display:inline-flex;align-items:center;justify-content:center;
@@ -153,15 +210,17 @@
     .icon-mail svg{color:#d7f1ff;}
     .icon-ig svg{color:#ffe0ff;}
 
-    /* ✅ pulsante Menu in Amatic */
+    /* ✅ MENU BUTTON: come CURRICULUM */
     .menu-button{
       font-family: var(--titleFont);
-      font-size:1.65rem;
-      letter-spacing:.05em;
+      font-weight:700;
+      letter-spacing:.04em;
 
       border:none;background:#fff;color:var(--magenta);
-      padding:0.55rem 1.05rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
+      padding:0.62rem 1.2rem;
+      border-radius:999px;
+      font-size:1.75rem;
+      cursor:pointer;
       display:inline-flex;align-items:center;gap:.45rem;
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
       transition:transform .12s ease, box-shadow .12s ease;
@@ -170,18 +229,20 @@
     }
     .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY (⚠️ NON Amatic: resta Calibri) */
+    /* MENU OVERLAY (INVARIATO) */
     .menu-overlay{
       position:fixed; inset:0; z-index:90;
-      display:none;
       padding:1.2rem;
       background:
         radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
         radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
         rgba(8,10,16,0.55);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .14s ease;
       overflow:auto;
     }
-    .menu-overlay.open{display:block;}
+    .menu-overlay.open{opacity:1;pointer-events:auto;}
 
     .menu-card{
       max-width:590px;
@@ -199,6 +260,7 @@
       animation: pop .18s ease-out forwards;
       max-height: calc(100vh - 7rem);
       overflow:auto;
+      font-family: var(--bodyFont);
     }
     @keyframes pop{to{transform:translateY(0);}}
 
@@ -264,32 +326,33 @@
     }
     .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
 
-    /* MAIN */
+    /* ===== MAIN (INVARIATO) ===== */
     main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
     section{margin-bottom:3.25rem;}
 
-    /* ✅ Kicker (piccolo) in Amatic */
+    :root{
+      /* >>> dimensioni “index-style” (kicker piccolo / titolo grande) */
+      --kickerSize: 1.12rem;
+      --titleSize: 3.05rem;
+    }
     .section-kicker{
       font-family: var(--titleFont);
       font-size: var(--kickerSize);
-      font-weight:700;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      opacity:.92;
-      margin-bottom:.7rem;
-      text-shadow:0 10px 22px rgba(0,0,0,0.22);
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .92;
+      margin-bottom: .65rem;
     }
-
-    /* ✅ Titolo (grande) in Amatic */
     .section-title{
       font-family: var(--titleFont);
       font-size: var(--titleSize);
-      font-weight:700;
-      letter-spacing:.03em;
-      line-height:1.02;
-      margin-bottom:1rem;
-      max-width:980px;
-      text-shadow:0 10px 22px rgba(0,0,0,0.26);
+      font-weight: 700;
+      letter-spacing: .03em;
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      max-width: 980px;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.26);
     }
 
     .card{
@@ -301,15 +364,25 @@
       backdrop-filter: blur(12px);
     }
 
-    /* ✅ BOTTONI in Amatic (come index/percorsi) */
+    .hero-row{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:1.1rem;
+      align-items:stretch;
+    }
+
+    .quick-nav{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem;}
+
+    /* bottoni in AMATIC (INVARIATO nel main, come tuo file) */
     .btn{
       font-family: var(--titleFont);
-      font-size: 1.65rem;
-      letter-spacing: .03em;
-      font-weight: 700;
+      font-weight:700;
+      letter-spacing:.06em;
 
       border-radius:999px;
-      padding:0.58rem 1.10rem;
+      padding:0.62rem 1.05rem;
+      font-size:1.35rem;
+
       border:1px solid rgba(255,255,255,0.55);
       background:transparent;
       color:#fff;
@@ -317,7 +390,6 @@
       display:inline-flex;align-items:center;gap:.45rem;
       transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
       white-space:nowrap;
-      line-height:1;
     }
     .btn.primary{
       border-color:transparent;
@@ -325,62 +397,146 @@
       color:var(--magenta);
       box-shadow:0 12px 26px rgba(0,0,0,0.20);
     }
+    .btn:hover{transform:translateY(-1px);}
     .btn.link{
       border-color:rgba(255,255,255,0.22);
       background:rgba(255,255,255,0.10);
     }
-    .btn:hover{transform:translateY(-1px);}
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* HERO */
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap:1.1rem;
-      align-items:stretch;
+    /* Chips (invariato) */
+    .chip{
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      border-radius:999px;
+      padding:.65rem .95rem;
+      font-weight:1100;
+      box-shadow:0 14px 26px rgba(0,0,0,0.14);
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .chip:hover{transform:translateY(-1px);background:rgba(255,255,255,0.14);}
+    .chip .emoji{
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+      transform: translateY(1px);
     }
 
-    /* ✅ effetti foto come index/percorsi */
-    .hero-photo{
-      width:100%;
-      height:100%;
-      min-height:420px;
-      border-radius:1.85rem;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 22px 50px rgba(0,0,0,0.30);
+    /* DETAILS blocks (invariato) */
+    details.block{
+      margin-top:1rem;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      border-radius: 1.35rem;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+    }
+    details.block summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 1.0rem 1.05rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      user-select:none;
+    }
+    details.block summary::-webkit-details-marker{display:none;}
+    .sum-left{display:flex;flex-direction:column;gap:.12rem;min-width:0;}
+    .sum-left .t{font-weight:1200;font-size:1.15rem;line-height:1.2;}
+    .sum-left .d{
+      font-size:.98rem;
+      opacity:.9;
+      line-height:1.25;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .chev{
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      display:flex; align-items:center; justify-content:center;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      transition: transform .16s ease;
+      flex: 0 0 auto;
+    }
+    details.block[open] .chev{transform: rotate(180deg);}
+    .block-content{padding: .25rem 1.05rem 1.15rem;}
+
+    /* “SU COSA LAVORIAMO:” */
+    .workline{
+      margin-top:.35rem;
+      font-size:1.05rem;
+      line-height:1.35;
+    }
+    .workline strong{
+      font-weight:1200;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .workline strong::after{content:":";}
+    .workline .topics{
+      color: var(--topicBlue);
+      font-weight: 1100;
+      margin-left:.55rem;
+      text-transform:uppercase;
+    }
+
+    /* Mini thumb: effetto foto */
+    .section-head{
+      display:flex;
+      align-items:center;
+      gap:.85rem;
+      margin-bottom:.75rem;
+      flex-wrap:wrap;
+    }
+    .section-thumb{
+      width:72px;
+      height:72px;
+      border-radius:1.1rem;
+      border:1px solid rgba(255,255,255,0.20);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
       object-fit:cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.02);
-      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-      will-change: transform;
+      object-position:center;
+      flex:0 0 auto;
+      transition: transform .14s ease, filter .14s ease, box-shadow .14s ease;
     }
-    .hero-photo:hover{
-      transform: translateY(-3px) scale(1.02);
-      filter: saturate(1.08) contrast(1.03) brightness(1.03);
-      box-shadow:0 28px 62px rgba(0,0,0,0.38);
+    .section-thumb:hover{
+      transform: translateY(-2px) scale(1.03);
+      filter: brightness(1.06);
+      box-shadow:0 24px 48px rgba(0,0,0,0.28);
+    }
+    .section-thumb.ves-thumb{
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      padding: 6px;
+      object-fit: contain;
+      object-position: center;
+    }
+    .section-thumb.ves-thumb:hover{
+      transform: none;
+      filter: none;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.22);
     }
 
-    /* Info pratiche */
-    .poi{
+    /* Aree schematiche (invariato) */
+    .areas{
       margin-top:1rem;
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:.85rem;
+      gap:.9rem;
     }
-    .poi-item{
+    .area{
       border-radius:1.35rem;
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.08);
       box-shadow:0 18px 38px rgba(0,0,0,0.14);
       padding:1rem 1rem;
-      transition: transform .14s ease, background .14s ease, border-color .14s ease;
     }
-    .poi-item:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.22);
-    }
-    .poi-item h4{
+    .area h4{
       font-size:1.05rem;
       font-weight:1200;
       margin-bottom:.35rem;
@@ -388,103 +544,80 @@
       align-items:center;
       gap:.55rem;
     }
-    .poi-item p{font-size:1.02rem;opacity:.92;line-height:1.55;text-align:left;}
+    .area p{font-size:1.02rem;opacity:.92;line-height:1.55;}
 
-    /* Sale */
-    .rooms{display:grid;grid-template-columns:1fr;gap:1rem;}
-    .room-head{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      align-items:baseline;
-      justify-content:space-between;
-      margin-bottom:.5rem;
+    /* back to top */
+    .to-top{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:40;
+      width:52px;height:52px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.12);
+      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .pill-title{
-      display:inline-flex;
-      width:fit-content;
-      padding:.55rem .95rem;
-      border-radius:999px;
-      background: rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
-      font-weight:1200;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.86rem;
-      line-height:1.2;
-    }
+    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
+    .to-top span{font-size:1.25rem;}
+    .to-top.show{display:flex;}
 
-    .room-gallery{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:.85rem;
-      margin-top:.9rem;
-    }
-    .room-gallery img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 18px 38px rgba(0,0,0,0.18);
-      filter: saturate(1.05) contrast(1.02);
-      display:block;
-      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-      will-change: transform;
-    }
-    .room-gallery img:hover{
-      transform: translateY(-3px) scale(1.03);
-      filter: saturate(1.08) contrast(1.03) brightness(1.03);
-      box-shadow:0 24px 54px rgba(0,0,0,0.28);
-    }
-
-    /* Mappa */
-    .map-wrap{
-      border-radius:1.85rem;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 22px 50px rgba(0,0,0,0.28);
-      background: rgba(255,255,255,0.06);
-      margin-top:1rem;
-    }
-    .map-embed{width:100%;height:360px;border:0;display:block;}
-
-    /* RESPONSIVE */
     @media (max-width: 1020px){
-      .hero-grid{grid-template-columns:1fr;}
-      .hero-photo{min-height:340px;}
-      .poi{grid-template-columns:1fr;}
-      .room-gallery{grid-template-columns:1fr;}
-      .room-gallery img{height:260px;}
-      .map-embed{height:320px;}
+      main{padding-top:1.2rem;}
+      .hero-row{grid-template-columns:1fr;}
+      .areas{grid-template-columns:1fr;}
+      .section-thumb{width:64px;height:64px;}
+      .section-title{font-size:2.75rem;}
     }
 
+    /* ✅ MOBILE HEADER: come CURRICULUM */
     @media (max-width: 600px){
-      :root{ --kickerSize: 1.02rem; --titleSize: 2.35rem; }
+      .nav-pills{ display:none !important; }
 
-      .nav-pills{display:none !important;}
-      .header-inner{padding:.7rem .85rem;gap:.6rem;}
-      .logo-img{height:92px;}
+      .header-inner{
+        padding:.7rem .85rem;
+        gap:.6rem;
+        align-items:flex-start;
+      }
+      .logo-img{ height:92px; }
 
       .brand-name{
-        font-size:1.25rem;
-        letter-spacing:.09em;
+        font-size:1.8rem;
+        letter-spacing:.10em;
         white-space:nowrap;
         overflow:visible;
         text-overflow:clip;
       }
 
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .brand-sub span{margin:.12rem 0;}
+      .brand-sub{
+        font-size:.86rem;
+        line-height:1.35;
+        max-width:34ch;
+      }
+      .brand-sub span{margin:.10rem 0;}
 
-      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
+      .header-actions{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:.45rem;
+        z-index:90;
+      }
+      .menu-button{
+        padding:.52rem 1.02rem;
+        font-size:1.65rem;
+      }
+      .top-icons{ gap:.45rem; margin-right:0; }
+      .icon-btn{ width:40px; height:40px; }
 
-      .menu-button{padding:.50rem 1.00rem;font-size:1.55rem;}
-      .btn{font-size:1.55rem;padding:.55rem 1.05rem;}
-
-      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
-      .icon-btn{width:40px;height:40px;}
+      :root{
+        --kickerSize: 1.02rem;
+        --titleSize: 2.35rem;
+      }
     }
 
     footer{
@@ -506,6 +639,7 @@
 
         <div class="brand-text">
           <div class="brand-name">Elisa Costanzo</div>
+
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -543,6 +677,7 @@
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
       </div>
 
+      <!-- MENU INVARIATO -->
       <div class="menu-grid">
         <a class="menu-item" href="index.html">
           <div class="menu-left">
@@ -565,10 +700,10 @@
             <div class="menu-pill">go</div>
           </a>
           <div class="menu-sub">
-            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
-            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
-            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
-            <a href="percorsi.html#ves">VES</a>
+            <a href="#canto">Lezioni one to one - per cantanti e cantautori</a>
+            <a href="#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
+            <a href="#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
+            <a href="#ves">VES®</a>
           </div>
         </div>
 
@@ -592,24 +727,15 @@
           <div class="menu-pill">cv</div>
         </a>
 
-        <!-- ✅ FIX SOLO QUI: struttura Artisti corretta (niente <a> annidati) -->
-        <div>
-          <a class="menu-item" href="artisti.html">
-            <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
-              </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">case study e progetti</div></div>
+        <a class="menu-item" href="artisti.html">
+          <div class="menu-left">
+            <div class="menu-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
-            <div class="menu-pill">go</div>
-          </a>
-
-          <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="case-study-narciso.html">Narciso</a>
-            <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
+            <div class="menu-text"><div class="t">Artisti</div><div class="d">progetti e percorsi</div></div>
           </div>
-        </div>
+          <div class="menu-pill">go</div>
+        </a>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
@@ -624,76 +750,25 @@
     </div>
   </div>
 
+  <!-- ===== CONTENUTO INVARIATO ===== -->
   <main>
-    <!-- HERO -->
+    <!-- INTRO -->
     <section>
-      <div class="hero-grid">
+      <div class="hero-row">
         <div class="card">
-          <div class="section-kicker">ExpresSING Studio</div>
-          <div class="section-title">Uno spazio in cui la voce incontra la libertà di essere 🏡</div>
+          <div class="section-kicker">Percorsi</div>
+          <div class="section-title">Scegli la direzione giusta per la tua voce 🎯</div>
 
           <p>
-            Lo studio si trova in <span class="hl">via Sante Bargellini 52</span>, a Roma, in una zona comoda e ben collegata.
-            È vicino alla <span class="hl">stazione Tiburtina</span> e alla <span class="hl">metro Monti Tiburtini</span>, facilmente raggiungibile con metro, autobus o in auto,
-            con parcheggi disponibili nelle immediate vicinanze.
+            Qui trovi i miei percorsi principali: dal lavoro one-to-one per <span class="hl">cantanti</span> e <span class="hl">cantautori</span>, alla
+            <span class="hl">voce parlata</span> per la comunicazione professionale, fino allo sviluppo del <span class="hl">progetto artistico</span>.
           </p>
 
-          <div class="poi" aria-label="Info pratiche">
-            <div class="poi-item">
-              <h4>🚇 Metro</h4>
-              <p>Facile da raggiungere dalla <span class="hl">metro Monti Tiburtini</span>.</p>
-            </div>
-            <div class="poi-item">
-              <h4>🚉 Stazione</h4>
-              <p>A pochi minuti dalla <span class="hl">stazione Tiburtina</span>.</p>
-            </div>
-            <div class="poi-item">
-              <h4>🚌 Fermate autobus</h4>
-              <p>Fermate disponibili nelle <span class="hl">immediate vicinanze</span>.</p>
-            </div>
-            <div class="poi-item">
-              <h4>🚗 Parcheggio & servizi</h4>
-              <p>Nelle immediate vicinanze: <span class="hl">parcheggi</span>, bar, supermercati, ristoranti e palestre.</p>
-            </div>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="#mappa">🧭 Ottieni indicazioni</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-            <a class="btn" href="index.html#contatti">✉️ Scrivimi</a>
-          </div>
-        </div>
-
-        <img class="hero-photo" src="Foto ingresso.jpg" alt="ExpresSING Studio - Ingresso" />
-      </div>
-    </section>
-
-    <!-- SALE -->
-    <section id="sale">
-      <div class="section-kicker">Le sale</div>
-      <div class="section-title">Due ambienti, due funzioni: stesso obiettivo 🎯</div>
-
-      <div class="rooms">
-        <!-- PERFORMANCE -->
-        <div class="card">
-          <div class="room-head">
-            <div class="pill-title">Sala Performance 🎤</div>
-          </div>
-
-          <p>
-            Nella <strong>Sala Performance</strong> si svolgono le lezioni in presenza e i laboratori: è lo spazio del lavoro dal vivo,
-            dell’ascolto e dell’espressione vocale.
-          </p>
-
-          <p>
-            Qui hai la possibilità di utilizzare un <span class="hl">impianto voce</span> e di <span class="hl">registrare</span> tutto il lavoro svolto insieme,
-            dagli esercizi allo studio tecnico fino al lavoro sul brano. In questo modo puoi riascoltare il materiale, esercitarti in modo mirato tra una lezione e l’altra
-            e affrontare con maggiore consapevolezza i passaggi successivi, dalla lezione seguente alla preparazione di un live o alle tue attività professionali.
-          </p>
-
-          <div class="room-gallery" aria-label="Foto Sala Performance">
-            <img src="Sala performance 1.jpg" alt="Sala Performance - Vista 1" />
-            <img src="Sala performance 3.jpg" alt="Sala Performance - Vista 2" />
+          <div class="quick-nav">
+            <a class="chip" href="#canto"><span class="emoji">🎤</span> Voce cantata</a>
+            <a class="chip" href="#voce"><span class="emoji">🗣️</span> Voce parlata</a>
+            <a class="chip" href="#artisti"><span class="emoji">🎧</span> Progetto artistico</a>
+            <a class="chip" href="#ves"><span class="emoji">🔬</span> VES®</a>
           </div>
 
           <div class="actions">
@@ -702,77 +777,306 @@
           </div>
         </div>
 
-        <!-- REGIA -->
         <div class="card">
-          <div class="room-head">
-            <div class="pill-title">Sala Regia 🎧</div>
-          </div>
-
+          <div class="section-kicker">Modalità di lavoro</div>
           <p>
-            La <strong>Sala Regia</strong> ospita le lezioni online e le registrazioni vocali, grazie a un ambiente curato e a una dotazione tecnica
-            pensata per garantire qualità di ascolto e ripresa.
+            Ogni percorso è costruito con un approccio <span class="hl">esperienziale</span>, gentile e concreto:
+            osservazione, ascolto e strategie <span class="hl">su misura</span>. Niente modelli imposti: lavoriamo su ciò che ti serve davvero,
+            con un ritmo <span class="hl">sostenibile</span> per te.
           </p>
-
-          <p>
-            Se non hai la possibilità di venire in studio, se vivi fuori Roma o all’estero, la Sala Regia ti permette di proseguire il lavoro senza interrompere il percorso,
-            comodamente da casa o dal tuo luogo di lavoro, se lo consente. Le lezioni da remoto diventano così un modo per restare in contatto e continuare a lavorare insieme,
-            ovunque tu sia.
+          <p class="muted" style="margin-top:.6rem;">
+            👉 Se vuoi orientarti insieme, scrivimi dalla home: rispondo volentieri.
           </p>
-
-          <p>
-            Oggi il lavoro online risponde sempre più alle esigenze del tempo moderno: è una soluzione <span class="hl">comoda</span>, <span class="hl">flessibile</span> e smart,
-            che consente di ottenere risultati ottimali e costanti nel tempo. Per seguire le lezioni è sufficiente un computer, una connessione stabile e una dotazione molto semplice:
-            microfono, cuffie e una piccola scheda audio. Ti guiderò io, aiutandoti a scegliere l’attrezzatura più adatta alle tue esigenze.
-          </p>
-
-          <div class="room-gallery" aria-label="Foto Sala Regia">
-            <img src="Sala regia 1.jpg" alt="Sala Regia - Postazione" />
-            <img src="Sala regia 2.jpg" alt="Sala Regia - Vista 2" />
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- MAPPA -->
-    <section id="mappa">
-      <div class="section-kicker">Dove siamo</div>
-      <div class="section-title">Ottieni indicazioni 🧭</div>
+    <!-- CANTO -->
+    <section id="canto">
+      <div class="section-kicker">Percorsi personalizzati</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Fitball.jpg" alt="Percorso 1:1 - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">LEZIONI ONE TO ONE - PER CANTANTI E CANTAUTORI 🎤</div>
+      </div>
 
       <div class="card">
-        <p class="muted">
-          Apri la mappa per vedere il percorso più comodo e calcolare le indicazioni.
-        </p>
-
-        <div class="map-wrap">
-          <iframe
-            class="map-embed"
-            src="https://www.google.com/maps?q=Via%20Sante%20Bargellini%2052,%20Roma&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mappa - ExpresSING Studio"
-          ></iframe>
+        <div class="workline">
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">CONSAPEVOLEZZA CORPOREA, TECNICA VOCALE, INTERPRETAZIONE E PRESENZA SCENICA</span>
         </div>
 
+        <p style="margin-top:1rem;">
+          Le lezioni one-to-one sono percorsi individuali pensati su misura per ogni allievo: che stia muovendo i primi passi o lavorando su obiettivi più avanzati e professionali.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          <span class="hl">Il percorso parte sempre dalla persona</span>: dalla sua voce e dalla sua storia. Come saprai, la voce è unica, così come lo è il modo in cui viene usata e vissuta.
+          Per questo il lavoro tiene conto di diversi aspetti: dal tipo di corda vocale alla struttura corporea, fino alle esperienze personali e artistiche che influenzano il modo di usare la voce.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          Il lavoro <span class="hl">procede in modo graduale e consapevole</span>, partendo dalla consapevolezza corporea, per sviluppare nel tempo una maggiore propriocezione e connessione con se stessi.
+          Segue un lavoro sulla postura, finalizzato a favorire una respirazione funzionale alle necessità espressive, e un lavoro di allenamento tecnico, costruito in modo mirato e progressivo, senza forzature.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          <span class="hl">Ogni elemento viene affrontato in relazione agli altri, perché la voce non è mai un gesto isolato, ma il risultato di un sistema che coinvolge corpo, respiro, intenzione ed espressione.</span>
+        </p>
+
+        <details class="block">
+          <summary>
+            <div class="sum-left">
+              <div class="t">Approccio e struttura</div>
+              <div class="d">Didattica evoluta e non standardizzata</div>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="block-content">
+            <p>
+              Questo approccio si ispira a una visione della didattica vocale evoluta e non standardizzata, in linea con i principi del Voice Evolution Institute,
+              di cui sono <em>Certified Vocal Trainer</em>, che pone al centro l’osservazione, l’ascolto e l’adattamento del lavoro alle reali esigenze dell’allievo.
+              Non esistono protocolli uguali per tutti, ma strumenti e strategie che vengono scelti e modellati di volta in volta.
+            </p>
+          </div>
+        </details>
+
+        <p style="margin-top:1rem;">
+          <span class="hl">Le lezioni</span> one-to-one <span class="hl">possono svolgersi in presenza</span>, nella Sala Performance, <span class="hl">oppure online</span>, attraverso la Sala Regia, mantenendo la stessa cura, attenzione e qualità del lavoro.
+          In entrambi i casi, l’obiettivo è <span class="hl">accompagnarti in un percorso di crescita vocale consapevole, concreto e duraturo</span>.
+        </p>
+
         <div class="actions">
-          <a class="btn primary" href="https://share.google/PJGtoDAZlhCg3APlJ" target="_blank" rel="noopener noreferrer">🗺️ Apri su Maps</a>
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="index.html#contatti">✉️ Scrivimi</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOCE PARLATA -->
+    <section id="voce">
+      <div class="section-kicker">Percorsi personalizzati</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Mascherina.jpg" alt="Voce parlata - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">LEZIONI ONE TO ONE - VOCE PARLATA E COMUNICAZIONE PROFESSIONALE 🗣️</div>
+      </div>
+
+      <div class="card">
+        <div class="workline">
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">IGIENE VOCALE, FUNZIONALITÀ, IDENTITÀ COMUNICATIVA</span>
+        </div>
+
+        <p style="margin-top:1rem;">
+          Accanto al lavoro sulla voce cantata, propongo percorsi one-to-one dedicati alla voce parlata, pensati per te
+          <span class="hl">se utilizzi la voce quotidianamente come strumento di lavoro</span>: insegnante, speaker, formatore, professionista della comunicazione
+          o semplicemente se senti il bisogno di parlare con maggiore efficacia, chiarezza e sostenibilità.
+        </p>
+
+        <p style="margin-top:.85rem;">
+          Il training non riguarda solo l’emissione, ma un insieme di aspetti che coinvolgono respiro, postura, articolazione, ritmo, prosodia e prossemica.
+          <span class="hl">L’obiettivo</span> è aiutarti a sviluppare una <span class="hl">voce funzionale, stabile e naturale</span>, capace di sostenere anche carichi di lavoro vocali intensi,
+          <span class="hl">senza affaticamento</span> e, soprattutto, <span class="hl">adeguata allo scopo comunicativo</span> che desideri raggiungere.
+        </p>
+
+        <details class="block">
+          <summary>
+            <div class="sum-left">
+              <div class="t">Buone abitudini e sostenibilità</div>
+              <div class="d">Proteggere la voce nel tempo</div>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="block-content">
+            <p>
+              Un’attenzione particolare è dedicata all’igiene vocale e alla costruzione di buone abitudini: impari a riconoscere i segnali di stress vocale, a prevenire sovraccarichi e tensioni
+              e a integrare strategie pratiche per proteggere la tua voce nel tempo. Questo significa lavorare sulla gestione dello sforzo, sull’organizzazione dell’uso vocale nella giornata
+              e su comportamenti utili a mantenere la voce sana ed efficiente.
+            </p>
+            <p style="margin-top:.8rem;">
+              Il percorso include anche <span class="hl">strumenti per fronteggiare lo stress e l’ansia da prestazione</span>, frequenti in situazioni come lezioni, conferenze, presentazioni o interventi in pubblico,
+              aiutandoti a parlare con maggiore sicurezza e presenza.
+            </p>
+          </div>
+        </details>
+
+        <p style="margin-top:1rem;">
+          Le <span class="hl">lezioni</span> sono completamente <span class="hl">personalizzate e costruite sulle tue esigenze specifiche</span>, con l’obiettivo di rendere la tua voce parlata efficiente, efficace, sostenibile e, soprattutto,
+          coerente con la tua identità comunicativa.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISTI -->
+    <section id="artisti">
+      <div class="section-kicker">Percorsi personalizzati</div>
+
+      <div class="section-head">
+        <img class="section-thumb" src="Lisa.jpg" alt="Progetto artistico - anteprima" loading="lazy">
+        <div class="section-title" style="margin:0;">ARTISTI EMERGENTI E SVILUPPO DEL PROGETTO DISCOGRAFICO 🎧</div>
+      </div>
+
+      <div class="card">
+        <div class="workline">
+          <strong>SU COSA LAVORIAMO</strong>
+          <span class="topics">BRANI, IDENTITÀ ARTISTICA, PREPARAZIONE A STUDIO E PERFORMANCE</span>
+        </div>
+
+        <p style="margin-top:1rem;">
+          Una parte importante del mio lavoro è dedicata agli artisti emergenti, che accompagno in un percorso di crescita artistica e vocale,
+          seguendoli passo dopo passo nello sviluppo dei loro progetti discografici.
+          Il percorso non riguarda solo il training vocale, ma un lavoro specifico sull’artista e sul progetto.
+        </p>
+
+        <details class="block">
+          <summary>
+            <div class="sum-left">
+              <div class="t">Come lavoriamo sui brani</div>
+              <div class="d">Interpretazione, fraseggio, dinamiche</div>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="block-content">
+            <p>
+              Il lavoro sui brani è un momento centrale: analizzo insieme all’artista le canzoni per costruire un lavoro accurato che ne valorizzi ogni aspetto,
+              non solo tecnico ma anche interpretativo, di fraseggio e di dinamiche. Non intervengo per dare una forma prestabilita:
+              è fondamentale che sia l’artista a esprimersi e a far emergere la propria identità.
+            </p>
+            <p style="margin-top:.8rem;">
+              Accanto al lavoro artistico e vocale, divento anche un supporto nella gestione degli aspetti emotivi legati alla performance.
+              Insieme lavoriamo per riconoscere e affrontare questi stati, sviluppando maggiore consapevolezza, fiducia e presenza,
+              affinché l’energia emotiva possa diventare una risorsa e non un ostacolo.
+            </p>
+          </div>
+        </details>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Prenota una call gratuita</a>
+          <a class="btn" href="artisti.html">🎧 Vai alla pagina Artisti</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VES -->
+    <section id="ves">
+      <div class="section-kicker">Voice Evolution Institute (VES®)</div>
+
+      <div class="section-head">
+        <img class="section-thumb ves-thumb" src="Logo VES.jpg" alt="Logo VES®" loading="lazy">
+        <div class="section-title" style="margin:0;">CERTIFICAZIONI 🔬</div>
+      </div>
+
+      <div class="card">
+        <p>
+          La mia didattica integra continuamente <span class="hl">ricerca</span> e <span class="hl">formazione</span>.
+          Il <span class="hl">Voice Evolution Institute</span> è un riferimento fondamentale per un approccio evoluto e non standardizzato al training vocale.
+        </p>
+
+        <details class="block" open>
+          <summary>
+            <div class="sum-left">
+              <div class="t">Diploma in Canto Moderno — Voice Evolution Institute</div>
+              <div class="d">Percorso strutturato, progressivo e professionale</div>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+
+          <div class="block-content">
+            <p>
+              Se il tuo obiettivo è professionalizzarti come cantante, posso proporti il Diploma in Canto Moderno del Voice Evolution Institute, un percorso che seguo e accompagno direttamente nel mio lavoro didattico.
+              Si tratta di un cammino strutturato e progressivo, pensato per chi desidera costruire competenze tecniche, musicali ed espressive solide.
+            </p>
+
+            <p style="margin-top:.8rem;">
+              Il diploma è articolato in quattro livelli, e ognuno di essi prevede un esame di verifica.
+              Durante il percorso sarò io a seguirti nel lavoro settimanale, accompagnandoti passo dopo passo.
+              Al termine di ogni livello, l’esame viene sostenuto con un trainer del sistema VES®, diverso da me, così da garantire una valutazione esterna, oggettiva e professionale.
+            </p>
+
+            <p style="margin-top:.8rem;">
+              Il lavoro si basa principalmente su lezioni individuali, che possono svolgersi in presenza, online o in modalità mista.
+              Accanto al lavoro individuale, il percorso include laboratori gratuiti di approfondimento, dedicati a ear training, anatomia e fisiologia della voce, songwriting, armonie vocali e preparazione alla performance.
+            </p>
+
+            <div class="areas" aria-label="Aree di lavoro del percorso">
+              <div class="area">
+                <h4>🎛️ Tecnica vocale</h4>
+                <p>Per sviluppare <span class="hl">controllo</span>, potenza e resistenza attraverso un allenamento costruito su misura.</p>
+              </div>
+              <div class="area">
+                <h4>🎧 Ear training</h4>
+                <p>Per migliorare <span class="hl">intonazione</span>, ascolto e consapevolezza musicale.</p>
+              </div>
+              <div class="area">
+                <h4>🎼 Stile</h4>
+                <p>Per affrontare i principali linguaggi del canto moderno, valorizzando le caratteristiche di ogni genere.</p>
+              </div>
+              <div class="area">
+                <h4>✨ Improvvisazione</h4>
+                <p>Per stimolare <span class="hl">creatività</span> e libertà espressiva, rendendo la performance più personale.</p>
+              </div>
+              <div class="area">
+                <h4>🎭 Interpretazione</h4>
+                <p>Per comunicare in modo autentico ciò che desideri esprimere attraverso la voce.</p>
+              </div>
+              <div class="area">
+                <h4>🔥 Presenza scenica</h4>
+                <p>Per salire sul palco con maggiore sicurezza e creare una connessione reale con il pubblico.</p>
+              </div>
+            </div>
+
+            <p style="margin-top:1rem;">
+              Completando tutti i livelli si ottiene il Diploma Professionale in Canto Moderno VES®, una certificazione privata rilasciata dal Voice Evolution Institute che attesta il livello di competenza raggiunto.
+            </p>
+          </div>
+        </details>
+
+        <details class="block">
+          <summary>
+            <div class="sum-left">
+              <div class="t">Formazione docenti e didattica della voce — Voice Evolution Institute</div>
+              <div class="d">Pedagogia e relazione</div>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+
+          <div class="block-content">
+            <p>
+              Accanto al lavoro con cantanti e professionisti della voce, mi occupo anche di formazione all’interno del percorso VES® dedicato alla didattica della voce e alla preparazione degli insegnanti certificati.
+              Se stai valutando un percorso di formazione per diventare insegnante di canto o di voce, è importante sapere che il Voice Evolution Institute è un sistema all’avanguardia, costruito su una visione ampia e interdisciplinare della voce.
+            </p>
+
+            <p style="margin-top:.8rem;">
+              In questo contesto, faccio parte del corpo docente e mi occupo in modo specifico della formazione pedagogica, accompagnandoti nello sviluppo delle competenze legate alla didattica, alla relazione con l’allievo e alla costruzione di un approccio educativo coerente, etico e personalizzato.
+              Il lavoro formativo non riguarda solo cosa insegnare, ma soprattutto <span class="hl">come</span> farlo: osservazione, ascolto, capacità di adattare il metodo e responsabilità nel lavoro sulla voce altrui.
+            </p>
+          </div>
+        </details>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html#contatti">✉️ Richiedi info</a>
+          <a class="btn" href="https://www.voiceevolutioninstitute.it/welcome" target="_blank" rel="noopener noreferrer">🌐 Sito VES®</a>
+          <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
       </div>
     </section>
   </main>
+
+  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
 
   <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // MENU
+    // MENU (identico a index)
     const menuOpen = document.getElementById("menuOpen");
     const menuOverlay = document.getElementById("menuOverlay");
     const menuClose = document.getElementById("menuClose");
@@ -780,30 +1084,36 @@
     function openMenu(){
       menuOverlay.classList.add("open");
       menuOverlay.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
     }
     function closeMenu(){
       menuOverlay.classList.remove("open");
       menuOverlay.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
     }
 
     menuOpen.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
-    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
     document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
 
-    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
+    // chiudi menu quando clicco una voce
+    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => {
+      a.addEventListener("click", () => closeMenu(), { passive:true });
+    });
+
+    // NAV PILLS (desktop: Home primo, escludi pagina corrente) - identico
     (function(){
       const nav = document.getElementById("navPills");
       if(!nav) return;
-      const current = "studio.html";
+      const current = "percorsi.html";
       const pages = [
         { href: "index.html", label: "Home", emoji: "🏠" },
         { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
         { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
+        { href: "artisti.html", label: "Artisti", emoji: "🎧" },
+        { href: "curriculum.html", label: "Curriculum", emoji: "📚" }
       ];
       const visible = pages.filter(p => p.href !== current);
       visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
@@ -813,6 +1123,14 @@
         </a>
       `).join("");
     })();
+
+    // Back to top
+    const toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 700) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    });
+    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
 </body>
 </html>
