@@ -56,11 +56,47 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
-    .header-inner{
-      max-width:1180px;margin:0 auto;
-      padding:0.85rem 1.15rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
-    }
+    /* MOBILE */
+@media (max-width: 600px){
+  .nav-pills{ display:none !important; }
+
+  .header-inner{padding:.7rem .85rem;gap:.6rem;}
+  .logo-img{ height:92px; }
+
+  .brand-name{font-size:1.8rem;}
+  .brand-sub{font-size:.86rem;max-width:34ch;line-height:1.35;}
+
+  /* ✅ header: tutto su UNA riga (icone + menu) */
+  .header-actions{
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:.4rem !important;
+    z-index:90;
+    flex-wrap:nowrap !important;
+  }
+
+  .top-icons{
+    display:flex;
+    flex-direction:row;
+    gap:.35rem;
+    margin-right:0;
+    flex-wrap:nowrap;
+  }
+
+  /* ✅ ridimensiono per farli entrare */
+  .icon-btn{ width:36px; height:36px; }
+  .icon-btn svg{ width:18px; height:18px; }
+
+  .menu-button{
+    padding:.46rem .78rem;
+    font-size:1.25rem;
+    line-height:1;
+  }
+
+  .artist-avatar{width:40px;height:40px;}
+  .section-title{font-size:2.6rem;}
+  .section-kicker{font-size:1.35rem;}
+}
 
     .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
     .logo-wrap{line-height:0;flex:0 0 auto;}
