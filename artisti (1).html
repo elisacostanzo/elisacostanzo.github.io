@@ -353,7 +353,7 @@
       backdrop-filter: blur(12px);
     }
 
-    .grid-3{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:1rem;}
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -521,109 +521,10 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
-    
-/* HALLOWEEN - PAGINA ARTISTI */
-
-:root {
-  --h-web: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffd5a1' stroke-width='1.6'%3E%3Cpath d='M0 0H120M0 0V120M0 0L120 120M0 0L120 60M0 0L60 120M0 0L120 25M0 0L25 120'/%3E%3Cpath d='M25 0Q25 15 15 25Q10 25 0 25M55 0Q52 35 32 48Q20 56 0 55M90 0Q90 55 50 82Q26 90 0 90M119 0Q119 75 70 109Q30 120 0 119'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-body {
-  background:
-    radial-gradient(ellipse at 80% 10%, #77354d88, transparent 60%),
-    radial-gradient(ellipse at 10% 30%, #60316f88, transparent 65%),
-    linear-gradient(160deg, #1b1029, #38203f, #21142e) !important;
-  color: #fff7ed;
-}
-
-header {
-  border-bottom: 2px solid #df884e !important;
-  box-shadow: 0 5px 24px #e67b4933;
-}
-
-.card, .tile, .work-item {
-  position: relative;
-  border-color: #d58c64aa !important;
-  box-shadow: 0 12px 34px #10071877;
-}
-
-.card::after,
-.tile::after,
-.work-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--h-web), var(--h-web);
-  background-position: right top, left bottom;
-  background-repeat: no-repeat;
-  background-size: 115px 115px, 65px 65px;
-  pointer-events: none;
-  opacity: .85;
-  z-index: 2;
-}
-
-.logo-wrap {
-  position: relative;
-  overflow: visible;
-}
-
-.logo-wrap::before,
-.logo-wrap::after {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: -12px;
-  width: 85px;
-  height: 85px;
-  background: var(--h-web) no-repeat center / contain;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.logo-wrap::after {
-  left: auto;
-  right: -12px;
-  transform: scaleX(-1);
-}
-
-.btn.primary, .menu-button {
-  background: linear-gradient(135deg, #ffe0a3, #ffad55) !important;
-  color: #302039 !important;
-}
-
-.section-title {
-  text-shadow: 0 0 20px #ff9e5544;
-}
-
-@media (max-width: 600px) {
-  .card::after, .tile::after, .work-item::after {
-    background-size: 65px 65px, 40px 40px;
-  }
-
-  .logo-wrap::before, .logo-wrap::after {
-    width: 55px;
-    height: 55px;
-  }
-}
-
   </style>
-  <script src="halloween.js" defer></script>
 </head>
 
 <body>
-  
-<div style="
-  background:linear-gradient(90deg,#301a38,#794052,#301a38);
-  color:#ffe0b6;
-  text-align:center;
-  padding:13px 18px;
-  font-family:Georgia,serif;
-  font-size:15px;
-  border-bottom:2px solid #e9a15a;
-">
-  🦇 🎃 Ogni voce ha il suo lato misterioso 🕸️ 🕷️
-</div>
-
   <header>
     <div class="header-inner">
       <div class="brand">
@@ -744,7 +645,6 @@ header {
             <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
             <a href="case-study-narciso.html">Narciso</a>
             <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
-            <a href="case-study-yumi.html">YUMI</a>
           </div>
         </div>
 
@@ -854,7 +754,7 @@ header {
     <!-- ARTISTI -->
     <section id="artisti">
       <div class="section-kicker">ARTISTI</div>
-      <div class="section-title">Quattro esempi concreti ✨</div>
+      <div class="section-title">Tre esempi concreti ✨</div>
 
       <div class="grid-3">
         <!-- Aurora -->
@@ -921,30 +821,6 @@ header {
 
           <div class="actions">
             <a class="btn primary" href="case-study-lisaramirez.html">Conosci l’artista</a>
-            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
-          </div>
-        </div>
-        <!-- YUMI -->
-        <div class="tile">
-          <div class="artist-head">
-            <img class="artist-avatar" src="YUMI.jpg" alt="YUMI — Marina Ciocca" loading="lazy">
-            <div class="artist-meta">
-              <div class="artist-name">YUMI ✨</div>
-              <div class="artist-role">Musicista, cantante e produttrice musicale</div>
-            </div>
-          </div>
-
-          <span class="pill-title">YUMI — Marina Ciocca</span>
-          <p>
-            Dalla formazione classica alla produzione musicale: un percorso di
-            <span class="hl">ricerca vocale e timbrica</span> che intreccia tecnica,
-            interpretazione e identità artistica, fino al singolo di debutto
-            <span class="hl">“fix your tone”</span>.
-          </p>
-
-          <div class="actions">
-            <a class="btn primary" href="case-study-yumi.html">Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
