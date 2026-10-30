@@ -377,25 +377,33 @@
 
     .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
 
-    /* ===== VIDEO ===== */
+    /* ===== VIDEO IN EVIDENZA (INSTAGRAM) ===== */
     .video-wrap{
       margin-top:1.15rem;
       border-radius:1.85rem;
-      overflow:hidden;
       border:1px solid rgba(255,255,255,0.18);
       box-shadow:0 20px 44px rgba(0,0,0,0.22);
       background: rgba(255,255,255,0.06);
+      padding:1.25rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:.85rem;
+      overflow:hidden;
     }
-    .video-16x9{
-      position:relative;
-      width:100%;
-      padding-top:56.25%;
+    .video-wrap .instagram-media{
+      margin:0 auto !important;
+      max-width:540px !important;
+      min-width:0 !important;
+      width:100% !important;
     }
-    .video-16x9 iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      border:0;
-      display:block;
+    .ig-video-fallback{
+      color:var(--yellow);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    @media (max-width:600px){
+      .video-wrap{padding:.7rem;}
     }
 
     /* MOBILE */
@@ -440,6 +448,7 @@
       opacity:.9;
     }
   </style>
+  <script src="halloween.js" defer></script>
 </head>
 
 <body>
@@ -623,29 +632,33 @@
         <p>
           Parallelamente alla formazione accademica, Lisa è attiva dal vivo, esibendosi con diverse band, e ha avviato
           anche un lavoro personale di scrittura dei propri inediti, che verranno pubblicati prossimamente su tutte le
-          piattaforme digitali. Il percorso discografico sarà anticipato dall’uscita di cover in italiano, inglese e
-          francese, pensate come primo racconto della sua identità artistica.
+          piattaforme digitali. Nel frattempo, per iniziare a conoscerla e scoprire il suo universo musicale,
+          puoi seguirla su <a href="https://www.instagram.com/iolisaramirez/" target="_blank"
+          rel="noopener noreferrer" class="hl">Instagram</a>, dove condivide ogni giorno una nuova cover.
         </p>
 
         <div class="actions">
           <a class="btn primary" href="index.html#contatti">✉️ Parlami del tuo progetto</a>
+          <a class="btn link" href="https://www.instagram.com/iolisaramirez/" target="_blank" rel="noopener noreferrer">📷 Segui Lisa su Instagram</a>
           <a class="btn link" href="artisti.html">← Torna ad Artisti</a>
           <button class="btn link open-menu" type="button">☰ Menu</button>
         </div>
 
-        <!-- ✅ VIDEO: solo anteprima, nessuna scritta o bottone "Apri" -->
-        <div class="video-wrap" aria-label="Video YouTube - Lisa Ramirez">
-          <div class="video-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/S1IpPRKVzEs"
-              title="YouTube video player"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
+        <!-- VIDEO IN EVIDENZA: post Instagram di Lisa Ramirez -->
+        <div class="video-wrap" aria-label="Video in evidenza di Lisa Ramirez su Instagram">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DaLdkLNxiQX/"
+            data-instgrm-version="14"
+            style="background:#fff;border:0;border-radius:12px;max-width:540px;width:100%;margin:0 auto;padding:0;">
+            <a href="https://www.instagram.com/p/DaLdkLNxiQX/" target="_blank"
+               rel="noopener noreferrer" class="ig-video-fallback">
+              Guarda il video di Lisa Ramirez su Instagram
+            </a>
+          </blockquote>
+          <a class="ig-video-fallback" href="https://www.instagram.com/p/DaLdkLNxiQX/"
+             target="_blank" rel="noopener noreferrer">Guarda il video su Instagram</a>
         </div>
+        <script async src="https://www.instagram.com/embed.js"></script>
 
       </div>
     </section>
