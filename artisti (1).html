@@ -521,11 +521,109 @@
       padding:0 1.15rem 2.2rem;
       opacity:.9;
     }
+    
+/* HALLOWEEN - PAGINA ARTISTI */
+
+:root {
+  --h-web: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffd5a1' stroke-width='1.6'%3E%3Cpath d='M0 0H120M0 0V120M0 0L120 120M0 0L120 60M0 0L60 120M0 0L120 25M0 0L25 120'/%3E%3Cpath d='M25 0Q25 15 15 25Q10 25 0 25M55 0Q52 35 32 48Q20 56 0 55M90 0Q90 55 50 82Q26 90 0 90M119 0Q119 75 70 109Q30 120 0 119'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 80% 10%, #77354d88, transparent 60%),
+    radial-gradient(ellipse at 10% 30%, #60316f88, transparent 65%),
+    linear-gradient(160deg, #1b1029, #38203f, #21142e) !important;
+  color: #fff7ed;
+}
+
+header {
+  border-bottom: 2px solid #df884e !important;
+  box-shadow: 0 5px 24px #e67b4933;
+}
+
+.card, .tile, .work-item {
+  position: relative;
+  border-color: #d58c64aa !important;
+  box-shadow: 0 12px 34px #10071877;
+}
+
+.card::after,
+.tile::after,
+.work-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--h-web), var(--h-web);
+  background-position: right top, left bottom;
+  background-repeat: no-repeat;
+  background-size: 115px 115px, 65px 65px;
+  pointer-events: none;
+  opacity: .85;
+  z-index: 2;
+}
+
+.logo-wrap {
+  position: relative;
+  overflow: visible;
+}
+
+.logo-wrap::before,
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -12px;
+  width: 85px;
+  height: 85px;
+  background: var(--h-web) no-repeat center / contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-wrap::after {
+  left: auto;
+  right: -12px;
+  transform: scaleX(-1);
+}
+
+.btn.primary, .menu-button {
+  background: linear-gradient(135deg, #ffe0a3, #ffad55) !important;
+  color: #302039 !important;
+}
+
+.section-title {
+  text-shadow: 0 0 20px #ff9e5544;
+}
+
+@media (max-width: 600px) {
+  .card::after, .tile::after, .work-item::after {
+    background-size: 65px 65px, 40px 40px;
+  }
+
+  .logo-wrap::before, .logo-wrap::after {
+    width: 55px;
+    height: 55px;
+  }
+}
+
   </style>
   <script src="halloween.js" defer></script>
 </head>
 
 <body>
+  
+<div style="
+  background:linear-gradient(90deg,#301a38,#794052,#301a38);
+  color:#ffe0b6;
+  text-align:center;
+  padding:13px 18px;
+  font-family:Georgia,serif;
+  font-size:15px;
+  border-bottom:2px solid #e9a15a;
+">
+  🦇 🎃 Ogni voce ha il suo lato misterioso 🕸️ 🕷️
+</div>
+
   <header>
     <div class="header-inner">
       <div class="brand">
