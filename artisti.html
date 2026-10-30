@@ -353,7 +353,7 @@
       backdrop-filter: blur(12px);
     }
 
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;}
+    .grid-3{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:1rem;}
     .tile{
       border-radius:1.75rem;
       border:1px solid rgba(255,255,255,0.18);
@@ -522,6 +522,7 @@
       opacity:.9;
     }
   </style>
+  <script src="halloween.js" defer></script>
 </head>
 
 <body>
@@ -645,6 +646,7 @@
             <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
             <a href="case-study-narciso.html">Narciso</a>
             <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
+            <a href="case-study-yumi.html">YUMI</a>
           </div>
         </div>
 
@@ -754,7 +756,7 @@
     <!-- ARTISTI -->
     <section id="artisti">
       <div class="section-kicker">ARTISTI</div>
-      <div class="section-title">Tre esempi concreti ✨</div>
+      <div class="section-title">Quattro esempi concreti ✨</div>
 
       <div class="grid-3">
         <!-- Aurora -->
@@ -821,6 +823,30 @@
 
           <div class="actions">
             <a class="btn primary" href="case-study-lisaramirez.html">Conosci l’artista</a>
+            <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
+            <button class="btn link open-menu" type="button">☰ Menu</button>
+          </div>
+        </div>
+        <!-- YUMI -->
+        <div class="tile">
+          <div class="artist-head">
+            <img class="artist-avatar" src="YUMI.jpg" alt="YUMI — Marina Ciocca" loading="lazy">
+            <div class="artist-meta">
+              <div class="artist-name">YUMI ✨</div>
+              <div class="artist-role">Musicista, cantante e produttrice musicale</div>
+            </div>
+          </div>
+
+          <span class="pill-title">YUMI — Marina Ciocca</span>
+          <p>
+            Dalla formazione classica alla produzione musicale: un percorso di
+            <span class="hl">ricerca vocale e timbrica</span> che intreccia tecnica,
+            interpretazione e identità artistica, fino al singolo di debutto
+            <span class="hl">“fix your tone”</span>.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="case-study-yumi.html">Conosci l’artista</a>
             <a class="btn" href="index.html#contatti">Parlami del tuo progetto</a>
             <button class="btn link open-menu" type="button">☰ Menu</button>
           </div>
