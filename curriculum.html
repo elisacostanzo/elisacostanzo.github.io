@@ -1,556 +1,910 @@
-body
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curriculum — Elisa Costanzo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ FONT AMATIC (titoli + bottoni) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --blue:#355c7b;
-      --magenta:#81277c;
-      --yellow:#f6d24a;
+  <!-- ATTIVAZIONE AUTOMATICA HALLOWEEN -->
+  <script>
+    (function () {
+      const now = new Date();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      const params = new URLSearchParams(window.location.search);
+      const override = params.get("halloween");
 
-      --ink: rgba(255,255,255,0.96);
-      --muted: rgba(255,255,255,0.86);
+      const halloweenSeason =
+        (month === 10 && day >= 20) ||
+        (month === 11 && day <= 2);
+
+      if (override === "1" ||
+          (override !== "0" && halloweenSeason)) {
+        document.documentElement.classList.add("halloween");
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --blue: #355c7b;
+      --magenta: #81277c;
+      --yellow: #f6d24a;
+      --ink: rgba(255,255,255,.96);
+      --muted: rgba(255,255,255,.86);
+      --title-font: "Amatic SC", cursive;
+
+      --web: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffd5a1' stroke-width='1.7'%3E%3Cpath d='M0 0H120M0 0V120M0 0L120 120M0 0L120 60M0 0L60 120M0 0L120 25M0 0L25 120'/%3E%3Cpath d='M25 0Q25 15 15 25Q10 25 0 25M55 0Q52 35 32 48Q20 56 0 55M90 0Q90 55 50 82Q26 90 0 90M119 0Q119 75 70 109Q30 120 0 119'/%3E%3C/g%3E%3C/svg%3E");
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-<body class="halloween">      font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      color: var(--ink);
-      min-height:100vh;
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(900px 520px at 12% 10%, rgba(53,92,123,0.72) 0, rgba(53,92,123,0.22) 62%, rgba(0,0,0,0) 76%),
-        radial-gradient(860px 520px at 90% 14%, rgba(129,39,124,0.72) 0, rgba(129,39,124,0.22) 62%, rgba(0,0,0,0) 78%),
-        radial-gradient(860px 560px at 50% 92%, rgba(129,39,124,0.22) 0, rgba(53,92,123,0.22) 55%, rgba(0,0,0,0) 78%),
-        linear-gradient(180deg, #25314b 0%, #2a2350 52%, #1d2441 100%);
+        radial-gradient(
+          900px 520px at 12% 10%,
+          rgba(53,92,123,.72),
+          transparent 76%
+        ),
+        radial-gradient(
+          860px 520px at 90% 14%,
+          rgba(129,39,124,.72),
+          transparent 78%
+        ),
+        linear-gradient(
+          180deg,
+          #25314b 0%,
+          #2a2350 52%,
+          #1d2441 100%
+        );
       background-attachment: fixed;
     }
 
-    a{color:inherit;text-decoration:none;}
-    p, li{line-height:1.9;font-size:1.08rem;}
-    .muted{opacity:.88}
-
-    .hl{
-      color: var(--yellow);
-      font-weight: 1200;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.18);
-      text-decoration: underline;
-      text-decoration-color: rgba(246,210,74,0.35);
-      text-underline-offset: 3px;
-      text-decoration-thickness: 2px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* ===== AMATIC (titoli + bottoni) ===== */
-    .amatic{font-family:"Amatic SC", system-ui, sans-serif;}
+    p, li {
+      line-height: 1.9;
+      font-size: 1.08rem;
+    }
 
-    /* ✅ Amatic SOLO dove serve (NO menu) */
-    .btn, .nav-pills .btn, .menu-button, .brand-name, .section-kicker, .section-title{
-      font-family:"Amatic SC", system-ui, sans-serif;
-      letter-spacing:.04em;
+    .muted {
+      opacity: .88;
+    }
+
+    .hl {
+      color: var(--yellow);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-color: rgba(246,210,74,.35);
+      text-underline-offset: 3px;
+    }
+
+    /* TITOLI E BOTTONI */
+
+    .brand-name,
+    .section-kicker,
+    .section-title,
+    .btn,
+    .menu-button {
+      font-family: var(--title-font);
+      font-weight: 700;
     }
 
     /* HEADER */
-    header{
-      position:sticky; top:0; z-index:60;
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
       backdrop-filter: blur(16px);
-      background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-    }
-    .header-inner{
-      max-width:1180px;margin:0 auto;
-      padding:0.85rem 1.15rem;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      -webkit-backdrop-filter: blur(16px);
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.16),
+        rgba(255,255,255,.06)
+      );
+      border-bottom: 1px solid rgba(255,255,255,.18);
     }
 
-    .brand{display:flex;align-items:center;gap:1rem;min-width:0;flex:1;}
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: .85rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-    .logo-wrap{line-height:0;flex:0 0 auto;}
-    .logo-img{
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .logo-wrap {
+      position: relative;
+      line-height: 0;
+      flex: 0 0 auto;
+    }
+
+    .logo-img {
       height: 140px;
       width: auto;
-      display:block;
-      object-fit:contain;
+      display: block;
+      object-fit: contain;
     }
 
-    .brand-text{display:flex;flex-direction:column;gap:.22rem;min-width:0;flex:1;}
-    .brand-name{
-      font-weight:700;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      font-size:2.1rem;
-      line-height:1;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: .22rem;
+      min-width: 0;
     }
 
-    .brand-sub{
-      font-size:.96rem;
-      opacity:.96;
-      line-height:1.25;
-      max-width:64ch;
-      display:block;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      letter-spacing:normal;
-    }
-    .brand-sub span{
-      display:block;
-      white-space:nowrap;
-      margin:.10rem 0;
-    }
-    .brand-sub span::before{
-      content:"• ";
-      color:var(--yellow);
-      font-weight:900;
-      text-shadow:0 10px 18px rgba(0,0,0,0.16);
+    .brand-name {
+      font-size: 2.1rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
     }
 
-    /* NAV PILLS (desktop) */
-    .nav-pills{
-      display:flex;
-      gap:.65rem;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:.55rem;
+    .brand-sub {
+      font-size: .96rem;
+      opacity: .96;
+      line-height: 1.25;
     }
-    .nav-pills .btn{
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      font-size: 1.55rem;
-      font-weight: 700;
-      letter-spacing: .03em;
 
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.96);
+    .brand-sub span {
+      display: block;
+      margin: .1rem 0;
+      white-space: nowrap;
+    }
 
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        0 14px 28px rgba(0,0,0,0.18);
+    .brand-sub span::before {
+      content: "• ";
+      color: var(--yellow);
+      font-weight: 900;
+    }
 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    /* NAVIGAZIONE */
 
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .65rem;
+      margin-top: .55rem;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: .6rem;
-      white-space: nowrap;
-
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-    .nav-pills .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.18);
-      border-color: rgba(255,255,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.20),
-        0 18px 34px rgba(0,0,0,0.22);
-    }
-    .nav-pills .emoji{
-      font-size: 1.08em;
+      justify-content: center;
+      gap: .45rem;
+      padding: .75rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.55);
+      background: transparent;
+      color: white;
+      font-size: 1.6rem;
       line-height: 1;
-      transform: translateY(1px);
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
     }
 
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-      flex-wrap:nowrap;
-      flex:0 0 auto;
-      position:relative;
-      z-index:80;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .top-icons{display:flex;gap:.45rem;align-items:center;margin-right:.05rem;}
-    .icon-btn{
-      width:44px;height:44px;border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow:0 14px 26px rgba(0,0,0,0.18);
-      background: rgba(255,255,255,0.14);
-      transition:transform .12s ease, filter .12s ease;
-      flex:0 0 auto;
+    .btn.primary {
+      background: white;
+      color: var(--magenta);
+      border-color: transparent;
+      box-shadow: 0 12px 26px rgba(0,0,0,.2);
     }
-    .icon-btn:hover{transform:translateY(-2px);filter:brightness(1.1);}
-    .icon-btn svg{width:22px;height:22px;}
-    .icon-mail{background: linear-gradient(135deg, rgba(53,92,123,0.70), rgba(255,255,255,0.08));}
-    .icon-ig{background: linear-gradient(135deg, rgba(129,39,124,0.72), rgba(53,92,123,0.25));}
-    /* ✅ TikTok (NUOVO) */
-    .icon-tt{background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(53,92,123,0.30));}
 
-    .icon-mail svg{color:#d7f1ff;}
-    .icon-ig svg{color:#ffe0ff;}
-    .icon-tt svg{color:#ffffff;}
-
-    .menu-button{
-      border:none;background:#fff;color:var(--magenta);
-      padding:0.62rem 1.2rem;border-radius:999px;
-      font-weight:700;cursor:pointer;
-      font-size:1.75rem;
-      display:inline-flex;align-items:center;gap:.45rem;
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-      transition:transform .12s ease, box-shadow .12s ease;
-      white-space:nowrap;
-      flex:0 0 auto;
-      line-height:1;
+    .btn.link {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.22);
     }
-    .menu-button:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(0,0,0,0.26);}
 
-    /* MENU OVERLAY */
-    .menu-overlay{
-      position:fixed; inset:0; z-index:90;
-      display:none;
-      padding:1.2rem;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(129,39,124,0.40), rgba(0,0,0,0) 56%),
-        radial-gradient(circle at 80% 30%, rgba(53,92,123,0.40), rgba(0,0,0,0) 56%),
-        rgba(8,10,16,0.55);
-      overflow:auto;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ menu font normale */
+    .nav-pills .btn {
+      padding: .7rem 1.1rem;
+      font-size: 1.5rem;
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.28);
+      backdrop-filter: blur(12px);
     }
-    .menu-overlay.open{display:block;}
 
-    .menu-card{
-      max-width:590px;
-      margin:4.2rem auto;
-      padding:1.35rem 1.35rem 1.15rem;
-      border-radius:1.85rem;
-      background:
-        radial-gradient(circle at 30% 10%, rgba(129,39,124,0.20), rgba(0,0,0,0) 55%),
-        radial-gradient(circle at 80% 40%, rgba(53,92,123,0.20), rgba(0,0,0,0) 60%),
-        rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 26px 60px rgba(0,0,0,0.42);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 80;
+    }
+
+    .top-icons {
+      display: flex;
+      gap: .45rem;
+      align-items: center;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.14);
+      box-shadow: 0 14px 26px rgba(0,0,0,.18);
+      font-size: 1.3rem;
+      transition: transform .2s;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .icon-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .menu-button {
+      display: inline-flex;
+      align-items: center;
+      padding: .62rem 1.2rem;
+      border: none;
+      border-radius: 999px;
+      background: white;
+      color: var(--magenta);
+      box-shadow: 0 12px 26px rgba(0,0,0,.2);
+      font-size: 1.75rem;
+      line-height: 1;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* MENU */
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      padding: 1.2rem;
+      background: rgba(8,10,16,.82);
       backdrop-filter: blur(14px);
-      transform: translateY(10px);
-      animation: pop .18s ease-out forwards;
-
-      max-height: calc(100vh - 7rem);
-      overflow:auto;
-    }
-    @keyframes pop{to{transform:translateY(0);}}
-
-    .menu-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem;}
-    .menu-title{display:flex;flex-direction:column;gap:.2rem;}
-    .menu-title h2{
-      font-size:1rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-weight:1100;
-      opacity:.95;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ no Amatic */
-    }
-    .menu-title .sub{font-size:.92rem;opacity:.88;line-height:1.25;}
-    .menu-close{
-      width:46px;height:46px;border-radius:999px;cursor:pointer;
-      border:1px solid rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.16);
-      box-shadow:0 12px 22px rgba(0,0,0,0.20);
-      color:#fff;font-size:1.2rem;
-      flex:0 0 auto;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      overflow: auto;
     }
 
-    .menu-grid{display:grid;grid-template-columns:1fr;gap:.65rem;margin-top:.7rem;}
-    .menu-item{
-      display:flex;align-items:center;justify-content:space-between;gap:.9rem;
-      padding:.9rem 1rem;border-radius:1.25rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 16px 30px rgba(0,0,0,0.18);
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .menu-item:hover{transform: translateY(-1px);background: rgba(255,255,255,0.16);border-color: rgba(255,255,255,0.24);}
-    .menu-left{display:flex;align-items:center;gap:.8rem;min-width:0;}
-    .menu-ico{
-      width:40px;height:40px;border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg, rgba(129,39,124,0.38), rgba(53,92,123,0.28));
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 14px 24px rgba(0,0,0,0.16);
-      flex:0 0 auto;
-    }
-    .menu-ico svg{width:20px;height:20px;color:#fff;opacity:.92}
-    .menu-text{display:flex;flex-direction:column;gap:.15rem;min-width:0;}
-    .menu-text .t{
-      font-weight:1100;
-      font-size:1.02rem;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif; /* ✅ no Amatic */
-      letter-spacing:normal;
-    }
-    .menu-text .d{font-size:.92rem;opacity:.88;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .menu-pill{
-      font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
-      padding:.35rem .6rem;border-radius:999px;
-      background:rgba(255,255,255,0.14);
-      border:1px solid rgba(255,255,255,0.18);
-      opacity:.95;flex:0 0 auto;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    .menu-overlay.open {
+      display: block;
     }
 
-    /* ✅ SOTTOCARTELLE SEMPRE VISIBILI */
-    .menu-sub{
-      margin:.45rem 0 0;
-      padding-left:3.15rem;
-      display:grid !important;
-      gap:.45rem;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    .menu-sub a{
-      padding:.55rem .85rem;
-      border-radius:1.05rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.10);
-      display:inline-flex !important;
-      width:fit-content;
-      font-weight:1100;
-      opacity:.92;
-      line-height:1.25;
-      font-size:.98rem;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif !important; /* ✅ no Amatic */
-      letter-spacing: normal !important;
-    }
-    .menu-sub a:hover{opacity:1;transform:translateY(-1px);}
-
-    /* MAIN */
-    main{max-width:1180px;margin:0 auto;padding:1.75rem 1.15rem 2.9rem;}
-    section{margin-bottom:3.25rem;}
-
-    .section-kicker{
-      font-size:2.1rem;
-      line-height:1;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.92;
-      margin-bottom:.5rem;
-    }
-    .section-title{
-      font-size:3.35rem;
-      line-height:1;
-      margin-bottom:1rem;
-      max-width:980px;
-      font-weight:700;
-      text-shadow: 0 8px 20px rgba(0,0,0,0.22);
+    .menu-card {
+      max-width: 590px;
+      margin: 3rem auto;
+      padding: 1.4rem;
+      border-radius: 1.85rem;
+      background: linear-gradient(145deg,#392a51,#263552);
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 26px 60px rgba(0,0,0,.42);
+      max-height: calc(100vh - 6rem);
+      overflow: auto;
     }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.08));
-      border:1px solid rgba(255,255,255,0.18);
-      border-radius:1.85rem;
-      padding:1.6rem;
-      box-shadow:0 20px 44px rgba(0,0,0,0.22);
+    .menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .menu-head h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    .menu-head p {
+      font-size: .92rem;
+      margin: .3rem 0 0;
+    }
+
+    .menu-close {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: .65rem;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .9rem;
+      padding: .9rem 1rem;
+      border-radius: 1.25rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      transition: background .2s;
+    }
+
+    .menu-item:hover {
+      background: rgba(255,255,255,.2);
+    }
+
+    .menu-left {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      min-width: 0;
+    }
+
+    .menu-ico {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: rgba(129,39,124,.32);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .menu-text .t {
+      font-weight: 800;
+      font-size: 1.02rem;
+    }
+
+    .menu-text .d {
+      font-size: .92rem;
+      opacity: .88;
+      margin-top: .15rem;
+    }
+
+    .menu-pill {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+    }
+
+    .menu-sub {
+      margin: .45rem 0 .8rem;
+      padding-left: 3rem;
+      display: grid;
+      gap: .45rem;
+    }
+
+    .menu-sub a {
+      display: inline-flex;
+      width: fit-content;
+      padding: .55rem .85rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 1rem;
+      font-size: .98rem;
+      font-weight: 700;
+    }
+
+    /* CONTENUTO */
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.75rem 1.15rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3.25rem;
+    }
+
+    .section-kicker {
+      font-size: 2.1rem;
+      line-height: 1;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .92;
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.85rem,4.1vw,3.55rem);
+      line-height: 1;
+      margin: 0 0 1rem;
+      font-weight: 700;
+      text-shadow: 0 8px 20px rgba(0,0,0,.22);
+    }
+
+    .card {
+      padding: 1.6rem;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.13),
+        rgba(255,255,255,.08)
+      );
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 1.85rem;
+      box-shadow: 0 20px 44px rgba(0,0,0,.22);
       backdrop-filter: blur(12px);
     }
 
-    /* BOTTONI */
-    .btn{
-      border-radius:999px;
-      padding:0.82rem 1.28rem;
-      font-size:1.65rem;
-      font-weight:700;
-      border:1px solid rgba(255,255,255,0.55);
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      display:inline-flex;align-items:center;gap:.45rem;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-      white-space:nowrap;
-      line-height:1;
-    }
-    .btn.primary{
-      border-color:transparent;
-      background:#fff;
-      color:var(--magenta);
-      box-shadow:0 12px 26px rgba(0,0,0,0.20);
-    }
-    .btn:hover{transform:translateY(-1px);}
-    .btn.link{
-      border-color:rgba(255,255,255,0.22);
-      background:rgba(255,255,255,0.10);
-    }
-    .actions{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-top:1rem;}
-
-    /* Layout: intro + chips */
-    .hero-row{
-      display:grid;
+    .hero-row {
+      display: grid;
       grid-template-columns: 1.15fr .85fr;
-      gap:1.1rem;
-      align-items:stretch;
+      gap: 1.1rem;
+      align-items: stretch;
     }
 
-    .pill-title{
-      display:inline-flex;
-      width:fit-content;
-      padding:.55rem .95rem;
-      border-radius:999px;
-      background: rgba(255,255,255,0.16);
-      border:1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.16);
-      font-weight:1200;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.86rem;
-      line-height:1.2;
-      margin-bottom:.8rem;
-      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    .pill-title {
+      display: inline-flex;
+      padding: .55rem .95rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      font-weight: 800;
+      font-size: .86rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
     }
 
-    /* Timeline */
-    .timeline{margin-top:.9rem;display:grid;gap:.75rem;}
-    .t-item{
-      position:relative;
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-      box-shadow:0 18px 40px rgba(0,0,0,0.14);
-      padding:1rem 1.05rem;
-      overflow:hidden;
-    }
-    .t-item::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(circle at 12% 0%, rgba(129,39,124,0.32), rgba(0,0,0,0) 52%),
-        radial-gradient(circle at 92% 10%, rgba(53,92,123,0.32), rgba(0,0,0,0) 56%);
-      opacity:.55;
-      pointer-events:none;
-    }
-    .t-item > *{position:relative; z-index:1;}
-
-    .t-top{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;}
-    .t-role{font-weight:1200;font-size:1.08rem;line-height:1.25;}
-    .t-when{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.38rem .65rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.10);
-      box-shadow:0 14px 26px rgba(0,0,0,0.12);
-      font-weight:1100;
-      opacity:.92;
-      font-size:.92rem;
-      white-space:nowrap;
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1rem;
     }
 
-    /* ✅ MEDIA: SOLO VIDEO (niente scritte sopra) */
-    .preview-grid{
-      display:grid;
+    /* TIMELINE */
+
+    .timeline {
+      display: grid;
+      gap: .75rem;
+      margin-top: .9rem;
+    }
+
+    .t-item {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 1.05rem;
+      border-radius: 1.35rem;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 18px 40px rgba(0,0,0,.14);
+    }
+
+    .t-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .55rem;
+    }
+
+    .t-role {
+      font-weight: 800;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .t-when {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .38rem .65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.1);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    /* VIDEO */
+
+    .preview-grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap:1rem;
-      margin-top:1rem;
-      align-items:stretch;
+      gap: 1rem;
+      margin-top: 1rem;
     }
-    .preview{
-      border-radius:1.35rem;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 18px 38px rgba(0,0,0,0.14);
-      overflow:hidden;
-      backdrop-filter: blur(10px);
+
+    .preview {
+      overflow: hidden;
+      border-radius: 1.35rem;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 18px 38px rgba(0,0,0,.14);
     }
-    .preview-frame{
-      position:relative;
-      width:100%;
+
+    .preview-frame {
+      position: relative;
+      width: 100%;
       aspect-ratio: 16 / 9;
-      background: rgba(0,0,0,0.22);
-    }
-    .preview-frame iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
+      background: rgba(0,0,0,.22);
     }
 
-    /* Back to top */
-    .to-top{
-      position:fixed; right:18px; bottom:18px; z-index:40;
-      width:52px;height:52px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 18px 38px rgba(0,0,0,0.22);
+    .preview-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .to-top {
+      display: none;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.16);
       backdrop-filter: blur(12px);
-      display:none;
-      align-items:center;justify-content:center;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .to-top:hover{transform:translateY(-2px);background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.32);}
-    .to-top span{font-size:1.25rem;}
-    .to-top.show{display:flex;}
-
-    @media (max-width: 1020px){
-      main{padding-top:1.2rem;}
-      .hero-row{grid-template-columns:1fr;}
-      .preview-grid{grid-template-columns:1fr;}
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
     }
 
-    /* MOBILE HEADER */
-    @media (max-width: 600px){
-      .nav-pills{ display:none !important; }
+    .to-top.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .header-inner{padding:.7rem .85rem;gap:.6rem;}
-      .logo-img{ height:92px; }
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.15rem 2rem;
+      opacity: .9;
+    }
 
-      .brand-name{
-        font-size:1.8rem;
-        letter-spacing:.10em;
-        white-space:nowrap;
-        overflow:visible;
-        text-overflow:clip;
+    /* ===========================================
+       HALLOWEEN EDITION
+       =========================================== */
+
+    html.halloween body {
+      background:
+        radial-gradient(
+          circle at 10% 12%,
+          rgba(165,73,119,.3),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(244,128,55,.18),
+          transparent 26%
+        ),
+        linear-gradient(
+          165deg,
+          #160c22,
+          #38203f 48%,
+          #1b102a
+        );
+      background-attachment: fixed;
+    }
+
+    html.halloween header {
+      border-bottom: 2px solid #ec9f5c;
+      box-shadow: 0 6px 30px rgba(230,119,55,.25);
+    }
+
+    .halloween-banner {
+      display: none;
+      text-align: center;
+      padding: 13px 18px;
+      background: linear-gradient(
+        90deg,
+        #28152f,
+        #794052,
+        #28152f
+      );
+      border-bottom: 2px solid #e9a15a;
+      color: #ffe4b7;
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: .03em;
+    }
+
+    html.halloween .halloween-banner {
+      display: block;
+    }
+
+    /* RAGNATELE INTORNO AL LOGO */
+
+    html.halloween .logo-wrap::before,
+    html.halloween .logo-wrap::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -12px;
+      width: 90px;
+      height: 90px;
+      background: var(--web) center / contain no-repeat;
+      pointer-events: none;
+      z-index: 3;
+      filter: drop-shadow(
+        0 0 5px rgba(255,170,100,.45)
+      );
+    }
+
+    html.halloween .logo-wrap::after {
+      left: auto;
+      right: -12px;
+      transform: scaleX(-1);
+    }
+
+    /* RAGNATELE SU OGNI RIQUADRO */
+
+    html.halloween .card,
+    html.halloween .t-item,
+    html.halloween .preview {
+      position: relative;
+      isolation: isolate;
+      border-color: rgba(235,160,101,.66);
+      box-shadow:
+        0 16px 40px rgba(14,4,24,.45),
+        inset 0 0 20px rgba(238,119,57,.06);
+    }
+
+    html.halloween .card::after,
+    html.halloween .t-item::after,
+    html.halloween .preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .92;
+      background-image: var(--web),var(--web);
+      background-repeat: no-repeat;
+      background-position: right top,left bottom;
+      background-size: 125px 125px,65px 65px;
+    }
+
+    html.halloween .card > *,
+    html.halloween .t-item > *,
+    html.halloween .preview > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    html.halloween .t-item::after {
+      background-size: 65px 65px,40px 40px;
+    }
+
+    /* PULSANTI COLOR ZUCCA */
+
+    html.halloween .btn.primary,
+    html.halloween .menu-button {
+      background: linear-gradient(
+        135deg,
+        #ffe0a3,
+        #ffac55
+      );
+      color: #342039;
+      border-color: transparent;
+    }
+
+    html.halloween .btn.link,
+    html.halloween .nav-pills .btn {
+      border-color: rgba(255,185,109,.55);
+    }
+
+    html.halloween .section-title {
+      text-shadow:
+        0 0 20px rgba(255,152,75,.32),
+        0 8px 22px rgba(0,0,0,.3);
+    }
+
+    html.halloween .hl {
+      color: #ffd18a;
+      text-decoration-color: rgba(255,172,83,.5);
+    }
+
+    html.halloween .pill-title,
+    html.halloween .t-when {
+      border-color: rgba(244,169,103,.5);
+    }
+
+    html.halloween .menu-card {
+      background: linear-gradient(
+        145deg,
+        #42243f,
+        #241a34
+      );
+      border-color: rgba(236,153,94,.6);
+    }
+
+    html.halloween .menu-item,
+    html.halloween .menu-sub a {
+      border-color: rgba(241,168,106,.38);
+    }
+
+    .halloween-divider {
+      display: none;
+      text-align: center;
+      margin: 1.3rem 0;
+      font-size: 1.35rem;
+      letter-spacing: .7rem;
+    }
+
+    html.halloween .halloween-divider {
+      display: block;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1020px) {
+      .hero-row {
+        grid-template-columns: 1fr;
       }
 
-      .brand-sub{font-size:.86rem;line-height:1.35;max-width:34ch;}
-      .brand-sub span{display:block;white-space:nowrap;margin:.12rem 0;}
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
 
-      .header-actions{flex-direction:column;align-items:flex-end;gap:.45rem;z-index:90;}
-      .menu-button{ padding:.52rem 1.02rem; font-size:1.65rem; }
-
-      .top-icons{display:flex;flex-direction:row;gap:.45rem;margin-right:0;}
-      .icon-btn{ width:40px; height:40px; }
-
-      .btn{font-size:1.55rem;}
-      .section-kicker{font-size:1.95rem;}
-      .section-title{font-size:3.05rem;}
+      .nav-pills {
+        display: none;
+      }
     }
 
-    footer{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 1.15rem 2.2rem;
-      opacity:.9;
+    @media (max-width: 600px) {
+      .header-inner {
+        padding: .7rem .8rem;
+        gap: .55rem;
+      }
+
+      .brand {
+        gap: .55rem;
+      }
+
+      .logo-img {
+        height: 88px;
+      }
+
+      .brand-name {
+        font-size: 1.7rem;
+      }
+
+      .brand-sub {
+        font-size: .8rem;
+        line-height: 1.25;
+      }
+
+      .header-actions {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: .4rem;
+      }
+
+      .top-icons {
+        gap: .3rem;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .menu-button {
+        padding: .5rem .8rem;
+        font-size: 1.5rem;
+      }
+
+      .card {
+        padding: 1.15rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+      }
+
+      .section-kicker {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        font-size: 1.45rem;
+      }
+
+      html.halloween .logo-wrap::before,
+      html.halloween .logo-wrap::after {
+        width: 50px;
+        height: 50px;
+      }
+
+      html.halloween .card::after,
+      html.halloween .preview::after {
+        background-size: 70px 70px,40px 40px;
+      }
+
+      html.halloween .t-item::after {
+        background-size: 46px 46px,25px 25px;
+      }
+
+      .halloween-banner {
+        font-size: .85rem;
+        padding: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
+
   <header>
     <div class="header-inner">
+
       <div class="brand">
-        <div class="logo-wrap">
-          <img class="logo-img" src="Elisa Costanzo Logo.png" alt="Elisa Costanzo - Logo" />
-        </div>
+
+        <a class="logo-wrap" href="index.html">
+          <img
+            class="logo-img"
+            src="Elisa Costanzo Logo.png"
+            alt="Elisa Costanzo - Logo">
+        </a>
 
         <div class="brand-text">
+
           <div class="brand-name">Elisa Costanzo</div>
+
           <div class="brand-sub">
             <span>Vocal Trainer</span>
             <span>Cantante</span>
@@ -558,54 +912,85 @@ body
             <span>Cantautrice</span>
           </div>
 
-          <div class="nav-pills" id="navPills"></div>
+          <nav class="nav-pills" aria-label="Navigazione principale">
+            <a class="btn" href="index.html">🏠 Home</a>
+            <a class="btn" href="percorsi.html">🎯 Percorsi</a>
+            <a class="btn" href="studio.html">🏡 ExpresSING Studio</a>
+            <a class="btn" href="artisti.html">🎧 Artisti</a>
+          </nav>
+
         </div>
       </div>
 
       <div class="header-actions">
-        <div class="top-icons">
-          <a class="icon-btn icon-mail" href="index.html#contatti" aria-label="Scrivimi (vai ai contatti)">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
-          </a>
-          <a class="icon-btn icon-ig" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ExpresSING Studio">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 7.2h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
-          </a>
 
-          <!-- ✅ TikTok (NUOVO) -->
-          <a class="icon-btn icon-tt"
-             href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM"
+        <div class="top-icons">
+
+          <a class="icon-btn"
+             href="index.html#contatti"
+             aria-label="Contatti">✉</a>
+
+          <a class="icon-btn"
+             href="https://www.instagram.com/expressing_studio/"
              target="_blank"
              rel="noopener noreferrer"
-             aria-label="TikTok ExpresSING Studio">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M16.5 3c.3 1.7 1.6 3 3.3 3.3v3c-1.2 0-2.3-.3-3.3-.9V14a5 5 0 1 1-5-5c.3 0 .7 0 1 .1v3.1a2 2 0 1 0 1.3 1.9V3h2.7z"/>
-            </svg>
-          </a>
+             aria-label="Instagram">◎</a>
+
+          <a class="icon-btn"
+             href="https://www.tiktok.com/@expressing.studio"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="TikTok">♪</a>
+
         </div>
 
-        <button class="menu-button" id="menuOpen" type="button">☰ Menu</button>
+        <button class="menu-button"
+                id="menuOpen"
+                type="button">
+          ☰ Menu
+        </button>
+
       </div>
     </div>
   </header>
 
+  <!-- BANNER HALLOWEEN -->
+
+  <div class="halloween-banner">
+    🦇 🎃 Ogni voce ha il suo lato misterioso 🕸️ 🕷️
+  </div>
+
   <!-- MENU OVERLAY -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+
+  <div class="menu-overlay"
+       id="menuOverlay"
+       aria-hidden="true">
+
     <div class="menu-card">
+
       <div class="menu-head">
-        <div class="menu-title">
+
+        <div>
           <h2>Menu</h2>
-          <div class="sub">Navigazione rapida</div>
+          <p>Navigazione rapida</p>
         </div>
-        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
+
+        <button class="menu-close"
+                id="menuClose"
+                type="button"
+                aria-label="Chiudi menu">✕</button>
+
       </div>
 
-      <div class="menu-grid">
+      <nav class="menu-grid" aria-label="Menu completo">
+
         <a class="menu-item" href="index.html">
           <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6 4 12.5V20a1 1 0 0 0 1 1h5v-7h4v7h5a1 1 0 0 0 1-1v-7.5L12 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="menu-ico">🏠</div>
+            <div class="menu-text">
+              <div class="t">Home</div>
+              <div class="d">Pagina principale</div>
             </div>
-            <div class="menu-text"><div class="t">Home</div><div class="d">pagina principale</div></div>
           </div>
           <div class="menu-pill">home</div>
         </a>
@@ -613,37 +998,41 @@ body
         <div>
           <a class="menu-item" href="percorsi.html">
             <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <div class="menu-ico">🎯</div>
+              <div class="menu-text">
+                <div class="t">Percorsi</div>
+                <div class="d">Tutti i percorsi</div>
               </div>
-              <div class="menu-text"><div class="t">Percorsi</div><div class="d">tutti i percorsi</div></div>
             </div>
             <div class="menu-pill">go</div>
           </a>
+
           <div class="menu-sub">
-            <a href="percorsi.html#canto">Lezioni one to one - per cantanti e cantautori</a>
-            <a href="percorsi.html#voce">Lezioni one to one - voce parlata e comunicazione professionale</a>
-            <a href="percorsi.html#artisti">Artisti emergenti e sviluppo del progetto discografico</a>
-            <a href="percorsi.html#ves">VES</a>
+            <a href="percorsi.html#canto">Voce cantata</a>
+            <a href="percorsi.html#voce">Voce parlata</a>
+            <a href="percorsi.html#artisti">Progetto artistico</a>
+            <a href="percorsi.html#ves">VES®</a>
           </div>
         </div>
 
         <a class="menu-item" href="studio.html">
           <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="currentColor" stroke-width="1.8"/><path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="menu-ico">🏡</div>
+            <div class="menu-text">
+              <div class="t">ExpresSING Studio</div>
+              <div class="d">Pagina dedicata</div>
             </div>
-            <div class="menu-text"><div class="t">ExpresSING Studio</div><div class="d">pagina dedicata</div></div>
           </div>
           <div class="menu-pill">studio</div>
         </a>
 
         <a class="menu-item" href="curriculum.html">
           <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div class="menu-ico">📚</div>
+            <div class="menu-text">
+              <div class="t">Curriculum</div>
+              <div class="d">Esperienza e formazione</div>
             </div>
-            <div class="menu-text"><div class="t">Curriculum</div><div class="d">esperienza e formazione</div></div>
           </div>
           <div class="menu-pill">cv</div>
         </a>
@@ -651,259 +1040,559 @@ body
         <div>
           <a class="menu-item" href="artisti.html">
             <div class="menu-left">
-              <div class="menu-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/></svg>
+              <div class="menu-ico">🎧</div>
+              <div class="menu-text">
+                <div class="t">Artisti</div>
+                <div class="d">Case study e progetti</div>
               </div>
-              <div class="menu-text"><div class="t">Artisti</div><div class="d">case study e progetti</div></div>
             </div>
             <div class="menu-pill">go</div>
           </a>
+
           <div class="menu-sub">
-            <a href="case-study-aurora-blasi.html">Aurora Blasi</a>
-            <a href="case-study-narciso.html">Narciso</a>
-            <a href="case-study-lisaramirez.html">Lisa Ramirez</a>
+            <a href="case-study-aurora-blasi.html">
+              Aurora Blasi
+            </a>
+            <a href="case-study-narciso.html">
+              Narciso
+            </a>
+            <a href="case-study-lisaramirez.html">
+              Lisa Ramirez
+            </a>
+            <a href="case-study-yumi.html">
+              YUMI
+            </a>
           </div>
         </div>
 
         <a class="menu-item" href="index.html#contatti">
           <div class="menu-left">
-            <div class="menu-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.8"/><path d="m4.5 7 7.1 6.1c.25.21.56.33.89.33s.64-.12.89-.33L20.5 7" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div class="menu-ico">✉️</div>
+            <div class="menu-text">
+              <div class="t">Contatti</div>
+              <div class="d">Scrivimi dal form</div>
             </div>
-            <div class="menu-text"><div class="t">Contatti</div><div class="d">scrivimi dal form</div></div>
           </div>
           <div class="menu-pill">mail</div>
         </a>
-      </div>
+
+      </nav>
+
     </div>
   </div>
 
   <main>
-    <!-- HERO -->
+
+    <!-- INTRODUZIONE -->
+
     <section>
       <div class="hero-row">
+
         <div class="card">
+
           <div class="section-kicker">Curriculum</div>
-          <div class="section-title">Formazione, didattica e performance 📚✨</div>
+
+          <h1 class="section-title">
+            Formazione, didattica e performance 📚✨
+          </h1>
 
           <p>
-            Qui trovi una panoramica del mio percorso tra <span class="hl">didattica</span>, <span class="hl">ricerca</span> e attività artistica.
+            Qui trovi una panoramica del mio percorso tra
+            <span class="hl">didattica</span>,
+            <span class="hl">ricerca</span> e attività artistica.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="#didattica">🎓 Didattica</a>
-            <a class="btn" href="#performance">🎤 Performance</a>
-            <a class="btn" href="#media">📺 Media</a>
-            <button class="btn link open-menu" type="button">☰ Menu</button>
+            <a class="btn primary" href="#didattica">
+              🎓 Didattica
+            </a>
+            <a class="btn" href="#performance">
+              🎤 Performance
+            </a>
+            <a class="btn" href="#media">
+              📺 Media
+            </a>
+            <button class="btn link open-menu" type="button">
+              ☰ Menu
+            </button>
           </div>
+
         </div>
 
         <div class="card">
+
           <div class="pill-title">In breve</div>
-          <p style="text-align:left;">
-            🎓 <span class="hl">Formazione</span> tra Conservatorio G.B. Martini (Bologna) e Conservatorio di Santa Cecilia (Roma).<br/>
-            🎤 <span class="hl">Didattica</span> continuativa in scuole e accademie, e direzione di un centro di formazione vocale.<br/>
-            🔬 <span class="hl">Ricerca</span> e workshop in contesti internazionali (Pan European Voice Conference).<br/>
-            🎶 <span class="hl">Performance & songwriting</span>: pubblicazioni, premi e live.
+
+          <p>
+            🎓 <span class="hl">Formazione</span>
+            tra Conservatorio G.B. Martini (Bologna) e
+            Conservatorio di Santa Cecilia (Roma).
           </p>
+
+          <p>
+            🎤 <span class="hl">Didattica</span>
+            continuativa in scuole e accademie, e direzione
+            di un centro di formazione vocale.
+          </p>
+
+          <p>
+            🔬 <span class="hl">Ricerca</span>
+            e workshop in contesti internazionali
+            (Pan European Voice Conference).
+          </p>
+
+          <p>
+            🎶 <span class="hl">Performance & songwriting</span>:
+            pubblicazioni, premi e live.
+          </p>
+
         </div>
       </div>
     </section>
 
+    <div class="halloween-divider" aria-hidden="true">
+      🦇 🕸️ 🎃 🕷️ 🦇
+    </div>
+
     <!-- DIDATTICA -->
+
     <section id="didattica">
+
       <div class="section-kicker">Curriculum</div>
-      <div class="section-title">Didattica & Formazione 🎓</div>
+
+      <h2 class="section-title">
+        Didattica & Formazione 🎓
+      </h2>
 
       <div class="card">
-        <p class="muted" style="text-align:left; margin-bottom:.75rem;">
-          Se vuoi saperne di più, puoi aprire la pagina dedicata e consultare l’elenco completo.
+
+        <p class="muted">
+          Se vuoi saperne di più, puoi aprire la pagina dedicata
+          e consultare l’elenco completo.
         </p>
 
         <div class="timeline">
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Direttrice e Docente di ExpresSING Studio: Centro di formazione vocale</div>
-            <div class="t-when">📅 Ottobre 2025 – oggi</div>
-          </div></div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role"><span class="hl">Certified VES® Trainer</span> — Voice Evolution Institute</div>
-            <div class="t-when">📅 Maggio 2025</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Direttrice e Docente di ExpresSING Studio:
+                Centro di formazione vocale
+              </div>
+              <div class="t-when">
+                📅 Ottobre 2025 – oggi
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Relatrice workshop “Vocal tract stimulation exercises for resonance developement” — Pan European Voice Conference</div>
-            <div class="t-when">📅 Settembre 2024 • Santander (ES)</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                <span class="hl">Certified VES® Trainer</span>
+                — Voice Evolution Institute
+              </div>
+              <div class="t-when">
+                📅 Maggio 2025
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Insegnante di canto e laboratori corali e vocali (collaborazione con ASL) — Centro Ottava, Roma</div>
-            <div class="t-when">📅 2022 – 2025</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Relatrice workshop
+                “Vocal tract stimulation exercises for
+                resonance developement” —
+                Pan European Voice Conference
+              </div>
+              <div class="t-when">
+                📅 Settembre 2024 • Santander (ES)
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Selezionatrice e Vocal Coach (tecnica vocale, interpretazione, presenza scenica, laboratori corali) — Tour Music Fest®</div>
-            <div class="t-when">📅 2019 – 2024</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Insegnante di canto e laboratori corali e vocali
+                (collaborazione con ASL) —
+                Centro Ottava, Roma
+              </div>
+              <div class="t-when">
+                📅 2022 – 2025
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Docente formato <span class="hl">Voice to Teach®</span></div>
-            <div class="t-when">📅 2017</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Selezionatrice e Vocal Coach
+                (tecnica vocale, interpretazione, presenza scenica,
+                laboratori corali) — Tour Music Fest®
+              </div>
+              <div class="t-when">
+                📅 2019 – 2024
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Insegnante di canto — Scuola di musica Armonie Musicali, Roma</div>
-            <div class="t-when">📅 2013 – 2025</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Docente formato
+                <span class="hl">Voice to Teach®</span>
+              </div>
+              <div class="t-when">
+                📅 2017
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Insegnante di canto — Accademia Musicale “Risonanze”, Roma</div>
-            <div class="t-when">📅 2012 – 2025</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Insegnante di canto —
+                Scuola di musica Armonie Musicali, Roma
+              </div>
+              <div class="t-when">
+                📅 2013 – 2025
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Diploma di II livello in Didattica della Musica — Conservatorio di Santa Cecilia, Roma (110/110 e Lode)</div>
-            <div class="t-when">📅 2022</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Insegnante di canto —
+                Accademia Musicale “Risonanze”, Roma
+              </div>
+              <div class="t-when">
+                📅 2012 – 2025
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Seminario “La Vocalità Estrema (Growl, Fischio)” — F. Fussi, E. Biaviati, E. Bruni (Ravenna)</div>
-            <div class="t-when">📅 2016</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Diploma di II livello in Didattica della Musica
+                — Conservatorio di Santa Cecilia, Roma
+                (110/110 e Lode)
+              </div>
+              <div class="t-when">
+                📅 2022
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Masterclass: “Rent, la voce nell’opera rock” — Francesca Taverni</div>
-            <div class="t-when">📅 2013</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Seminario “La Vocalità Estrema
+                (Growl, Fischio)” —
+                F. Fussi, E. Biaviati, E. Bruni (Ravenna)
+              </div>
+              <div class="t-when">
+                📅 2016
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Masterclass — Dean Bowman (musica afroamericana)</div>
-            <div class="t-when">📅 2012</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Masterclass: “Rent, la voce nell’opera rock”
+                — Francesca Taverni
+              </div>
+              <div class="t-when">
+                📅 2013
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Corso di Song Writing — Peter Cunnah (The Institute, Londra)</div>
-            <div class="t-when">📅 2012</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Masterclass — Dean Bowman
+                (musica afroamericana)
+              </div>
+              <div class="t-when">
+                📅 2012
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Certificazione internazionale Rockschool UK — Grade 8, Vocals</div>
-            <div class="t-when">📅 2012</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Corso di Song Writing —
+                Peter Cunnah (The Institute, Londra)
+              </div>
+              <div class="t-when">
+                📅 2012
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Masterclass — Catherine Sadolin (Complete Vocal Technique)</div>
-            <div class="t-when">📅 2012</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Certificazione internazionale Rockschool UK
+                — Grade 8, Vocals
+              </div>
+              <div class="t-when">
+                📅 2012
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Corso Internazionale “La Voce Artistica” — Franco Fussi (Ravenna)</div>
-            <div class="t-when">📅 2011</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Masterclass — Catherine Sadolin
+                (Complete Vocal Technique)
+              </div>
+              <div class="t-when">
+                📅 2012
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Master in Didattica del Canto Moderno — Sonus Factory, Roma</div>
-            <div class="t-when">📅 2011</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Corso Internazionale “La Voce Artistica”
+                — Franco Fussi (Ravenna)
+              </div>
+              <div class="t-when">
+                📅 2011
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Corsi Voicecraft (Base, Avanzato, Specialistico) — Elisa Turlà</div>
-            <div class="t-when">📅 2010</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Master in Didattica del Canto Moderno
+                — Sonus Factory, Roma
+              </div>
+              <div class="t-when">
+                📅 2011
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Laurea di I livello in Jazz – Canto — Conservatorio “G.B. Martini”, Bologna</div>
-            <div class="t-when">📅 2010</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Corsi Voicecraft
+                (Base, Avanzato, Specialistico)
+                — Elisa Turlà
+              </div>
+              <div class="t-when">
+                📅 2010
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Laurea di I livello in DAMS – Didattica della Musica — Alma Mater Studiorum, Bologna</div>
-            <div class="t-when">📅 2010</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Laurea di I livello in Jazz – Canto
+                — Conservatorio “G.B. Martini”, Bologna
+              </div>
+              <div class="t-when">
+                📅 2010
+              </div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Laurea di I livello in DAMS –
+                Didattica della Musica
+                — Alma Mater Studiorum, Bologna
+              </div>
+              <div class="t-when">
+                📅 2010
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="actions">
-          <a class="btn primary" href="#performance">🎤 Vai a Performance</a>
-          <a class="btn" href="#media">📺 Vai ai Media</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn primary" href="#performance">
+            🎤 Vai a Performance
+          </a>
+          <a class="btn" href="#media">
+            📺 Vai ai Media
+          </a>
+          <button class="btn link open-menu" type="button">
+            ☰ Menu
+          </button>
         </div>
+
       </div>
     </section>
 
     <!-- PERFORMANCE -->
+
     <section id="performance">
+
       <div class="section-kicker">Curriculum</div>
-      <div class="section-title">Performance & Songwriting 🎤🎶</div>
+
+      <h2 class="section-title">
+        Performance & Songwriting 🎤🎶
+      </h2>
 
       <div class="card">
-        <p class="muted" style="text-align:left; margin-bottom:.75rem;">
-          Se vuoi saperne di più, puoi aprire la pagina dedicata e consultare l’elenco completo.
+
+        <p class="muted">
+          Se vuoi saperne di più, puoi aprire la pagina dedicata
+          e consultare l’elenco completo.
         </p>
 
         <div class="timeline">
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Apertura concerti di Roberto Casalino, Giò Sada e Renzo Rubino</div>
-            <div class="t-when">📅 2018 – 2019</div>
-          </div></div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Pubblicazione singolo “Onda dopo onda” (Noise Symphony Music)</div>
-            <div class="t-when">📅 2019</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Apertura concerti di Roberto Casalino,
+                Giò Sada e Renzo Rubino
+              </div>
+              <div class="t-when">
+                📅 2018 – 2019
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Pubblicazione singolo “Cosa Rimane” (Noise Symphony Music)</div>
-            <div class="t-when">📅 2018</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Pubblicazione singolo “Onda dopo onda”
+                (Noise Symphony Music)
+              </div>
+              <div class="t-when">
+                📅 2019
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Menzione speciale per il testo “Sulle dune più alte del mondo” — Concorso per autori di Mogol</div>
-            <div class="t-when">📅 2018</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Pubblicazione singolo “Cosa Rimane”
+                (Noise Symphony Music)
+              </div>
+              <div class="t-when">
+                📅 2018
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Vincitrice del Trofeo Rea (Circuito Nazionale delle 100 Radio) con “Impermeabile”</div>
-            <div class="t-when">📅 2017</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Menzione speciale per il testo
+                “Sulle dune più alte del mondo”
+                — Concorso per autori di Mogol
+              </div>
+              <div class="t-when">
+                📅 2018
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">Ambasciatrice della musica italiana — Giornata Internazionale delle Lingue (IIC Lisbona)</div>
-            <div class="t-when">📅 2015</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Vincitrice del Trofeo Rea
+                (Circuito Nazionale delle 100 Radio)
+                con “Impermeabile”
+              </div>
+              <div class="t-when">
+                📅 2017
+              </div>
+            </div>
+          </div>
 
-          <div class="t-item"><div class="t-top">
-            <div class="t-role">EP autoprodotto “La Prospettiva delle cose”</div>
-            <div class="t-when">📅 2015</div>
-          </div></div>
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                Ambasciatrice della musica italiana
+                — Giornata Internazionale delle Lingue
+                (IIC Lisbona)
+              </div>
+              <div class="t-when">
+                📅 2015
+              </div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-top">
+              <div class="t-role">
+                EP autoprodotto
+                “La Prospettiva delle cose”
+              </div>
+              <div class="t-when">
+                📅 2015
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="actions">
-          <a class="btn primary" href="#media">📺 Vai ai Video</a>
-          <a class="btn" href="#didattica">🎓 Torna a Didattica</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
+          <a class="btn primary" href="#media">
+            📺 Vai ai Video
+          </a>
+          <a class="btn" href="#didattica">
+            🎓 Torna a Didattica
+          </a>
+          <button class="btn link open-menu" type="button">
+            ☰ Menu
+          </button>
         </div>
+
       </div>
     </section>
 
+    <div class="halloween-divider" aria-hidden="true">
+      🦇 🕸️ 🎃 🕷️ 🦇
+    </div>
+
     <!-- MEDIA -->
+
     <section id="media">
+
       <div class="section-kicker">Media</div>
-      <div class="section-title">Video & contenuti 📺✨</div>
+
+      <h2 class="section-title">
+        Video & contenuti 📺✨
+      </h2>
 
       <div class="card">
-        <p class="muted" style="text-align:left;">
+
+        <p class="muted">
           Una piccola selezione di contenuti in anteprima.
         </p>
 
         <div class="preview-grid" aria-label="Video YouTube">
+
           <div class="preview">
             <div class="preview-frame">
               <iframe
                 src="https://www.youtube.com/embed/iyHL7ZxjI5c"
                 title="YouTube — Video 1"
                 loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
 
@@ -913,8 +1602,10 @@ body
                 src="https://www.youtube.com/embed/ZN0ANU_nNpw"
                 title="YouTube — Video 2"
                 loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
 
@@ -924,8 +1615,10 @@ body
                 src="https://www.youtube.com/embed/v0TAsdd_VtM"
                 title="YouTube — Video 3"
                 loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
 
@@ -935,72 +1628,143 @@ body
                 src="https://www.youtube.com/embed/l7r9jDhwHVI"
                 title="YouTube — Video 4"
                 loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
+
         </div>
 
-        <!-- ✅ QUI: aggiunti Instagram + TikTok sotto ai Media, dove ci sono gli altri -->
         <div class="actions">
-          <a class="btn primary" href="index.html#contatti">✉️ Scrivimi</a>
-          <a class="btn" href="artisti.html">🎧 Vai agli Artisti</a>
-          <button class="btn link open-menu" type="button">☰ Menu</button>
-          <a class="btn" href="https://www.instagram.com/expressing_studio/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
-          <a class="btn" href="https://www.tiktok.com/@expressing.studio?_r=1&_t=ZN-93wc16KCyeM" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
+
+          <a class="btn primary" href="index.html#contatti">
+            ✉️ Scrivimi
+          </a>
+
+          <a class="btn" href="artisti.html">
+            🎧 Vai agli Artisti
+          </a>
+
+          <button class="btn link open-menu" type="button">
+            ☰ Menu
+          </button>
+
+          <a class="btn"
+             href="https://www.instagram.com/expressing_studio/"
+             target="_blank"
+             rel="noopener noreferrer">
+            📷 Instagram
+          </a>
+
+          <a class="btn"
+             href="https://www.tiktok.com/@expressing.studio"
+             target="_blank"
+             rel="noopener noreferrer">
+            🎵 TikTok
+          </a>
+
         </div>
+
       </div>
     </section>
+
   </main>
 
-  <button class="to-top" id="toTop" aria-label="Torna su"><span>↑</span></button>
+  <!-- TORNA SU -->
 
-  <footer>© <span id="year"></span> Elisa Costanzo – Tutti i diritti riservati.</footer>
+  <button
+    class="to-top"
+    id="toTop"
+    type="button"
+    aria-label="Torna su">
+    ↑
+  </button>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © <span id="year"></span>
+    Elisa Costanzo – Tutti i diritti riservati.
+  </footer>
+
+  <!-- JAVASCRIPT NAVIGAZIONE -->
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
 
-    // MENU
-    const menuOpen = document.getElementById("menuOpen");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const menuClose = document.getElementById("menuClose");
-    function openMenu(){ menuOverlay.classList.add("open"); menuOverlay.setAttribute("aria-hidden","false"); }
-    function closeMenu(){ menuOverlay.classList.remove("open"); menuOverlay.setAttribute("aria-hidden","true"); }
-    menuOpen.addEventListener("click", openMenu);
-    menuClose.addEventListener("click", closeMenu);
-    menuOverlay.addEventListener("click", (e)=>{ if(e.target === menuOverlay) closeMenu(); });
-    document.querySelectorAll(".menu-grid a, .menu-sub a").forEach(a => a.addEventListener("click", closeMenu));
-    document.querySelectorAll(".open-menu").forEach(btn => btn.addEventListener("click", openMenu));
-    document.addEventListener("keydown", (e)=>{ if(e.key==="Escape") closeMenu(); });
+      const year = document.getElementById("year");
+      const menuOpen = document.getElementById("menuOpen");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const menuClose = document.getElementById("menuClose");
+      const toTop = document.getElementById("toTop");
 
-    // NAV PILLS (desktop: Home primo, escludi pagina corrente)
-    (function(){
-      const nav = document.getElementById("navPills");
-      if(!nav) return;
-      const current = "curriculum.html";
-      const pages = [
-        { href: "index.html", label: "Home", emoji: "🏠" },
-        { href: "percorsi.html", label: "Percorsi", emoji: "🎯" },
-        { href: "studio.html", label: "ExpresSING Studio", emoji: "🏡" },
-        { href: "curriculum.html", label: "Curriculum", emoji: "📚" },
-        { href: "artisti.html", label: "Artisti", emoji: "🎧" }
-      ];
-      const visible = pages.filter(p => p.href !== current);
-      visible.sort((a,b)=> (a.href==="index.html"?-1:0) - (b.href==="index.html"?-1:0));
-      nav.innerHTML = visible.map(p => `
-        <a class="btn" href="${p.href}">
-          <span class="emoji">${p.emoji}</span> ${p.label}
-        </a>
-      `).join("");
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      function openMenu() {
+        menuOverlay.classList.add("open");
+        menuOverlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        menuClose.focus();
+      }
+
+      function closeMenu() {
+        menuOverlay.classList.remove("open");
+        menuOverlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        menuOpen.focus();
+      }
+
+      menuOpen.addEventListener("click", openMenu);
+      menuClose.addEventListener("click", closeMenu);
+
+      document.querySelectorAll(".open-menu").forEach(
+        button => button.addEventListener("click", openMenu)
+      );
+
+      menuOverlay.addEventListener("click", event => {
+        if (event.target === menuOverlay) {
+          closeMenu();
+        }
+      });
+
+      menuOverlay.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          menuOverlay.classList.remove("open");
+          menuOverlay.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" &&
+            menuOverlay.classList.contains("open")) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 700) {
+          toTop.classList.add("show");
+        } else {
+          toTop.classList.remove("show");
+        }
+      });
+
+      toTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches ? "auto" : "smooth"
+        });
+      });
+
     })();
-
-    // Back to top
-    const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 700) toTop.classList.add("show");
-      else toTop.classList.remove("show");
-    });
-    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
   </script>
+
 </body>
 </html>
